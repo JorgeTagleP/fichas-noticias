@@ -4,8 +4,8 @@ Lee noticias sobre los cuatro departamentos, crea una ficha por noticia y las mu
 con filtros por departamento, provincia, distrito, fecha y tema (se pueden combinar), agrupadas por
 día, departamento, provincia o distrito.
 
-Todas las fichas nacen en nivel **D – Sin verificar**. Son señales, no datos oficiales
-(ver Anexo de fuentes noticiosas y verificación).
+Las noticias entran **tal como las publicó cada medio**, sin niveles ni calificaciones: así nadie puede
+bajarlas o subirlas de nivel con otra intención. Son lo que dice la prensa, no datos oficiales.
 
 Para una explicación sin términos técnicos, ver **[COMO-FUNCIONA.md](COMO-FUNCIONA.md)**.
 
@@ -47,8 +47,8 @@ cifras» solo está en la versión local, porque necesita `evaluar.mjs`.
 `node preparar-apps-script.mjs` (o `actualizar-noticias.cmd`) y volver a pegar `Pagina.html` y
 `Conclusiones.gs` en el editor de Apps Script. `Conclusiones.gs` no se edita a mano.
 
-El curador trabaja en la pestaña **Fichas**: cambia `verificacion` (A, B, C o D) y escribe la nota
-del curador, que la web muestra debajo del titular.
+En la pestaña **Fichas** se puede escribir una nota del curador, que la web muestra debajo del titular.
+Las noticias no llevan nivel; la columna 13 (antes `verificacion`) queda vacía.
 
 ## Cómo se ubica cada noticia
 

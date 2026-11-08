@@ -6,7 +6,7 @@ personas, qué hacer, salud, brechas en la atención, pronóstico y proyectos pa
 
 **La página:** se publica sola en GitHub Pages (ver [ACTIVAR-EN-GITHUB.md](ACTIVAR-EN-GITHUB.md)).
 
-> Son noticias de prensa, todas en nivel **D – Sin verificar**. Las cifras oficiales son las de
+> Son noticias de prensa, tal como las publicó cada medio, sin niveles ni calificaciones. Las cifras oficiales son las de
 > INDECI, SENAMHI y MINSA; se citan, no se reinterpretan.
 
 - Cómo funciona, sin términos técnicos: [COMO-FUNCIONA.md](COMO-FUNCIONA.md)

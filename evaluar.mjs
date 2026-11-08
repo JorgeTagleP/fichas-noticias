@@ -10,8 +10,8 @@
 //      oficial.
 //   4. Escribe evaluacion.md (para leer) y evaluacion.json (para la web).
 //
-// No cambia el nivel de verificación de ninguna ficha: eso lo decide una
-// persona del equipo. Solo avisa qué cifras coinciden, cuáles difieren y
+// No cambia ni califica ninguna noticia: entran tal como las publicó cada
+// medio. Solo avisa qué cifras coinciden, cuáles difieren y
 // cuáles no tienen todavía una cifra oficial con qué compararse.
 //
 // Uso:  node evaluar.mjs      (actualizar-noticias.cmd ya lo ejecuta)
@@ -120,7 +120,7 @@ for (const r of resultados) {
 }
 md += `\n## Cifras sin referencia oficial\n\n`;
 md += sinReferencia.length ? sinReferencia.map(s => `- ${s.fecha} · ${s.departamentos.join('/')} · «${s.texto}» – ${s.titulo} (${s.medio})`).join('\n') : 'Ninguna.';
-md += `\n\nRegla: lo oficial se cita, no se reinterpreta. Esta evaluación no cambia el nivel de verificación de las fichas (siguen en D hasta que un curador las revise).\n`;
+md += `\n\nRegla: lo oficial se cita, no se reinterpreta. Esta evaluación no cambia ni califica las noticias: entran tal como las publicó cada medio.\n`;
 fs.writeFileSync(path.join(DIR, 'evaluacion.md'), md);
 
 console.log(`Evaluación: ${cuenta.coincide} coinciden · ${cuenta.cercana} cercanas · ${cuenta.difiere} difieren · ${sinReferencia.length} sin referencia oficial`);

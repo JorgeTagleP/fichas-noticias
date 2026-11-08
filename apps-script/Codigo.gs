@@ -30,7 +30,9 @@ const DIAS = 30;
 const ZONA = 'America/Lima';
 const DEPARTAMENTOS = ['Tumbes', 'Piura', 'Cajamarca', 'Lambayeque'];
 const COLS = ['id', 'capturada', 'publicada', 'titulo', 'medio', 'tipoMedio', 'via', 'enlace', 'tema',
-              'departamentos', 'lugares', 'ubicadaPor', 'verificacion', 'nota del curador'];
+              'departamentos', 'lugares', 'ubicadaPor', '(sin uso)', 'nota del curador'];
+// La columna 13 se llamaba «verificacion» (niveles A–D). Desde el 08/11/2026 las noticias
+// no llevan nivel: entran tal como están escritas. Queda vacía para no mover las demás columnas.
 
 
 // NOMBRES AMBIGUOS: distritos que se llaman como una palabra común, una persona
@@ -175,8 +177,8 @@ function ubicar_(item, DIST) {
 // leerNoticias: la lectura completa (la ejecuta el reloj cada 6 horas).
 // Para cada noticia nueva de los últimos DIAS días: la ubica, le pone tema,
 // le da un código USF-N-AAMMDD-NNNN y la agrega como fila en la pestaña Fichas,
-// siempre en nivel «D – Sin verificar». Las repetidas (mismo titular) se saltan,
-// así que las notas y niveles que ya puso el curador no se pierden.
+// tal como la publicó el medio, sin nivel ni calificación. Las repetidas (mismo
+// titular) se saltan, así que las notas que ya puso el curador no se pierden.
 function leerNoticias() {
   const hoja = SpreadsheetApp.getActive().getSheetByName('Fichas');
   const DIST = distritos_();
@@ -197,7 +199,7 @@ function leerNoticias() {
     nuevas.push([`USF-N-${Utilities.formatDate(it.publicada, ZONA, 'yyMMdd')}-${String(n).padStart(4, '0')}`,
       ahora, it.publicada, it.titulo, it.medio, it.tipoMedio, it.via, it.enlace, tema,
       u.departamentos.join(', '), JSON.stringify(u.lugares), u.lugares.length ? 'titular' : 'búsqueda',
-      'D – Sin verificar', '']);
+      '', '']);
   }));
   if (nuevas.length) hoja.getRange(hoja.getLastRow() + 1, 1, nuevas.length, COLS.length).setValues(nuevas);
   console.log(`Fichas nuevas: ${nuevas.length}`);
@@ -220,7 +222,7 @@ function obtenerFichas() {
   const fichas = filas.filter(r => new Date(r[2]).getTime() >= corte).map(r => ({
     id: r[0], publicada: new Date(r[2]).toISOString(), titulo: r[3], medio: r[4], tipoMedio: r[5] || null,
     via: r[6], enlace: r[7], tema: r[8], departamentos: String(r[9]).split(', ').filter(String),
-    lugares: JSON.parse(r[10] || '[]'), ubicadaPor: r[11], verificacion: r[12], resumen: r[13] ? 'Nota del curador: ' + r[13] : '' }));
+    lugares: JSON.parse(r[10] || '[]'), ubicadaPor: r[11], resumen: r[13] ? 'Nota del curador: ' + r[13] : '' }));
   return JSON.stringify({ generado: new Date().toISOString(), ventanaDias: DIAS, fuentesConsultadas: fuentes_().length,
                           total: fichas.length, fichas });
 }

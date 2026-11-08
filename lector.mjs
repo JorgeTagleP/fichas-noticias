@@ -28,8 +28,9 @@
 //    fichas.js        → las mismas fichas, para abrir index.html desde la computadora.
 //    ver-fichas.html  → la página completa con las fichas adentro (se abre con doble clic).
 //
-//  IMPORTANTE: todas las fichas nacen como "D – Sin verificar". Son avisos de medios,
-//  no información oficial. Una persona del equipo debe confirmar cada hecho.
+//  IMPORTANTE: las noticias entran tal como las publicó cada medio, sin niveles ni
+//  calificaciones (08/11/2026: así nadie puede bajarlas o subirlas de nivel con otra
+//  intención). Son lo que dice la prensa, no información oficial.
 //
 //  Nota para quien lea el código: las líneas que empiezan con // son explicaciones;
 //  la computadora las ignora. Lo demás son las instrucciones que sí ejecuta.
@@ -349,7 +350,7 @@ async function main() {
   //    • las ordena de la más reciente a la más antigua;
   //    • les da un código único, por ejemplo USF-N-261107-0001
   //      (USF-N = Una Sola Fuerza, Noticia; 261107 = fecha 2026-11-07; 0001 = número).
-  //    Toda ficha nace como "D – Sin verificar".
+  //    Ninguna ficha lleva nivel ni calificación: entra tal como está escrita.
   const corte = Date.now() - DIAS * 864e5;
   const fichas = [...vistos.values()]
     .filter(it => new Date(it.publicada).getTime() >= corte)
@@ -364,7 +365,7 @@ async function main() {
       publicada: f.publicada, resumen: f.resumen, tema: f.tema,
       departamentos: f.departamentos, lugares: f.lugares,
       ubicadaPor: f.lugares.length ? 'titular' : 'búsqueda',   // 'búsqueda' = el titular no nombra el lugar
-      verificacion: 'D – Sin verificar', capturada: new Date().toISOString(),
+      capturada: new Date().toISOString(),
     }));
   // =====================================================================================
   //  PASO 5 · GUARDAR las fichas en archivos

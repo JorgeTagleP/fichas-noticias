@@ -32,7 +32,7 @@ arma con cada una una **ficha** ordenada que luego se ve en la página web.
 | 2 | Copia titular, medio, fecha y enlace | Noticias Piura 3.0, 19/10/2026 |
 | 3 | Encuentra "Castilla". Como hay otra Castilla en Arequipa, verifica que el titular diga también "Piura": sí lo dice. Encuentra además "Sullana" | Piura › Piura › **Castilla** y Piura › Sullana › **Sullana** |
 | 4 | Revisa los temas en orden: no hay palabras de Emergencias, pero "lluvias" coincide con Lluvias y clima | **Lluvias y clima** |
-| 5 | Le da un código y el nivel de verificación | `USF-N-261019-0599` · D – Sin verificar |
+| 5 | Le da un código | `USF-N-261019-0599` |
 
 La ficha aparece en la página tanto al filtrar por Castilla como por Sullana. El número
 final del código (0599) es el orden dentro de esa lectura, así que puede cambiar en la
@@ -44,11 +44,11 @@ siguiente.
 | --- | --- |
 | **RSS** | Una lista que publican los sitios de noticias para que otros programas la lean. Es como el índice de un periódico: titulares, fechas y enlaces, sin el texto completo. |
 | **Fuente** | Cada lugar de donde se leen noticias: una búsqueda de Google Noticias o el RSS de una radio. |
-| **Ficha** | El registro ordenado de una noticia: código, fecha, titular, medio, lugar, tema y nivel de verificación. |
+| **Ficha** | El registro ordenado de una noticia: código, fecha, titular, medio, lugar y tema. |
 | **Ubigeo** | El código oficial del INEI para cada distrito del Perú (por ejemplo 200104 = Castilla, Piura). |
 | **Alias** | Otro nombre con que se reconoce a un distrito, normalmente el de su capital (Talara para Pariñas). |
 | **Nombre ambiguo** | Un distrito que se llama como una palabra común, una persona o un lugar de otra región (Jesús, Jorge Chávez, Castilla). Solo cuenta si el titular nombra también su provincia o departamento. |
-| **Nivel D – Sin verificar** | Todas las fichas nacen así: es lo que dice un medio, no un hecho confirmado. |
+| **Sin niveles** | Las noticias entran tal como las publicó cada medio, sin calificarlas: es lo que dice la prensa, no un hecho confirmado. Desde el 08/11/2026 no se les pone nivel, para que nadie las baje o suba de nivel con otra intención. |
 | **Node** | El programa que permite ejecutar `lector.mjs` en la computadora. |
 | **Terminal** | La ventana donde se escriben órdenes (en Windows, PowerShell). |
 
@@ -122,7 +122,7 @@ Cada vez que se actualizan las noticias, también hay que revisar `oficiales.jso
 qué referencias tienen más de 7 días o no tienen fecha. Para cambiar una, se edita su `valor`,
 `corte` (fecha) y `url`. Las cifras oficiales se copian tal como las publica la entidad.
 
-La evaluación **no** cambia el nivel de las fichas: siguen en D hasta que una persona las revise.
+La evaluación **no** cambia ni califica las noticias: entran tal como están escritas.
 
 ## Conclusiones para la emergencia (en cada lectura)
 

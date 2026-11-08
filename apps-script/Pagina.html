@@ -89,7 +89,6 @@ select:focus-visible, input:focus-visible, button:focus-visible { outline: 2px s
 .lugar .sep { color: var(--muted); margin: 0 3px; }
 .lugar.busq { background: transparent; border: 1px dashed var(--line); color: var(--muted); cursor: default; }
 .pie { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12.5px; color: var(--muted); }
-.verif { font-weight: 600; color: var(--warn); }
 .resumen-txt { font-size: 14px; color: var(--muted); margin: 0; }
 .mas { display: block; margin: 20px auto 0; font: 500 14px var(--f-ui); padding: 9px 18px; border-radius: 6px;
   border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
@@ -304,7 +303,7 @@ footer { margin-top: 32px; font-size: 12.5px; color: var(--muted); display: grid
       <h3><a href="${esc(f.enlace)}" target="_blank" rel="noopener noreferrer">${esc(f.titulo)}</a></h3>
       ${f.resumen ? `<p class="resumen-txt">${esc(f.resumen)}</p>` : ''}
       <div class="lugares">${lug}</div>
-      <div class="pie"><span><b>${esc(f.medio || 'Medio sin nombre')}</b>${f.tipoMedio ? ' · ' + esc(f.tipoMedio) : ''}</span><span>vía ${esc(f.via)}</span><span class="verif">${esc(f.verificacion)}</span></div>
+      <div class="pie"><span><b>${esc(f.medio || 'Medio sin nombre')}</b>${f.tipoMedio ? ' · ' + esc(f.tipoMedio) : ''}</span><span>vía ${esc(f.via)}</span></div>
     </article>`;
   }
 
@@ -389,7 +388,7 @@ footer { margin-top: 32px; font-size: 12.5px; color: var(--muted); display: grid
     $('v-concl').innerHTML = `
       <section><h2>Lo más importante ahora</h2><p class="nota">${esc(C.aviso)} Lectura del ${fmtHora.format(new Date(C.generado))}; ${C.analizadas} noticias analizadas.</p>
         <ul class="frases">${C.frases.map(f => `<li>${esc(f)}</li>`).join('')}</ul></section>
-      ${ejes ? `<section><h2>Ejes del Gobierno frente a El Niño</h2><p class="nota">Cada eje cita lo que anunció el Gobierno el 15/10/2026, tal cual, con su fuente oficial. Debajo, lo que dicen las noticias del norte: qué está en marcha y qué tiene problemas. Las noticias son señales de prensa (nivel D).</p><div class="rejilla">${ejes}</div></section>` : ''}
+      ${ejes ? `<section><h2>Ejes del Gobierno frente a El Niño</h2><p class="nota">Cada eje cita lo que anunció el Gobierno el 15/10/2026, tal cual, con su fuente oficial. Debajo, lo que dicen las noticias del norte: qué está en marcha y qué tiene problemas. Las noticias se muestran tal como las publicó cada medio.</p><div class="rejilla">${ejes}</div></section>` : ''}
       <section><h2>Prioridad para salvar vidas</h2><p class="nota">Lugares ordenados por las señales de peligro para las personas en las noticias. Las de los últimos 2 días pesan el doble que las de la semana y seis veces más que las antiguas.</p><div class="prior">${prior}</div></section>
       <section><h2>Brechas en la atención</h2><p class="nota">Noticias de los últimos 14 días sobre ayuda que no llega o servicios que fallan. Conviene llevarlas al COER, a INDECI y a la Defensoría del Pueblo.</p>
         <div class="caja">${C.brechas.length ? `<ul class="tit">${C.brechas.map(b => `<li><span class="m">${fDia(b.fecha)} · ${esc(b.lugar)} · ${esc(b.medio || '')}</span><br><a href="${esc(b.enlace)}" target="_blank" rel="noopener noreferrer">${esc(b.titulo)}</a></li>`).join('')}</ul>` : '<p class="tend">Sin brechas reportadas.</p>'}</div></section>

@@ -436,7 +436,7 @@ const calidad = evaluacion ? {
 // 08/11/2026: el usuario pidió orientar las conclusiones a los ejes de la Presidencia de la República.
 // Cada eje cita tal cual lo que anunció el Gobierno (El Peruano, diario oficial, y gob.pe, 15/10/2026)
 // y muestra qué dicen las noticias del norte: qué está en marcha y qué tiene problemas.
-// Lo oficial se cita, no se reinterpreta; las noticias siguen en nivel D.
+// Lo oficial se cita, no se reinterpreta; las noticias entran tal como están escritas.
 const EP_URL = 'https://elperuano.pe/noticia/306932-presidenta-fujimori-anuncia-importantes-acciones-del-gobierno-frente-al-fenomeno-el-nino';
 const GOB_URL = 'https://www.gob.pe/institucion/presidencia/noticias/1457275-presidenta-keiko-fujimori-ante-fenomeno-el-nino-trabajando-unidos-y-con-un-solo-puno-vamos-a-levantarnos-y-salir-mas-fuertes-como-pais';
 const EP = 'El Peruano (diario oficial), 15/10/2026';
@@ -522,7 +522,7 @@ if (calidad && calidad.difieren.length) frases.push(`${calidad.difieren.length} 
 
 const salida = {
   generado, lecturaFichas: fichas.length, analizadas: clasificadas.length,
-  aviso: 'Señales de prensa (nivel D). Sirven para priorizar la atención; las cifras oficiales son las de INDECI, SENAMHI y MINSA.',
+  aviso: 'Noticias de prensa, tal como las publicó cada medio. Sirven para priorizar la atención; las cifras oficiales son las de INDECI, SENAMHI y MINSA.',
   frases, ejes, prioridad: precisos.slice(0, 15), departamentos, salud, brechas, pronostico, proyectos, calidad,
 };
 return salida;
