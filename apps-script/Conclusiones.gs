@@ -249,6 +249,13 @@ const CONTEXTO = /lluvia|precipitac|\brios?\b|quebrad|huaico|inund|desbord|el ni
 // 08/11/2026 05:15: un simulacro (Chiclayo, Cajamarca) tampoco es un peligro real: sus «damnificados» o
 // «inundaciones» son ficticios y no deben sumar señales de vida.
 const HIPOTETICO = /se veria inundad|no se va a inundar|evitar futura inundac|pondria en riesgo|por riesgo de inundac|simulacro/;
+// 08/11/2026 (corrida 7): «Dengue se desborda en Lambayeque» sumaba «Desborde o crecida de ríos»:
+// es un uso figurado (aumento de casos). No suma esa señal (sigue contando como dengue).
+const DESBORDE_FIGURADO = /(dengue|casos|contagios|epidemia)\w* se desbord/;
+// 08/11/2026 (corrida 7): «Lambayeque: 18 fallecidos por dengue…» sumaba «Muertes o personas arrastradas» y
+// daba la acción «Señalizar o cercar el peligro (ríos, reservorios…)», que no sirve para el dengue.
+// Las muertes por dengue o leptospirosis cuentan en su señal de salud, no en «muertes».
+const MUERTE_SALUD = /dengue|leptospir/;
 // 08/11/2026 (corrida 4): «Inician obra de agua y alcantarillado en Chiclayo con inversión de S/ 12 millones»
 // y «… siguen esperando megaproyecto de saneamiento» sumaban la señal de peligro «Agua potable y desagüe»:
 // son obras o reclamos de obra, no un daño que esté ocurriendo. No suman esa señal (siguen contando como proyecto).
@@ -312,7 +319,7 @@ for (const f of fichas) {
   if (!UTILES.has(f.tema)) continue;
   const t = norm(f.titulo);
   if (FUERA_DE_ZONA.test(t)) continue;
-  const senales = CONTEXTO.test(t) ? SENALES.filter(s => s.re.test(t) && !(HIPOTETICO.test(t) && s.grupo === 'vida') && !(s.id === 'agua' && OBRA_AGUA.test(t)) && !(s.id === 'huaicos' && PREVENCION_QUEBRADA.test(t))).map(s => s.id) : [];
+  const senales = CONTEXTO.test(t) ? SENALES.filter(s => s.re.test(t) && !(HIPOTETICO.test(t) && s.grupo === 'vida') && !(s.id === 'agua' && OBRA_AGUA.test(t)) && !(s.id === 'huaicos' && PREVENCION_QUEBRADA.test(t)) && !(s.id === 'desborde' && DESBORDE_FIGURADO.test(t)) && !(s.id === 'muertes' && MUERTE_SALUD.test(t))).map(s => s.id) : [];
   const proyectos = ES_PROYECTO.test(t) ? PROYECTOS.filter(p => p.re.test(t)).map(p => p.id) : [];
   clasificadas.push({ f, t, senales, proyectos, respuesta: RESPUESTA.test(t), pronostico: PRONOSTICO.test(t) && !PRONOSTICO_GENERICO.test(t) });
 }
