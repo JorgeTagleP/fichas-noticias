@@ -1,0 +1,84 @@
+# =====================================================================
+# Lectura de noticias cada hora, en los servidores de GitHub
+# ---------------------------------------------------------------------
+# Qué hace, en palabras simples:
+#   Cada hora (y cuando se aprieta «Run workflow» en la pestaña Actions)
+#   GitHub enciende una computadora en la nube, lee las noticias, compara
+#   las cifras con las oficiales, arma las conclusiones y publica la página
+#   en GitHub Pages. No usa la computadora de nadie del equipo.
+#
+#   Las fichas no se guardan en el repositorio (cada lectura las arma de
+#   cero), así el repositorio no crece. Solo se guarda una vez al día
+#   estado.json, un resumen de pocas líneas: sirve para que GitHub vea
+#   actividad y no pause el reloj (lo hace tras 60 días sin cambios).
+# =====================================================================
+name: Lectura de noticias
+
+on:
+  schedule:
+    - cron: '17 * * * *'     # minuto 17 de cada hora (hora UTC; GitHub puede atrasarse unos minutos)
+  workflow_dispatch:          # botón «Run workflow» para correrlo a mano
+
+permissions:
+  contents: write             # para guardar estado.json
+  pages: write                # para publicar la página
+  id-token: write
+
+concurrency:
+  group: lectura
+  cancel-in-progress: false
+
+jobs:
+  lectura:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Leer noticias
+        run: node lector.mjs
+
+      - name: Comparar cifras con las oficiales
+        run: node evaluar.mjs
+
+      - name: Armar conclusiones para la emergencia
+        run: node conclusiones.mjs
+
+      - name: Preparar la página
+        run: |
+          mkdir -p _site
+          cp index.html fichas.json conclusiones.json _site/
+          cp conclusiones.md evaluacion.md _site/ 2>/dev/null || true
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Guardar el resumen del día (estado.json)
+        run: |
+          ANTES=$(git show HEAD:estado.json 2>/dev/null | node -e "let t='';process.stdin.on('data',d=>t+=d).on('end',()=>{try{console.log(JSON.parse(t).dia)}catch{console.log('')}})")
+          node resumen-dia.mjs
+          AHORA=$(node -p "require('./estado.json').dia")
+          if [ "$ANTES" = "$AHORA" ]; then
+            echo "El resumen de hoy ($AHORA) ya está guardado."
+          else
+            git config user.name "lector-noticias"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add estado.json
+            git commit -m "Resumen de la lectura del $AHORA"
+            git push || echo "No se pudo guardar estado.json (la página se publica igual)."
+          fi
+
+  publicar:
+    needs: lectura
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

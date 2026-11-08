@@ -1,0 +1,11 @@
+# Archivos que cada lectura vuelve a generar: no se guardan en el repositorio
+# (así no crece). GitHub los arma en cada lectura y los publica en la página.
+fichas.json
+fichas.js
+ver-fichas.html
+conclusiones.json
+conclusiones.js
+conclusiones.md
+evaluacion.json
+evaluacion.md
+_site/

@@ -1,0 +1,424 @@
+<title>Fichas de Noticias del Norte</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,650&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: barra de filtros fija arriba, resumen por departamento, luego fichas en columna de lectura agrupadas */
+:root {
+  --bg: #f3f5f7; --surface: #ffffff; --ink: #14202b; --muted: #5a6875; --line: #d9e0e6;
+  --accent: #0b6283; --accent-soft: #e1eff5;
+  --emerg: #b3361f; --emerg-soft: #fbe8e3; --lluvia: #1f5fae; --lluvia-soft: #e4edf9;
+  --warn: #8a5a00; --warn-soft: #fbf0d9;
+  --f-head: "Newsreader", Georgia, "Times New Roman", serif;
+  --f-ui: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f161c; --surface: #172129; --ink: #e5ecf1; --muted: #93a3b1; --line: #2a3742;
+  --accent: #5fb6d6; --accent-soft: #15313d;
+  --emerg: #f08a72; --emerg-soft: #3a1d17; --lluvia: #84b2f0; --lluvia-soft: #1a2a40;
+  --warn: #e6b65c; --warn-soft: #362a12; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #0f161c; --surface: #172129; --ink: #e5ecf1; --muted: #93a3b1; --line: #2a3742;
+  --accent: #5fb6d6; --accent-soft: #15313d;
+  --emerg: #f08a72; --emerg-soft: #3a1d17; --lluvia: #84b2f0; --lluvia-soft: #1a2a40;
+  --warn: #e6b65c; --warn-soft: #362a12; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 15px/1.5 var(--f-ui); }
+.wrap { max-width: 1100px; margin: 0 auto; padding-block: 20px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header.top { display: grid; gap: 6px; padding-bottom: 14px; }
+.eyebrow { font: 500 12px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+h1 { font: 650 clamp(26px, 4vw, 36px)/1.1 var(--f-head); margin: 0; text-wrap: balance; }
+.lede { color: var(--muted); margin: 0; max-width: 70ch; }
+.aviso { display: flex; gap: 10px; align-items: flex-start; background: var(--warn-soft); color: var(--ink);
+  border: 1px solid color-mix(in srgb, var(--warn) 35%, transparent); border-radius: 8px; padding: 10px 14px; font-size: 14px; }
+.aviso b { color: var(--warn); }
+
+.resumen { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-block: 16px; }
+.dep { text-align: left; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px;
+  cursor: pointer; color: var(--ink); font: inherit; display: grid; gap: 4px; }
+.dep:hover { border-color: var(--accent); }
+.dep[aria-pressed="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); background: var(--accent-soft); }
+.dep .n { font: 650 28px/1 var(--f-head); font-variant-numeric: tabular-nums; }
+.dep .nm { font-weight: 600; }
+.dep .sub { font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.dep .sub .e { color: var(--emerg); font-weight: 600; }
+
+.filtros { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg);
+  padding-block: 10px; border-bottom: 1px solid var(--line); display: grid; gap: 10px; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.fila { display: flex; flex-wrap: wrap; gap: 8px; align-items: end; }
+.campo { display: grid; gap: 3px; min-width: 0; flex: 1 1 150px; }
+.campo.chico { flex: 0 1 140px; }
+.campo label { font: 500 11px/1 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+select, input[type="search"], input[type="date"] { width: 100%; font: inherit; font-size: 14px; color: var(--ink); background: var(--surface);
+  border: 1px solid var(--line); border-radius: 6px; padding: 7px 9px; min-height: 36px; }
+select:focus-visible, input:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.temas { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font: 500 13px/1 var(--f-ui); border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+  border-radius: 999px; padding: 6px 11px; cursor: pointer; font-variant-numeric: tabular-nums; }
+.chip span { color: var(--muted); margin-left: 4px; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.chip[aria-pressed="true"] span { color: inherit; opacity: .75; }
+.estado { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: center; font-size: 13.5px; color: var(--muted); }
+.estado b { color: var(--ink); font-variant-numeric: tabular-nums; }
+.link { background: none; border: 0; color: var(--accent); font: inherit; cursor: pointer; padding: 0; text-decoration: underline; }
+.check { display: inline-flex; gap: 6px; align-items: center; font-size: 13.5px; color: var(--ink); cursor: pointer; }
+
+.grupo { margin-top: 22px; }
+.grupo h2 { font: 600 13px/1 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted);
+  display: flex; justify-content: space-between; gap: 8px; border-bottom: 1px solid var(--line); padding-bottom: 8px; margin: 0 0 10px; }
+.lista { display: grid; gap: 10px; }
+.ficha { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px 12px 16px;
+  display: grid; gap: 6px; border-left: 3px solid var(--line); min-width: 0; }
+.ficha.Emergencias { border-left-color: var(--emerg); }
+.ficha.Lluvias { border-left-color: var(--lluvia); }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; font-size: 12.5px; color: var(--muted); }
+.id { font: 400 11.5px/1 var(--f-mono); color: var(--muted); }
+.tema { font: 600 11.5px/1 var(--f-ui); padding: 4px 8px; border-radius: 4px; background: var(--bg); color: var(--muted); }
+.tema.Emergencias { background: var(--emerg-soft); color: var(--emerg); }
+.tema.Lluvias { background: var(--lluvia-soft); color: var(--lluvia); }
+.ficha h3 { margin: 0; font: 500 19px/1.3 var(--f-head); text-wrap: pretty; overflow-wrap: anywhere; }
+.ficha h3 a { color: var(--ink); text-decoration: none; }
+.ficha h3 a:hover { color: var(--accent); text-decoration: underline; }
+.lugares { display: flex; flex-wrap: wrap; gap: 6px; }
+.lugar { font-size: 12.5px; background: var(--accent-soft); color: var(--ink); border-radius: 4px; padding: 3px 7px; cursor: pointer; border: 0; font-family: inherit; }
+.lugar:hover { outline: 1px solid var(--accent); }
+.lugar .sep { color: var(--muted); margin: 0 3px; }
+.lugar.busq { background: transparent; border: 1px dashed var(--line); color: var(--muted); cursor: default; }
+.pie { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12.5px; color: var(--muted); }
+.verif { font-weight: 600; color: var(--warn); }
+.resumen-txt { font-size: 14px; color: var(--muted); margin: 0; }
+.mas { display: block; margin: 20px auto 0; font: 500 14px var(--f-ui); padding: 9px 18px; border-radius: 6px;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
+.vacio { text-align: center; color: var(--muted); padding: 40px 10px; }
+footer { margin-top: 32px; font-size: 12.5px; color: var(--muted); display: grid; gap: 4px; }
+/* Pestañas y vista de conclusiones */
+/* Lo oculto se oculta siempre (sin esto, display: grid de .concl le ganaba a hidden y las conclusiones tapaban las fichas). */
+[hidden] { display: none !important; }
+.tabs { display: flex; gap: 4px; margin-top: 16px; border-bottom: 1px solid var(--line); }
+.tab { font: 600 14px/1 var(--f-ui); background: none; border: 0; border-bottom: 3px solid transparent; color: var(--muted);
+  padding: 10px 14px; cursor: pointer; margin-bottom: -1px; }
+.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+.concl { display: grid; gap: 22px; margin-top: 18px; }
+.concl h2 { font: 650 22px/1.2 var(--f-head); margin: 0 0 4px; }
+.concl .nota { font-size: 13.5px; color: var(--muted); margin: 0 0 10px; max-width: 75ch; }
+.frases { margin: 0; padding: 14px 16px 14px 34px; background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--emerg);
+  border-radius: 8px; display: grid; gap: 6px; font-size: 15px; }
+.prior { display: grid; gap: 10px; }
+.lug { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; display: grid; gap: 8px; border-left: 4px solid var(--line); }
+.lug.Crítica { border-left-color: var(--emerg); }
+.lug.Alta { border-left-color: var(--warn); }
+.lug .cab { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 12px; align-items: baseline; }
+.lug .nm { font: 600 18px/1.2 var(--f-head); }
+.lug .nm small { font: 400 13px var(--f-ui); color: var(--muted); }
+.nivel { font: 600 11.5px/1 var(--f-ui); padding: 4px 8px; border-radius: 4px; background: var(--bg); color: var(--muted); }
+.nivel.Crítica { background: var(--emerg-soft); color: var(--emerg); }
+.nivel.Alta { background: var(--warn-soft); color: var(--warn); }
+.tend { font-size: 12.5px; color: var(--muted); }
+.tend.sube { color: var(--emerg); font-weight: 600; }
+.sen { display: flex; flex-wrap: wrap; gap: 6px; }
+.sen span { font-size: 12.5px; border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; font-variant-numeric: tabular-nums; }
+.acc { margin: 0; padding-left: 18px; font-size: 14px; display: grid; gap: 2px; }
+.tit { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: 13.5px; }
+.tit a { color: var(--ink); }
+.tit .m { color: var(--muted); }
+.ver { justify-self: start; }
+.rejilla { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.caja { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.caja h3 { margin: 0; font: 600 15px/1.3 var(--f-ui); }
+.cifra { font-size: 13.5px; }
+.cifra b { font-variant-numeric: tabular-nums; }
+.estados { display: flex; flex-wrap: wrap; gap: 6px; }
+.est { font-size: 12px; padding: 3px 8px; border-radius: 4px; background: var(--bg); color: var(--muted); }
+.est.Atrasado, .est.En { background: var(--emerg-soft); color: var(--emerg); }
+.est.Pedido { background: var(--warn-soft); color: var(--warn); }
+.est.curso { background: var(--accent-soft); color: var(--accent); }
+@media (max-width: 760px) { .rejilla { grid-template-columns: 1fr; } }
+@media (max-width: 860px) { .resumen { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) {
+  .resumen { grid-template-columns: 1fr; }
+  .dep { grid-template-columns: 1fr auto; align-items: center; }
+  .dep .n { grid-row: span 2; grid-column: 2; }
+  .campo { flex-basis: 45%; }
+}
+@media (prefers-reduced-motion: no-preference) { .dep, .chip { transition: border-color .15s, background .15s; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow">Una Sola Fuerza · Tumbes · Piura · Lambayeque · Cajamarca</div>
+    <h1>Fichas de noticias del norte</h1>
+    <p class="lede" id="lede">Cada noticia publicada sobre los cuatro departamentos se convierte en una ficha con su fecha, medio, tema y los distritos que nombra.</p>
+  </header>
+  <div class="aviso" role="note"><b>No oficial.</b> <span>Son reportes de medios, todos en nivel <b>D – Sin verificar</b>. El estado de El Niño y los avisos se toman solo de ENFEN, SENAMHI e INDECI. Un curador debe confirmar cada hecho antes de usarlo en una ficha distrital.</span></div>
+
+  <nav class="tabs" role="tablist" aria-label="Vistas">
+    <button class="tab" role="tab" id="t-concl" aria-selected="true" aria-controls="v-concl" type="button">Conclusiones para la emergencia</button>
+    <button class="tab" role="tab" id="t-fichas" aria-selected="false" aria-controls="v-fichas" type="button">Todas las fichas</button>
+  </nav>
+
+  <section class="concl" id="v-concl" role="tabpanel" aria-labelledby="t-concl"><p class="vacio">Cargando conclusiones…</p></section>
+
+  <div id="v-fichas" role="tabpanel" aria-labelledby="t-fichas" hidden>
+  <section class="resumen" id="resumen" aria-label="Fichas por departamento"></section>
+
+  <section class="filtros" aria-label="Filtros">
+    <div class="fila">
+      <div class="campo"><label for="f-dep">Departamento</label><select id="f-dep"></select></div>
+      <div class="campo"><label for="f-prov">Provincia</label><select id="f-prov"></select></div>
+      <div class="campo"><label for="f-dist">Distrito</label><select id="f-dist"></select></div>
+      <div class="campo chico"><label for="f-desde">Desde</label><input type="date" id="f-desde"></div>
+      <div class="campo chico"><label for="f-hasta">Hasta</label><input type="date" id="f-hasta"></div>
+    </div>
+    <div class="fila">
+      <div class="campo" style="flex-basis:260px"><label for="f-q">Buscar en titulares o medio</label><input type="search" id="f-q" placeholder="huaico, Sullana, Radio Cutivalú…"></div>
+      <div class="campo chico"><label for="f-agrupar">Agrupar por</label>
+        <select id="f-agrupar"><option value="dia">Día</option><option value="dep">Departamento</option><option value="prov">Provincia</option><option value="dist">Distrito</option><option value="no">Sin agrupar</option></select></div>
+      <div class="campo chico"><label for="f-orden">Orden</label>
+        <select id="f-orden"><option value="desc">Más recientes</option><option value="asc">Más antiguas</option><option value="lugar">Lugar (A–Z) y fecha</option><option value="medio">Medio (A–Z)</option></select></div>
+    </div>
+    <div class="temas" id="temas" role="group" aria-label="Temas"></div>
+    <div class="estado">
+      <span id="cuenta">Cargando fichas…</span>
+      <span style="display:flex;gap:14px;flex-wrap:wrap">
+        <label class="check"><input type="checkbox" id="f-condist"> Solo con distrito identificado</label>
+        <button class="link" id="limpiar" type="button">Quitar filtros</button>
+      </span>
+    </div>
+  </section>
+
+  <main id="salida"></main>
+  <button class="mas" id="mas" type="button" hidden>Ver más fichas</button>
+  </div>
+
+  <footer>
+    <span id="gen"></span>
+    <span>Fuentes: Google Noticias (búsquedas por departamento y provincia) y feeds RSS de radios locales. Se guarda solo titular, enlace y metadatos; el texto completo está en el medio original.</span>
+  </footer>
+</div>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const TEMA_ORDEN = ['Emergencias', 'Lluvias y clima', 'Salud', 'Seguridad', 'Política y elecciones', 'Economía y producción', 'Deportes', 'Otros'];
+  const DEPS = ['Tumbes', 'Piura', 'Lambayeque', 'Cajamarca'];
+  const fmtDia = new Intl.DateTimeFormat('es-PE', { timeZone: 'America/Lima', weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+  const fmtHora = new Intl.DateTimeFormat('es-PE', { timeZone: 'America/Lima', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
+  const diaLima = iso => new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Lima' }).format(new Date(iso));
+  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const norm = s => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  const cls = t => t === 'Lluvias y clima' ? 'Lluvias' : t.split(' ')[0];
+
+  let F = [], vista = [], mostrar = 60;
+  const st = { dep: '', prov: '', dist: '', desde: '', hasta: '', q: '', temas: new Set(), agrupar: 'dia', orden: 'desc', condist: false };
+
+  function opciones(sel, items, todos, valor) {
+    sel.innerHTML = `<option value="">${todos}</option>` + items.map(([v, n]) => `<option value="${esc(v)}"${v === valor ? ' selected' : ''}>${esc(v)} (${n})</option>`).join('');
+  }
+  function contar(lista, clave) {
+    const m = new Map();
+    lista.forEach(x => { const v = clave(x); if (v) m.set(v, (m.get(v) || 0) + 1); });
+    return [...m].sort((a, b) => a[0].localeCompare(b[0], 'es'));
+  }
+  const lugaresDe = (f) => f.lugares.length ? f.lugares : f.departamentos.map(d => ({ departamento: d, provincia: null, distrito: null }));
+
+  function pasaLugar(f) {
+    return lugaresDe(f).some(l => (!st.dep || l.departamento === st.dep) && (!st.prov || l.provincia === st.prov) && (!st.dist || l.distrito === st.dist));
+  }
+  function pasaResto(f, sinTema) {
+    const d = diaLima(f.publicada);
+    if (st.desde && d < st.desde) return false;
+    if (st.hasta && d > st.hasta) return false;
+    if (st.condist && !f.lugares.some(l => l.distrito)) return false;
+    if (st.q && !norm(f.titulo + ' ' + f.medio).includes(norm(st.q))) return false;
+    if (!sinTema && st.temas.size && !st.temas.has(f.tema)) return false;
+    return true;
+  }
+
+  function selects() {
+    const conDep = F.filter(f => pasaResto(f));
+    const lug = conDep.flatMap(f => lugaresDe(f));
+    opciones($('f-dep'), DEPS.map(d => [d, conDep.filter(f => f.departamentos.includes(d)).length]), 'Todos', st.dep);
+    const lp = lug.filter(l => !st.dep || l.departamento === st.dep);
+    opciones($('f-prov'), contar(lp, l => l.provincia), st.dep ? 'Todas las provincias' : 'Todas', st.prov);
+    const ld = lp.filter(l => !st.prov || l.provincia === st.prov);
+    opciones($('f-dist'), contar(ld, l => l.distrito), 'Todos los distritos', st.dist);
+  }
+
+  function resumen() {
+    const base = F.filter(f => pasaResto(f));
+    $('resumen').innerHTML = DEPS.map(d => {
+      const l = base.filter(f => f.departamentos.includes(d));
+      const e = l.filter(f => f.tema === 'Emergencias').length, c = l.filter(f => f.tema === 'Lluvias y clima').length;
+      const dist = new Set(l.flatMap(f => f.lugares.filter(x => x.departamento === d && x.distrito).map(x => x.distrito))).size;
+      return `<button class="dep" type="button" data-dep="${d}" aria-pressed="${st.dep === d}">
+        <span class="nm">${d}</span><span class="n">${l.length}</span>
+        <span class="sub"><span class="e">${e} emergencias</span> · ${c} lluvias y clima · ${dist} distritos</span></button>`;
+    }).join('');
+  }
+
+  function temas() {
+    const base = F.filter(f => pasaLugar(f) && pasaResto(f, true));
+    $('temas').innerHTML = TEMA_ORDEN.map(t => {
+      const n = base.filter(f => f.tema === t).length;
+      return `<button class="chip" type="button" data-tema="${t}" aria-pressed="${st.temas.has(t)}">${t}<span>${n}</span></button>`;
+    }).join('');
+  }
+
+  const clavesGrupo = {
+    dia: f => [diaLima(f.publicada)],
+    dep: f => f.departamentos.filter(d => !st.dep || d === st.dep),
+    prov: f => [...new Set(lugaresDe(f).filter(l => (!st.dep || l.departamento === st.dep)).map(l => l.provincia ? `${l.provincia} · ${l.departamento}` : `${l.departamento} (sin provincia)`))],
+    dist: f => [...new Set(lugaresDe(f).filter(l => (!st.dep || l.departamento === st.dep) && (!st.prov || l.provincia === st.prov)).map(l => l.distrito ? `${l.distrito} · ${l.provincia}` : `Sin distrito · ${l.provincia || l.departamento}`))],
+    no: () => ['']
+  };
+  const tituloGrupo = (k) => st.agrupar === 'dia' ? fmtDia.format(new Date(k + 'T12:00:00-05:00')) : k;
+
+  function ordenar(l) {
+    const lugar = f => { const x = lugaresDe(f)[0]; return [x.departamento, x.provincia || '', x.distrito || ''].join('|'); };
+    const s = {
+      desc: (a, b) => b.publicada.localeCompare(a.publicada),
+      asc: (a, b) => a.publicada.localeCompare(b.publicada),
+      lugar: (a, b) => lugar(a).localeCompare(lugar(b), 'es') || b.publicada.localeCompare(a.publicada),
+      medio: (a, b) => (a.medio || '').localeCompare(b.medio || '', 'es') || b.publicada.localeCompare(a.publicada),
+    }[st.orden];
+    return l.sort(s);
+  }
+
+  function ficha(f) {
+    const lug = f.lugares.length
+      ? f.lugares.map(l => `<button class="lugar" type="button" data-l='${esc(JSON.stringify([l.departamento, l.provincia, l.distrito]))}' title="Filtrar por este lugar">${esc(l.departamento)}${l.provincia && l.provincia !== l.departamento ? `<span class="sep">›</span>${esc(l.provincia)}` : ''}${l.distrito ? `<span class="sep">›</span><b>${esc(l.distrito)}</b>` : ''}</button>`).join('')
+      : `<span class="lugar busq" title="El titular no nombra un lugar; vino de la búsqueda de este departamento">${esc(f.departamentos.join(', '))} · por búsqueda</span>`;
+    return `<article class="ficha ${cls(f.tema)}">
+      <div class="meta"><span class="tema ${cls(f.tema)}">${esc(f.tema)}</span><span>${fmtHora.format(new Date(f.publicada))}</span><span class="id">${esc(f.id)}</span></div>
+      <h3><a href="${esc(f.enlace)}" target="_blank" rel="noopener noreferrer">${esc(f.titulo)}</a></h3>
+      ${f.resumen ? `<p class="resumen-txt">${esc(f.resumen)}</p>` : ''}
+      <div class="lugares">${lug}</div>
+      <div class="pie"><span><b>${esc(f.medio || 'Medio sin nombre')}</b>${f.tipoMedio ? ' · ' + esc(f.tipoMedio) : ''}</span><span>vía ${esc(f.via)}</span><span class="verif">${esc(f.verificacion)}</span></div>
+    </article>`;
+  }
+
+  function pintar() {
+    selects(); resumen(); temas();
+    vista = ordenar(F.filter(f => pasaLugar(f) && pasaResto(f)));
+    $('cuenta').innerHTML = `<b>${vista.length}</b> de ${F.length} fichas`;
+    const parte = vista.slice(0, mostrar);
+    if (!vista.length) { $('salida').innerHTML = '<p class="vacio">Ninguna ficha coincide con estos filtros. Prueba ampliar las fechas o quitar un tema.</p>'; $('mas').hidden = true; return; }
+    const grupos = new Map();
+    parte.forEach(f => clavesGrupo[st.agrupar](f).forEach(k => { if (!grupos.has(k)) grupos.set(k, []); grupos.get(k).push(f); }));
+    let claves = [...grupos.keys()];
+    if (st.agrupar === 'dia') claves.sort((a, b) => st.orden === 'asc' ? a.localeCompare(b) : b.localeCompare(a));
+    else if (st.agrupar !== 'no') claves.sort((a, b) => a.startsWith('Sin') - b.startsWith('Sin') || a.localeCompare(b, 'es'));
+    $('salida').innerHTML = claves.map(k => `<section class="grupo">${k ? `<h2><span>${esc(tituloGrupo(k))}</span><span>${grupos.get(k).length}</span></h2>` : ''}<div class="lista">${grupos.get(k).map(ficha).join('')}</div></section>`).join('');
+    $('mas').hidden = vista.length <= mostrar;
+    $('mas').textContent = `Ver más fichas (${vista.length - mostrar} restantes)`;
+  }
+
+  const cambio = (fn) => (e) => { fn(e); mostrar = 60; pintar(); };
+  $('f-dep').addEventListener('change', cambio(e => { st.dep = e.target.value; st.prov = ''; st.dist = ''; }));
+  $('f-prov').addEventListener('change', cambio(e => { st.prov = e.target.value; st.dist = ''; }));
+  $('f-dist').addEventListener('change', cambio(e => { st.dist = e.target.value; }));
+  $('f-desde').addEventListener('change', cambio(e => { st.desde = e.target.value; }));
+  $('f-hasta').addEventListener('change', cambio(e => { st.hasta = e.target.value; }));
+  let t; $('f-q').addEventListener('input', e => { clearTimeout(t); t = setTimeout(cambio(() => { st.q = e.target.value.trim(); }), 200); });
+  $('f-agrupar').addEventListener('change', cambio(e => { st.agrupar = e.target.value; }));
+  $('f-orden').addEventListener('change', cambio(e => { st.orden = e.target.value; }));
+  $('f-condist').addEventListener('change', cambio(e => { st.condist = e.target.checked; }));
+  $('temas').addEventListener('click', cambio(e => { const b = e.target.closest('[data-tema]'); if (!b) return; const v = b.dataset.tema; st.temas.has(v) ? st.temas.delete(v) : st.temas.add(v); }));
+  $('resumen').addEventListener('click', cambio(e => { const b = e.target.closest('[data-dep]'); if (!b) return; st.dep = st.dep === b.dataset.dep ? '' : b.dataset.dep; st.prov = ''; st.dist = ''; }));
+  $('salida').addEventListener('click', e => { const b = e.target.closest('[data-l]'); if (!b) return; const [d, p, x] = JSON.parse(b.dataset.l); st.dep = d; st.prov = p && p !== d ? p : (x ? p : ''); st.dist = x || ''; mostrar = 60; pintar(); window.scrollTo({ top: 0 }); });
+  $('mas').addEventListener('click', () => { mostrar += 60; pintar(); });
+  $('limpiar').addEventListener('click', () => {
+    Object.assign(st, { dep: '', prov: '', dist: '', desde: '', hasta: '', q: '', agrupar: 'dia', orden: 'desc', condist: false }); st.temas.clear();
+    ['f-desde', 'f-hasta', 'f-q'].forEach(i => $(i).value = ''); $('f-agrupar').value = 'dia'; $('f-orden').value = 'desc'; $('f-condist').checked = false;
+    mostrar = 60; pintar();
+  });
+
+  // ---------- Pestañas ----------
+  function verTab(cual) {
+    const c = cual === 'concl';
+    $('t-concl').setAttribute('aria-selected', c); $('t-fichas').setAttribute('aria-selected', !c);
+    $('v-concl').hidden = !c; $('v-fichas').hidden = c;
+  }
+  $('t-concl').addEventListener('click', () => verTab('concl'));
+  $('t-fichas').addEventListener('click', () => verTab('fichas'));
+
+  // ---------- Vista de conclusiones ----------
+  const fDia = iso => iso ? new Intl.DateTimeFormat('es-PE', { timeZone: 'America/Lima', day: '2-digit', month: '2-digit' }).format(new Date(iso)) : '';
+  const nf = n => Number(n).toLocaleString('es-PE');
+  const titulares = l => `<ul class="tit">${l.map(f => `<li><span class="m">${fDia(f.fecha)} · ${esc(f.medio || '')}${f.estado ? ' · ' + esc(f.estado) : ''}</span><br><a href="${esc(f.enlace)}" target="_blank" rel="noopener noreferrer">${esc(f.titulo)}</a></li>`).join('')}</ul>`;
+  const lugarBtn = (r, txt) => `<button class="link ver" type="button" data-l='${esc(JSON.stringify([r.departamento, r.provincia, r.distrito]))}'>${txt}</button>`;
+
+  function pintarConcl(C) {
+    const prior = C.prioridad.map(r => `<article class="lug ${esc(r.prioridad)}">
+        <div class="cab"><span class="nm">${esc(r.nombre)} <small>${esc([r.provincia !== r.nombre ? r.provincia : '', r.departamento].filter(Boolean).join(', '))}</small></span>
+          <span style="display:flex;gap:8px;align-items:center"><span class="tend ${esc(r.tendencia)}">${r.tendencia === 'sube' ? 'En aumento' : r.tendencia === 'baja' ? 'En descenso' : 'Estable'} · ${r.menciones} noticias · última ${fDia(r.ultima)}</span><span class="nivel ${esc(r.prioridad)}">${esc(r.prioridad)}</span></span></div>
+        <div class="sen">${r.senales.slice(0, 5).map(s => `<span>${esc(s.nombre)} · ${s.n}</span>`).join('')}</div>
+        <ul class="acc">${r.acciones.map(a => `<li>${esc(a)}</li>`).join('')}</ul>
+        <details><summary class="tend">Noticias que lo sustentan</summary>${titulares(r.fichas)}</details>
+        ${lugarBtn(r, 'Ver todas las fichas de ' + esc(r.nombre))}
+      </article>`).join('');
+    const salud = C.salud.map(s => `<div class="caja"><h3>${esc(s.departamento)}</h3>
+        <div class="cifra">${s.dengue} noticias de dengue · ${s.leptospirosis} de leptospirosis · ${s.agua} de agua y desagüe</div>
+        ${s.oficiales.length ? s.oficiales.map(o => `<div class="cifra">Oficial: ${esc(o.indicador)} <b>${nf(o.valor)}</b> · <a href="${esc(o.url)}" target="_blank" rel="noopener noreferrer">${esc(o.fuente)}</a>${o.corte ? ', al ' + o.corte.split('-').reverse().join('/') : ' (sin fecha)'}</div>`).join('') : '<div class="cifra tend">Sin cifra oficial registrada.</div>'}
+        ${s.fichas.length ? titulares(s.fichas.slice(0, 3)) : ''}</div>`).join('');
+    const proy = C.proyectos.map(p => `<div class="caja"><h3>${esc(p.nombre)}</h3>
+        <div class="estados">${Object.entries(p.estados).map(([e, n]) => `<span class="est ${esc(e.split(' ').at(-1))}">${esc(e)} · ${n}</span>`).join('')}</div>
+        <div class="cifra tend">${esc(p.lugares.join(', '))}</div>${titulares(p.fichas.slice(0, 3))}</div>`).join('');
+    const cal = C.calidad ? `<section><h2>Calidad de las cifras</h2>
+        <p class="nota">Cifras de los titulares comparadas con la referencia oficial: <b>${C.calidad.cuenta.coincide}</b> coinciden, <b>${C.calidad.cuenta.cercana}</b> se acercan y <b>${C.calidad.cuenta.difiere}</b> difieren. ${C.calidad.sinReferencia} cifras aún no tienen referencia oficial.</p>
+        ${C.calidad.difieren.length ? `<ul class="acc">${[...new Map(C.calidad.difieren.map(d => [d.indicador + d.prensa, d])).values()].map(d => `<li>${esc(d.indicador)} (${esc(d.departamento)}): la prensa dice <b>${nf(d.prensa)}</b>, la referencia oficial es <b>${nf(d.oficial)}</b> (<a href="${esc(d.url)}" target="_blank" rel="noopener noreferrer">${esc(d.fuente)}</a>).</li>`).join('')}</ul>` : ''}
+        ${C.calidad.vencidas.length ? `<p class="nota">Referencias oficiales por actualizar: ${esc(C.calidad.vencidas.join('; '))}.</p>` : ''}</section>` : '';
+    $('v-concl').innerHTML = `
+      <section><h2>Lo más importante ahora</h2><p class="nota">${esc(C.aviso)} Lectura del ${fmtHora.format(new Date(C.generado))}; ${C.analizadas} noticias analizadas.</p>
+        <ul class="frases">${C.frases.map(f => `<li>${esc(f)}</li>`).join('')}</ul></section>
+      <section><h2>Prioridad para salvar vidas</h2><p class="nota">Lugares ordenados por las señales de peligro para las personas en las noticias. Las de los últimos 2 días pesan el doble que las de la semana y seis veces más que las antiguas.</p><div class="prior">${prior}</div></section>
+      <section><h2>Brechas en la atención</h2><p class="nota">Noticias de los últimos 14 días sobre ayuda que no llega o servicios que fallan. Conviene llevarlas al COER, a INDECI y a la Defensoría del Pueblo.</p>
+        <div class="caja">${C.brechas.length ? `<ul class="tit">${C.brechas.map(b => `<li><span class="m">${fDia(b.fecha)} · ${esc(b.lugar)} · ${esc(b.medio || '')}</span><br><a href="${esc(b.enlace)}" target="_blank" rel="noopener noreferrer">${esc(b.titulo)}</a></li>`).join('')}</ul>` : '<p class="tend">Sin brechas reportadas.</p>'}</div></section>
+      <section><h2>Salud</h2><p class="nota">El dengue y la leptospirosis suben con las lluvias. Las cifras oficiales vienen de MINSA, CDC y las direcciones regionales de salud.</p><div class="rejilla">${salud}</div></section>
+      <section><h2>Pronóstico y avisos (últimos 3 días)</h2><p class="nota">Lo que dicen las noticias sobre SENAMHI, INDECI y COEN. El aviso vigente se confirma siempre en senamhi.gob.pe.</p>
+        <div class="caja">${C.pronostico.length ? titulares(C.pronostico) : '<p class="tend">Sin avisos recientes en las noticias.</p>'}</div></section>
+      <section><h2>Proyectos para que El Niño afecte menos</h2><p class="nota">Obras y medidas que aparecen en las noticias y en qué estado: pedidas por la población, en curso, atrasadas o en conflicto. Primero van las que tienen más pedidos, atrasos o conflictos.</p><div class="rejilla">${proy}</div></section>
+      ${cal}`;
+  }
+  $('v-concl').addEventListener('click', e => {
+    const b = e.target.closest('[data-l]'); if (!b) return;
+    const [d, p, x] = JSON.parse(b.dataset.l);
+    Object.assign(st, { dep: d, prov: p && p !== d ? p : '', dist: x || '' });
+    mostrar = 60; verTab('fichas'); pintar(); window.scrollTo({ top: 0 });
+  });
+  const conclPorScript = () => new Promise((ok, mal) => {
+    if (window.CONCL) return ok(window.CONCL);
+    const s = document.createElement('script'); s.src = 'conclusiones.js';
+    s.onload = () => window.CONCL ? ok(window.CONCL) : mal(new Error('sin datos')); s.onerror = mal;
+    document.head.appendChild(s);
+  });
+  (location.protocol === 'file:' ? conclPorScript()
+    : fetch('conclusiones.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).catch(conclPorScript))
+    .then(pintarConcl)
+    .catch(() => { $('v-concl').innerHTML = '<p class="vacio">Todavía no hay conclusiones para esta lectura. Mira las fichas en la otra pestaña.</p>'; });
+
+  // En la web se lee fichas.json; abierto como archivo local (file://) el navegador bloquea
+  // esa lectura, así que se carga fichas.js, que trae los mismos datos.
+  const porScript = () => new Promise((ok, mal) => {
+    if (window.FICHAS) return ok(window.FICHAS);
+    const s = document.createElement('script');
+    s.src = 'fichas.js';
+    s.onload = () => window.FICHAS ? ok(window.FICHAS) : mal(new Error('sin datos'));
+    s.onerror = mal;
+    document.head.appendChild(s);
+  });
+  const cargar = location.protocol === 'file:' ? porScript()
+    : fetch('fichas.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).catch(porScript);
+  cargar.then(j => {
+    F = j.fichas;
+    const dias = F.map(f => diaLima(f.publicada)).sort();
+    $('f-desde').min = $('f-hasta').min = dias[0]; $('f-desde').max = $('f-hasta').max = dias[dias.length - 1];
+    $('gen').textContent = `Lectura del ${fmtHora.format(new Date(j.generado))} (hora de Lima) · ${j.fuentesConsultadas} fuentes · noticias de los últimos ${j.ventanaDias} días (${dias[0].split('-').reverse().join('/')} al ${dias[dias.length - 1].split('-').reverse().join('/')}).`;
+    pintar();
+  }).catch(() => { $('cuenta').textContent = 'No se pudieron cargar las fichas.'; $('salida').innerHTML = '<p class="vacio">No se encontró el archivo de fichas. Vuelve a cargar la página; si sigue igual, hay que publicar de nuevo fichas.json.</p>'; });
+})();
+</script>

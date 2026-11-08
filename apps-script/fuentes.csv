@@ -1,0 +1,47 @@
+﻿medio,via,departamento,url,tipo,activa
+,Google Noticias,Tumbes,https://news.google.com/rss/search?q=Tumbes%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Tumbes,https://news.google.com/rss/search?q=Tumbes%20(lluvia%20OR%20huaico%20OR%20desborde%20OR%20inundaci%C3%B3n%20OR%20deslizamiento%20OR%20emergencia)%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Piura,https://news.google.com/rss/search?q=Piura%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Piura,https://news.google.com/rss/search?q=Piura%20(lluvia%20OR%20huaico%20OR%20desborde%20OR%20inundaci%C3%B3n%20OR%20deslizamiento%20OR%20emergencia)%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Cajamarca,https://news.google.com/rss/search?q=Cajamarca%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Cajamarca,https://news.google.com/rss/search?q=Cajamarca%20(lluvia%20OR%20huaico%20OR%20desborde%20OR%20inundaci%C3%B3n%20OR%20deslizamiento%20OR%20emergencia)%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Lambayeque,https://news.google.com/rss/search?q=Lambayeque%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Lambayeque,https://news.google.com/rss/search?q=Lambayeque%20(lluvia%20OR%20huaico%20OR%20desborde%20OR%20inundaci%C3%B3n%20OR%20deslizamiento%20OR%20emergencia)%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Cajamarca,https://news.google.com/rss/search?q=%22Cajabamba%22%20Cajamarca%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Cajamarca,https://news.google.com/rss/search?q=%22Celend%C3%ADn%22%20Cajamarca%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Cajamarca,https://news.google.com/rss/search?q=%22Chota%22%20Cajamarca%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Cajamarca,https://news.google.com/rss/search?q=%22Contumaz%C3%A1%22%20Cajamarca%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Cajamarca,https://news.google.com/rss/search?q=%22Cutervo%22%20Cajamarca%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Cajamarca,https://news.google.com/rss/search?q=%22Hualgayoc%22%20Cajamarca%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Cajamarca,https://news.google.com/rss/search?q=%22Ja%C3%A9n%22%20Cajamarca%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Cajamarca,https://news.google.com/rss/search?q=%22San%20Ignacio%22%20Cajamarca%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Cajamarca,https://news.google.com/rss/search?q=%22San%20Marcos%22%20Cajamarca%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Cajamarca,https://news.google.com/rss/search?q=%22San%20Miguel%22%20Cajamarca%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Cajamarca,https://news.google.com/rss/search?q=%22San%20Pablo%22%20Cajamarca%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Cajamarca,https://news.google.com/rss/search?q=%22Santa%20Cruz%22%20Cajamarca%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Lambayeque,https://news.google.com/rss/search?q=%22Chiclayo%22%20Lambayeque%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Lambayeque,https://news.google.com/rss/search?q=%22Ferre%C3%B1afe%22%20Lambayeque%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Piura,https://news.google.com/rss/search?q=%22Ayabaca%22%20Piura%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Piura,https://news.google.com/rss/search?q=%22Huancabamba%22%20Piura%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Piura,https://news.google.com/rss/search?q=%22Morrop%C3%B3n%22%20Piura%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Piura,https://news.google.com/rss/search?q=%22Paita%22%20Piura%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Piura,https://news.google.com/rss/search?q=%22Sullana%22%20Piura%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Piura,https://news.google.com/rss/search?q=%22Talara%22%20Piura%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Piura,https://news.google.com/rss/search?q=%22Sechura%22%20Piura%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Tumbes,https://news.google.com/rss/search?q=%22Contralmirante%20Villar%22%20Tumbes%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+,Google Noticias,Tumbes,https://news.google.com/rss/search?q=%22Zarumilla%22%20Tumbes%20when%3A30d&hl=es-419&gl=PE&ceid=PE:es-419,,SI
+Radio Cutivalú,RSS de la radio,Piura,https://www.cutivalu.pe/feed/,comunitaria/educativa,SI
+Radio Fantástico,RSS de la radio,Piura,https://radiofantastico.pe/feed/,comercial,SI
+Sol TV Perú (sección Piura),RSS de la radio,Piura,https://soltvperu.com/category/regiones/piura-noticias/feed/,comercial,SI
+Sol TV Perú (sección Tumbes),RSS de la radio,Tumbes,https://soltvperu.com/category/tumbes/feed/,comercial,SI
+Radio Marañón,RSS de la radio,Cajamarca,https://radiomaranon.org.pe/feed/,Iglesia (católica),SI
+Radio Agricultura,RSS de la radio,Cajamarca,https://radioagriculturacajamarca.com/feed/,comercial,SI
+Radio y TV Turbomix,RSS de la radio,Cajamarca,https://turbomix.com.pe/feed/,comercial,SI
+Radio Moderna,RSS de la radio,Cajamarca,https://modernaradio.pe/feed/,comercial,SI
+Radio Líder,RSS de la radio,Cajamarca,http://radiolider.com.pe/web/feed/,comercial,SI
+Radio Onda Popular,RSS de la radio,Cajamarca,https://radioondapopular.com/feed/,comercial,SI
+Radio Coremarca,RSS de la radio,Cajamarca,http://radiocoremarca.com/feed/,comercial,SI
+Radio Ollantay,RSS de la radio,Cajamarca,https://radioollantay.com.pe/feed/,comercial,SI
+Sol TV Perú (sección Cajamarca),RSS de la radio,Cajamarca,https://soltvperu.com/category/regiones/cajamarca-noticias/feed/,comercial,SI
+Sol TV Perú (sección Lambayeque),RSS de la radio,Lambayeque,https://soltvperu.com/category/regiones/lambayeque-noticias/feed/,comercial,SI
+RPP Noticias (sección Lambayeque / RPP Chiclayo),RSS de la radio,Lambayeque,https://rpp.pe/feed/peru/lambayeque,comercial,SI
