@@ -136,7 +136,15 @@ footer { margin-top: 32px; font-size: 12.5px; color: var(--muted); display: grid
 .est.Atrasado, .est.En { background: var(--emerg-soft); color: var(--emerg); }
 .est.Pedido { background: var(--warn-soft); color: var(--warn); }
 .est.curso { background: var(--accent-soft); color: var(--accent); }
-@media (max-width: 760px) { .rejilla { grid-template-columns: 1fr; } }
+.eje { border-left: 4px solid var(--accent); }
+.eje .cita { margin: 0; font-size: 13.5px; color: var(--ink); }
+.eje .cita a { color: var(--muted); }
+.deps4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; font-size: 12.5px; }
+.deps4 span { background: var(--bg); border-radius: 4px; padding: 4px 6px; font-variant-numeric: tabular-nums; }
+.deps4 b { display: block; font-weight: 600; }
+.deps4 .p { color: var(--emerg); }
+.comp { margin: 0; padding-left: 18px; font-size: 13.5px; display: grid; gap: 3px; }
+@media (max-width: 760px) { .rejilla { grid-template-columns: 1fr; } .deps4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 860px) { .resumen { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 640px) {
   .resumen { grid-template-columns: 1fr; }
@@ -367,6 +375,13 @@ footer { margin-top: 32px; font-size: 12.5px; color: var(--muted); display: grid
     const proy = C.proyectos.map(p => `<div class="caja"><h3>${esc(p.nombre)}</h3>
         <div class="estados">${Object.entries(p.estados).map(([e, n]) => `<span class="est ${esc(e.split(' ').at(-1))}">${esc(e)} · ${n}</span>`).join('')}</div>
         <div class="cifra tend">${esc(p.lugares.join(', '))}</div>${titulares(p.fichas.slice(0, 3))}</div>`).join('');
+    const ejes = (C.ejes || []).map(e => `<div class="caja eje"><h3>${esc(e.nombre)}</h3>
+        <p class="cita">${esc(e.cita)} <a href="${esc(e.url)}" target="_blank" rel="noopener noreferrer">${esc(e.fuente)}</a></p>
+        <div class="estados">${Object.entries(e.estados).filter(([, n]) => n).map(([s, n]) => `<span class="est ${s === 'En marcha' ? 'curso' : s === 'Con problemas' ? 'Atrasado' : ''}">${esc(s)} · ${n}</span>`).join('')}<span class="tend">${e.menciones} noticias en 30 días · ${e.recientes} en la última semana</span></div>
+        <div class="deps4">${Object.entries(e.porDep).map(([d, v]) => `<span><b>${esc(d)}</b>${v.total} ${v.total === 1 ? "noticia" : "noticias"}${v.problemas ? ` · <span class="p">${v.problemas} con problemas</span>` : ''}</span>`).join('')}</div>
+        ${e.compromisos.length ? `<ul class="comp">${e.compromisos.map(k => `<li><b>${esc(k.nombre)}:</b> ${k.menciones ? `${k.menciones} noticias${k.problemas ? `, ${k.problemas} con problemas` : ''}. Última: <a href="${esc(k.ultima.enlace)}" target="_blank" rel="noopener noreferrer">${esc(k.ultima.titulo)}</a>` : 'sin noticias en la zona.'}</li>`).join('')}</ul>` : ''}
+        ${e.problemas.length ? `<details open><summary class="tend">Con problemas</summary>${titulares(e.problemas)}</details>` : ''}
+        ${e.avances.length ? `<details><summary class="tend">En marcha</summary>${titulares(e.avances)}</details>` : ''}</div>`).join('');
     const cal = C.calidad ? `<section><h2>Calidad de las cifras</h2>
         <p class="nota">Cifras de los titulares comparadas con la referencia oficial: <b>${C.calidad.cuenta.coincide}</b> coinciden, <b>${C.calidad.cuenta.cercana}</b> se acercan y <b>${C.calidad.cuenta.difiere}</b> difieren. ${C.calidad.sinReferencia} cifras aún no tienen referencia oficial.</p>
         ${C.calidad.difieren.length ? `<ul class="acc">${[...new Map(C.calidad.difieren.map(d => [d.indicador + d.prensa, d])).values()].map(d => `<li>${esc(d.indicador)} (${esc(d.departamento)}): la prensa dice <b>${nf(d.prensa)}</b>, la referencia oficial es <b>${nf(d.oficial)}</b> (<a href="${esc(d.url)}" target="_blank" rel="noopener noreferrer">${esc(d.fuente)}</a>).</li>`).join('')}</ul>` : ''}
@@ -374,6 +389,7 @@ footer { margin-top: 32px; font-size: 12.5px; color: var(--muted); display: grid
     $('v-concl').innerHTML = `
       <section><h2>Lo más importante ahora</h2><p class="nota">${esc(C.aviso)} Lectura del ${fmtHora.format(new Date(C.generado))}; ${C.analizadas} noticias analizadas.</p>
         <ul class="frases">${C.frases.map(f => `<li>${esc(f)}</li>`).join('')}</ul></section>
+      ${ejes ? `<section><h2>Ejes del Gobierno frente a El Niño</h2><p class="nota">Cada eje cita lo que anunció el Gobierno el 15/10/2026, tal cual, con su fuente oficial. Debajo, lo que dicen las noticias del norte: qué está en marcha y qué tiene problemas. Las noticias son señales de prensa (nivel D).</p><div class="rejilla">${ejes}</div></section>` : ''}
       <section><h2>Prioridad para salvar vidas</h2><p class="nota">Lugares ordenados por las señales de peligro para las personas en las noticias. Las de los últimos 2 días pesan el doble que las de la semana y seis veces más que las antiguas.</p><div class="prior">${prior}</div></section>
       <section><h2>Brechas en la atención</h2><p class="nota">Noticias de los últimos 14 días sobre ayuda que no llega o servicios que fallan. Conviene llevarlas al COER, a INDECI y a la Defensoría del Pueblo.</p>
         <div class="caja">${C.brechas.length ? `<ul class="tit">${C.brechas.map(b => `<li><span class="m">${fDia(b.fecha)} · ${esc(b.lugar)} · ${esc(b.medio || '')}</span><br><a href="${esc(b.enlace)}" target="_blank" rel="noopener noreferrer">${esc(b.titulo)}</a></li>`).join('')}</ul>` : '<p class="tend">Sin brechas reportadas.</p>'}</div></section>

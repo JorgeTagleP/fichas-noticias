@@ -259,6 +259,73 @@ const calidad = evaluacion ? {
   vencidas: evaluacion.resultados.filter(r => r.referenciaVencida).map(r => r.indicador + (r.departamento === '*' ? '' : ' – ' + r.departamento)),
 } : null;
 
+// ---------- 7. Ejes del Gobierno frente a El Niño ----------
+// 08/11/2026: el usuario pidió orientar las conclusiones a los ejes de la Presidencia de la República.
+// Cada eje cita tal cual lo que anunció el Gobierno (El Peruano, diario oficial, y gob.pe, 15/10/2026)
+// y muestra qué dicen las noticias del norte: qué está en marcha y qué tiene problemas.
+// Lo oficial se cita, no se reinterpreta; las noticias siguen en nivel D.
+const EP_URL = 'https://elperuano.pe/noticia/306932-presidenta-fujimori-anuncia-importantes-acciones-del-gobierno-frente-al-fenomeno-el-nino';
+const GOB_URL = 'https://www.gob.pe/institucion/presidencia/noticias/1457275-presidenta-keiko-fujimori-ante-fenomeno-el-nino-trabajando-unidos-y-con-un-solo-puno-vamos-a-levantarnos-y-salir-mas-fuertes-como-pais';
+const EP = 'El Peruano (diario oficial), 15/10/2026';
+const LIMPIEZA = /descolmat|limpi|maquinaria|cauce|encauza|dique|defensa/;
+const EJES = [
+  { id: 'vidas', nombre: 'Prioridad nacional: proteger las vidas',
+    cita: '«Lo que tenemos que cuidar y priorizar son las vidas humanas». Se identificaron 1800 puntos de riesgo y se priorizaron 536.', fuente: EP, url: EP_URL,
+    re: /evacu|plan de contingencia|mochila|simulacro|puntos? critic|zonas? de (alto )?riesgo|vulnerab|alerta temprana|prevencion/ },
+  { id: 'articulacion', nombre: 'Trabajo articulado y unidad («un solo puño»)',
+    cita: '«Trabajando unidos y con un solo puño vamos a levantarnos». El Gobierno ofrece «una intervención articulada y simultánea en las regiones más vulnerables» y pide a empresas, instituciones y políticos sumarse.', fuente: 'Presidencia (gob.pe) y El Peruano, 15/10/2026', url: GOB_URL,
+    re: /fuerzas armadas|ejercito|marina de guerra|\bfap\b|militares|soldados|gobierno regional|gobernador|municipalidad|alcalde|\bcoer\b|\bcoen\b|sector privado|empresas? privadas?|obras por impuestos|coordina|articula|mesa de trabajo|cooperacion|un solo puno|unidos/ },
+  { id: 'prevencion', nombre: 'Obras de prevención y descolmatación',
+    cita: '«El río Tumbes está limpiándose a máxima velocidad. El río Piura casi hemos culminado. En Lambayeque […] se está trabajando en los ríos La Leche y Reque». Avance declarado: 70 % de los 536 puntos.', fuente: EP, url: EP_URL,
+    re: /descolmat|limpieza de(l| los| las)? (rio|quebrada|cauce|dren)|defensas? riberen|encauza|enrocado|\bdiques?\b|material (fluvial|de rio)|puntos? critic/,
+    compromisos: [
+      { nombre: 'Limpieza del río Tumbes', re: /rio tumbes/, y: LIMPIEZA },
+      { nombre: 'Río Piura', re: /rio piura/, y: LIMPIEZA },
+      { nombre: 'Ríos La Leche y Reque (Lambayeque)', re: /la leche|\breque\b/, y: LIMPIEZA },
+    ] },
+  { id: 'conectividad', nombre: 'Infraestructura y conectividad',
+    cita: '«Hemos enviado 20 puentes al norte de nuestro país». Además, 22 helicópteros y cinco buques de la Marina disponibles.', fuente: EP, url: EP_URL,
+    re: /puentes? (modular|bailey|metalic|provisional|colaps)|caida (de|del) puente|aislad|\baislan?\b|incomunicad|vias? (interrumpid|bloquead|afectad)|carretera|transitab|helicoptero|puente aereo/,
+    compromisos: [{ nombre: 'Puentes modulares en el norte', re: /puentes? (modular|bailey|metalic|provisional)/ }] },
+  { id: 'humanitaria', nombre: 'Respuesta humanitaria ágil',
+    cita: '«Se van a construir albergues para 30,000 personas». Hospitales de campaña «movilizados en Tumbes, en Piura y en Lambayeque». Reserva de 5600 toneladas de ayuda humanitaria.', fuente: EP, url: EP_URL,
+    re: /ayuda humanitaria|bienes de ayuda|viveres|\bkits?\b|albergue|carpas|cisterna|agua segura|hospital(es)? de campana|damnificad|declaratoria|estado de emergencia|motobomba/,
+    compromisos: [
+      { nombre: 'Albergues temporales', re: /albergue/ },
+      { nombre: 'Hospitales de campaña', re: /hospital(es)? de campana/ },
+      { nombre: 'Entrega de ayuda humanitaria', re: /ayuda humanitaria|bienes de ayuda|viveres|\bkits?\b/ },
+    ] },
+  { id: 'economia', nombre: 'Inversión y soporte económico',
+    cita: '22 decretos supremos y de urgencia aprobados, 14 de ellos por 2000 millones de soles. Fondo de Contingencia: de 800 millones a 10,000 millones de soles para enero.', fuente: EP, url: EP_URL,
+    re: /\bbonos?\b|credito suplementario|presupuest|millones de soles|transferencia|fondo de contingencia|decreto de urgencia|seguro agrario|agricultor|ganader|obras? paralizad|reactiva/ },
+];
+const PROBLEMA = /\bsin\b|falta|no llega|no lleg|demora|retras|paraliz|reclam|exige|piden|\bpide\b|denuncia|abandon|insuficient|aun no|todavia no|olvidad|desatend|colaps|solo \d+ de \d+|siguen? vulnerable/;
+// Titulares sobre otra región que solo comparan con el norte («Lima podría sufrir un colapso mayor que Piura…») no cuentan.
+const OTRA_REGION = /^lima\b/;
+const EN_MARCHA = /inicia|entrega|llega|despliega|instala|avanza|culmina|concluye|ejecuta|trabaja|transfiere|aprueba|destina|habilita|limpia|descolmata|refuerza|moviliza|envia|construye|atiende|distribuy|implementa|lleva|realiza/;
+const estadoEje = c => (c.senales.indexOf('brecha') >= 0 || PROBLEMA.test(c.t)) ? 'Con problemas' : EN_MARCHA.test(c.t) ? 'En marcha' : 'Mencionado';
+const conContexto = clasificadas.filter(c => CONTEXTO.test(c.t) && !OTRA_REGION.test(c.t));
+const ejes = EJES.map(e => {
+  const cs = conContexto.filter(c => e.re.test(c.t)).sort((a, b) => b.f.publicada.localeCompare(a.f.publicada));
+  const estados = { 'En marcha': 0, 'Con problemas': 0, 'Mencionado': 0 };
+  const porDep = {};
+  DEPS.forEach(d => { porDep[d] = { total: 0, problemas: 0 }; });
+  cs.forEach(c => {
+    const est = estadoEje(c); estados[est]++;
+    c.f.departamentos.forEach(d => { if (porDep[d]) { porDep[d].total++; if (est === 'Con problemas') porDep[d].problemas++; } });
+  });
+  const conEstado = c => ({ ...resumenFicha(c), estado: estadoEje(c) });
+  const problemas = sinRepetir(cs.filter(c => estadoEje(c) === 'Con problemas')).slice(0, 3).map(conEstado);
+  const avances = sinRepetir(cs.filter(c => estadoEje(c) === 'En marcha')).slice(0, 3).map(conEstado);
+  const compromisos = (e.compromisos || []).map(k => {
+    const ks = cs.filter(c => k.re.test(c.t) && (!k.y || k.y.test(c.t)));
+    return { nombre: k.nombre, menciones: ks.length, problemas: ks.filter(c => estadoEje(c) === 'Con problemas').length,
+      ultima: ks.length ? conEstado(ks[0]) : null };
+  });
+  return { id: e.id, nombre: e.nombre, cita: e.cita, fuente: e.fuente, url: e.url, menciones: cs.length,
+    recientes: cs.filter(c => edadDias(c.f) <= 7).length, estados, porDep, compromisos, problemas, avances };
+});
+
 // ---------- Conclusiones en frases ----------
 const minus = t => t[0].toLowerCase() + t.slice(1);
 const listaN = a => a.length <= 1 ? a.join('') : a.slice(0, -1).join(', ') + ' y ' + a[a.length - 1];
@@ -276,12 +343,14 @@ if (sal.length) frases.push(`Salud: ${listaN(sal.map(s => `${s.departamento} (${
 if (brechas.length) frases.push(`${brechas.length} noticias recientes señalan brechas en la atención; la más reciente: «${brechas[0].titulo}».`);
 const atras = proyectos.filter(p => p.estados['Atrasado'] || p.estados['En conflicto']);
 if (atras.length) frases.push(`Proyectos atrasados o en conflicto que agravan el daño: ${listaN(atras.map(p => minus(p.nombre)))}.`);
+const ejeProb = ejes.filter(e => e.estados["Con problemas"]).sort((a, b) => b.estados["Con problemas"] - a.estados["Con problemas"]).slice(0, 2);
+if (ejeProb.length) frases.unshift(`Ejes del Gobierno con más noticias de problemas: ${listaN(ejeProb.map(e => `${minus(e.nombre)} (${e.estados["Con problemas"]} de ${e.menciones})`))}.`);
 if (calidad && calidad.difieren.length) frases.push(`${calidad.difieren.length} cifras de prensa difieren de la oficial; usar siempre la cifra oficial.`);
 
 const salida = {
   generado, lecturaFichas: fichas.length, analizadas: clasificadas.length,
   aviso: 'Señales de prensa (nivel D). Sirven para priorizar la atención; las cifras oficiales son las de INDECI, SENAMHI y MINSA.',
-  frases, prioridad: precisos.slice(0, 15), departamentos, salud, brechas, pronostico, proyectos, calidad,
+  frases, ejes, prioridad: precisos.slice(0, 15), departamentos, salud, brechas, pronostico, proyectos, calidad,
 };
 return salida;
 }
@@ -307,7 +376,11 @@ if (fs.existsSync(ver)) {
 // Versión para leer o pegar en un documento.
 const fd = iso => iso.slice(8, 10) + '/' + iso.slice(5, 7);
 let md = `# Conclusiones para enfrentar la emergencia – lectura del ${generado.slice(0, 10)}\n\n${salida.aviso}\n\n`;
-md += frases.map(f => `- ${f}`).join('\n') + '\n\n## Prioridad para salvar vidas\n\n| Prioridad | Lugar | Señales | Tendencia | Qué hacer |\n| --- | --- | --- | --- | --- |\n';
+md += frases.map(f => `- ${f}`).join('\n') + '\n\n## Ejes del Gobierno frente a El Niño\n\n' + salida.ejes.map(e =>
+  `### ${e.nombre}\n\n> ${e.cita} ([${e.fuente}](${e.url}))\n\nNoticias: ${e.menciones} (${e.recientes} en la última semana) · ${Object.entries(e.estados).map(([s, n]) => `${s} ${n}`).join(' · ')}\n`
+  + e.compromisos.map(k => `\n- ${k.nombre}: ${k.menciones} noticias${k.problemas ? `, ${k.problemas} con problemas` : ''}`).join('')
+  + (e.problemas.length ? '\n\nCon problemas:\n' + e.problemas.map(f => `- ${fd(f.fecha)} · ${f.titulo} (${f.medio})`).join('\n') : '')).join('\n\n')
+  + '\n\n## Prioridad para salvar vidas\n\n| Prioridad | Lugar | Señales | Tendencia | Qué hacer |\n| --- | --- | --- | --- | --- |\n';
 md += precisos.slice(0, 15).map(r => `| ${r.prioridad} | ${r.nombre} (${r.provincia && r.provincia !== r.nombre ? r.provincia + ', ' : ''}${r.departamento}) | ${r.senales.slice(0, 3).map(s => `${s.nombre} (${s.n})`).join('; ')} | ${r.tendencia} | ${r.acciones.slice(0, 2).join(' ')} |`).join('\n');
 md += '\n\n## Salud\n\n' + salud.map(s => `- **${s.departamento}:** ${s.dengue} noticias de dengue, ${s.leptospirosis} de leptospirosis, ${s.agua} de agua y desagüe.${s.oficiales.length ? ' Oficial: ' + s.oficiales.map(o => `${o.indicador} ${o.valor.toLocaleString('es-PE')} (${o.fuente}, ${o.corte || 's/f'})`).join('; ') + '.' : ''}`).join('\n');
 md += '\n\n## Brechas en la atención\n\n' + (brechas.map(b => `- ${fd(b.fecha)} · ${b.lugar} · ${b.titulo} (${b.medio})`).join('\n') || 'Ninguna en los últimos 14 días.');
