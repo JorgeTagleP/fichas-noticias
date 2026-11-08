@@ -243,7 +243,9 @@ const SENALES = [
 // Una señal solo cuenta si el titular habla de la emergencia, del clima o de la salud
 // (así no se cuentan crímenes, accidentes de tránsito ni protestas como peligro por El Niño).
 // 08/11/2026: «rio» va con \b porque «rio » coincidía dentro de «cementerio», «barrios», etc.
-const CONTEXTO = /lluvia|precipitac|\brios?\b|quebrad|huaico|inund|desbord|el nino|nino costero|emergencia|damnific|dengue|leptospir|reservorio|corriente|caudal|tormenta|aniego|albergue|senamhi|indeci|coen|evacu|aislad|deslizamiento|derrumbe|hospital|salud|desague|alcantarill|agua potable|aguas residuales|granizo|rayo|sismo|vivienda|damnificad|afectad/;
+const CONTEXTO = /lluvia|precipitac|\brios?\b|quebrad|huaico|inund|desbord|el nino|nino costero|emergencia|damnific|dengue|leptospir|reservorio|corriente|caudal|tormenta|aniego|albergue|senamhi|indeci|coen|evacu|aislad|deslizamiento|derrumbe|hospital|salud|desague|alcantarill|agua potable|aguas residuales|granizo|rayo|sismo|vivienda|damnificad|afectad|reubicacion de \d+ familias/;
+// 08/11/2026 12:10: «Tumbes: gobierno evalúa reubicación de 120 familias en Aguas Verdes» (tras el desborde del
+// Zarumilla) no sumaba damnificados porque el titular no traía otra palabra de contexto: se agrega «reubicación de N familias».
 // 08/11/2026: debate sobre un riesgo futuro (p. ej. el desvío del río Piura en Sechura): no es un peligro
 // que esté ocurriendo, así que no suma señales de vida; el tema sigue contando como proyecto.
 // 08/11/2026 05:15: un simulacro (Chiclayo, Cajamarca) tampoco es un peligro real: sus «damnificados» o
@@ -285,7 +287,7 @@ const ACCION = {
 const PROYECTOS = [
   { id: 'drenaje',     nombre: 'Drenaje pluvial y alcantarillado', re: /drenaje pluvial|alcantarillado|drenes?\b|agua y alcantarillado/ },
   { id: 'rio-piura',   nombre: 'Salida definitiva del río Piura al mar', re: /salida (definitiva )?del rio piura|desvio del rio piura|derivacion del rio piura|chutuque|rio loco|dren 1308|bifurcacion del rio|reventazon/ },
-  { id: 'defensas',    nombre: 'Defensas ribereñas y descolmatación', re: /defensas? riberen|descolmat|limpieza de (la )?(quebrada|rio|cauce)|encauzamiento|sedimentos|reforzaran defensas|proteger a \d+ localidades/ },
+  { id: 'defensas',    nombre: 'Defensas ribereñas y descolmatación', re: /defensas? riberen|descolmat|limpieza de (la )?(quebrada|rio|cauce)|encauzamiento|encauzan?\b|sedimentos|reforzaran defensas|proteger a \d+ localidades/ },
   { id: 'puentes',     nombre: 'Puentes y vías definitivas', re: /puente de concreto|puentes? definitiv|construccion de(l)? puente|via de evitamiento|carretera .*(invertira|mejorar|millones)|estribo|puentes modulares/ },
   // 08/11/2026 06:xx: «presa» como palabra completa; antes coincidía dentro de «empresas»
   // («anula contratación de empresas para la salida del río Piura» caía en presas).
@@ -298,12 +300,15 @@ const PROYECTOS = [
   { id: 'patrimonio',  nombre: 'Protección del patrimonio cultural', re: /patrimonio|huacas|arqueolog/ },
   { id: 'mineria',     nombre: 'Control de la minería ilegal y sus relaves', re: /mineria ilegal|relaves|mineros ilegales/ },
 ];
-const ES_PROYECTO = /obra|proyecto|construc|ejecuc|invert|inversion|destina|millones|ampliacion|buena pro|propuesta|plan\b|estudio|exige|piden|pide|solicita|pendiente|reforz|impulsa|meta|protege|limpieza|descolmat|retira|rechaz|anula/;
+const ES_PROYECTO = /obra|proyecto|construc|ejecuc|invert|inversion|destina|millones|ampliacion|buena pro|propuesta|plan\b|estudio|exige|piden|pide|solicita|pendiente|reforz|impulsa|meta|protege|limpieza|descolmat|retira|rechaz|anula|descarta|prioriza|encauza/;
+// 08/11/2026 12:10: «Encauzan el río Chancay-Lambayeque para reducir riesgos…» no contaba como defensa ribereña
+// (solo se buscaba «encauzamiento»), y «Keiko Fujimori descarta salida del río Piura por Sechura y prioriza aliviadero
+// de Chutuque» no contaba como proyecto: se agregan «encauza(n)», «descarta» y «prioriza».
 function estadoProyecto(t) {
   if (/rechaz|en pie de lucha|no permitiran|conflicto|anula/.test(t)) return 'En conflicto';
   if (/sin ejecucion|pendiente|paraliz|medio motor|atras|10 anos|no estara lista|posterga/.test(t)) return 'Atrasado';
   if (/piden|pide|exige|solicita|reclam|demanda/.test(t)) return 'Pedido';
-  if (/inicia|ejecuc|avanza|concluye|buena pro|destina|invertira|retira|impulsa|cofinanciara|reforzaran|despliega/.test(t)) return 'En curso';
+  if (/inicia|ejecuc|avanza|concluye|encauzan|buena pro|destina|invertira|retira|impulsa|cofinanciara|reforzaran|despliega/.test(t)) return 'En curso';
   return 'Mencionado';
 }
 
