@@ -1,0 +1,67 @@
+# =====================================================================
+# Reloj de respaldo: lanza la lectura de noticias cada hora
+# ---------------------------------------------------------------------
+# Qué hace, en palabras simples:
+#   El reloj propio de GitHub (schedule) a veces tarda horas o días en
+#   arrancar en un repositorio nuevo, o se salta horas cuando GitHub está
+#   muy cargado. Este reloj de respaldo no depende de eso:
+#
+#   1. Espera hasta el minuto 41 de la hora siguiente.
+#   2. Si en los últimos 15 minutos no hubo ya una lectura (por el reloj
+#      de GitHub o por un cambio subido), lanza «Lectura de noticias».
+#   3. Se vuelve a lanzar a sí mismo, para la hora siguiente.
+#
+#   Solo existe un reloj esperando a la vez: si arranca otro (por ejemplo
+#   al subir un cambio), el anterior se cancela solo. Es gratis porque el
+#   repositorio es público.
+#
+#   Si el reloj se detuviera, se reinicia solo al subir cualquier cambio,
+#   cada 6 horas con el reloj de GitHub, o a mano con «Run workflow» en la
+#   pestaña Actions → «Reloj de respaldo».
+# =====================================================================
+name: Reloj de respaldo
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths-ignore: ['estado.json', '**.md']
+  schedule:
+    - cron: '23 */6 * * *'    # reinicio de seguridad cada 6 horas
+
+permissions:
+  actions: write              # para lanzar la lectura y relanzarse
+
+concurrency:
+  group: reloj
+  cancel-in-progress: true    # queda solo el reloj más nuevo
+
+jobs:
+  esperar-y-lanzar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Esperar hasta el minuto 41
+        run: |
+          AHORA=$(date -u +%s)
+          META=$(( (AHORA / 3600) * 3600 + 41 * 60 ))
+          [ "$META" -le "$AHORA" ] && META=$(( META + 3600 ))
+          echo "Espero $(( (META - AHORA) / 60 )) minutos (hasta $(date -u -d @$META +%H:%M) UTC)."
+          sleep $(( META - AHORA ))
+
+      - name: Lanzar la lectura (si no hubo una hace poco)
+        run: |
+          ULTIMA=$(gh run list --workflow lectura.yml --limit 1 --json createdAt --jq '.[0].createdAt // empty')
+          if [ -n "$ULTIMA" ] && [ $(( $(date -u +%s) - $(date -u -d "$ULTIMA" +%s) )) -lt 900 ]; then
+            echo "Ya hubo una lectura a las $ULTIMA; no lanzo otra."
+          else
+            gh workflow run lectura.yml --ref main
+            echo "Lectura lanzada."
+          fi
+
+      - name: Programar la hora siguiente
+        if: ${{ !cancelled() }}     # si lo canceló un reloj más nuevo, no se relanza
+        run: gh workflow run reloj.yml --ref main
