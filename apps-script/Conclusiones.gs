@@ -291,7 +291,8 @@ const PROYECTOS = [
   { id: 'puentes',     nombre: 'Puentes y vías definitivas', re: /puente de concreto|puentes? definitiv|construccion de(l)? puente|via de evitamiento|carretera .*(invertira|mejorar|millones)|estribo|puentes modulares/ },
   // 08/11/2026 06:xx: «presa» como palabra completa; antes coincidía dentro de «empresas»
   // («anula contratación de empresas para la salida del río Piura» caía en presas).
-  { id: 'agua',        nombre: 'Presas y reservorios de agua', re: /\bpresas?\b|represa|almacenar agua/ },
+  { id: 'agua',        nombre: 'Presas y reservorios de agua', re: /\bpresas?\b|represa|almacenar agua|\bqochas?\b|cosecha de agua/ },
+  // 08/11/2026 17:12: «Cajamarca: Qocha La Florida almacenará 149 137,64 m³ de agua…» no contaba: se agregan «qocha» y «cosecha de agua».
   { id: 'cuencas',     nombre: 'Reforestación y cuidado de cuencas', re: /reforest|arboles plantados|desarrollo forestal|cuenca/ },
   { id: 'reubicacion', nombre: 'Reubicación de familias en zonas de riesgo', re: /reubica/ },
   { id: 'salud',       nombre: 'Hospitales y salud preparada', re: /ampliacion de su hospital|hospital (regional|de especialidades)|centro de salud|grupo electrogeno|control vectorial|vacunacion/ },
@@ -300,7 +301,9 @@ const PROYECTOS = [
   { id: 'patrimonio',  nombre: 'Protección del patrimonio cultural', re: /patrimonio|huacas|arqueolog/ },
   { id: 'mineria',     nombre: 'Control de la minería ilegal y sus relaves', re: /mineria ilegal|relaves|mineros ilegales/ },
 ];
-const ES_PROYECTO = /obra|proyecto|construc|ejecuc|invert|inversion|destina|millones|ampliacion|buena pro|propuesta|plan\b|estudio|exige|piden|pide|solicita|pendiente|reforz|impulsa|meta|protege|limpieza|descolmat|retira|rechaz|anula|descarta|prioriza|encauza/;
+// 08/11/2026 17:12: «ministro de Cultura supervisa acciones preventivas en sitios arqueológicos de Piura» no contaba
+// como proyecto de patrimonio (Piura no aparecía): se agregan «supervisa» y «preventiv»; «supervisa» cuenta como «En curso».
+const ES_PROYECTO = /supervisa|preventiv|obra|proyecto|construc|ejecuc|invert|inversion|destina|millones|ampliacion|buena pro|propuesta|plan\b|estudio|exige|piden|pide|solicita|pendiente|reforz|impulsa|meta|protege|limpieza|descolmat|retira|rechaz|anula|descarta|prioriza|encauza/;
 // 08/11/2026 12:10: «Encauzan el río Chancay-Lambayeque para reducir riesgos…» no contaba como defensa ribereña
 // (solo se buscaba «encauzamiento»), y «Keiko Fujimori descarta salida del río Piura por Sechura y prioriza aliviadero
 // de Chutuque» no contaba como proyecto: se agregan «encauza(n)», «descarta» y «prioriza».
@@ -308,7 +311,7 @@ function estadoProyecto(t) {
   if (/rechaz|en pie de lucha|no permitiran|conflicto|anula/.test(t)) return 'En conflicto';
   if (/sin ejecucion|pendiente|paraliz|medio motor|atras|10 anos|no estara lista|posterga/.test(t)) return 'Atrasado';
   if (/piden|pide|exige|solicita|reclam|demanda/.test(t)) return 'Pedido';
-  if (/inicia|ejecuc|avanza|concluye|encauzan|buena pro|destina|invertira|retira|impulsa|cofinanciara|reforzaran|despliega/.test(t)) return 'En curso';
+  if (/inicia|ejecuc|avanza|concluye|encauzan|buena pro|destina|invertira|retira|impulsa|cofinanciara|reforzaran|despliega|supervisa/.test(t)) return 'En curso';
   return 'Mencionado';
 }
 
