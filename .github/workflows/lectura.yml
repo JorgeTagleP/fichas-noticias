@@ -18,6 +18,9 @@ on:
   schedule:
     - cron: '17 * * * *'     # minuto 17 de cada hora (hora UTC; GitHub puede atrasarse unos minutos)
   workflow_dispatch:          # botón «Run workflow» para correrlo a mano
+  push:                       # cuando se sube un cambio (reglas, cifras oficiales, página)
+    branches: [main]
+    paths-ignore: ['estado.json', '**.md']
 
 permissions:
   contents: write             # para guardar estado.json
