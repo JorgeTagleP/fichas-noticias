@@ -36,7 +36,7 @@ contenido de la carpeta `fichas-noticias`, incluida la carpeta `.github`, y «Co
 2. Espera unos 3 minutos hasta que aparezca un visto verde.
 3. Abre `https://USUARIO.github.io/fichas-noticias/`.
 
-Desde ahí corre sola cada hora (al minuto 17; GitHub a veces se atrasa unos minutos).
+Desde ahí corre sola cada hora, al minuto 41. Hay dos relojes: el propio de GitHub, que en repositorios nuevos puede tardar días en arrancar, y el **Reloj de respaldo** (`reloj.yml`), que espera hasta el minuto 41, lanza la lectura si no hubo una en los últimos 15 minutos y se vuelve a programar solo.
 
 ## Si algo falla
 | Síntoma | Qué hacer |
@@ -44,6 +44,7 @@ Desde ahí corre sola cada hora (al minuto 17; GitHub a veces se atrasa unos min
 | Cruz roja en Actions | Abrir la ejecución y leer el paso en rojo. Si dice «Fichas: 0», Google Noticias frenó a GitHub esa hora; la página conserva la lectura anterior |
 | La página da error 404 | Revisar el paso 4 (Source = GitHub Actions) y que haya al menos una lectura con visto verde |
 | «No se pudo guardar estado.json» | Revisar el paso 5. La página se publica igual |
+| La página no se actualiza hace más de dos horas | Actions › «Reloj de respaldo»: si no hay uno en curso (círculo amarillo), pulsar **Run workflow** para reiniciarlo. También se reinicia solo al subir cualquier cambio y cada 6 horas |
 | Dejó de leer después de meses | GitHub pausa el reloj si el repositorio no tiene cambios en 60 días. Actions › «Lectura de noticias» › **Enable workflow** |
 
 ## Lo que sigue
