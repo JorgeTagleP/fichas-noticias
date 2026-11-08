@@ -61,6 +61,19 @@ jobs:
         with:
           path: _site
 
+      - name: Dejar los datos en la rama «datos» (para el agente diario de Claude)
+        # Se reemplaza completa en cada lectura (un solo cambio, sin historial), así no crece.
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          D=$(mktemp -d)
+          cp fichas.json conclusiones.json conclusiones.md evaluacion.json evaluacion.md "$D"/
+          cd "$D"
+          git init -q -b datos
+          git add .
+          git -c user.name="lector-noticias" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -qm "Datos de la lectura del $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push -f -q "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" datos || echo "No se pudo actualizar la rama datos (la página se publica igual)."
+
       - name: Guardar el resumen del día (estado.json)
         run: |
           ANTES=$(git show HEAD:estado.json 2>/dev/null | node -e "let t='';process.stdin.on('data',d=>t+=d).on('end',()=>{try{console.log(JSON.parse(t).dia)}catch{console.log('')}})")
