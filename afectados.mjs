@@ -40,7 +40,7 @@ const PORTAL = 'https://portal.indeci.gob.pe/emergencias/';
 const DESDE = '2026-10-01';              // inicio del periodo que se cuenta (temporada de El Niño 2026-2027)
 const MAX_PAGINAS = 200;                 // tope de páginas del listado por ejecución
 const MAX_DESCARGAS = +process.env.INDECI_MAX || 600;   // tope de PDF nuevos por ejecución (el resto, en la siguiente)
-const UA = { 'User-Agent': 'Mozilla/5.0 (fichas-noticias; lectura de reportes publicos)' };
+const UA = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36 (fichas-noticias)', 'Accept': 'text/html,application/pdf,*/*', 'Accept-Language': 'es-PE,es;q=0.9' };
 
 // Fenómenos que se cuentan (palabras del título del reporte) y los que no.
 const SI = /LLUVIA|HUAICO|INUNDACI|DESBORDE|CRECIDA|EROSI|DESLIZAMIENTO|DERRUMBE|MOVIMIENTO-EN-MASA|ALUD|AVALANCHA|VIENTO|GRANIZ|TORMENTA|ACTIVACI|COLAPSO-DE-ESTRUCTURA-POR-AGENTE-CLIM|PRECIPITACI|NEVADA|OLEAJE/i;
@@ -155,13 +155,15 @@ function leerTexto(texto, depTitulo) {
 }
 
 // ---------- 3. Recorrer el portal ----------
+let ultimoError = '';
 async function traer(url, binario = false) {
   for (let intento = 0; intento < 3; intento++) {
     try {
       const r = await fetch(url, { headers: UA, signal: AbortSignal.timeout(60000) });
       if (r.ok) return binario ? Buffer.from(await r.arrayBuffer()) : await r.text();
+      ultimoError = `HTTP ${r.status}`;
       if (r.status === 404) return null;
-    } catch { /* se reintenta */ }
+    } catch (e) { ultimoError = String(e.cause?.code || e.cause?.message || e.message); /* se reintenta */ }
     await new Promise(r => setTimeout(r, 2000 * (intento + 1)));
   }
   return null;
@@ -179,6 +181,11 @@ const nuevos = [];
 let paginas = 0, masAntigua = '9999', llegoAlInicio = false;
 for (let n = 1; n <= MAX_PAGINAS; n++) {
   const html = await traer(n === 1 ? PORTAL : `${PORTAL}page/${n}/`);
+  if (!html && n === 1) {
+    // El portal no respondió: se deja la página con los datos de la lectura anterior.
+    console.log(`INDECI: el portal no respondió (${ultimoError}); se mantienen los datos de la lectura anterior.`);
+    process.exit(0);
+  }
   if (!html) break;
   paginas = n;
   const links = [...new Set([...html.matchAll(/href="([^"]+\.pdf)"/g)].map(m => m[1]))];
