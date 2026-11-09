@@ -269,7 +269,9 @@ const CONTEXTO = /lluvia|precipitac|\brios?\b|quebrad|huaico|inund|desbord|el ni
 // solo por la palabra «albergue»; una donación de juguetes o útiles no es un daño: no suma damnificados
 // (salvo que el titular nombre damnificados, evacuados o viviendas perdidas).
 const DONACION_ALBERGUE = /kits? educativ|pelotas|juguetes|utiles escolares/;
-const HIPOTETICO = /se veria inundad|no se va a inundar|evitar futura inundac|pondria en riesgo|por riesgo de inundac|simulacro|que resulten damnificad|no a la emergencia actual|video viral\w* .*corresponde a/;
+// 09/11/2026 21:10: «Antiguas culturas del Perú sacrificaban personas tras inundaciones de El Niño…» (nota de
+// arqueología) sumaba «Inundaciones urbanas» a Lambayeque; los hechos históricos no suman señales de vida.
+const HIPOTETICO = /se veria inundad|no se va a inundar|evitar futura inundac|pondria en riesgo|por riesgo de inundac|simulacro|que resulten damnificad|no a la emergencia actual|video viral\w* .*corresponde a|antiguas culturas|sacrificaban/;
 // 08/11/2026 (corrida 7): «Dengue se desborda en Lambayeque» sumaba «Desborde o crecida de ríos»:
 // es un uso figurado (aumento de casos). No suma esa señal (sigue contando como dengue).
 // 09/11/2026 10:10: «Senamhi alerta sobre … posibles huaicos en Ayabaca» sumaba «Huaicos» y «trabajos de descolmatación evitan desborde del río Tumbes»
