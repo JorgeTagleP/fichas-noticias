@@ -78,7 +78,9 @@ const CONTEXTO = /lluvia|precipitac|\brios?\b|quebrad|huaico|inund|desbord|el ni
 // que esté ocurriendo, así que no suma señales de vida; el tema sigue contando como proyecto.
 // 08/11/2026 05:15: un simulacro (Chiclayo, Cajamarca) tampoco es un peligro real: sus «damnificados» o
 // «inundaciones» son ficticios y no deben sumar señales de vida.
-const HIPOTETICO = /se veria inundad|no se va a inundar|evitar futura inundac|pondria en riesgo|por riesgo de inundac|simulacro/;
+// 09/11/2026: «Tumbes: instalan tres albergues para atender a familias que resulten damnificadas…» sumaba damnificados;
+// es preparación (familias que podrían resultar damnificadas), no un daño ocurrido.
+const HIPOTETICO = /se veria inundad|no se va a inundar|evitar futura inundac|pondria en riesgo|por riesgo de inundac|simulacro|que resulten damnificad/;
 // 08/11/2026 (corrida 7): «Dengue se desborda en Lambayeque» sumaba «Desborde o crecida de ríos»:
 // es un uso figurado (aumento de casos). No suma esa señal (sigue contando como dengue).
 const DESBORDE_FIGURADO = /(dengue|casos|contagios|epidemia)\w* se desbord/;
