@@ -26,6 +26,7 @@ permissions:
   contents: write             # para guardar estado.json
   pages: write                # para publicar la página
   id-token: write
+  actions: write              # para volver a encender el reloj de respaldo si se cortó
 
 concurrency:
   group: lectura
@@ -87,6 +88,27 @@ jobs:
             git add estado.json
             git commit -m "Resumen de la lectura del $AHORA"
             git push || echo "No se pudo guardar estado.json (la página se publica igual)."
+          fi
+
+  # Vigilante del reloj de respaldo: si GitHub no logró arrancar el reloj (pasó el 09/11/2026,
+  # cuando un cambio subido lanzó un reloj nuevo que falló antes de empezar y canceló al que
+  # esperaba), la cadena horaria se corta. Cada lectura revisa que haya un reloj esperando y,
+  # si no hay ninguno, lo vuelve a encender.
+  vigilar-reloj:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Encender el reloj de respaldo si no hay uno esperando
+        run: |
+          ACTIVOS=$(gh run list --workflow reloj.yml --limit 10 --json status --jq '[.[] | select(.status != "completed")] | length')
+          if [ "${ACTIVOS:-0}" -gt 0 ]; then
+            echo "El reloj de respaldo está esperando ($ACTIVOS en curso)."
+          else
+            gh workflow run reloj.yml --ref main
+            echo "No había reloj esperando: lo encendí de nuevo."
           fi
 
   publicar:

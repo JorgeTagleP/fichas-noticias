@@ -455,7 +455,7 @@ footer { margin-top: 32px; font-size: 12.5px; color: var(--muted); display: grid
   // pocos bytes); si cambió, se descargan fichas y conclusiones y se vuelven a pintar sin
   // perder los filtros elegidos ni la posición en la página.
   if (location.protocol !== 'file:') {
-    let marca = '', revisando = false;
+    let marca = '', revisando = false, intentos = 0;
     const marcaDe = (r) => r.headers.get('etag') || r.headers.get('last-modified') || '';
     fetch('fichas.json', { method: 'HEAD', cache: 'no-cache' }).then(r => { marca = marcaDe(r); }).catch(() => {});
     const revisar = () => {
@@ -466,8 +466,11 @@ footer { margin-top: 32px; font-size: 12.5px; color: var(--muted); display: grid
           const m = marcaDe(r);
           if (!r.ok || !m || m === marca) return;
           return traerJSON('fichas.json').then(j => {
-            marca = m;
-            if (j.generado === generado) return;
+            // El CDN de GitHub puede dar la cabecera nueva y, por unos minutos, el archivo viejo.
+            // En ese caso no se da por leída la marca: se reintenta en la próxima revisión
+            // (como máximo 3 veces, para no descargar el archivo completo sin fin).
+            if (j.generado === generado) { if (++intentos >= 3) { marca = m; intentos = 0; } return; }
+            marca = m; intentos = 0;
             verFichas(j);
             return traerJSON('conclusiones.json').then(verConcl).catch(() => {});
           });
