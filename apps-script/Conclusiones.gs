@@ -14,7 +14,7 @@
 
 // Cifras oficiales de referencia (copiadas de oficiales.json; se citan, no se reinterpretan).
 const OFICIALES = {
- "actualizado": "2026-11-08",
+ "actualizado": "2026-11-09",
  "nota": "Cifras de referencia oficiales. Se citan tal como las publica la entidad; no se reinterpretan. 'via' indica cuando la cifra oficial se tomó de una nota de prensa que la atribuye a la entidad (confianza menor que la fuente primaria). Actualizar en cada lectura.",
  "indicadores": [
   {
@@ -23,11 +23,11 @@ const OFICIALES = {
    "departamento": "Tumbes",
    "tema": "damnificad",
    "clave": "damnificad",
-   "valor": 324,
-   "corte": "2026-11-06",
-   "fuente": "COEN-INDECI",
-   "via": "La República, 06/11/2026",
-   "url": "https://larepublica.pe/sociedad/2026/11/06/lluvias-intensas-dejan-324-damnificados-y-808-afectados-en-tumbes-senamhi-preve-precipitaciones-hasta-el-domingo-314778"
+   "valor": 338,
+   "corte": "2026-11-07",
+   "fuente": "INDECI (reporte actualizado al 07/11/2026)",
+   "via": "Sol TV Perú, 08/11/2026",
+   "url": "https://soltvperu.com/lluvias-intensas-tumbes-personas-afectadas/"
   },
   {
    "id": "tumbes-afectados",
@@ -35,11 +35,11 @@ const OFICIALES = {
    "departamento": "Tumbes",
    "tema": "afectad",
    "clave": "afectados(?![a-z])",
-   "valor": 808,
-   "corte": "2026-11-06",
-   "fuente": "COEN-INDECI",
-   "via": "La República, 06/11/2026",
-   "url": "https://larepublica.pe/sociedad/2026/11/06/lluvias-intensas-dejan-324-damnificados-y-808-afectados-en-tumbes-senamhi-preve-precipitaciones-hasta-el-domingo-314778"
+   "valor": 1284,
+   "corte": "2026-11-07",
+   "fuente": "INDECI (reporte actualizado al 07/11/2026)",
+   "via": "Sol TV Perú, 08/11/2026",
+   "url": "https://soltvperu.com/lluvias-intensas-tumbes-personas-afectadas/"
   },
   {
    "id": "tumbes-inhabitables",
@@ -47,11 +47,11 @@ const OFICIALES = {
    "departamento": "Tumbes",
    "tema": "inhabitable",
    "clave": "viviendas inhabitables|inhabitables",
-   "valor": 109,
-   "corte": "2026-11-06",
-   "fuente": "COEN-INDECI",
-   "via": "La República, 06/11/2026",
-   "url": "https://larepublica.pe/sociedad/2026/11/06/lluvias-intensas-dejan-324-damnificados-y-808-afectados-en-tumbes-senamhi-preve-precipitaciones-hasta-el-domingo-314778"
+   "valor": 117,
+   "corte": "2026-11-07",
+   "fuente": "INDECI (reporte actualizado al 07/11/2026)",
+   "via": "Sol TV Perú, 08/11/2026",
+   "url": "https://soltvperu.com/lluvias-intensas-tumbes-personas-afectadas/"
   },
   {
    "id": "tumbes-dengue-casos",
@@ -355,7 +355,12 @@ for (const c of clasificadas) {
   if (!vida.length) continue;
   const lista = c.f.lugares.length ? c.f.lugares : [];
   for (const l of lista) {
-    const nivel = l.distrito ? 'distrito' : (l.provincia && l.provincia !== l.departamento ? 'provincia' : 'departamento');
+    // 09/11/2026: «Río Tumbes supera umbral de alerta roja…» y «Río Tumbes podría desbordarse y anegar la ciudad»
+    // quedaban en «Tumbes» sin distrito; como la provincia se llama igual que el departamento, se contaban como
+    // departamento entero y la crecida del río Tumbes no entraba en la tabla. Si el titular nombra el río, cuenta
+    // para la provincia de Tumbes (cuenca baja y ciudad).
+    const rioProvincia = !l.distrito && l.departamento === 'Tumbes' && l.provincia === 'Tumbes' && /\brio tumbes\b/.test(c.t);
+    const nivel = l.distrito ? 'distrito' : (rioProvincia || (l.provincia && l.provincia !== l.departamento) ? 'provincia' : 'departamento');
     const nombre = l.distrito || (nivel === 'provincia' ? l.provincia : l.departamento);
     // un distrito capital y su provincia con el mismo nombre (Huancabamba, Zarumilla) se cuentan juntos
     const k = nivel === 'departamento' ? `${l.departamento}|*` : `${l.departamento}|${nombre}`;

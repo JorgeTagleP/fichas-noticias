@@ -182,7 +182,12 @@ for (const c of clasificadas) {
   if (!vida.length) continue;
   const lista = c.f.lugares.length ? c.f.lugares : [];
   for (const l of lista) {
-    const nivel = l.distrito ? 'distrito' : (l.provincia && l.provincia !== l.departamento ? 'provincia' : 'departamento');
+    // 09/11/2026: «Río Tumbes supera umbral de alerta roja…» y «Río Tumbes podría desbordarse y anegar la ciudad»
+    // quedaban en «Tumbes» sin distrito; como la provincia se llama igual que el departamento, se contaban como
+    // departamento entero y la crecida del río Tumbes no entraba en la tabla. Si el titular nombra el río, cuenta
+    // para la provincia de Tumbes (cuenca baja y ciudad).
+    const rioProvincia = !l.distrito && l.departamento === 'Tumbes' && l.provincia === 'Tumbes' && /\brio tumbes\b/.test(c.t);
+    const nivel = l.distrito ? 'distrito' : (rioProvincia || (l.provincia && l.provincia !== l.departamento) ? 'provincia' : 'departamento');
     const nombre = l.distrito || (nivel === 'provincia' ? l.provincia : l.departamento);
     // un distrito capital y su provincia con el mismo nombre (Huancabamba, Zarumilla) se cuentan juntos
     const k = nivel === 'departamento' ? `${l.departamento}|*` : `${l.departamento}|${nombre}`;
