@@ -2,7 +2,7 @@
  * Una Sola Fuerza – Conclusiones para la emergencia (versión Google Workspace)
  *
  * NO EDITAR AQUÍ: este archivo lo genera preparar-apps-script.mjs a partir de
- * conclusiones.mjs y oficiales.json (2026-11-08).
+ * conclusiones.mjs y oficiales.json (2026-11-09).
  * Para cambiar una regla, se cambia conclusiones.mjs y se vuelve a preparar.
  *
  * Qué hace: toma las fichas de la pestaña Fichas y arma la pestaña
@@ -228,7 +228,8 @@ const SENALES = [
   { id: 'aislamiento',  grupo: 'vida',  peso: 8,  nombre: 'Aislamiento o vías cortadas', re: /aislad|\baislan?\b|incomunicad|interrump|bloque\w* (la )?(via|carretera|transito)|puente\w* (artesanal )?(\w+ )?(colaps|cae|cay|arras|destru)|colapso de(l)? puente|arrasa con (el )?puente|queda aislado|via cerrada|cerrad\w* (el )?(transito|tunel)/ },
   { id: 'desborde',     grupo: 'vida',  peso: 8,  nombre: 'Desborde o crecida de ríos', re: /desbord|crecida|umbral rojo|supera\w* (el )?(umbral|alerta roja)|nivel critico|caudal/ },
   { id: 'huaicos',      grupo: 'vida',  peso: 7,  nombre: 'Huaicos y quebradas activas', re: /huaico|quebrada|deslizamiento|derrumbe/ },
-  { id: 'damnificados', grupo: 'vida',  peso: 6,  nombre: 'Damnificados, evacuación o viviendas perdidas', re: /evacu|damnificad|inhabitable|viviendas? (colapsad|destruid|danad)|casas colapsaron|reubica|albergue/ },
+  { id: 'damnificados', grupo: 'vida',  peso: 6,  nombre: 'Damnificados, evacuación o viviendas perdidas', re: /evacu|damnificad|inhabitable|viviendas? (colapsad|destruid|danad)|casas colapsaron|reubica|albergue|(deja\w*|\d|mil|cientos de) (a |mas de )?(\w+ )?(personas|familias) afectadas/ },
+  // 08/11/2026 19:10: «Tumbes: lluvias intensas dejan más de mil 600 personas afectadas» no sumaba ninguna señal; se agrega «N personas/familias afectadas» (no «atención de familias afectadas», que es respuesta).
   // 08/11/2026 10:11: «… cerca de 300 viviendas dañadas en Papayal por lluvias» no sumaba damnificados: se agrega «viviendas dañadas».
   { id: 'inundacion',   grupo: 'vida',  peso: 4,  nombre: 'Inundaciones urbanas', re: /inund|aniego|bajo el agua|anegad|sumergid/ },
   { id: 'electrico',    grupo: 'vida',  peso: 3,  nombre: 'Rayos y riesgo eléctrico', re: /rayo|tormenta\w* electric|riesgo electrico|descargas? electric|postes? electric|cortes? de luz/ },
@@ -258,6 +259,9 @@ const DESBORDE_FIGURADO = /(dengue|casos|contagios|epidemia)\w* se desbord/;
 // daba la acción «Señalizar o cercar el peligro (ríos, reservorios…)», que no sirve para el dengue.
 // Las muertes por dengue o leptospirosis cuentan en su señal de salud, no en «muertes».
 const MUERTE_SALUD = /dengue|leptospir/;
+// 08/11/2026 19:10: «Tumbes: adoptan medidas para evitar colapso de hospitales y desabastecimiento de medicinas» salía como brecha
+// por «desabastec»; es una medida preventiva, no una falla. Las «medidas para evitar/prevenir» no suman brecha.
+const PREVENCION_BRECHA = /medidas para (evitar|prevenir)/;
 // 08/11/2026 (corrida 4): «Inician obra de agua y alcantarillado en Chiclayo con inversión de S/ 12 millones»
 // y «… siguen esperando megaproyecto de saneamiento» sumaban la señal de peligro «Agua potable y desagüe»:
 // son obras o reclamos de obra, no un daño que esté ocurriendo. No suman esa señal (siguen contando como proyecto).
@@ -327,7 +331,7 @@ for (const f of fichas) {
   if (!UTILES.has(f.tema)) continue;
   const t = norm(f.titulo);
   if (FUERA_DE_ZONA.test(t)) continue;
-  const senales = CONTEXTO.test(t) ? SENALES.filter(s => s.re.test(t) && !(HIPOTETICO.test(t) && s.grupo === 'vida') && !(s.id === 'agua' && OBRA_AGUA.test(t)) && !(s.id === 'huaicos' && PREVENCION_QUEBRADA.test(t)) && !(s.id === 'desborde' && DESBORDE_FIGURADO.test(t)) && !(s.id === 'muertes' && MUERTE_SALUD.test(t))).map(s => s.id) : [];
+  const senales = CONTEXTO.test(t) ? SENALES.filter(s => s.re.test(t) && !(HIPOTETICO.test(t) && s.grupo === 'vida') && !(s.id === 'agua' && OBRA_AGUA.test(t)) && !(s.id === 'huaicos' && PREVENCION_QUEBRADA.test(t)) && !(s.id === 'desborde' && DESBORDE_FIGURADO.test(t)) && !(s.id === 'muertes' && MUERTE_SALUD.test(t)) && !(s.id === 'brecha' && PREVENCION_BRECHA.test(t))).map(s => s.id) : [];
   const proyectos = ES_PROYECTO.test(t) ? PROYECTOS.filter(p => p.re.test(t)).map(p => p.id) : [];
   clasificadas.push({ f, t, senales, proyectos, respuesta: RESPUESTA.test(t), pronostico: PRONOSTICO.test(t) && !PRONOSTICO_GENERICO.test(t) });
 }
