@@ -58,6 +58,13 @@ jobs:
         timeout-minutes: 8
         run: |
           sudo apt-get install -y -qq poppler-utils >/dev/null
+          # El DNS del INDECI solo responde a consultas desde el Perú. Desde fuera, el nombre se
+          # resuelve por su cortafuegos (FortiWeb Cloud, el mismo destino que ven los usuarios en el Perú).
+          # Autorizado por el dueño del proyecto el 09/11/2026.
+          if ! getent hosts portal.indeci.gob.pe >/dev/null; then
+            IP=$(getent ahostsv4 portal.indeci.gob.pe.P8853039083.fortiwebcloud.net | awk 'NR==1{print $1}')
+            [ -n "$IP" ] && echo "$IP portal.indeci.gob.pe" | sudo tee -a /etc/hosts && echo "Portal del INDECI por su cortafuegos: $IP"
+          fi
           # Memoria de los reportes ya leídos (se guarda en la rama «datos»)
           git fetch -q --depth 1 origin datos && git show origin/datos:indeci-cache.json > indeci-cache.tmp && mv indeci-cache.tmp indeci-cache.json || echo "Sin memoria previa: se leerá desde el inicio."
           # Datos de la lectura anterior, por si el portal no responde esta vez
