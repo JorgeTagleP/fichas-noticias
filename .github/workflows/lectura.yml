@@ -59,7 +59,7 @@ jobs:
         run: |
           sudo apt-get install -y -qq poppler-utils >/dev/null
           # Memoria de los reportes ya leídos (se guarda en la rama «datos»)
-          git fetch -q --depth 1 origin datos && git show origin/datos:indeci-cache.json > indeci-cache.json || echo "Sin memoria previa: se leerá desde el inicio."
+          git fetch -q --depth 1 origin datos && git show origin/datos:indeci-cache.json > indeci-cache.tmp && mv indeci-cache.tmp indeci-cache.json || echo "Sin memoria previa: se leerá desde el inicio."
           node afectados.mjs
 
       - name: Preparar la página

@@ -39,7 +39,7 @@ const CACHE = path.join(DIR, 'indeci-cache.json');
 const PORTAL = 'https://portal.indeci.gob.pe/emergencias/';
 const DESDE = '2026-10-01';              // inicio del periodo que se cuenta (temporada de El Niño 2026-2027)
 const MAX_PAGINAS = 200;                 // tope de páginas del listado por ejecución
-const MAX_DESCARGAS = +process.env.INDECI_MAX || 250;   // tope de PDF nuevos por ejecución (el resto, en la siguiente)
+const MAX_DESCARGAS = +process.env.INDECI_MAX || 600;   // tope de PDF nuevos por ejecución (el resto, en la siguiente)
 const UA = { 'User-Agent': 'Mozilla/5.0 (fichas-noticias; lectura de reportes publicos)' };
 
 // Fenómenos que se cuentan (palabras del título del reporte) y los que no.
@@ -167,7 +167,11 @@ async function traer(url, binario = false) {
   return null;
 }
 
-const cache = fs.existsSync(CACHE) ? JSON.parse(fs.readFileSync(CACHE, 'utf8')) : { reportes: {}, descartados: {} };
+// Si la memoria no existe, está vacía o dañada, se empieza de cero (no se detiene la lectura).
+let cache;
+try { cache = JSON.parse(fs.readFileSync(CACHE, 'utf8')); } catch { cache = null; }
+if (!cache || typeof cache !== 'object') cache = {};
+cache.reportes ||= {}; cache.descartados ||= {};
 // Si cambia la forma de leer las tablas, se vuelven a leer todos los reportes.
 const VERSION_LECTOR = 2;
 if (cache.version !== VERSION_LECTOR) { cache.reportes = {}; cache.completo = false; cache.version = VERSION_LECTOR; }
