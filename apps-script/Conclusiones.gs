@@ -311,7 +311,9 @@ const ACCION = {
 
 // ---------- 5. Proyectos que reducirían el daño de El Niño ----------
 const PROYECTOS = [
-  { id: 'drenaje',     nombre: 'Drenaje pluvial y alcantarillado', re: /drenaje pluvial|alcantarillado|drenes?\b|agua y alcantarillado/ },
+  // 09/11/2026 19:xx: «Piura frente a El Niño: las intervenciones en el río, drenajes y abastecimiento de agua financiadas con una
+  // inversión de S/20 mllns.» no contaba en drenaje (solo «drenaje pluvial» o «drenes»): se agrega «drenaje(s)» como palabra completa.
+  { id: 'drenaje',     nombre: 'Drenaje pluvial y alcantarillado', re: /drenaje pluvial|\bdrenajes?\b|alcantarillado|drenes?\b|agua y alcantarillado/ },
   { id: 'rio-piura',   nombre: 'Salida definitiva del río Piura al mar', re: /salida (definitiva )?del rio piura|desvio del rio piura|derivacion del rio piura|chutuque|rio loco|dren 1308|bifurcacion del rio|reventazon/ },
   { id: 'defensas',    nombre: 'Defensas ribereñas y descolmatación', re: /defensas? riberen|descolmat|limpieza de (la )?(quebrada|rio|cauce)|encauzamiento|encauzan?\b|sedimentos|reforzaran defensas|proteger a \d+ localidades/ },
   { id: 'puentes',     nombre: 'Puentes y vías definitivas', re: /puente de concreto|puentes? definitiv|construccion de(l)? puente|via de evitamiento|carretera .*(invertira|mejorar|millones)|estribo|puentes modulares/ },
