@@ -56,7 +56,9 @@ const SENALES = [
   // en Cajamarca» (rescate) no sumaba porque solo se buscaba «arrastrad».
   { id: 'muertes',      grupo: 'vida',  peso: 10, nombre: 'Muertes o personas arrastradas', re: /fallec|muert|ahog|sin vida|arrastrad|(?:rio|corriente|caudal|huaico|quebrada)s? (?:se )?(?:lo |la |los |las |le )?arrastra|cadaver|desaparecid/ },
   // 08/11/2026 05:15: se agrega «aisla»/«aislan» (verbo): «crecida del río Zaña destruye puente y aisla a 4 caseríos» no se detectaba.
-  { id: 'aislamiento',  grupo: 'vida',  peso: 8,  nombre: 'Aislamiento o vías cortadas', re: /aislad|\baislan?\b|incomunicad|interrump|bloque\w* (la )?(via|carretera|transito)|puente\w* (artesanal )?(\w+ )?(colaps|cae|cay|arras|destru)|colapso de(l)? puente|arrasa con (el )?puente|queda aislado|via cerrada|cerrad\w* (el )?(transito|tunel)/ },
+  // 09/11/2026 18:xx: «Tumbes: Oficina Regional de Gestión del Riesgo reporta vías afectadas y más de 10 quebradas activadas» no sumaba
+  // aislamiento: se agrega «vías/carreteras afectadas» (daño ya ocurrido en las vías).
+  { id: 'aislamiento',  grupo: 'vida',  peso: 8,  nombre: 'Aislamiento o vías cortadas', re: /aislad|\baislan?\b|incomunicad|interrump|bloque\w* (la )?(via|carretera|transito)|puente\w* (artesanal )?(\w+ )?(colaps|cae|cay|arras|destru)|colapso de(l)? puente|arrasa con (el )?puente|queda aislado|via cerrada|cerrad\w* (el )?(transito|tunel)|(vias|carreteras) afectadas/ },
   { id: 'desborde',     grupo: 'vida',  peso: 8,  nombre: 'Desborde o crecida de ríos', re: /desbord|crecida|umbral rojo|supera\w* (el )?(umbral|alerta roja)|nivel critico|caudal/ },
   { id: 'huaicos',      grupo: 'vida',  peso: 7,  nombre: 'Huaicos y quebradas activas', re: /huaico|quebrada|deslizamiento|derrumbe/ },
   { id: 'damnificados', grupo: 'vida',  peso: 6,  nombre: 'Damnificados, evacuación o viviendas perdidas', re: /evacu|damnificad|inhabitable|viviendas? (colapsad|destruid|danad)|casas colapsaron|reubica|albergue|(deja\w*|\d|mil|cientos de) (a |mas de )?(\w+ )?(personas|familias) afectadas/ },
@@ -67,7 +69,9 @@ const SENALES = [
   { id: 'dengue',       grupo: 'salud', peso: 6,  nombre: 'Dengue', re: /dengue|zancudo|aedes/ },
   { id: 'leptospirosis',grupo: 'salud', peso: 6,  nombre: 'Leptospirosis', re: /leptospir/ },
   { id: 'agua',         grupo: 'salud', peso: 4,  nombre: 'Agua potable y desagüe', re: /agua potable|desague|aguas residuales|alcantarillado|colaps\w* (de )?desag/ },
-  { id: 'brecha',       grupo: 'brecha',peso: 5,  nombre: 'Brecha en la atención', re: /no cuenta|sin (banos|techo|grupo electrogeno|presupuesto|apoyo|fondos|respuesta|camas)|falta de|no soporto|no estan preparados|denuncia|cuestiona|\bcritica (a|al|la|el|las|los|falta|demora|lentitud)\b|(alcalde|gobernador|congresista|defensoria|poblacion|vecinos|dirigentes?|pobladores) critica|exige|exigen|piden|pide (ayuda|maquinaria)|reclam|sin ejecucion|medio motor|desabastec|no supera|solo hay|solo s\/|obra\w* (\w+ )?pone\w* en (peligro|riesgo)/ },
+  { id: 'brecha',       grupo: 'brecha',peso: 5,  nombre: 'Brecha en la atención', re: /no cuenta|sin (banos|techo|grupo electrogeno|presupuesto|apoyo|fondos|respuesta|camas)|falta de|no soporto|no estan preparados|denuncia|cuestiona|\bcritica (a|al|la|el|las|los|falta|demora|lentitud)\b|(alcalde|gobernador|congresista|defensoria|poblacion|vecinos|dirigentes?|pobladores) critica|exige|exigen|piden|pide (ayuda|maquinaria)|reclam|sin ejecucion|medio motor|desabastec|no supera|solo hay|solo s\/|obra\w* (\w+ )?pone\w* en (peligro|riesgo)|llevan? \d+ dias sin/ },
+  // 09/11/2026 18:xx: «Piura: Pobladores llevan 5 días sin agua potable» contaba como agua pero no como brecha;
+  // varios días sin un servicio básico es una falla de atención: se agrega «llevan N días sin».
   // 09/11/2026 16:20: «Piura: Una obra pone en peligro a la población ante El Niño» (Correo) no sumaba ninguna señal;
   // una obra que pone en riesgo a la población es una brecha. Solo con «obra», para no contar avisos del SENAMHI («… que pone en riesgo a Piura»).
 ];
