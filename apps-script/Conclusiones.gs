@@ -309,7 +309,9 @@ const PROYECTOS = [
 ];
 // 08/11/2026 17:12: «ministro de Cultura supervisa acciones preventivas en sitios arqueológicos de Piura» no contaba
 // como proyecto de patrimonio (Piura no aparecía): se agregan «supervisa» y «preventiv»; «supervisa» cuenta como «En curso».
-const ES_PROYECTO = /supervisa|preventiv|obra|proyecto|construc|ejecuc|invert|inversion|destina|millones|ampliacion|buena pro|propuesta|plan\b|estudio|exige|piden|pide|solicita|pendiente|reforz|impulsa|meta|protege|limpieza|descolmat|retira|rechaz|anula|descarta|prioriza|encauza/;
+const ES_PROYECTO = /supervisa|preventiv|obra|proyecto|construc|ejecuc|invert|inversion|destina|millones|ampliacion|buena pro|propuesta|plan\b|estudio|exige|piden|pide|solicita|pendiente|reforz|impulsa|meta|protege|limpieza|\blimpian?\b|descolmat|retira|rechaz|anula|descarta|prioriza|encauza/;
+// 09/11/2026 05:xx: «Piura: limpian drenes Sechura y 1308 ante posibles lluvias intensas» no contaba como proyecto
+// (solo se buscaba «limpieza»): se agrega el verbo «limpia(n)», que cuenta como «En curso».
 // 08/11/2026 12:10: «Encauzan el río Chancay-Lambayeque para reducir riesgos…» no contaba como defensa ribereña
 // (solo se buscaba «encauzamiento»), y «Keiko Fujimori descarta salida del río Piura por Sechura y prioriza aliviadero
 // de Chutuque» no contaba como proyecto: se agregan «encauza(n)», «descarta» y «prioriza».
@@ -317,7 +319,7 @@ function estadoProyecto(t) {
   if (/rechaz|en pie de lucha|no permitiran|conflicto|anula/.test(t)) return 'En conflicto';
   if (/sin ejecucion|pendiente|paraliz|medio motor|atras|10 anos|no estara lista|posterga/.test(t)) return 'Atrasado';
   if (/piden|pide|exige|solicita|reclam|demanda/.test(t)) return 'Pedido';
-  if (/inicia|ejecuc|avanza|concluye|encauzan|buena pro|destina|invertira|retira|impulsa|cofinanciara|reforzaran|despliega|supervisa/.test(t)) return 'En curso';
+  if (/inicia|ejecuc|avanza|concluye|encauzan|buena pro|destina|invertira|retira|impulsa|cofinanciara|reforzaran|despliega|supervisa|\blimpian?\b/.test(t)) return 'En curso';
   return 'Mencionado';
 }
 
