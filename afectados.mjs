@@ -102,6 +102,8 @@ function leerTabla(texto) {
     for (let i = h + 1; i < L.length && i < h + 80; i++) {
       const l = L[i];
       if (empezo && /^\s*(Nota|Fuente|\d\.\d|[IVX]+\.)/.test(l)) break;
+      // Empieza otra tabla (daños materiales: vías en metros, cultivos…): ya no son personas.
+      if (empezo && /DAÑOS MATERIALES|INFRAESTRUCTURA|SERVICIOS B[ÁA]SICOS/.test(l)) break;
       const m = l.match(/^\s*(DPTO|PROV|DIST)\.*\s*(.+?)(?:\s{2,}(.*))?\s*$/);
       if (!m) continue;
       empezo = true;
@@ -175,7 +177,7 @@ try { cache = JSON.parse(fs.readFileSync(CACHE, 'utf8')); } catch { cache = null
 if (!cache || typeof cache !== 'object') cache = {};
 cache.reportes ||= {}; cache.descartados ||= {};
 // Si cambia la forma de leer las tablas, se vuelven a leer todos los reportes.
-const VERSION_LECTOR = 2;
+const VERSION_LECTOR = 3;
 if (cache.version !== VERSION_LECTOR) { cache.reportes = {}; cache.completo = false; cache.version = VERSION_LECTOR; }
 const nuevos = [];
 let paginas = 0, masAntigua = '9999', llegoAlInicio = false;
@@ -250,7 +252,11 @@ for (const r of Object.values(cache.reportes)) {
   if (r.fecha < DESDE) continue;
   for (const f of r.filas) {
     if (f.nivel !== 'DIST' || !Object.keys(f.p).length) continue;   // solo distritos (los totales se calculan aquí)
-    const dep = departamento(f.dep, r.titulo);
+    // Si la tabla dice un departamento y el título otro, y el título nombra a ese distrito,
+    // vale el del título (pasó con Quilahuani, Tacna, anotado «DPTO ÁNCASH» en la tabla).
+    let dep = departamento(f.dep, r.titulo);
+    const depTit = departamento('', r.titulo);
+    if (depTit !== dep && DEPS.includes(depTit) && sinTilde(r.titulo).includes(sinTilde(f.dist))) dep = depTit;
     const fila = { dep, prov: f.prov, dist: f.dist, fenomeno: r.fenomeno, ...f.p, aprox: !!f.aprox, corte: r.corte, num: r.num, reporte: `${r.tipo === 'INFORME-DE-EMERGENCIA' ? 'Informe' : r.tipo === 'REPORTE-PRELIMINAR' ? 'Preliminar' : 'Complementario'} N.º ${r.num}`, url: r.url };
     todasLasFilas.push(fila);
     if (f.prov) provDe.set(sinTilde(dep) + '|' + sinTilde(f.dist), f.prov);
