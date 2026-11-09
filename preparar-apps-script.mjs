@@ -47,10 +47,18 @@ pag = cambiar(pag,
   'carga de conclusiones');
 pag = cambiar(pag,
   '// En la web se lee fichas.json',
+  "document.head.appendChild(s);\n  });",
+  '',
+  'lectura local de fichas');
+pag = cambiar(pag,
+  "const cargar = location.protocol",
   ".catch(porScript);",
   `// En Google Workspace los datos se piden a la hoja de cálculo (función obtenerFichas de Codigo.gs).
   const cargar = new Promise((ok, mal) => google.script.run.withSuccessHandler(s => ok(JSON.parse(s))).withFailureHandler(mal).obtenerFichas());`,
   'carga de fichas');
+// La actualización automática de la web pregunta al servidor por fichas.json; en Workspace no aplica.
+pag = cambiar(pag, '// Actualización automática (sin F5)', "document.addEventListener('visibilitychange', () => { if (!document.hidden) revisar(); });\n  }", '', 'actualización automática');
+pag = pag.replace('Se actualiza sola cada hora, sin recargar la página.', 'Se actualiza cada hora.');
 pag = pag.replace('si sigue igual, hay que publicar de nuevo fichas.json.', 'si sigue igual, revisa que la pestaña Fichas exista y que instalar() se haya ejecutado.');
 if (/fetch\(|fichas\.js|conclusiones\.js/.test(pag)) throw new Error('Pagina.html todavía intenta leer archivos locales.');
 escribir('apps-script/Pagina.html', pag);

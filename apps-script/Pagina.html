@@ -421,16 +421,21 @@ footer { margin-top: 32px; font-size: 12.5px; color: var(--muted); display: grid
     .then(pintarConcl)
     .catch(() => { $('v-concl').innerHTML = '<p class="vacio">Todavía no hay conclusiones para esta lectura. Mira las fichas en la otra pestaña; si sigue igual, revisa que el archivo Conclusiones.gs esté pegado en Apps Script.</p>'; });
 
-  // En Google Workspace los datos se piden a la hoja de cálculo (función obtenerFichas de Codigo.gs).
-  const cargar = new Promise((ok, mal) => google.script.run.withSuccessHandler(s => ok(JSON.parse(s))).withFailureHandler(mal).obtenerFichas());
-  cargar.then(j => {
-    F = j.fichas;
+  
+  let generado = '';
+  const verFichas = (j) => {
+    F = j.fichas; generado = j.generado;
     const dias = F.map(f => diaLima(f.publicada)).sort();
     $('f-desde').min = $('f-hasta').min = dias[0]; $('f-desde').max = $('f-hasta').max = dias[dias.length - 1];
     $('act').innerHTML = `Última actualización: <b>${new Intl.DateTimeFormat('es-PE', { timeZone: 'America/Lima', day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }).format(new Date(j.generado))}</b> (hora de Lima). Se actualiza cada hora.`;
     $('gen').textContent = `Lectura del ${fmtHora.format(new Date(j.generado))} (hora de Lima) · ${j.fuentesConsultadas} fuentes · noticias de los últimos ${j.ventanaDias} días (${dias[0].split('-').reverse().join('/')} al ${dias[dias.length - 1].split('-').reverse().join('/')}).`;
-    pintar();
-  }).catch(() => { $('cuenta').textContent = 'No se pudieron cargar las fichas.'; $('salida').innerHTML = '<p class="vacio">No se encontró el archivo de fichas. Vuelve a cargar la página; si sigue igual, revisa que la pestaña Fichas exista y que instalar() se haya ejecutado.</p>'; });
+    const y = window.scrollY; pintar(); window.scrollTo({ top: y });
+  };
+  // En Google Workspace los datos se piden a la hoja de cálculo (función obtenerFichas de Codigo.gs).
+  const cargar = new Promise((ok, mal) => google.script.run.withSuccessHandler(s => ok(JSON.parse(s))).withFailureHandler(mal).obtenerFichas());
+  cargar.then(verFichas).catch(() => { $('cuenta').textContent = 'No se pudieron cargar las fichas.'; $('salida').innerHTML = '<p class="vacio">No se encontró el archivo de fichas. Vuelve a cargar la página; si sigue igual, revisa que la pestaña Fichas exista y que instalar() se haya ejecutado.</p>'; });
+
+  
 })();
 </script>
 </body>
