@@ -166,7 +166,7 @@ const ES_PROYECTO = /supervisa|preventiv|obra|proyecto|construc|ejecuc|invert|in
 // 08/11/2026 12:10: «Encauzan el río Chancay-Lambayeque para reducir riesgos…» no contaba como defensa ribereña
 // (solo se buscaba «encauzamiento»), y «Keiko Fujimori descarta salida del río Piura por Sechura y prioriza aliviadero
 // de Chutuque» no contaba como proyecto: se agregan «encauza(n)», «descarta» y «prioriza».
-// 09/11/2026 22:10: «Colegio de Ingenieros califica de "engaño" afirmar que el río Piura soportará 4000 m³/s tras
+// 09/11/2026 17:10: «Colegio de Ingenieros califica de "engaño" afirmar que el río Piura soportará 4000 m³/s tras
 // descolmatación» salía «Mencionado» en defensas y como avance del eje de descolmatación: «engaño» cuenta como conflicto.
 function estadoProyecto(t) {
   if (/\bengano\b|rechaz|en pie de lucha|no permitiran|conflicto|anula/.test(t)) return 'En conflicto';
@@ -343,7 +343,7 @@ const EJES = [
     cita: '22 decretos supremos y de urgencia aprobados, 14 de ellos por 2000 millones de soles. Fondo de Contingencia: de 800 millones a 10,000 millones de soles para enero.', fuente: EP, url: EP_URL,
     re: /\bbonos?\b|credito suplementario|presupuest|millones de soles|transferencia|fondo de contingencia|decreto de urgencia|seguro agrario|agricultor|ganader|obras? paralizad|reactiva/ },
 ];
-// 09/11/2026 22:10: «califica de engaño…» (Colegio de Ingenieros sobre el río Piura) cuenta como problema del eje.
+// 09/11/2026 17:10: «califica de engaño…» (Colegio de Ingenieros sobre el río Piura) cuenta como problema del eje.
 const PROBLEMA = /\bengano\b|\bsin\b|falta|no llega|no lleg|demora|retras|paraliz|reclam|exige|piden|\bpide\b|denuncia|abandon|insuficient|aun no|todavia no|olvidad|desatend|colaps|solo \d+ de \d+|siguen? vulnerable/;
 // Titulares sobre otra región que solo comparan con el norte («Lima podría sufrir un colapso mayor que Piura…») no cuentan.
 const OTRA_REGION = /^lima\b/;
