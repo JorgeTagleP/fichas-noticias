@@ -36,6 +36,8 @@ header.top { display: grid; gap: 6px; padding-bottom: 14px; }
 .eyebrow { font: 500 12px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
 h1 { font: 650 clamp(26px, 4vw, 36px)/1.1 var(--f-head); margin: 0; text-wrap: balance; }
 .lede { color: var(--muted); margin: 0; max-width: 70ch; }
+.act { margin: 0; font-size: 13.5px; color: var(--ink); font-variant-numeric: tabular-nums; }
+.act b { color: var(--accent); }
 .aviso { display: flex; gap: 10px; align-items: flex-start; background: var(--warn-soft); color: var(--ink);
   border: 1px solid color-mix(in srgb, var(--warn) 35%, transparent); border-radius: 8px; padding: 10px 14px; font-size: 14px; }
 .aviso b { color: var(--warn); }
@@ -168,6 +170,7 @@ footer { margin-top: 32px; font-size: 12.5px; color: var(--muted); display: grid
     <div class="eyebrow">Una Sola Fuerza · Tumbes · Piura · Lambayeque · Cajamarca</div>
     <h1>Fichas de noticias del norte</h1>
     <p class="lede" id="lede">Cada noticia publicada sobre los cuatro departamentos se convierte en una ficha con su fecha, medio, tema y los distritos que nombra.</p>
+    <p class="act" id="act" aria-live="polite"></p>
   </header>
 
   <nav class="tabs" role="tablist" aria-label="Vistas">
@@ -440,6 +443,7 @@ footer { margin-top: 32px; font-size: 12.5px; color: var(--muted); display: grid
     F = j.fichas;
     const dias = F.map(f => diaLima(f.publicada)).sort();
     $('f-desde').min = $('f-hasta').min = dias[0]; $('f-desde').max = $('f-hasta').max = dias[dias.length - 1];
+    $('act').innerHTML = `Última actualización: <b>${new Intl.DateTimeFormat('es-PE', { timeZone: 'America/Lima', day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }).format(new Date(j.generado))}</b> (hora de Lima). Se actualiza cada hora.`;
     $('gen').textContent = `Lectura del ${fmtHora.format(new Date(j.generado))} (hora de Lima) · ${j.fuentesConsultadas} fuentes · noticias de los últimos ${j.ventanaDias} días (${dias[0].split('-').reverse().join('/')} al ${dias[dias.length - 1].split('-').reverse().join('/')}).`;
     pintar();
   }).catch(() => { $('cuenta').textContent = 'No se pudieron cargar las fichas.'; $('salida').innerHTML = '<p class="vacio">No se encontró el archivo de fichas. Vuelve a cargar la página; si sigue igual, hay que publicar de nuevo fichas.json.</p>'; });
