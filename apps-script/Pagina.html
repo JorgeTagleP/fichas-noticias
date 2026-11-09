@@ -149,6 +149,28 @@ footer { margin-top: 32px; font-size: 12.5px; color: var(--muted); display: grid
 .deps4 b { display: block; font-weight: 600; }
 .deps4 .p { color: var(--emerg); }
 .comp { margin: 0; padding-left: 18px; font-size: 13.5px; display: grid; gap: 3px; }
+/* Pestaña de personas afectadas */
+.concl { grid-template-columns: minmax(0, 1fr); }
+.concl > section { min-width: 0; }
+.tabs { overflow-x: auto; scrollbar-width: none; }
+.tab { white-space: nowrap; flex: 0 0 auto; }
+.tabla { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+.tabla table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+.tabla th, .tabla td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.tabla thead th { font: 600 11.5px/1.3 var(--f-ui); text-transform: uppercase; letter-spacing: .04em; color: var(--muted); background: var(--bg); white-space: nowrap; }
+.tabla td.n { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+.tabla td.dep { font-weight: 600; }
+.tabla .fall { color: var(--emerg); }
+.tabla tr.norte td { background: var(--accent-soft); }
+.tabla a { color: var(--accent); }
+table.def tbody th { text-align: left; font: 600 13px var(--f-ui); color: var(--muted); white-space: nowrap; }
+.kpis { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+.kpis div { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; display: grid; gap: 2px; }
+.kpis b { font: 650 26px/1 var(--f-head); font-variant-numeric: tabular-nums; }
+.kpis span { font-size: 12.5px; color: var(--muted); }
+.kpis .fall b { color: var(--emerg); }
+h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
+@media (max-width: 640px) { .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 760px) { .rejilla { grid-template-columns: 1fr; } .deps4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 860px) { .resumen { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 640px) {
@@ -175,10 +197,12 @@ footer { margin-top: 32px; font-size: 12.5px; color: var(--muted); display: grid
 
   <nav class="tabs" role="tablist" aria-label="Vistas">
     <button class="tab" role="tab" id="t-concl" aria-selected="true" aria-controls="v-concl" type="button">Conclusiones para la emergencia</button>
+    <button class="tab" role="tab" id="t-afect" aria-selected="false" aria-controls="v-afect" type="button">Personas afectadas</button>
     <button class="tab" role="tab" id="t-fichas" aria-selected="false" aria-controls="v-fichas" type="button">Todas las fichas</button>
   </nav>
 
   <section class="concl" id="v-concl" role="tabpanel" aria-labelledby="t-concl"><p class="vacio">Cargando conclusiones…</p></section>
+  <section class="concl" id="v-afect" role="tabpanel" aria-labelledby="t-afect" hidden><p class="vacio">Cargando los reportes del INDECI…</p></section>
 
   <div id="v-fichas" role="tabpanel" aria-labelledby="t-fichas" hidden>
   <section class="resumen" id="resumen" aria-label="Fichas por departamento"></section>
@@ -357,12 +381,68 @@ footer { margin-top: 32px; font-size: 12.5px; color: var(--muted); display: grid
 
   // ---------- Pestañas ----------
   function verTab(cual) {
-    const c = cual === 'concl';
-    $('t-concl').setAttribute('aria-selected', c); $('t-fichas').setAttribute('aria-selected', !c);
-    $('v-concl').hidden = !c; $('v-fichas').hidden = c;
+    for (const t of ['concl', 'afect', 'fichas']) { $('t-' + t).setAttribute('aria-selected', t === cual); $('v-' + t).hidden = t !== cual; }
   }
   $('t-concl').addEventListener('click', () => verTab('concl'));
+  $('t-afect').addEventListener('click', () => verTab('afect'));
   $('t-fichas').addEventListener('click', () => verTab('fichas'));
+
+  // ---------- Vista de personas afectadas (reportes del INDECI-COEN) ----------
+  const fCorte = s => s ? s.slice(8, 10) + '/' + s.slice(5, 7) + (s.length > 11 && s.slice(11) !== '00:00' ? ' ' + s.slice(11, 16) : '') : '';
+  const nv = n => n ? Number(n).toLocaleString('es-PE') : '—';
+  const NORTE = ['Tumbes', 'Piura', 'Lambayeque', 'Cajamarca'];
+  let A = null, depA = 'norte';
+  function pintarAfect(j) {
+    A = j || A; if (!A) return;
+    const P = A.peru;
+    const cols = '<th>Damnificados</th><th>Afectados</th><th>Fallecidos</th><th>Heridos</th>';
+    const celdas = t => `<td class="n">${nv(t.damnificados)}</td><td class="n">${nv(t.afectados)}</td><td class="n fall">${nv(t.fallecidos)}</td><td class="n">${nv(t.heridos)}</td>`;
+    const enDep = d => depA === 'todos' ? true : depA === 'norte' ? NORTE.includes(d) : d === depA;
+    const deps = A.departamentos.map(d => d.departamento).sort((a, b) => a.localeCompare(b, 'es'));
+    const provs = A.provincias.filter(p => enDep(p.departamento));
+    const filas = A.filas.filter(f => enDep(f.dep));
+    const porTema = (tema) => A.salud.filter(s => s.tema === tema);
+    const saludTabla = (tema) => `<div class="tabla"><table><thead><tr><th>Lugar</th><th>Indicador</th><th>Cifra</th><th>Corte</th><th>Fuente oficial</th><th>Publicado vía</th></tr></thead><tbody>${porTema(tema).map(s => `<tr><td class="dep">${esc(s.departamento)}</td><td>${esc(s.indicador)}</td><td class="n${/allec/.test(s.indicador) ? ' fall' : ''}">${nf(s.valor)}</td><td>${s.corte ? s.corte.split('-').reverse().join('/') : 's/f'}</td><td>${esc(s.fuente)}</td><td>${s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.via || 'enlace')}</a>` : esc(s.via || '')}</td></tr>`).join('')}</tbody></table></div>`;
+    $('v-afect').innerHTML = `
+      <section><h2>Personas afectadas según el INDECI</h2>
+        <p class="nota">Cifras de los reportes oficiales del COEN-INDECI publicados en el <a href="${esc(A.fuente)}" target="_blank" rel="noopener noreferrer">portal de emergencias del INDECI</a> desde el ${A.desde.split('-').reverse().join('/')}: lluvias, huaicos, inundaciones, deslizamientos, derrumbes, vientos y granizadas. Se leyeron ${nf(A.reportesLeidos)} reportes; el más reciente es del ${A.ultimoReporte ? A.ultimoReporte.split('-').reverse().join('/') : '—'}. Lectura del ${fmtHora.format(new Date(A.generado))}.${A.completo ? '' : ' <b>La primera lectura del periodo aún no termina: faltan reportes antiguos.</b>'}</p>
+        <div class="tabla"><table class="def"><thead><tr><th></th><th>Damnificado</th><th>Afectado</th></tr></thead><tbody>
+          <tr><th>Qué le pasó</th><td>Perdió su vivienda o sus medios de vida: la casa quedó <b>destruida o inhabitable</b>.</td><td>Sufrió daños o molestias, pero su vivienda <b>sigue siendo habitable</b>.</td></tr>
+          <tr><th>Dónde duerme</th><td>Fuera de su casa: con familiares o en un albergue.</td><td>En su casa, en los ambientes que no se dañaron.</td></tr>
+          <tr><th>Qué necesita</th><td>Ayuda inmediata y sostenida: techo temporal, alimentos, abrigo, enseres.</td><td>Ayuda puntual: limpieza, algunos bienes, servicios restablecidos.</td></tr>
+          <tr><th>Gravedad</th><td>Mayor</td><td>Menor</td></tr>
+        </tbody></table></div>
+        <p class="nota">Damnificados y afectados son grupos distintos: cada persona se cuenta en uno solo. No se suman.</p>
+      </section>
+      <section><h2>Total del Perú</h2>
+        <div class="kpis"><div><b>${nv(P.damnificados)}</b><span>damnificados</span></div><div><b>${nv(P.afectados)}</b><span>afectados</span></div><div class="fall"><b>${nv(P.fallecidos)}</b><span>fallecidos</span></div><div><b>${nv(P.heridos)}</b><span>heridos</span></div><div><b>${nv(P.distritos)}</b><span>distritos con reportes</span></div></div>
+        <p class="nota">Suma propia de las cifras oficiales por distrito. Si un distrito tiene varios reportes del mismo fenómeno, se usa el que registra más personas, y se cita completo. Las cifras son preliminares mientras dure la evaluación de daños.</p>
+      </section>
+      <section><h2>Por departamento</h2>
+        <div class="tabla"><table><thead><tr><th>Departamento</th>${cols}<th>Distritos</th></tr></thead><tbody>${A.departamentos.map(d => `<tr${NORTE.includes(d.departamento) ? ' class="norte"' : ''}><td class="dep">${esc(d.departamento)}</td>${celdas(d)}<td class="n">${d.distritos}</td></tr>`).join('')}</tbody></table></div>
+        <p class="nota">Resaltados: los cuatro departamentos que sigue esta página.</p>
+      </section>
+      <section><h2>Por provincia y por distrito</h2>
+        <div class="fila"><div class="campo chico"><label for="a-dep">Departamento</label><select id="a-dep"><option value="norte">Los 4 del norte</option><option value="todos">Todo el Perú</option>${deps.map(d => `<option${d === depA ? ' selected' : ''}>${esc(d)}</option>`).join('')}</select></div></div>
+        <h3 class="sub">Por provincia</h3>
+        <div class="tabla"><table><thead><tr><th>Departamento</th><th>Provincia</th>${cols}</tr></thead><tbody>${provs.map(p => `<tr><td>${esc(p.departamento)}</td><td class="dep">${esc(p.provincia || '(sin provincia)')}</td>${celdas(p)}</tr>`).join('') || '<tr><td colspan="6">Sin reportes con personas.</td></tr>'}</tbody></table></div>
+        <h3 class="sub">Por distrito y motivo</h3>
+        <div class="tabla"><table><thead><tr><th>Departamento</th><th>Provincia – distrito</th><th>Motivo</th>${cols}<th>Corte</th><th>Reporte oficial</th></tr></thead><tbody>${filas.map(f => `<tr><td>${esc(f.dep)}</td><td class="dep">${esc(f.prov ? f.prov + ' – ' : '')}${esc(f.dist)}</td><td>${esc(f.fenomeno)}</td>${celdas(f).replace(/<td class="n">(\d[^<]*)<\/td>/, f.aprox ? '<td class="n">≈ $1</td>' : '$&')}<td>${fCorte(f.corte)}</td><td><a href="${esc(encodeURI(decodeURI(f.url)))}" target="_blank" rel="noopener noreferrer">${esc(f.reporte)}</a></td></tr>`).join('') || '<tr><td colspan="9">Sin reportes con personas.</td></tr>'}</tbody></table></div>
+      </section>
+      <section><h2>Dengue (acumulado 2026)</h2>${saludTabla('Dengue')}</section>
+      <section><h2>Leptospirosis (acumulado 2026)</h2>${saludTabla('Leptospirosis')}
+        <p class="nota">Cifras de salud del MINSA, CDC y Diresa, citadas a través de la nota de prensa indicada; conviene confirmarlas en las salas situacionales del CDC-MINSA.</p></section>
+      <section><h2>Dónde están los datos oficiales</h2>
+        <ul class="acc">
+          <li><a href="https://portal.indeci.gob.pe/emergencias/" target="_blank" rel="noopener noreferrer">Portal de emergencias del INDECI</a>: reportes diarios del COEN con personas damnificadas, afectadas, fallecidas y heridas por distrito. Es la fuente de este cuadro.</li>
+          <li><a href="https://sinpad2.indeci.gob.pe/sinpad2/faces/public/portal.html" target="_blank" rel="noopener noreferrer">SINPAD</a>: el sistema donde los municipios registran la evaluación de daños.</li>
+          <li><a href="https://datosabiertos.gob.pe/dataset/emergencias-hist%C3%B3ricas-registradas-con-sinpad" target="_blank" rel="noopener noreferrer">Datos abiertos – emergencias registradas con SINPAD</a>.</li>
+          <li>Salud: salas situacionales del CDC-MINSA (dengue y leptospirosis).</li>
+        </ul>
+        <p class="nota">Las cifras se copian de cada reporte tal como las publica el INDECI. Las sumas por provincia, departamento y país son un cálculo de esta página. Un mismo distrito puede tener cifras distintas en un reporte departamental y en uno distrital de otra fecha: aquí se usa el que registra más personas, por eso los totales pueden superar a los consolidados del INDECI.</p>
+      </section>`;
+    $('a-dep').addEventListener('change', e => { depA = e.target.value; const y = window.scrollY; pintarAfect(); window.scrollTo({ top: y }); });
+  }
 
   // ---------- Vista de conclusiones ----------
   const fDia = iso => iso ? new Intl.DateTimeFormat('es-PE', { timeZone: 'America/Lima', day: '2-digit', month: '2-digit' }).format(new Date(iso)) : '';

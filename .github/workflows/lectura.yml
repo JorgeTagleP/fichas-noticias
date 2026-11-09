@@ -35,7 +35,7 @@ concurrency:
 jobs:
   lectura:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
 
@@ -52,10 +52,21 @@ jobs:
       - name: Armar conclusiones para la emergencia
         run: node conclusiones.mjs
 
+      - name: Leer los reportes del INDECI (personas afectadas)
+        # Si el portal del INDECI no responde, la página se publica igual con las noticias.
+        continue-on-error: true
+        timeout-minutes: 8
+        run: |
+          sudo apt-get install -y -qq poppler-utils >/dev/null
+          # Memoria de los reportes ya leídos (se guarda en la rama «datos»)
+          git fetch -q --depth 1 origin datos && git show origin/datos:indeci-cache.json > indeci-cache.json || echo "Sin memoria previa: se leerá desde el inicio."
+          node afectados.mjs
+
       - name: Preparar la página
         run: |
           mkdir -p _site
           cp index.html fichas.json conclusiones.json _site/
+          [ -f afectados.json ] && cp afectados.json _site/ || echo "Sin afectados.json en esta lectura."
           cp conclusiones.md evaluacion.md _site/ 2>/dev/null || true
 
       - uses: actions/upload-pages-artifact@v3
@@ -69,6 +80,7 @@ jobs:
         run: |
           D=$(mktemp -d)
           cp fichas.json conclusiones.json conclusiones.md evaluacion.json evaluacion.md "$D"/
+          cp afectados.json indeci-cache.json "$D"/ 2>/dev/null || true
           cd "$D"
           git init -q -b datos
           git add .
