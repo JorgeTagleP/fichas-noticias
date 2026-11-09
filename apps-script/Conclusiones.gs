@@ -236,7 +236,9 @@ const SENALES = [
   { id: 'dengue',       grupo: 'salud', peso: 6,  nombre: 'Dengue', re: /dengue|zancudo|aedes/ },
   { id: 'leptospirosis',grupo: 'salud', peso: 6,  nombre: 'Leptospirosis', re: /leptospir/ },
   { id: 'agua',         grupo: 'salud', peso: 4,  nombre: 'Agua potable y desagüe', re: /agua potable|desague|aguas residuales|alcantarillado|colaps\w* (de )?desag/ },
-  { id: 'brecha',       grupo: 'brecha',peso: 5,  nombre: 'Brecha en la atención', re: /no cuenta|sin (banos|techo|grupo electrogeno|presupuesto|apoyo|fondos|respuesta|camas)|falta de|no soporto|no estan preparados|denuncia|cuestiona|\bcritica (a|al|la|el|las|los|falta|demora|lentitud)\b|(alcalde|gobernador|congresista|defensoria|poblacion|vecinos|dirigentes?|pobladores) critica|exige|exigen|piden|pide (ayuda|maquinaria)|reclam|sin ejecucion|medio motor|desabastec|no supera|solo hay|solo s\// },
+  { id: 'brecha',       grupo: 'brecha',peso: 5,  nombre: 'Brecha en la atención', re: /no cuenta|sin (banos|techo|grupo electrogeno|presupuesto|apoyo|fondos|respuesta|camas)|falta de|no soporto|no estan preparados|denuncia|cuestiona|\bcritica (a|al|la|el|las|los|falta|demora|lentitud)\b|(alcalde|gobernador|congresista|defensoria|poblacion|vecinos|dirigentes?|pobladores) critica|exige|exigen|piden|pide (ayuda|maquinaria)|reclam|sin ejecucion|medio motor|desabastec|no supera|solo hay|solo s\/|obra\w* (\w+ )?pone\w* en (peligro|riesgo)/ },
+  // 09/11/2026 16:20: «Piura: Una obra pone en peligro a la población ante El Niño» (Correo) no sumaba ninguna señal;
+  // una obra que pone en riesgo a la población es una brecha. Solo con «obra», para no contar avisos del SENAMHI («… que pone en riesgo a Piura»).
 ];
 // 08/11/2026 (corrida 5): en «brecha», «critica» suelto coincidía con «zonas críticas» o «situación crítica»
 // («Ejército despliega militares y motobombas en zonas críticas» salía como brecha). Ahora solo cuenta el verbo
