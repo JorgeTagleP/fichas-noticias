@@ -218,12 +218,16 @@ const edadDias = f => (AHORA - new Date(f.publicada)) / 864e5;
 
 // Titulares que el lector ubica mal (lugares homónimos de otras regiones o países).
 // Si aparece otro caso, se agrega aquí, sin tildes y en minúsculas.
-const FUERA_DE_ZONA = /nueva cajamarca|calarca|oxapampa|alianza atletico|fc cajamarca|liga 1/;
+// 09/11/2026 13:20: se agregan «ibague», «tolima», «quindio» y «las mariposas»: Cajamarca de Colombia
+// (vía Cajamarca–Ibagué, túnel Las Mariposas) sumaba heridos y accidentes a Cajamarca del Perú.
+const FUERA_DE_ZONA = /nueva cajamarca|calarca|ibague|tolima|quindio|las mariposas|oxapampa|alianza atletico|fc cajamarca|liga 1/;
 
 // ---------- 1. Señales de peligro para las personas ----------
 // peso = cuánto suma al puntaje de prioridad de un lugar.
 const SENALES = [
-  { id: 'muertes',      grupo: 'vida',  peso: 10, nombre: 'Muertes o personas arrastradas', re: /fallec|muert|ahog|sin vida|arrastrad|cadaver|desaparecid/ },
+  // 09/11/2026 13:20: se agrega «río/corriente/huaico arrastra…»: «Río arrastra camioneta con una mujer y niños a bordo
+  // en Cajamarca» (rescate) no sumaba porque solo se buscaba «arrastrad».
+  { id: 'muertes',      grupo: 'vida',  peso: 10, nombre: 'Muertes o personas arrastradas', re: /fallec|muert|ahog|sin vida|arrastrad|(?:rio|corriente|caudal|huaico|quebrada)s? (?:se )?(?:lo |la |los |las |le )?arrastra|cadaver|desaparecid/ },
   // 08/11/2026 05:15: se agrega «aisla»/«aislan» (verbo): «crecida del río Zaña destruye puente y aisla a 4 caseríos» no se detectaba.
   { id: 'aislamiento',  grupo: 'vida',  peso: 8,  nombre: 'Aislamiento o vías cortadas', re: /aislad|\baislan?\b|incomunicad|interrump|bloque\w* (la )?(via|carretera|transito)|puente\w* (artesanal )?(\w+ )?(colaps|cae|cay|arras|destru)|colapso de(l)? puente|arrasa con (el )?puente|queda aislado|via cerrada|cerrad\w* (el )?(transito|tunel)/ },
   { id: 'desborde',     grupo: 'vida',  peso: 8,  nombre: 'Desborde o crecida de ríos', re: /desbord|crecida|umbral rojo|supera\w* (el )?(umbral|alerta roja)|nivel critico|caudal/ },
