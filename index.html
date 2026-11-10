@@ -159,6 +159,10 @@ footer { margin-top: 32px; font-size: 12.5px; color: var(--muted); display: grid
 .tabla th, .tabla td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
 .tabla thead th { font: 600 11.5px/1.3 var(--f-ui); text-transform: uppercase; letter-spacing: .04em; color: var(--muted); background: var(--bg); white-space: nowrap; }
 .tabla td.n { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+/* Columnas de cifras: angostas (solo lo que ocupa el título) y alineadas a la derecha, igual que su número,
+   para que cada cantidad quede debajo de su título. El espacio sobrante va a los nombres. */
+.tabla th.n, .tabla td.n { width: 1%; text-align: right; padding-left: 14px; }
+.tabla th.n + th.n, .tabla td.n + td.n { border-left: 1px solid var(--line); }
 .tabla td.dep { font-weight: 600; }
 .tabla .fall { color: var(--emerg); }
 .tabla tr.norte td { background: var(--accent-soft); }
@@ -395,7 +399,7 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
   function pintarAfect(j) {
     A = j || A; if (!A) return;
     const P = A.peru;
-    const cols = '<th>Damnificados</th><th>Afectados</th><th>Fallecidos</th><th>Heridos</th>';
+    const cols = '<th class="n">Damnificados</th><th class="n">Afectados</th><th class="n">Fallecidos</th><th class="n">Heridos</th>';
     const celdas = t => `<td class="n">${nv(t.damnificados)}</td><td class="n">${nv(t.afectados)}</td><td class="n fall">${nv(t.fallecidos)}</td><td class="n">${nv(t.heridos)}</td>`;
     const enDep = d => depA === 'todos' ? true : depA === 'norte' ? NORTE.includes(d) : d === depA;
     const deps = A.departamentos.map(d => d.departamento).sort((a, b) => a.localeCompare(b, 'es'));
@@ -419,7 +423,7 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
         <p class="nota">Suma propia de las cifras oficiales por distrito. Si un distrito tiene varios reportes del mismo fenómeno, se usa el que registra más personas, y se cita completo. Las cifras son preliminares mientras dure la evaluación de daños.</p>
       </section>
       <section><h2>Por departamento</h2>
-        <div class="tabla"><table><thead><tr><th>Departamento</th>${cols}<th>Distritos</th></tr></thead><tbody>${A.departamentos.map(d => `<tr${NORTE.includes(d.departamento) ? ' class="norte"' : ''}><td class="dep">${esc(d.departamento)}</td>${celdas(d)}<td class="n">${d.distritos}</td></tr>`).join('')}</tbody></table></div>
+        <div class="tabla"><table><thead><tr><th>Departamento</th>${cols}<th class="n">Distritos</th></tr></thead><tbody>${A.departamentos.map(d => `<tr${NORTE.includes(d.departamento) ? ' class="norte"' : ''}><td class="dep">${esc(d.departamento)}</td>${celdas(d)}<td class="n">${d.distritos}</td></tr>`).join('')}</tbody></table></div>
         <p class="nota">Resaltados: los cuatro departamentos que sigue esta página.</p>
       </section>
       <section><h2>Por provincia y por distrito</h2>
