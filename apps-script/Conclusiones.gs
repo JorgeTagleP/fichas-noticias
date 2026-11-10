@@ -2,7 +2,7 @@
  * Una Sola Fuerza – Conclusiones para la emergencia (versión Google Workspace)
  *
  * NO EDITAR AQUÍ: este archivo lo genera preparar-apps-script.mjs a partir de
- * conclusiones.mjs y oficiales.json (2026-11-09).
+ * conclusiones.mjs y oficiales.json (2026-11-10).
  * Para cambiar una regla, se cambia conclusiones.mjs y se vuelve a preparar.
  *
  * Qué hace: toma las fichas de la pestaña Fichas y arma la pestaña

@@ -425,7 +425,9 @@ if (fs.existsSync(ver)) {
 
 // Versión para leer o pegar en un documento.
 const fd = iso => iso.slice(8, 10) + '/' + iso.slice(5, 7);
-let md = `# Conclusiones para enfrentar la emergencia – lectura del ${generado.slice(0, 10)}\n\n${salida.aviso}\n\n`;
+// La fecha del encabezado va en hora de Lima: generado está en UTC y después de las 19:00 mostraba el día siguiente.
+const fechaLima = new Date(generado).toLocaleString('sv-SE', { timeZone: 'America/Lima' }).slice(0, 16);
+let md = `# Conclusiones para enfrentar la emergencia – lectura del ${fechaLima} (hora de Lima)\n\n${salida.aviso}\n\n`;
 md += frases.map(f => `- ${f}`).join('\n') + '\n\n## Ejes del Gobierno frente a El Niño\n\n' + salida.ejes.map(e =>
   `### ${e.nombre}\n\n> ${e.cita} ([${e.fuente}](${e.url}))\n\nNoticias: ${e.menciones} (${e.recientes} en la última semana) · ${Object.entries(e.estados).map(([s, n]) => `${s} ${n}`).join(' · ')}\n`
   + e.compromisos.map(k => `\n- ${k.nombre}: ${k.menciones} noticias${k.problemas ? `, ${k.problemas} con problemas` : ''}`).join('')
