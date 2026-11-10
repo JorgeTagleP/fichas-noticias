@@ -295,6 +295,10 @@ const OBRA_AGUA = /inician obra|\bobras? de (agua|saneamiento|alcantarillado)|me
 // sin lluvia ni El Niño en el titular. Si el problema es «constante» y el titular no nombra el clima, no suma agua ni brecha.
 const CRONICO = /\bconstantes? (colaps|aniego|fuga)/;
 const CLIMA = /lluvia|inund|desbord|el nino|huaico|quebrad|precipitac/;
+// 09/11/2026 22:10: «Detectan riesgo eléctrico en puestos frente a cementerio en Sullana» sumaba «Rayos y riesgo eléctrico»
+// y ponía a Sullana en prioridad Alta: es una inspección de puestos, sin lluvia ni tormenta. El riesgo eléctrico solo
+// cuenta si el titular nombra rayos, tormentas o el clima.
+const ELECTRICO_CLIMA = /rayo|tormenta/;
 // 08/11/2026 (corrida 5): «Contraloría supervisa limpieza de quebradas en Huancabamba» sumaba «Huaicos y quebradas activas»:
 // es trabajo preventivo, no una quebrada activa. Esos titulares no suman la señal de huaicos (siguen contando como proyecto).
 const PREVENCION_QUEBRADA = /limpieza de (las )?quebradas?|descolmatac\w* de (las? )?quebradas?/;
@@ -368,7 +372,7 @@ for (const f of fichas) {
   if (!UTILES.has(f.tema)) continue;
   const t = norm(f.titulo);
   if (FUERA_DE_ZONA.test(t)) continue;
-  const senales = CONTEXTO.test(t) ? SENALES.filter(s => s.re.test(t) && !(HIPOTETICO.test(t) && s.grupo === 'vida') && !(s.id === 'agua' && OBRA_AGUA.test(t)) && !((s.id === 'agua' || s.id === 'brecha') && CRONICO.test(t) && !CLIMA.test(t)) && !(s.id === 'huaicos' && PREVENCION_QUEBRADA.test(t)) && !(s.id === 'desborde' && DESBORDE_FIGURADO.test(t)) && !((s.id === 'huaicos' || s.id === 'desborde' || s.id === 'aislamiento') && PELIGRO_NO_OCURRIDO.test(t)) && !(s.id === 'muertes' && MUERTE_SALUD.test(t)) && !(s.id === 'brecha' && PREVENCION_BRECHA.test(t)) && !(s.id === 'damnificados' && DONACION_ALBERGUE.test(t) && !/evacu|damnificad|inhabitable|colaps|destruid/.test(t))).map(s => s.id) : [];
+  const senales = CONTEXTO.test(t) ? SENALES.filter(s => s.re.test(t) && !(HIPOTETICO.test(t) && s.grupo === 'vida') && !(s.id === 'agua' && OBRA_AGUA.test(t)) && !(s.id === 'electrico' && !ELECTRICO_CLIMA.test(t) && !CLIMA.test(t)) && !((s.id === 'agua' || s.id === 'brecha') && CRONICO.test(t) && !CLIMA.test(t)) && !(s.id === 'huaicos' && PREVENCION_QUEBRADA.test(t)) && !(s.id === 'desborde' && DESBORDE_FIGURADO.test(t)) && !((s.id === 'huaicos' || s.id === 'desborde' || s.id === 'aislamiento') && PELIGRO_NO_OCURRIDO.test(t)) && !(s.id === 'muertes' && MUERTE_SALUD.test(t)) && !(s.id === 'brecha' && PREVENCION_BRECHA.test(t)) && !(s.id === 'damnificados' && DONACION_ALBERGUE.test(t) && !/evacu|damnificad|inhabitable|colaps|destruid/.test(t))).map(s => s.id) : [];
   const proyectos = ES_PROYECTO.test(t) ? PROYECTOS.filter(p => p.re.test(t)).map(p => p.id) : [];
   clasificadas.push({ f, t, senales, proyectos, respuesta: RESPUESTA.test(t), pronostico: PRONOSTICO.test(t) && !PRONOSTICO_GENERICO.test(t) });
 }
