@@ -111,7 +111,10 @@ const HIPOTETICO = /se veria inundad|no se va a inundar|evitar futura inundac|po
 // 09/11/2026 10:10: «Senamhi alerta sobre … posibles huaicos en Ayabaca» sumaba «Huaicos» y «trabajos de descolmatación evitan desborde del río Tumbes»
 // sumaba «Desborde»: son avisos o peligros evitados, no daños ocurridos. No suman huaicos ni desborde.
 // 09/11/2026 tarde: «activan "puente terrestre" para evitar que Morropón quede aislada» sumaba «Aislamiento»; es prevención. También excluye aislamiento.
-const PELIGRO_NO_OCURRIDO = /posibles? (huaicos?|desbordes?)|evita\w* (el )?desborde|evitar que \w+( \w+)? queden? aislad/;
+// 10/11/2026 12:20: «Río Piura: colegio de ingenieros advierte riesgo de desborde en el sector La Mariposa…» y
+// «Alcalde de Piura … advierte riesgo de desborde del río» sumaban «Desborde»; son advertencias. Solo con «advierte»,
+// para no excluir «río supera alerta roja por riesgo de desborde» (crecida real en Zarumilla).
+const PELIGRO_NO_OCURRIDO = /posibles? (huaicos?|desbordes?)|evita\w* (el )?desborde|evitar que \w+( \w+)? queden? aislad|advierte\w* (el )?riesgo de desborde/;
 const DESBORDE_FIGURADO = /(dengue|casos|contagios|epidemia)\w* se desbord/;
 // 08/11/2026 (corrida 7): «Lambayeque: 18 fallecidos por dengue…» sumaba «Muertes o personas arrastradas» y
 // daba la acción «Señalizar o cercar el peligro (ríos, reservorios…)», que no sirve para el dengue.
