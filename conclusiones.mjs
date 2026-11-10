@@ -189,11 +189,16 @@ const ES_PROYECTO = /\brefuerzan?\b|supervisa|preventiv|obra|proyecto|construc|e
 // de Chutuque» no contaba como proyecto: se agregan «encauza(n)», «descarta» y «prioriza».
 // 09/11/2026 17:10: «Colegio de Ingenieros califica de "engaño" afirmar que el río Piura soportará 4000 m³/s tras
 // descolmatación» salía «Mencionado» en defensas y como avance del eje de descolmatación: «engaño» cuenta como conflicto.
+// 10/11/2026 10:30: «Keiko Fujimori descarta salida del río Piura por Sechura…» salía «Mencionado», aunque el
+// proyecto queda detenido por decisión del Gobierno: «descarta(n)» cuenta como «Atrasado».
+// 10/11/2026 10:30: «con apoyo privado ejecutan descolmatación en canal… laguna Ramón» y «trabajos de descolmatación
+// del Ejército evitan desborde del río Tumbes» salían «Mencionado»: «ejecuta(n)» y «trabajos de descolmatación/
+// limpieza/encauzamiento» cuentan como «En curso» («ejecuc» no reconocía el verbo).
 function estadoProyecto(t) {
   if (/\bengano\b|rechaz|en pie de lucha|no permitiran|conflicto|anula/.test(t)) return 'En conflicto';
-  if (/sin ejecucion|pendiente|paraliz|medio motor|atras|10 anos|no estara lista|posterga/.test(t)) return 'Atrasado';
+  if (/sin ejecucion|pendiente|paraliz|medio motor|atras|10 anos|no estara lista|posterga|\bdescartan?\b/.test(t)) return 'Atrasado';
   if (/piden|pide|exige|solicita|reclam|demanda/.test(t)) return 'Pedido';
-  if (/inicia|ejecuc|avanza|concluye|encauzan|buena pro|destina|invertira|retira|impulsa|cofinanciara|reforzaran|despliega|supervisa|\blimpian?\b|\brefuerzan?\b/.test(t)) return 'En curso';
+  if (/inicia|ejecuc|\bejecutan?\b|trabajos de (descolmatacion|limpieza|encauzamiento)|avanza|concluye|encauzan|buena pro|destina|invertira|retira|impulsa|cofinanciara|reforzaran|despliega|supervisa|\blimpian?\b|\brefuerzan?\b/.test(t)) return 'En curso';
   return 'Mencionado';
 }
 
