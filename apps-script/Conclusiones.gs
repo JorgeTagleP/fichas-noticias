@@ -311,7 +311,9 @@ const SALUD_RESPUESTA = /refuerza|instala|vacunacion en|campana contra|fumiga|ca
 const SALUD_BROTE = /casos|brote|epidemia|muert|fallec|contagi|aument|alerta|solo hay|camas|colaps/;
 // 08/11/2026 19:10: «Tumbes: adoptan medidas para evitar colapso de hospitales y desabastecimiento de medicinas» salía como brecha
 // por «desabastec»; es una medida preventiva, no una falla. Las «medidas para evitar/prevenir» no suman brecha.
-const PREVENCION_BRECHA = /medidas para (evitar|prevenir)/;
+// 10/11/2026 18:20: «SUNASS advierte que Cajamarca desperdicia agua de lluvias por falta de reservorios y urge… ejecutar presa Chonta»
+// salía como la brecha de atención más reciente; es una obra pendiente (proyecto), no una falla en la atención a la población.
+const PREVENCION_BRECHA = /medidas para (evitar|prevenir)|falta de reservorios/;
 // 08/11/2026 (corrida 4): «Inician obra de agua y alcantarillado en Chiclayo con inversión de S/ 12 millones»
 // y «… siguen esperando megaproyecto de saneamiento» sumaban la señal de peligro «Agua potable y desagüe»:
 // son obras o reclamos de obra, no un daño que esté ocurriendo. No suman esa señal (siguen contando como proyecto).
@@ -370,7 +372,8 @@ const PROYECTOS = [
 // como proyecto de patrimonio (Piura no aparecía): se agregan «supervisa» y «preventiv»; «supervisa» cuenta como «En curso».
 // 10/11/2026 03:30: «El Niño y dengue: Essalud refuerza atención hospitalaria y vacunación en Tumbes y Piura» no contaba en
 // «Hospitales y salud preparada» (solo se buscaba «reforz»): se agrega «refuerza(n)» como palabra completa; cuenta «En curso».
-const ES_PROYECTO = /\brefuerzan?\b|supervisa|preventiv|obra|proyecto|construc|ejecuc|invert|inversion|destina|millones|ampliacion|buena pro|propuesta|plan\b|estudio|exige|piden|pide|solicita|pendiente|reforz|impulsa|meta|protege|limpieza|\blimpian?\b|descolmat|retira|rechaz|anula|descarta|prioriza|encauza/;
+// 10/11/2026 18:20: «urge (ejecutar una obra)» cuenta como proyecto pedido.
+const ES_PROYECTO = /\burge\b|\brefuerzan?\b|supervisa|preventiv|obra|proyecto|construc|ejecuc|invert|inversion|destina|millones|ampliacion|buena pro|propuesta|plan\b|estudio|exige|piden|pide|solicita|pendiente|reforz|impulsa|meta|protege|limpieza|\blimpian?\b|descolmat|retira|rechaz|anula|descarta|prioriza|encauza/;
 // 09/11/2026 05:xx: «Piura: limpian drenes Sechura y 1308 ante posibles lluvias intensas» no contaba como proyecto
 // (solo se buscaba «limpieza»): se agrega el verbo «limpia(n)», que cuenta como «En curso».
 // 08/11/2026 12:10: «Encauzan el río Chancay-Lambayeque para reducir riesgos…» no contaba como defensa ribereña
@@ -386,7 +389,7 @@ const ES_PROYECTO = /\brefuerzan?\b|supervisa|preventiv|obra|proyecto|construc|e
 function estadoProyecto(t) {
   if (/\bengano\b|rechaz|en pie de lucha|no permitiran|conflicto|anula/.test(t)) return 'En conflicto';
   if (/sin ejecucion|pendiente|paraliz|medio motor|atras|10 anos|no estara lista|posterga|\bdescartan?\b/.test(t)) return 'Atrasado';
-  if (/piden|pide|exige|solicita|reclam|demanda/.test(t)) return 'Pedido';
+  if (/piden|pide|exige|solicita|reclam|demanda|\burge\b/.test(t)) return 'Pedido';
   if (/inicia|ejecuc|\bejecutan?\b|trabajos de (descolmatacion|limpieza|encauzamiento)|avanza|concluye|encauzan|buena pro|destina|invertira|retira|impulsa|cofinanciara|reforzaran|despliega|supervisa|\blimpian?\b|\brefuerzan?\b/.test(t)) return 'En curso';
   return 'Mencionado';
 }
