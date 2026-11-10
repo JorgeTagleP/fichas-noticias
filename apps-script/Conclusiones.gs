@@ -223,7 +223,9 @@ const edadDias = f => (AHORA - new Date(f.publicada)) / 864e5;
 // 10/11/2026: «Ucayali: grifos en Pucallpa sin combustible tras huaico…» (otra región) salía como «con problemas» en la
 // respuesta humanitaria. Se excluyen titulares encabezados por «Ucayali:» o centrados en Pucallpa; no se excluye «Ucayali» suelto
 // porque aparece en listas de regiones junto a Lambayeque (visita papal) sin ser la noticia principal.
-const FUERA_DE_ZONA = /nueva cajamarca|calarca|ibague|tolima|quindio|las mariposas|oxapampa|alianza atletico|fc cajamarca|liga 1|^ucayali:|en pucallpa/;
+const FUERA_DE_ZONA = /nueva cajamarca|calarca|ibague|tolima|quindio|las mariposas|oxapampa|alianza atletico|fc cajamarca|liga 1|^ucayali:|en pucallpa|en ucayali|federico basadre/;
+// 10/11/2026 14:20: «Ministro de Transportes descartó desabastecimiento de combustibles en Ucayali tras un huaico en la
+// carretera Federico Basadre» entraba como brecha e infraestructura con problemas de Lambayeque; es de Ucayali (fuera de la zona).
 
 // ---------- 1. Señales de peligro para las personas ----------
 // peso = cuánto suma al puntaje de prioridad de un lugar.
