@@ -285,7 +285,9 @@ const DONACION_ALBERGUE = /kits? educativ|pelotas|juguetes|utiles escolares/;
 // (Solo en condicional: «en riesgo de inundac» suelto quitaba «río Zarumilla alcanza nivel crítico…», una crecida real.)
 // «Tumbes: instalan tres albergues para damnificados...» (titular cortado de la nota del 09/11 ya excluida) sumaba damnificados;
 // instalar albergues es preparación/respuesta: «instalan N albergues».
-const HIPOTETICO = /se veria inundad|no se va a inundar|evitar futura inundac|pondria en riesgo|por riesgo de inundac|estarian en riesgo de inundac|simulacro|que resulten damnificad|instalan \w+ albergues|no a la emergencia actual|video viral\w* .*corresponde a|antiguas culturas|sacrificaban/;
+// 10/11/2026 16:30: «Chiclayo cuenta con 45 puntos críticos de inundaciones» sumaba «Inundaciones urbanas» y ponía a Chiclayo
+// en tendencia «sube»; es un inventario de puntos de riesgo (preparación), no una inundación ocurrida: «puntos críticos de inundac».
+const HIPOTETICO = /se veria inundad|no se va a inundar|evitar futura inundac|pondria en riesgo|por riesgo de inundac|estarian en riesgo de inundac|simulacro|que resulten damnificad|instalan \w+ albergues|no a la emergencia actual|video viral\w* .*corresponde a|antiguas culturas|sacrificaban|puntos criticos de inundac/;
 // 08/11/2026 (corrida 7): «Dengue se desborda en Lambayeque» sumaba «Desborde o crecida de ríos»:
 // es un uso figurado (aumento de casos). No suma esa señal (sigue contando como dengue).
 // 09/11/2026 10:10: «Senamhi alerta sobre … posibles huaicos en Ayabaca» sumaba «Huaicos» y «trabajos de descolmatación evitan desborde del río Tumbes»
