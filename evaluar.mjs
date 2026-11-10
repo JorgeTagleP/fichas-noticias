@@ -59,6 +59,9 @@ function delDepartamento(f, dep) {
   const t = norm(f.titulo);
   if (dep === '*') return PAIS.test(t);
   if (!f.departamentos.includes(dep)) return false;
+  // 10/11/2026: «Sullana: Más de 7 mil casos de dengue en la Subregión» es una cifra de la subregión
+  // o provincia, no del departamento; si el titular no nombra el departamento, no se compara
+  if (/\b(subregion|provincia)\b/.test(t) && !t.includes(norm(dep))) return false;
   // el titular debe nombrar el departamento o uno de sus lugares, y no otro departamento con cifras propias
   return t.includes(norm(dep)) || (f.lugares || []).some(l => l.departamento === dep && l.ubigeo.length > 2);
 }
