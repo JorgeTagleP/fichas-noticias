@@ -268,7 +268,10 @@ async function leer(fuente) {
 //
 // Resultado: la lista de lugares (departamento › provincia › distrito) de la noticia.
 function ubicar(item) {
-  const texto = norm(item.titulo);   // solo el titular: los resúmenes de radio traen el nombre de la emisora y su ciudad
+  // 10/11/2026: se quita «BAP <nombre>» (buques de la Marina, como el BAP Paita) para que el
+  // nombre del barco no ubique la noticia en ese distrito. Paita no va a AMBIGUOS porque
+  // casi siempre que aparece se refiere a la provincia real.
+  const texto = norm(item.titulo).replace(/\bbap [a-z]+/g, ' ');   // solo el titular: los resúmenes de radio traen el nombre de la emisora y su ciudad
   const deps = DEPARTAMENTOS.filter(d => tiene(texto, d));
   const encontrados = [];
   for (const { d, claves } of nombres) {
