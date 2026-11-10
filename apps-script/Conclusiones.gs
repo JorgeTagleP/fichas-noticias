@@ -595,6 +595,10 @@ const aisl = precisos.filter(r => r.senales.some(s => s.id === 'aislamiento')).s
 if (aisl.length) frases.push(`Riesgo de aislamiento en ${listaN(aisl.map(r => r.nombre))}: abastecer antes del corte de vías.`);
 const sube = precisos.filter(r => r.tendencia === 'sube' && r.prioridad !== 'Media').slice(0, 5);
 if (sube.length) frases.push(`Aumentan las noticias de peligro en los últimos 3 días en ${listaN(sube.map(r => r.nombre))}.`);
+// 10/11/2026 15:20: «Fenómeno El Niño: Senamhi emite aviso rojo por lluvias en Tumbes, Piura y otras regiones» (TVPerú, 10/11)
+// solo aparecía en la lista de pronóstico; el aviso rojo es el nivel máximo y debe estar en el resumen para el coordinador.
+const avisoRojo = pronostico.filter(p => /aviso rojo|alerta roja|nivel rojo/i.test(p.titulo));
+if (avisoRojo.length) frases.push(`Aviso rojo en las noticias de los últimos 3 días: «${avisoRojo[0].titulo}» (${avisoRojo[0].medio}). Confirmar el aviso vigente en senamhi.gob.pe y activar la evacuación preventiva de las zonas expuestas.`);
 const sal = salud.filter(s => s.dengue + s.leptospirosis > 0).sort((a, b) => (b.dengue + b.leptospirosis) - (a.dengue + a.leptospirosis));
 if (sal.length) frases.push(`Salud: ${listaN(sal.map(s => `${s.departamento} (${s.dengue} ${s.dengue === 1 ? 'noticia' : 'noticias'} de dengue${s.leptospirosis ? `, ${s.leptospirosis} de leptospirosis` : ''})`))}.`);
 if (brechas.length) frases.push(`${brechas.length} noticias recientes señalan brechas en la atención; la más reciente: «${brechas[0].titulo}».`);
