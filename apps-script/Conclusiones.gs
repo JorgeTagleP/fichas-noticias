@@ -278,7 +278,12 @@ const CONTEXTO = /falta de agua (hace|desde|por)|dias sin agua|lluvia|precipitac
 const DONACION_ALBERGUE = /kits? educativ|pelotas|juguetes|utiles escolares/;
 // 09/11/2026 21:10: «Antiguas culturas del Perú sacrificaban personas tras inundaciones de El Niño…» (nota de
 // arqueología) sumaba «Inundaciones urbanas» a Lambayeque; los hechos históricos no suman señales de vida.
-const HIPOTETICO = /se veria inundad|no se va a inundar|evitar futura inundac|pondria en riesgo|por riesgo de inundac|simulacro|que resulten damnificad|no a la emergencia actual|video viral\w* .*corresponde a|antiguas culturas|sacrificaban/;
+// 10/11/2026 13:30: «Piura: más de 300 hectáreas estarían en riesgo de inundación por deterioro del dique La Mariposa» sumaba
+// «Inundaciones urbanas» y era la ficha de peligro más reciente de Piura; es una advertencia (aún no hay inundación): «estarían en riesgo de inundac».
+// (Solo en condicional: «en riesgo de inundac» suelto quitaba «río Zarumilla alcanza nivel crítico…», una crecida real.)
+// «Tumbes: instalan tres albergues para damnificados...» (titular cortado de la nota del 09/11 ya excluida) sumaba damnificados;
+// instalar albergues es preparación/respuesta: «instalan N albergues».
+const HIPOTETICO = /se veria inundad|no se va a inundar|evitar futura inundac|pondria en riesgo|por riesgo de inundac|estarian en riesgo de inundac|simulacro|que resulten damnificad|instalan \w+ albergues|no a la emergencia actual|video viral\w* .*corresponde a|antiguas culturas|sacrificaban/;
 // 08/11/2026 (corrida 7): «Dengue se desborda en Lambayeque» sumaba «Desborde o crecida de ríos»:
 // es un uso figurado (aumento de casos). No suma esa señal (sigue contando como dengue).
 // 09/11/2026 10:10: «Senamhi alerta sobre … posibles huaicos en Ayabaca» sumaba «Huaicos» y «trabajos de descolmatación evitan desborde del río Tumbes»
