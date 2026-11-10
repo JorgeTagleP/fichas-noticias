@@ -47,7 +47,10 @@ const edadDias = f => (AHORA - new Date(f.publicada)) / 864e5;
 // Si aparece otro caso, se agrega aquí, sin tildes y en minúsculas.
 // 09/11/2026 13:20: se agregan «ibague», «tolima», «quindio» y «las mariposas»: Cajamarca de Colombia
 // (vía Cajamarca–Ibagué, túnel Las Mariposas) sumaba heridos y accidentes a Cajamarca del Perú.
-const FUERA_DE_ZONA = /nueva cajamarca|calarca|ibague|tolima|quindio|las mariposas|oxapampa|alianza atletico|fc cajamarca|liga 1/;
+// 10/11/2026: «Ucayali: grifos en Pucallpa sin combustible tras huaico…» (otra región) salía como «con problemas» en la
+// respuesta humanitaria. Se excluyen titulares encabezados por «Ucayali:» o centrados en Pucallpa; no se excluye «Ucayali» suelto
+// porque aparece en listas de regiones junto a Lambayeque (visita papal) sin ser la noticia principal.
+const FUERA_DE_ZONA = /nueva cajamarca|calarca|ibague|tolima|quindio|las mariposas|oxapampa|alianza atletico|fc cajamarca|liga 1|^ucayali:|en pucallpa/;
 
 // ---------- 1. Señales de peligro para las personas ----------
 // peso = cuánto suma al puntaje de prioridad de un lugar.
