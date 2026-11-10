@@ -112,6 +112,11 @@ const DESBORDE_FIGURADO = /(dengue|casos|contagios|epidemia)\w* se desbord/;
 // daba la acción «Señalizar o cercar el peligro (ríos, reservorios…)», que no sirve para el dengue.
 // Las muertes por dengue o leptospirosis cuentan en su señal de salud, no en «muertes».
 const MUERTE_SALUD = /dengue|leptospir/;
+// 10/11/2026 05:20: «El Niño y dengue: Essalud refuerza atención hospitalaria y vacunación en Tumbes y Piura» y
+// «Tumbes: Ejército instala hospital de campaña para atender dengue…» sumaban la señal «Dengue» (peligro) y eran
+// la ficha más reciente de peligro en Tumbes; son respuesta, no brote. Sin palabras de brote no suman dengue/lepto.
+const SALUD_RESPUESTA = /refuerza|instala|vacunacion en|campana contra|fumiga|capacita|prepara a/;
+const SALUD_BROTE = /casos|brote|epidemia|muert|fallec|contagi|aument|alerta|solo hay|camas|colaps/;
 // 08/11/2026 19:10: «Tumbes: adoptan medidas para evitar colapso de hospitales y desabastecimiento de medicinas» salía como brecha
 // por «desabastec»; es una medida preventiva, no una falla. Las «medidas para evitar/prevenir» no suman brecha.
 const PREVENCION_BRECHA = /medidas para (evitar|prevenir)/;
@@ -203,7 +208,7 @@ for (const f of fichas) {
   if (!UTILES.has(f.tema)) continue;
   const t = norm(f.titulo);
   if (FUERA_DE_ZONA.test(t)) continue;
-  const senales = CONTEXTO.test(t) ? SENALES.filter(s => s.re.test(t) && !(HIPOTETICO.test(t) && s.grupo === 'vida') && !(s.id === 'agua' && OBRA_AGUA.test(t)) && !(s.id === 'electrico' && !ELECTRICO_CLIMA.test(t) && !CLIMA.test(t)) && !((s.id === 'agua' || s.id === 'brecha') && CRONICO.test(t) && !CLIMA.test(t)) && !(s.id === 'huaicos' && PREVENCION_QUEBRADA.test(t)) && !(s.id === 'desborde' && DESBORDE_FIGURADO.test(t)) && !((s.id === 'huaicos' || s.id === 'desborde' || s.id === 'aislamiento') && PELIGRO_NO_OCURRIDO.test(t)) && !(s.id === 'muertes' && MUERTE_SALUD.test(t)) && !(s.id === 'brecha' && PREVENCION_BRECHA.test(t)) && !(s.id === 'damnificados' && DONACION_ALBERGUE.test(t) && !/evacu|damnificad|inhabitable|colaps|destruid/.test(t))).map(s => s.id) : [];
+  const senales = CONTEXTO.test(t) ? SENALES.filter(s => s.re.test(t) && !(HIPOTETICO.test(t) && s.grupo === 'vida') && !(s.id === 'agua' && OBRA_AGUA.test(t)) && !(s.id === 'electrico' && !ELECTRICO_CLIMA.test(t) && !CLIMA.test(t)) && !((s.id === 'agua' || s.id === 'brecha') && CRONICO.test(t) && !CLIMA.test(t)) && !(s.id === 'huaicos' && PREVENCION_QUEBRADA.test(t)) && !(s.id === 'desborde' && DESBORDE_FIGURADO.test(t)) && !((s.id === 'huaicos' || s.id === 'desborde' || s.id === 'aislamiento') && PELIGRO_NO_OCURRIDO.test(t)) && !(s.id === 'muertes' && MUERTE_SALUD.test(t)) && !((s.id === 'dengue' || s.id === 'leptospirosis') && SALUD_RESPUESTA.test(t) && !SALUD_BROTE.test(t)) && !(s.id === 'brecha' && PREVENCION_BRECHA.test(t)) && !(s.id === 'damnificados' && DONACION_ALBERGUE.test(t) && !/evacu|damnificad|inhabitable|colaps|destruid/.test(t))).map(s => s.id) : [];
   const proyectos = ES_PROYECTO.test(t) ? PROYECTOS.filter(p => p.re.test(t)).map(p => p.id) : [];
   clasificadas.push({ f, t, senales, proyectos, respuesta: RESPUESTA.test(t), pronostico: PRONOSTICO.test(t) && !PRONOSTICO_GENERICO.test(t) });
 }
@@ -397,7 +402,7 @@ if (aisl.length) frases.push(`Riesgo de aislamiento en ${listaN(aisl.map(r => r.
 const sube = precisos.filter(r => r.tendencia === 'sube' && r.prioridad !== 'Media').slice(0, 5);
 if (sube.length) frases.push(`Aumentan las noticias de peligro en los últimos 3 días en ${listaN(sube.map(r => r.nombre))}.`);
 const sal = salud.filter(s => s.dengue + s.leptospirosis > 0).sort((a, b) => (b.dengue + b.leptospirosis) - (a.dengue + a.leptospirosis));
-if (sal.length) frases.push(`Salud: ${listaN(sal.map(s => `${s.departamento} (${s.dengue} noticias de dengue${s.leptospirosis ? `, ${s.leptospirosis} de leptospirosis` : ''})`))}.`);
+if (sal.length) frases.push(`Salud: ${listaN(sal.map(s => `${s.departamento} (${s.dengue} ${s.dengue === 1 ? 'noticia' : 'noticias'} de dengue${s.leptospirosis ? `, ${s.leptospirosis} de leptospirosis` : ''})`))}.`);
 if (brechas.length) frases.push(`${brechas.length} noticias recientes señalan brechas en la atención; la más reciente: «${brechas[0].titulo}».`);
 const atras = proyectos.filter(p => p.estados['Atrasado'] || p.estados['En conflicto']);
 if (atras.length) frases.push(`Proyectos atrasados o en conflicto que agravan el daño: ${listaN(atras.map(p => minus(p.nombre)))}.`);
@@ -442,7 +447,7 @@ md += frases.map(f => `- ${f}`).join('\n') + '\n\n## Ejes del Gobierno frente a 
   + (e.problemas.length ? '\n\nCon problemas:\n' + e.problemas.map(f => `- ${fd(f.fecha)} · ${f.titulo} (${f.medio})`).join('\n') : '')).join('\n\n')
   + '\n\n## Prioridad para salvar vidas\n\n| Prioridad | Lugar | Señales | Tendencia | Qué hacer |\n| --- | --- | --- | --- | --- |\n';
 md += precisos.slice(0, 15).map(r => `| ${r.prioridad} | ${r.nombre} (${r.provincia && r.provincia !== r.nombre ? r.provincia + ', ' : ''}${r.departamento}) | ${r.senales.slice(0, 3).map(s => `${s.nombre} (${s.n})`).join('; ')} | ${r.tendencia} | ${r.acciones.slice(0, 2).join(' ')} |`).join('\n');
-md += '\n\n## Salud\n\n' + salud.map(s => `- **${s.departamento}:** ${s.dengue} noticias de dengue, ${s.leptospirosis} de leptospirosis, ${s.agua} de agua y desagüe.${s.oficiales.length ? ' Oficial: ' + s.oficiales.map(o => `${o.indicador} ${o.valor.toLocaleString('es-PE')} (${o.fuente}, ${o.corte || 's/f'})`).join('; ') + '.' : ''}`).join('\n');
+md += '\n\n## Salud\n\n' + salud.map(s => `- **${s.departamento}:** ${s.dengue} ${s.dengue === 1 ? 'noticia' : 'noticias'} de dengue, ${s.leptospirosis} de leptospirosis, ${s.agua} de agua y desagüe.${s.oficiales.length ? ' Oficial: ' + s.oficiales.map(o => `${o.indicador} ${o.valor.toLocaleString('es-PE')} (${o.fuente}, ${o.corte || 's/f'})`).join('; ') + '.' : ''}`).join('\n');
 md += '\n\n## Brechas en la atención\n\n' + (brechas.map(b => `- ${fd(b.fecha)} · ${b.lugar} · ${b.titulo} (${b.medio})`).join('\n') || 'Ninguna en los últimos 14 días.');
 md += '\n\n## Pronóstico (últimos 3 días)\n\n' + (pronostico.map(p => `- ${fd(p.fecha)} · ${p.titulo} (${p.medio})`).join('\n') || 'Sin avisos recientes en las noticias.');
 md += '\n\n## Proyectos para que El Niño afecte menos\n\n| Proyecto | Menciones | Estado en las noticias | Lugares |\n| --- | --- | --- | --- |\n';
