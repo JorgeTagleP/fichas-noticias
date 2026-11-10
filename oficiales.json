@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-09",
+  "actualizado": "2026-11-10",
   "nota": "Cifras de referencia oficiales. Se citan tal como las publica la entidad; no se reinterpretan. 'via' indica cuando la cifra oficial se tomó de una nota de prensa que la atribuye a la entidad (confianza menor que la fuente primaria). Actualizar en cada lectura.",
   "indicadores": [
     {
@@ -104,11 +104,11 @@
       "departamento": "Piura",
       "tema": "leptospir",
       "clave": "casos",
-      "valor": 3143,
-      "corte": "2026-10-24",
-      "fuente": "CDC-MINSA (SE 42)",
-      "via": "Diario Correo, 03/11/2026",
-      "url": "https://diariocorreo.pe/edicion/piura/piura-reporta-3143-casos-y-ocho-fallecidos-por-leptospirosis-en-lo-que-va-del-ano-noticia/"
+      "valor": 3280,
+      "corte": "2026-10-31",
+      "fuente": "CDC-MINSA (SE 43)",
+      "via": "La República, 09/11/2026",
+      "url": "https://larepublica.pe/sociedad/2026/11/09/leptospirosis-aumenta-109-en-peru-y-deja-54-muertos-en-lo-que-va-de-2026-497448"
     },
     {
       "id": "piura-lepto-fallecidos",
@@ -116,11 +116,11 @@
       "departamento": "Piura",
       "tema": "leptospir",
       "clave": "fallecid|muert|decesos",
-      "valor": 8,
-      "corte": "2026-10-24",
-      "fuente": "CDC-MINSA (SE 42)",
-      "via": "Diario Correo, 03/11/2026",
-      "url": "https://diariocorreo.pe/edicion/piura/piura-reporta-3143-casos-y-ocho-fallecidos-por-leptospirosis-en-lo-que-va-del-ano-noticia/"
+      "valor": 9,
+      "corte": "2026-10-31",
+      "fuente": "CDC-MINSA (SE 43)",
+      "via": "La República, 09/11/2026",
+      "url": "https://larepublica.pe/sociedad/2026/11/09/leptospirosis-aumenta-109-en-peru-y-deja-54-muertos-en-lo-que-va-de-2026-497448"
     },
     {
       "id": "piura-distritos-emergencia",
@@ -164,11 +164,11 @@
       "departamento": "*",
       "tema": "leptospir",
       "clave": "fallecid|muert|decesos",
-      "valor": 50,
-      "corte": "2026-10-17",
-      "fuente": "CDC-MINSA (SE 41)",
-      "via": "El Búho, 29/10/2026",
-      "url": "https://elbuho.pe/?p=441239"
+      "valor": 54,
+      "corte": "2026-10-31",
+      "fuente": "CDC-MINSA (SE 43)",
+      "via": "La República, 09/11/2026",
+      "url": "https://larepublica.pe/sociedad/2026/11/09/leptospirosis-aumenta-109-en-peru-y-deja-54-muertos-en-lo-que-va-de-2026-497448"
     },
     {
       "id": "peru-lepto-casos",
@@ -176,11 +176,11 @@
       "departamento": "*",
       "tema": "leptospir",
       "clave": "casos",
-      "valor": 13962,
-      "corte": "2026-10-17",
-      "fuente": "CDC-MINSA (SE 41)",
-      "via": "El Búho, 29/10/2026",
-      "url": "https://elbuho.pe/?p=441239"
+      "valor": 15518,
+      "corte": "2026-10-31",
+      "fuente": "CDC-MINSA (SE 43)",
+      "via": "La República, 09/11/2026",
+      "url": "https://larepublica.pe/sociedad/2026/11/09/leptospirosis-aumenta-109-en-peru-y-deja-54-muertos-en-lo-que-va-de-2026-497448"
     }
   ]
 }

@@ -14,7 +14,7 @@
 
 // Cifras oficiales de referencia (copiadas de oficiales.json; se citan, no se reinterpretan).
 const OFICIALES = {
- "actualizado": "2026-11-09",
+ "actualizado": "2026-11-10",
  "nota": "Cifras de referencia oficiales. Se citan tal como las publica la entidad; no se reinterpretan. 'via' indica cuando la cifra oficial se tomó de una nota de prensa que la atribuye a la entidad (confianza menor que la fuente primaria). Actualizar en cada lectura.",
  "indicadores": [
   {
@@ -119,11 +119,11 @@ const OFICIALES = {
    "departamento": "Piura",
    "tema": "leptospir",
    "clave": "casos",
-   "valor": 3143,
-   "corte": "2026-10-24",
-   "fuente": "CDC-MINSA (SE 42)",
-   "via": "Diario Correo, 03/11/2026",
-   "url": "https://diariocorreo.pe/edicion/piura/piura-reporta-3143-casos-y-ocho-fallecidos-por-leptospirosis-en-lo-que-va-del-ano-noticia/"
+   "valor": 3280,
+   "corte": "2026-10-31",
+   "fuente": "CDC-MINSA (SE 43)",
+   "via": "La República, 09/11/2026",
+   "url": "https://larepublica.pe/sociedad/2026/11/09/leptospirosis-aumenta-109-en-peru-y-deja-54-muertos-en-lo-que-va-de-2026-497448"
   },
   {
    "id": "piura-lepto-fallecidos",
@@ -131,11 +131,11 @@ const OFICIALES = {
    "departamento": "Piura",
    "tema": "leptospir",
    "clave": "fallecid|muert|decesos",
-   "valor": 8,
-   "corte": "2026-10-24",
-   "fuente": "CDC-MINSA (SE 42)",
-   "via": "Diario Correo, 03/11/2026",
-   "url": "https://diariocorreo.pe/edicion/piura/piura-reporta-3143-casos-y-ocho-fallecidos-por-leptospirosis-en-lo-que-va-del-ano-noticia/"
+   "valor": 9,
+   "corte": "2026-10-31",
+   "fuente": "CDC-MINSA (SE 43)",
+   "via": "La República, 09/11/2026",
+   "url": "https://larepublica.pe/sociedad/2026/11/09/leptospirosis-aumenta-109-en-peru-y-deja-54-muertos-en-lo-que-va-de-2026-497448"
   },
   {
    "id": "piura-distritos-emergencia",
@@ -179,11 +179,11 @@ const OFICIALES = {
    "departamento": "*",
    "tema": "leptospir",
    "clave": "fallecid|muert|decesos",
-   "valor": 50,
-   "corte": "2026-10-17",
-   "fuente": "CDC-MINSA (SE 41)",
-   "via": "El Búho, 29/10/2026",
-   "url": "https://elbuho.pe/?p=441239"
+   "valor": 54,
+   "corte": "2026-10-31",
+   "fuente": "CDC-MINSA (SE 43)",
+   "via": "La República, 09/11/2026",
+   "url": "https://larepublica.pe/sociedad/2026/11/09/leptospirosis-aumenta-109-en-peru-y-deja-54-muertos-en-lo-que-va-de-2026-497448"
   },
   {
    "id": "peru-lepto-casos",
@@ -191,11 +191,11 @@ const OFICIALES = {
    "departamento": "*",
    "tema": "leptospir",
    "clave": "casos",
-   "valor": 13962,
-   "corte": "2026-10-17",
-   "fuente": "CDC-MINSA (SE 41)",
-   "via": "El Búho, 29/10/2026",
-   "url": "https://elbuho.pe/?p=441239"
+   "valor": 15518,
+   "corte": "2026-10-31",
+   "fuente": "CDC-MINSA (SE 43)",
+   "via": "La República, 09/11/2026",
+   "url": "https://larepublica.pe/sociedad/2026/11/09/leptospirosis-aumenta-109-en-peru-y-deja-54-muertos-en-lo-que-va-de-2026-497448"
   }
  ]
 };
@@ -344,7 +344,9 @@ const PROYECTOS = [
 ];
 // 08/11/2026 17:12: «ministro de Cultura supervisa acciones preventivas en sitios arqueológicos de Piura» no contaba
 // como proyecto de patrimonio (Piura no aparecía): se agregan «supervisa» y «preventiv»; «supervisa» cuenta como «En curso».
-const ES_PROYECTO = /supervisa|preventiv|obra|proyecto|construc|ejecuc|invert|inversion|destina|millones|ampliacion|buena pro|propuesta|plan\b|estudio|exige|piden|pide|solicita|pendiente|reforz|impulsa|meta|protege|limpieza|\blimpian?\b|descolmat|retira|rechaz|anula|descarta|prioriza|encauza/;
+// 10/11/2026 03:30: «El Niño y dengue: Essalud refuerza atención hospitalaria y vacunación en Tumbes y Piura» no contaba en
+// «Hospitales y salud preparada» (solo se buscaba «reforz»): se agrega «refuerza(n)» como palabra completa; cuenta «En curso».
+const ES_PROYECTO = /\brefuerzan?\b|supervisa|preventiv|obra|proyecto|construc|ejecuc|invert|inversion|destina|millones|ampliacion|buena pro|propuesta|plan\b|estudio|exige|piden|pide|solicita|pendiente|reforz|impulsa|meta|protege|limpieza|\blimpian?\b|descolmat|retira|rechaz|anula|descarta|prioriza|encauza/;
 // 09/11/2026 05:xx: «Piura: limpian drenes Sechura y 1308 ante posibles lluvias intensas» no contaba como proyecto
 // (solo se buscaba «limpieza»): se agrega el verbo «limpia(n)», que cuenta como «En curso».
 // 08/11/2026 12:10: «Encauzan el río Chancay-Lambayeque para reducir riesgos…» no contaba como defensa ribereña
@@ -356,7 +358,7 @@ function estadoProyecto(t) {
   if (/\bengano\b|rechaz|en pie de lucha|no permitiran|conflicto|anula/.test(t)) return 'En conflicto';
   if (/sin ejecucion|pendiente|paraliz|medio motor|atras|10 anos|no estara lista|posterga/.test(t)) return 'Atrasado';
   if (/piden|pide|exige|solicita|reclam|demanda/.test(t)) return 'Pedido';
-  if (/inicia|ejecuc|avanza|concluye|encauzan|buena pro|destina|invertira|retira|impulsa|cofinanciara|reforzaran|despliega|supervisa|\blimpian?\b/.test(t)) return 'En curso';
+  if (/inicia|ejecuc|avanza|concluye|encauzan|buena pro|destina|invertira|retira|impulsa|cofinanciara|reforzaran|despliega|supervisa|\blimpian?\b|\brefuerzan?\b/.test(t)) return 'En curso';
   return 'Mencionado';
 }
 
