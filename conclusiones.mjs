@@ -350,7 +350,8 @@ const EJES = [
     ] },
   { id: 'conectividad', nombre: 'Infraestructura y conectividad',
     cita: '«Hemos enviado 20 puentes al norte de nuestro país». Además, 22 helicópteros y cinco buques de la Marina disponibles.', fuente: EP, url: EP_URL,
-    re: /puentes? (modular|bailey|metalic|provisional|colaps)|caida (de|del) puente|aislad|\baislan?\b|incomunicad|vias? (interrumpid|bloquead|afectad)|carretera|transitab|helicoptero|puente aereo/,
+    re: /puentes? (modular|bailey|metalic|provisional|colaps)|caida (de|del) puente|aislad|\baislan?\b|incomunicad|vias? (interrumpid|bloquead|afectad)|carretera|transitab|helicoptero|puente aereo|\bbuques?\b/,
+    // 10/11/2026 07:20: la cita nombra «cinco buques de la Marina»; el despliegue de buques a Piura no contaba en ningún eje.
     compromisos: [{ nombre: 'Puentes modulares en el norte', re: /puentes? (modular|bailey|metalic|provisional)/ }] },
   { id: 'humanitaria', nombre: 'Respuesta humanitaria ágil',
     cita: '«Se van a construir albergues para 30,000 personas». Hospitales de campaña «movilizados en Tumbes, en Piura y en Lambayeque». Reserva de 5600 toneladas de ayuda humanitaria.', fuente: EP, url: EP_URL,
