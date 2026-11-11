@@ -247,12 +247,14 @@ const SENALES = [
   { id: 'electrico',    grupo: 'vida',  peso: 3,  nombre: 'Rayos y riesgo eléctrico', re: /rayo|tormenta\w* electric|riesgo electrico|descargas? electric|postes? electric|cortes? de luz/ },
   { id: 'dengue',       grupo: 'salud', peso: 6,  nombre: 'Dengue', re: /dengue|zancudo|aedes/ },
   { id: 'leptospirosis',grupo: 'salud', peso: 6,  nombre: 'Leptospirosis', re: /leptospir/ },
-  { id: 'agua',         grupo: 'salud', peso: 4,  nombre: 'Agua potable y desagüe', re: /agua potable|desague|aguas residuales|alcantarillado|colaps\w* (de )?desag|falta de agua (hace|desde|por)|dias sin agua/ },
+  { id: 'agua',         grupo: 'salud', peso: 4,  nombre: 'Agua potable y desagüe', re: /agua potable|desague|aguas residuales|alcantarillado|colaps\w* (de )?desag|falta de agua (hace|desde|por)|dias sin agua|semanas? sin (servicio de )?agua/ },
+  // 11/11/2026 11:20: «Piura: Las Dalias lleva una semana sin servicio de agua» (11/11) no contaba: la regla solo decía
+  // «días sin agua». Se agrega «semana(s) sin (servicio de) agua» (aquí y en CONTEXTO) y «lleva(n) una semana sin» en brecha.
   // 10/11/2026 11:20: «Piura: vecinos molestos reportan falta de agua hace cinco días» no contaba (sin «agua potable»):
   // varios días sin agua en plena emergencia es riesgo de salud y brecha. Se agrega «falta de agua hace/desde/por» y «días sin agua» (aquí y en CONTEXTO).
   // 11/11/2026 00:00: «Lambayeque: Baja cobertura de vacunación contra el dengue» (10/11) no salía en brechas, aunque
   // «vacunación no supera el 50 %» sí contaba. Se agrega «baja cobertura de vacunación/atención».
-  { id: 'brecha',       grupo: 'brecha',peso: 5,  nombre: 'Brecha en la atención', re: /no cuenta|sin (banos|techo|grupo electrogeno|presupuesto|apoyo|fondos|respuesta|camas)|falta de|no soporto|no estan preparados|denuncia|cuestiona|\bcritica (a|al|la|el|las|los|falta|demora|lentitud)\b|(alcalde|gobernador|congresista|defensoria|poblacion|vecinos|dirigentes?|pobladores) critica|exige|exigen|piden|pide (ayuda|maquinaria)|reclam|sin ejecucion|medio motor|desabastec|no supera|solo hay|solo s\/|obra\w* (\w+ )?pone\w* en (peligro|riesgo)|llevan? \d+ dias sin|fallas? en (la )?obra|obras? (\w+ )?inconclus|abiertas e inconclus|deficiencias en (los )?almacenes|baja cobertura de (vacunacion|atencion)/ },
+  { id: 'brecha',       grupo: 'brecha',peso: 5,  nombre: 'Brecha en la atención', re: /no cuenta|sin (banos|techo|grupo electrogeno|presupuesto|apoyo|fondos|respuesta|camas)|falta de|no soporto|no estan preparados|denuncia|cuestiona|\bcritica (a|al|la|el|las|los|falta|demora|lentitud)\b|(alcalde|gobernador|congresista|defensoria|poblacion|vecinos|dirigentes?|pobladores) critica|exige|exigen|piden|pide (ayuda|maquinaria)|reclam|sin ejecucion|medio motor|desabastec|no supera|solo hay|solo s\/|obra\w* (\w+ )?pone\w* en (peligro|riesgo)|llevan? \d+ dias sin|llevan? (una|\d+) semanas? sin|fallas? en (la )?obra|obras? (\w+ )?inconclus|abiertas e inconclus|deficiencias en (los )?almacenes|baja cobertura de (vacunacion|atencion)/ },
   // 10/11/2026 17:20: «Piura: Contraloría advierte deficiencias en almacenes de Defensa Civil de Huancabamba» no sumaba
   // ninguna señal ni salía en brechas: almacenes de ayuda deficientes son una falla de atención. Se agrega «deficiencias en (los) almacenes» (aquí y en CONTEXTO).
   // 09/11/2026 23:15: «Piura: lluvias inundan viviendas tras fallas en obra de alcantarillado en Ayabaca» y la nota de Exitosa sobre
@@ -268,7 +270,7 @@ const SENALES = [
 // Una señal solo cuenta si el titular habla de la emergencia, del clima o de la salud
 // (así no se cuentan crímenes, accidentes de tránsito ni protestas como peligro por El Niño).
 // 08/11/2026: «rio» va con \b porque «rio » coincidía dentro de «cementerio», «barrios», etc.
-const CONTEXTO = /deficiencias en (los )?almacenes|falta de agua (hace|desde|por)|dias sin agua|lluvia|precipitac|\brios?\b|quebrad|huaico|inund|desbord|el nino|nino costero|emergencia|damnific|dengue|leptospir|reservorio|corriente|caudal|tormenta|aniego|albergue|senamhi|indeci|coen|evacu|aislad|deslizamiento|derrumbe|hospital|salud|desague|alcantarill|agua potable|aguas residuales|granizo|rayo|sismo|vivienda|damnificad|afectad|reubicacion de \d+ familias/;
+const CONTEXTO = /deficiencias en (los )?almacenes|falta de agua (hace|desde|por)|dias sin agua|semanas? sin (servicio de )?agua|lluvia|precipitac|\brios?\b|quebrad|huaico|inund|desbord|el nino|nino costero|emergencia|damnific|dengue|leptospir|reservorio|corriente|caudal|tormenta|aniego|albergue|senamhi|indeci|coen|evacu|aislad|deslizamiento|derrumbe|hospital|salud|desague|alcantarill|agua potable|aguas residuales|granizo|rayo|sismo|vivienda|damnificad|afectad|reubicacion de \d+ familias/;
 // 08/11/2026 12:10: «Tumbes: gobierno evalúa reubicación de 120 familias en Aguas Verdes» (tras el desborde del
 // Zarumilla) no sumaba damnificados porque el titular no traía otra palabra de contexto: se agrega «reubicación de N familias».
 // 08/11/2026: debate sobre un riesgo futuro (p. ej. el desvío del río Piura en Sechura): no es un peligro

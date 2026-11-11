@@ -546,6 +546,16 @@
     "damnificados"
    ],
    "literal": true
+  },
+  {
+   "origen": "11/11/2026 11:20",
+   "titulo": "Piura: Las Dalias lleva una semana sin servicio de agua",
+   "dep": "Piura",
+   "tiene": [
+    "agua",
+    "brecha"
+   ],
+   "literal": true
   }
  ],
  "ubicar": [
