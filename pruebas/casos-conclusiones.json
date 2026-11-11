@@ -545,6 +545,13 @@
    "depConsulta": "Cajamarca",
    "con_distrito": "San Juan",
    "literal": false
+  },
+  {
+   "origen": "alias Zaña (MEJORAS.md 11/11/2026)",
+   "titulo": "Fenómeno El Niño en Lambayeque: crecida del río Zaña destruye puente y aisla a 4 caseríos",
+   "depConsulta": "Lambayeque",
+   "con_distrito": "Saña",
+   "literal": false
   }
  ]
 }
