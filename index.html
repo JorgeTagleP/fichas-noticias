@@ -457,7 +457,7 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
         <p class="nota">Damnificados y afectados son grupos distintos: cada persona se cuenta en uno solo. No se suman.</p>
       </section>
       <section><h2>Mapa del norte</h2>
-        <p class="nota">Tumbes, Piura, Lambayeque y Cajamarca. Cada distrito se colorea con la cifra del INDECI que elijas; tócalo para ver cada reporte con su corte y su enlace. El mapa de las noticias de prensa está en «Todas las fichas», con el botón «Ver estas noticias en el mapa».</p>
+        <p class="nota">Tumbes, Piura, Lambayeque y Cajamarca. El color de cada distrito indica cuántas personas afectadas reporta el INDECI; pasa el cursor para ver también los damnificados y tócalo para ver cada reporte con su corte y su enlace. El mapa de las noticias de prensa está en «Todas las fichas», con el botón «Ver estas noticias en el mapa».</p>
         <div id="ph-mapa"></div>
       </section>
       <section><h2>Total del Perú</h2>
@@ -513,22 +513,20 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
   const fechaISO = s => s ? s.split('-').reverse().join('/') : '—';
 
   // Opción 1: mapa interactivo de la pestaña «Personas afectadas».
-  let elA = null, mapaA = null, capaA = null, indA = 'afectados';
+  // El color es el de los afectados; los damnificados (grupo distinto, no se suman) van en el rótulo y en el detalle.
+  let elA = null, mapaA = null, capaA = null;
+  const indA = 'afectados';
   const valorA = u => { const o = MAPA && MAPA.indeci && MAPA.indeci.distritos[u]; return o ? o[indA] : 0; };
   function ponerMapaAfect() {
     const ph = $('ph-mapa'); if (!ph) return;
     if (!elA) {
       elA = document.createElement('div');
-      elA.innerHTML = `<div class="mapa-ctl" role="group" aria-label="Cifra del mapa">
-          <span>Colorear por:</span>
-          <label><input type="radio" name="ind-a" value="afectados" checked> Afectados</label>
-          <label><input type="radio" name="ind-a" value="damnificados"> Damnificados</label>
+      elA.innerHTML = `<div class="mapa-ctl">
           <button class="btn-sec" type="button" id="png-a">Descargar como imagen (para Word)</button>
         </div>
         <div class="mapa" id="mapa-a"><p class="vacio">Cargando el mapa…</p></div>
         <div class="ley" id="ley-a" aria-label="Leyenda"></div>
         <p class="mapa-pie" id="mapa-a-pie"></p>`;
-      elA.addEventListener('change', e => { if (e.target.name === 'ind-a') { indA = e.target.value; pintarMapaAfect(); } });
       elA.querySelector('#png-a').addEventListener('click', descargarPNG);
     }
     ph.replaceWith(elA);
@@ -545,7 +543,7 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
           style: estiloA,
           onEachFeature: (f, l) => {
             l.bindPopup(() => popupA(f.properties.ubigeo), { maxWidth: 340 });
-            l.bindTooltip(() => rotuloA(f.properties.ubigeo), { sticky: true, direction: 'top', opacity: 0.95 });
+            l.bindTooltip(() => rotuloA(f.properties.ubigeo), { sticky: true, direction: 'top', offset: [0, -70], opacity: 0.95 });
             l.on('mouseover', () => { l.setStyle({ weight: 2.5, color: '#14202b' }); l.bringToFront(); });
             l.on('mouseout', () => l.setStyle(estiloA(f)));
           },
@@ -652,7 +650,7 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
           .bindPopup(() => `<h4>${esc(d.n)}</h4><div class="s">${esc(d.p)} · ${esc(d.d)} · ${fichas.length} ficha${fichas.length > 1 ? 's' : ''} · prensa</div><table>` +
             fichas.slice(0, 10).map(f => `<tr><td><a href="${esc(f.enlace)}" target="_blank" rel="noopener noreferrer">${esc(f.titulo)}</a><br><span class="s">${esc(f.medio || '')} · ${fmtHora.format(new Date(f.publicada))}</span></td></tr>`).join('') +
             `</table><p style="margin:6px 0 0"><button class="link" type="button" data-l='${esc(JSON.stringify([l.departamento, l.provincia, l.distrito]))}'>Ver ${fichas.length > 1 ? `las ${fichas.length} fichas` : 'la ficha'} de ${esc(d.n)}</button></p>`, { maxWidth: 340 })
-          .bindTooltip(`<b>${esc(d.n)}</b> · ${fichas.length} ficha${fichas.length > 1 ? 's' : ''}<br><span style="color:#5a6875">Toca para ver los titulares</span>`, { direction: 'top', opacity: 0.95 })
+          .bindTooltip(`<b>${esc(d.n)}</b> · ${fichas.length} ficha${fichas.length > 1 ? 's' : ''}<br><span style="color:#5a6875">Toca para ver los titulares</span>`, { sticky: true, direction: 'top', offset: [0, -70], opacity: 0.95 })
           .addTo(capaN);
       }
       $('mapa-n-pie').textContent = por.size

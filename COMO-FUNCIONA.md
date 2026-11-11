@@ -179,8 +179,8 @@ La página tiene tres mapas. Usan Leaflet con el mapa libre de OpenStreetMap, no
 necesitan clave ni cuenta, no ponen cookies y no rastrean a quien visita la página.
 
 - **Mapa del norte (pestaña «Personas afectadas»):** cada distrito de Tumbes, Piura, Lambayeque y
-  Cajamarca se colorea con los afectados o con los damnificados del INDECI (se elige arriba del
-  mapa; nunca se suman). Al tocar un distrito se ve cada reporte con su fenómeno, corte y enlace.
+  Cajamarca se colorea con los afectados del INDECI. Los damnificados (grupo distinto, nunca
+  se suman) aparecen en el rótulo al pasar el cursor y en el detalle. Al tocar un distrito se ve cada reporte con su fenómeno, corte y enlace.
 - **Imagen para Word:** el botón «Descargar como imagen (para Word)» baja ese mismo mapa como PNG,
   con título, leyenda, los distritos con más personas, la fuente y la fecha de la lectura.
 - **Mapa de las noticias (pestaña «Todas las fichas», enlace «Ver en el mapa»):** un círculo por
