@@ -594,6 +594,26 @@
    "dep": "Piura",
    "fuera": true,
    "literal": true
+  },
+  {
+   "origen": "11/11/2026 14:20",
+   "titulo": "En Íllimo, Lambayeque, realizaron un mural en homenaje al papa León XIV, que recuerda el apoyo y la solidaridad que brindó a las familias damnificadas por los efectos del ciclón Yaku",
+   "dep": "Lambayeque",
+   "dist": "Íllimo",
+   "no_tiene": [
+    "damnificados"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "11/11/2026 14:20",
+   "titulo": "Huaraz: supervisan trabajos de descolmatación en el río Casca ante riesgo de desborde por el Fenómeno El Niño",
+   "dep": "Áncash",
+   "dist": "Huaraz",
+   "no_tiene": [
+    "desborde"
+   ],
+   "literal": true
   }
  ],
  "ubicar": [

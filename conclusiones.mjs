@@ -124,7 +124,10 @@ const DONACION_ALBERGUE = /kits? educativ|pelotas|juguetes|utiles escolares/;
 // instalar albergues es preparación/respuesta: «instalan N albergues».
 // 10/11/2026 16:30: «Chiclayo cuenta con 45 puntos críticos de inundaciones» sumaba «Inundaciones urbanas» y ponía a Chiclayo
 // en tendencia «sube»; es un inventario de puntos de riesgo (preparación), no una inundación ocurrida: «puntos críticos de inundac».
-const HIPOTETICO = /se veria inundad|no se va a inundar|evitar futura inundac|pondria en riesgo|por riesgo de inundac|estarian en riesgo de inundac|simulacro|que resulten damnificad|instalan \w+ albergues|no a la emergencia actual|video viral\w* .*corresponde a|antiguas culturas|sacrificaban|puntos criticos de inundac/;
+// 11/11/2026 14:20: «En Íllimo, Lambayeque, realizaron un mural en homenaje al papa León XIV, que recuerda el apoyo… a las familias
+// damnificadas por los efectos del ciclón Yaku» sumaba «Damnificados» a Íllimo (prioridad Media); el ciclón Yaku fue en 2023: es un
+// recuerdo, no un daño actual. Se agrega «ciclon yaku» a los hechos históricos.
+const HIPOTETICO = /se veria inundad|no se va a inundar|evitar futura inundac|pondria en riesgo|por riesgo de inundac|estarian en riesgo de inundac|simulacro|que resulten damnificad|instalan \w+ albergues|no a la emergencia actual|video viral\w* .*corresponde a|antiguas culturas|sacrificaban|ciclon yaku|puntos criticos de inundac/;
 // 08/11/2026 (corrida 7): «Dengue se desborda en Lambayeque» sumaba «Desborde o crecida de ríos»:
 // es un uso figurado (aumento de casos). No suma esa señal (sigue contando como dengue).
 // 09/11/2026 10:10: «Senamhi alerta sobre … posibles huaicos en Ayabaca» sumaba «Huaicos» y «trabajos de descolmatación evitan desborde del río Tumbes»
@@ -136,7 +139,10 @@ const HIPOTETICO = /se veria inundad|no se va a inundar|evitar futura inundac|po
 // 10/11/2026 20:30: «COEN alerta sobre activación de quebradas en Cajamarca y Piura…», «Indeci alerta activación de quebradas
 // en siete regiones…» y «Fuertes lluvias … podrían activar quebradas» sumaban «Huaicos» a Cajamarca y Piura; son avisos,
 // no quebradas ya activadas. («lluvias activan quebradas», un hecho ocurrido, sigue contando.)
-const PELIGRO_NO_OCURRIDO = /posibles? (huaicos?|desbordes?)|evita\w* (el )?desborde|evitar que \w+( \w+)? queden? aislad|advierte\w* (el )?riesgo de desborde|podrian activar quebradas|alerta\w* (sobre )?(la )?activacion de quebradas|podrian? quedar aislad/;
+// 11/11/2026 14:20: «Huaraz: supervisan trabajos de descolmatación en el río Casca ante riesgo de desborde por el Fenómeno El Niño»
+// sumaba «Desborde» a Huaraz (prioridad Crítica); es trabajo preventivo. «ante (el) riesgo de desborde» no suma desborde
+// («río supera alerta roja por riesgo de desborde», crecida real, sigue contando).
+const PELIGRO_NO_OCURRIDO = /posibles? (huaicos?|desbordes?)|evita\w* (el )?desborde|evitar que \w+( \w+)? queden? aislad|advierte\w* (el )?riesgo de desborde|podrian activar quebradas|alerta\w* (sobre )?(la )?activacion de quebradas|podrian? quedar aislad|ante (el )?riesgo de desborde/;
 // 11/11/2026 12:30: «Piura: más de 19 mil familias podrían quedar aisladas por deterioro del puente Salitral–Morropón»
 // (07/11) sumaba «Aislamiento» y ponía a Morropón y Salitral en prioridad Alta; es una advertencia (ya hay «puente
 // terrestre» para evitarlo). «podría(n) quedar aislad» no suma aislamiento; «quedan aislados» sigue contando.
