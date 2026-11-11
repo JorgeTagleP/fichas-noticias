@@ -229,7 +229,19 @@
    "dep": "Piura",
    "dist": "Ayabaca",
    "no_tiene": [
-    "huaicos"
+    "huaicos",
+    "electrico"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "11/11/2026",
+   "titulo": "Piura: fuerte lluvia con tormenta eléctrica y granizo inunda calles y mercados de Ayabaca [VIDEO]",
+   "dep": "Piura",
+   "dist": "Ayabaca",
+   "tiene": [
+    "electrico",
+    "inundacion"
    ],
    "literal": true
   },

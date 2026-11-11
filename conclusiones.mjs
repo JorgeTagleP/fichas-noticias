@@ -131,6 +131,10 @@ const HIPOTETICO = /se veria inundad|no se va a inundar|evitar futura inundac|po
 // en siete regiones…» y «Fuertes lluvias … podrían activar quebradas» sumaban «Huaicos» a Cajamarca y Piura; son avisos,
 // no quebradas ya activadas. («lluvias activan quebradas», un hecho ocurrido, sigue contando.)
 const PELIGRO_NO_OCURRIDO = /posibles? (huaicos?|desbordes?)|evita\w* (el )?desborde|evitar que \w+( \w+)? queden? aislad|advierte\w* (el )?riesgo de desborde|podrian activar quebradas|alerta\w* (sobre )?(la )?activacion de quebradas/;
+// 11/11/2026 08:30: «Piura continúa bajo lluvias intensas: Senamhi alerta sobre tormentas eléctricas y posibles huaicos
+// en Ayabaca» sumaba «Rayos» a Ayabaca; es un aviso, no una tormenta ocurrida. Solo «alerta sobre/por tormentas eléctricas»,
+// para no excluir «lluvias y tormentas eléctricas inundan calles» (hecho ocurrido).
+const AVISO_ELECTRICO = /alerta\w* (sobre|por) (posibles )?tormentas? electric/;
 const DESBORDE_FIGURADO = /(dengue|casos|contagios|epidemia)\w* se desbord/;
 // 08/11/2026 (corrida 7): «Lambayeque: 18 fallecidos por dengue…» sumaba «Muertes o personas arrastradas» y
 // daba la acción «Señalizar o cercar el peligro (ríos, reservorios…)», que no sirve para el dengue.
@@ -240,7 +244,7 @@ for (const f of fichas) {
   if (!UTILES.has(f.tema)) continue;
   const t = norm(f.titulo);
   if (FUERA_DE_ZONA.test(t)) continue;
-  const senales = CONTEXTO.test(t) ? SENALES.filter(s => s.re.test(t) && !(HIPOTETICO.test(t) && s.grupo === 'vida') && !(s.id === 'agua' && OBRA_AGUA.test(t)) && !(s.id === 'electrico' && !ELECTRICO_CLIMA.test(t) && !CLIMA.test(t)) && !((s.id === 'agua' || s.id === 'brecha') && CRONICO.test(t) && !CLIMA.test(t)) && !(s.id === 'huaicos' && PREVENCION_QUEBRADA.test(t)) && !(s.id === 'desborde' && DESBORDE_FIGURADO.test(t)) && !((s.id === 'huaicos' || s.id === 'desborde' || s.id === 'aislamiento') && PELIGRO_NO_OCURRIDO.test(t)) && !(s.id === 'muertes' && MUERTE_SALUD.test(t)) && !((s.id === 'dengue' || s.id === 'leptospirosis') && SALUD_RESPUESTA.test(t) && !SALUD_BROTE.test(t)) && !(s.id === 'brecha' && PREVENCION_BRECHA.test(t)) && !(s.id === 'damnificados' && DONACION_ALBERGUE.test(t) && !/evacu|damnificad|inhabitable|colaps|destruid/.test(t))).map(s => s.id) : [];
+  const senales = CONTEXTO.test(t) ? SENALES.filter(s => s.re.test(t) && !(HIPOTETICO.test(t) && s.grupo === 'vida') && !(s.id === 'agua' && OBRA_AGUA.test(t)) && !(s.id === 'electrico' && !ELECTRICO_CLIMA.test(t) && !CLIMA.test(t)) && !(s.id === 'electrico' && AVISO_ELECTRICO.test(t)) && !((s.id === 'agua' || s.id === 'brecha') && CRONICO.test(t) && !CLIMA.test(t)) && !(s.id === 'huaicos' && PREVENCION_QUEBRADA.test(t)) && !(s.id === 'desborde' && DESBORDE_FIGURADO.test(t)) && !((s.id === 'huaicos' || s.id === 'desborde' || s.id === 'aislamiento') && PELIGRO_NO_OCURRIDO.test(t)) && !(s.id === 'muertes' && MUERTE_SALUD.test(t)) && !((s.id === 'dengue' || s.id === 'leptospirosis') && SALUD_RESPUESTA.test(t) && !SALUD_BROTE.test(t)) && !(s.id === 'brecha' && PREVENCION_BRECHA.test(t)) && !(s.id === 'damnificados' && DONACION_ALBERGUE.test(t) && !/evacu|damnificad|inhabitable|colaps|destruid/.test(t))).map(s => s.id) : [];
   const proyectos = ES_PROYECTO.test(t) ? PROYECTOS.filter(p => p.re.test(t)).map(p => p.id) : [];
   clasificadas.push({ f, t, senales, proyectos, respuesta: RESPUESTA.test(t), pronostico: PRONOSTICO.test(t) && !PRONOSTICO_GENERICO.test(t) });
 }
