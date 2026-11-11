@@ -628,6 +628,27 @@
    "dep": "Piura",
    "pronostico": false,
    "literal": true
+  },
+  {
+   "origen": "11/11/2026",
+   "titulo": "¿Hoy habrá llovizna en Lima? Este es el pronóstico meteorológico del Senamhi para hoy, 10 de noviembre",
+   "dep": "Lima",
+   "pronostico": false,
+   "literal": true
+  },
+  {
+   "origen": "11/11/2026",
+   "titulo": "Senamhi: Piura tendrá máximas de hasta 32 °C hoy 9 de noviembre y lluvias de esta intensidad",
+   "dep": "Piura",
+   "pronostico": false,
+   "literal": true
+  },
+  {
+   "origen": "11/11/2026",
+   "titulo": "¿Nueva llovizna en Lima? El Senamhi revela su pronóstico para hoy, lunes 9 de noviembre",
+   "dep": "Lima",
+   "pronostico": false,
+   "literal": true
   }
  ],
  "ubicar": [
