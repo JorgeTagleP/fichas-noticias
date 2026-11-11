@@ -614,6 +614,20 @@
     "desborde"
    ],
    "literal": true
+  },
+  {
+   "origen": "11/11/2026",
+   "titulo": "Visita del papa León XIV: Chiclayo y Cajamarca tendrán temperaturas de hasta 31 grados según Senamhi",
+   "dep": "Lambayeque",
+   "pronostico": false,
+   "literal": true
+  },
+  {
+   "origen": "11/11/2026",
+   "titulo": "Así estará el clima en cada localidad de Piura este martes 10 de noviembre, según el Senamhi",
+   "dep": "Piura",
+   "pronostico": false,
+   "literal": true
   }
  ],
  "ubicar": [

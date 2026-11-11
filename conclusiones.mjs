@@ -254,7 +254,10 @@ function estadoProyecto(t) {
 // ocupaba un lugar en el pronóstico sin ser un aviso del SENAMHI; esas notas genéricas no cuentan como pronóstico.
 // 08/11/2026 20:00: «Senamhi: ¿Piura tendrá fuertes lluvias hoy…? Conoce el pronóstico completo» (nota diaria de
 // servicio) desplazaba, al juntar titulares repetidos, al aviso real «Senamhi alerta por lluvias fuertes en Piura este 7 y 8».
-const PRONOSTICO_GENERICO = /el pronostico del tiempo para|conoce el pronostico completo/;
+// 11/11/2026 15:10: «Pronóstico del clima en Lima: temperaturas predominantes…», «Así estará el clima en cada localidad
+// de Piura…» y «Visita del papa León XIV: Chiclayo y Cajamarca tendrán temperaturas de hasta 31 grados» (notas de
+// servicio y de un evento) ocupaban 3 de 8 lugares del pronóstico junto a los avisos rojos reales; no son avisos.
+const PRONOSTICO_GENERICO = /el pronostico del tiempo para|conoce el pronostico completo|temperaturas predominantes|asi estara el clima en cada|visita del papa/;
 const UTILES = new Set(['Emergencias', 'Lluvias y clima', 'Salud', 'Economía y producción', 'Otros']);
 const peso = f => { const d = edadDias(f); return d <= 2 ? 3 : d <= 7 ? 1.5 : 0.5; };
 
