@@ -4,9 +4,9 @@
 //
 //  ¿QUÉ HACE ESTE PROGRAMA?
 //  Hace lo mismo que haría una persona que cada mañana revisa los periódicos y las
-//  radios buscando noticias de Tumbes, Piura, Lambayeque y Cajamarca, solo que en segundos:
+//  radios buscando noticias de Tumbes, Piura, Lambayeque, Cajamarca, Áncash y Lima, solo que en segundos:
 //
-//    1. Visita unas 46 "fuentes" de noticias en internet (Google Noticias y radios).
+//    1. Visita unas 80 "fuentes" de noticias en internet (Google Noticias y radios).
 //    2. Copia de cada noticia solo lo básico: titular, medio, fecha y enlace.
 //    3. Lee el titular y reconoce de qué departamento, provincia y distrito habla.
 //    4. Le pone un tema (emergencias, lluvias, salud, deportes…).
@@ -51,13 +51,18 @@ import { fileURLToPath } from 'url';
 // sin importar desde dónde se ejecute.
 const DIR = path.dirname(fileURLToPath(import.meta.url));
 
-// La lista oficial de los 243 distritos de los cuatro departamentos (del INEI).
+// La lista oficial de los 581 distritos de los seis departamentos (del INEI).
 // Cada distrito trae su departamento, provincia, código de ubigeo y "alias"
 // (el nombre de su capital, que a veces es como lo nombran las noticias).
 const DISTRITOS = JSON.parse(fs.readFileSync(path.join(DIR, 'distritos.json'), 'utf8'));
 
-// Los departamentos que vigilamos.
-const DEPARTAMENTOS = ['Tumbes', 'Piura', 'Cajamarca', 'Lambayeque'];
+// Los departamentos que vigilamos. Áncash y Lima se agregaron el 11/11/2026.
+const DEPARTAMENTOS = ['Tumbes', 'Piura', 'Cajamarca', 'Lambayeque', 'Áncash', 'Lima'];
+
+// Lima es donde está la prensa nacional: la búsqueda «Lima» trae noticias de todo el país.
+// Por eso, una noticia solo queda en Lima si el titular nombra a Lima o a uno de sus lugares;
+// si solo vino de la búsqueda, se descarta (11/11/2026).
+const SOLO_CON_LUGAR = ['Lima'];
 
 // Cuántos días hacia atrás se buscan noticias.
 const DIAS = 30;                       // ventana de búsqueda en Google Noticias
@@ -89,7 +94,26 @@ const AMBIGUOS = new Set([
   'dos pueblos', 'san cristo', 'la grama', 'catan', 'chalan', 'bigote', 'chirinos', 'montero',
   // Lambayeque
   'la victoria', 'pimentel', 'jose leonardo ortiz', 'manuel antonio mesones muro', 'pueblo nuevo',
-  'salas', 'san carlos', 'pacora', 'reque']);
+  'salas', 'san carlos', 'pacora', 'reque',
+  // Áncash (11/11/2026): palabras comunes, personas y lugares que también existen en otras regiones
+  'independencia', 'la libertad', 'cochabamba', 'pampas', 'pira', 'la merced', 'anta', 'san nicolas',
+  'aco', 'bambas', 'la pampa', 'ponto', 'uco', 'mato', 'santo toribio', 'lucma', 'casca', 'marca', 'acas',
+  'cochas', 'congas', 'san pedro', 'cabana', 'bolognesi', 'tauca', 'santa', 'moro', 'macate', 'quillo',
+  'acobamba', 'alfonso ugarte', 'colcabamba', 'huallanca', 'mangas', 'canis', 'la primavera', 'antonio raymondi',
+  'abelardo pardo lezameta', 'comandante noel', 'eleazar guzman barron', 'fidel olivas escudero', 'pueblo libre',
+  'san cristobal de rajan', 'shilla', 'tinco', 'llumpa', 'musga', 'conchucos',
+  // Lima (11/11/2026)
+  'barranco', 'barranca', 'las palmeras', 'imperial', 'asia', 'mala', 'chilca', 'canta', 'copa',
+  'manas', 'ambar', 'santa maria', 'cruz blanca', 'leoncio prado', 'santa leonor', 'pirca', 'cuenca',
+  'ricardo palma', 'san mateo', 'san antonio', 'san bartolome', 'san damian', 'san joaquin', 'san buenaventura',
+  'cocachacra', 'colonia', 'hongos', 'tomas', 'alis', 'vitis', 'tupe', 'tanta', 'omas', 'cacra', 'ayaviri',
+  'azangaro', 'langa', 'laraos', 'chocos', 'carania', 'quinches', 'madean', 'lincha', 'huampara', 'ayauca',
+  'carac', 'acos', 'maray', 'jucul', 'colonia', 'cochamarca', 'gorgor',
+  'huaros', 'ihuari', 'antioquia', 'mariatana', 'chicla', 'san jose de los chorrillos', 'san juan de lanca']);
+
+// Nombres que solo cuentan si el titular dice «distrito de…» o «provincia del…»: «Santa» (Áncash)
+// aparece en «río Santa», «Semana Santa» o «Santa Rosa» sin hablar del distrito (11/11/2026).
+const SOLO_EXPLICITO = new Set(['santa']);
 
 // -------------------------------------------------------------------------------------
 //  TEMAS: cómo se decide de qué trata una noticia
@@ -243,11 +267,11 @@ async function leer(fuente) {
 // =====================================================================================
 //  PASO 3 · ¿DE QUÉ LUGAR HABLA?  Ubicar la noticia
 // =====================================================================================
-// El programa lee el titular y busca en él los nombres de los 243 distritos, siguiendo
+// El programa lee el titular y busca en él los nombres de los 581 distritos, siguiendo
 // estas reglas (en orden):
 //
 //   a) Busca cada nombre de distrito (y sus alias) como palabras completas.
-//   b) "Piura", "Tumbes", "Cajamarca" o "Lambayeque" solos se entienden como el
+//   b) "Piura", "Tumbes", "Cajamarca", "Lambayeque" o "Lima" solos se entienden como el
 //      DEPARTAMENTO entero, no como el distrito del mismo nombre, porque casi siempre las
 //      noticias hablan de la región. Ojo: en Lambayeque la capital es Chiclayo, así que una
 //      noticia de la ciudad de Lambayeque también queda a nivel departamento.
@@ -283,25 +307,36 @@ function ubicar(item) {
     if (!dentro) continue;
     const soloAmbiguas = hallada.every(c => AMBIGUOS.has(c));
     if (soloAmbiguas && !tiene(texto, d.provincia) && !tiene(texto, d.departamento)) continue;
-    encontrados.push(d);
+    if (hallada.every(c => SOLO_EXPLICITO.has(c) && !new RegExp(`(distrito|provincia) del? ${c}( |$)`).test(texto))) continue;
+    encontrados.push({ d, hallada });
   }
+  // 11/11/2026: un nombre que solo aparece DENTRO de otro más largo no cuenta como lugar aparte:
+  // «San Juan de Lurigancho» no es también Lurigancho; «Nuevo Chimbote» no es también Chimbote;
+  // «Magdalena del Mar» no es también Magdalena.
+  const todas = encontrados.flatMap(e => e.hallada);
+  const dentroDeOtro = c => todas.some(o => o !== c && o.length > c.length && tiene(o, c));
+  const utiles = encontrados.map(e => ({ ...e, hallada: e.hallada.filter(c => !dentroDeOtro(c)) })).filter(e => e.hallada.length);
   // Un mismo nombre puede existir en dos provincias (Santa Cruz, Salitral, San Juan…):
-  // queda el de la provincia nombrada; si no se nombra ninguna, el que es capital de provincia.
+  // queda el de la provincia nombrada; si no se nombra ninguna, el que es capital de provincia;
+  // si tampoco, el de la provincia de Lima (Lima Metropolitana), que es la que nombra la prensa
+  // nacional («Miraflores» o «San Luis» solos son los de Lima, no los de Yauyos o Cañete).
+  // Se agrupan por el nombre hallado en el titular: «Surco» es Santiago de Surco (alias) y Surco de Huarochirí.
   const porNombre = new Map();
-  for (const d of encontrados) {
-    const k = norm(d.distrito);
-    porNombre.set(k, [...(porNombre.get(k) || []), d]);
+  for (const e of utiles) {
+    const k = e.hallada.slice().sort((a, b) => b.length - a.length)[0];
+    porNombre.set(k, [...(porNombre.get(k) || []), e.d]);
   }
   const elegidos = [];
   for (const grupo of porNombre.values()) {
     if (grupo.length === 1) { elegidos.push(grupo[0]); continue; }
     const conProv = grupo.filter(d => norm(d.provincia) !== norm(d.distrito) && tiene(texto, d.provincia));
     const capital = grupo.filter(d => norm(d.provincia) === norm(d.distrito));
-    elegidos.push(...(conProv.length ? conProv : capital.length ? capital : grupo));
+    const deLima = grupo.filter(d => d.departamento === 'Lima' && d.provincia === 'Lima');
+    elegidos.push(...(conProv.length ? conProv : capital.length ? capital : deLima.length ? deLima : grupo));
   }
-  // "provincia de Hualgayoc" → nivel provincia, no el distrito del mismo nombre.
-  const lugares = elegidos.map(d => {
-    const esProvincia = norm(d.provincia) === norm(d.distrito) && new RegExp(`provincia (de )?${norm(d.provincia)}`).test(texto);
+  // "provincia de Hualgayoc" (o "provincia del Santa") → nivel provincia, no el distrito del mismo nombre.
+  const lugares = [...new Set(elegidos)].map(d => {
+    const esProvincia = norm(d.provincia) === norm(d.distrito) && new RegExp(`provincia (del? )?${norm(d.provincia)}`).test(texto);
     return { departamento: d.departamento, provincia: d.provincia, distrito: esProvincia ? null : d.distrito,
              ubigeo: esProvincia ? d.ubigeo.slice(0, 4) : d.ubigeo };
   }).filter((l, i, a) => a.findIndex(o => o.ubigeo === l.ubigeo) === i);
@@ -310,8 +345,10 @@ function ubicar(item) {
   // Las capitales departamentales nombradas solas se registran como distrito capital (nivel "departamento")
   for (const dep of deps) {
     if (!lugares.some(l => l.departamento === dep)) {
+      // Áncash no tiene provincia ni distrito con su nombre: se registra solo el departamento (ubigeo 02).
       const cap = DISTRITOS.find(d => d.departamento === dep && d.provincia === dep && norm(d.distrito) === norm(dep));
-      lugares.push({ departamento: dep, provincia: dep, distrito: null, ubigeo: cap ? cap.ubigeo.slice(0, 2) : null });
+      const unoDel = DISTRITOS.find(d => d.departamento === dep);
+      lugares.push({ departamento: dep, provincia: cap ? dep : null, distrito: null, ubigeo: unoDel ? unoDel.ubigeo.slice(0, 2) : null });
     }
   }
   return { departamentos, lugares };
@@ -349,7 +386,7 @@ async function main() {
   // 4) Convierte cada noticia en una FICHA, aplicando en orden:
   //    • deja solo las de los últimos 30 días (864e5 = milisegundos que tiene un día);
   //    • la ubica (Paso 3) y le pone tema (Paso 4);
-  //    • descarta las que no son de Tumbes, Piura, Lambayeque o Cajamarca;
+  //    • descarta las que no son de Tumbes, Piura, Lambayeque, Cajamarca, Áncash o Lima;
   //    • de las radios, descarta las que no nombran ningún lugar (suelen ser nacionales);
   //    • las ordena de la más reciente a la más antigua;
   //    • les da un código único, por ejemplo USF-N-261107-0001
@@ -360,6 +397,8 @@ async function main() {
     .filter(it => new Date(it.publicada).getTime() >= corte)
     .map(it => ({ ...it, ...ubicar(it), tema: tema(it.titulo + ' ' + it.resumen) }))
     .filter(f => f.departamentos.some(d => DEPARTAMENTOS.includes(d)))
+    // Lima: solo si el titular la nombra o nombra uno de sus lugares (ver SOLO_CON_LUGAR).
+    .filter(f => !(f.lugares.length === 0 && f.departamentos.every(d => SOLO_CON_LUGAR.includes(d))))
     // Las radios también publican noticias nacionales: de ellas solo quedan las que nombran un lugar.
     .filter(f => f.via !== 'RSS de la radio' || f.lugares.length)
     .sort((a, b) => b.publicada.localeCompare(a.publicada))

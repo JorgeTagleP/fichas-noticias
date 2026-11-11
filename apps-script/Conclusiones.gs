@@ -489,7 +489,7 @@ precisos.forEach((r, i) => r.prioridad = (i < 3 || r.puntaje >= maxP * 0.5) && r
 const departamentos = ranking.filter(r => r.nivel === 'departamento');
 
 // ---------- 2. Salud ----------
-const DEPS = ['Tumbes', 'Piura', 'Lambayeque', 'Cajamarca'];
+const DEPS = ['Tumbes', 'Piura', 'Lambayeque', 'Cajamarca', 'Áncash', 'Lima'];   // Áncash y Lima desde el 11/11/2026
 const salud = DEPS.map(dep => {
   const de = clasificadas.filter(c => c.f.departamentos.includes(dep));
   const enf = id => de.filter(c => c.senales.includes(id));
@@ -539,7 +539,7 @@ const calidad = evaluacion ? {
 // ---------- 7. Ejes del Gobierno frente a El Niño ----------
 // 08/11/2026: el usuario pidió orientar las conclusiones a los ejes de la Presidencia de la República.
 // Cada eje cita tal cual lo que anunció el Gobierno (El Peruano, diario oficial, y gob.pe, 15/10/2026)
-// y muestra qué dicen las noticias del norte: qué está en marcha y qué tiene problemas.
+// y muestra qué dicen las noticias de los seis departamentos: qué está en marcha y qué tiene problemas.
 // Lo oficial se cita, no se reinterpreta; las noticias entran tal como están escritas.
 const EP_URL = 'https://elperuano.pe/noticia/306932-presidenta-fujimori-anuncia-importantes-acciones-del-gobierno-frente-al-fenomeno-el-nino';
 const GOB_URL = 'https://www.gob.pe/institucion/presidencia/noticias/1457275-presidenta-keiko-fujimori-ante-fenomeno-el-nino-trabajando-unidos-y-con-un-solo-puno-vamos-a-levantarnos-y-salir-mas-fuertes-como-pais';
@@ -579,11 +579,13 @@ const EJES = [
 ];
 // 09/11/2026 17:10: «califica de engaño…» (Colegio de Ingenieros sobre el río Piura) cuenta como problema del eje.
 const PROBLEMA = /\bengano\b|\bsin\b|falta|no llega|no lleg|demora|retras|paraliz|reclam|exige|piden|\bpide\b|denuncia|abandon|insuficient|aun no|todavia no|olvidad|desatend|colaps|solo \d+ de \d+|siguen? vulnerable/;
-// Titulares sobre otra región que solo comparan con el norte («Lima podría sufrir un colapso mayor que Piura…») no cuentan.
+// Titulares que empiezan por Lima y solo comparan con el norte («Lima podría sufrir un colapso mayor que Piura…»):
+// hasta el 11/11/2026 no contaban; desde que Lima se sigue, cuentan solo para Lima, no para el departamento comparado.
 const OTRA_REGION = /^lima\b/;
 const EN_MARCHA = /inicia|entrega|llega|despliega|instala|avanza|culmina|concluye|ejecuta|trabaja|transfiere|aprueba|destina|habilita|limpia|descolmata|refuerza|moviliza|envia|construye|atiende|distribuy|implementa|lleva|realiza/;
 const estadoEje = c => (c.senales.indexOf('brecha') >= 0 || PROBLEMA.test(c.t)) ? 'Con problemas' : EN_MARCHA.test(c.t) ? 'En marcha' : 'Mencionado';
-const conContexto = clasificadas.filter(c => CONTEXTO.test(c.t) && !OTRA_REGION.test(c.t));
+const conContexto = clasificadas.filter(c => CONTEXTO.test(c.t));
+const depsDe = c => OTRA_REGION.test(c.t) ? ['Lima'] : c.f.departamentos;
 const ejes = EJES.map(e => {
   const cs = conContexto.filter(c => e.re.test(c.t)).sort((a, b) => b.f.publicada.localeCompare(a.f.publicada));
   const estados = { 'En marcha': 0, 'Con problemas': 0, 'Mencionado': 0 };
@@ -591,7 +593,7 @@ const ejes = EJES.map(e => {
   DEPS.forEach(d => { porDep[d] = { total: 0, problemas: 0 }; });
   cs.forEach(c => {
     const est = estadoEje(c); estados[est]++;
-    c.f.departamentos.forEach(d => { if (porDep[d]) { porDep[d].total++; if (est === 'Con problemas') porDep[d].problemas++; } });
+    depsDe(c).forEach(d => { if (porDep[d]) { porDep[d].total++; if (est === 'Con problemas') porDep[d].problemas++; } });
   });
   const conEstado = c => ({ ...resumenFicha(c), estado: estadoEje(c) });
   const problemas = sinRepetir(cs.filter(c => estadoEje(c) === 'Con problemas')).slice(0, 3).map(conEstado);

@@ -14,7 +14,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-export const NORTE = ['Tumbes', 'Piura', 'Lambayeque', 'Cajamarca'];
+// Departamentos que sigue la página (Áncash y Lima desde el 11/11/2026).
+export const NORTE = ['Tumbes', 'Piura', 'Lambayeque', 'Cajamarca', 'Áncash', 'Lima'];
 export const clave = s => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '')
   .toLowerCase().replace(/[^a-z ]/g, ' ').replace(/\s+/g, ' ').trim();
 
@@ -33,7 +34,7 @@ export function indice(distritos) {
 }
 export const buscar = (ix, dep, prov, dist) => ix[clave(dep) + '|' + clave(prov) + '|' + clave(dist)] || ix[clave(dep) + '|' + clave(dist)] || null;
 
-// Agrupa las filas del INDECI de los 4 departamentos por ubigeo. Las cifras se copian sin cambio.
+// Agrupa las filas del INDECI de los 6 departamentos por ubigeo. Las cifras se copian sin cambio.
 export function unir(filas, distritos) {
   const ix = indice(distritos);
   const porUbigeo = {}, sinUbicar = [];

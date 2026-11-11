@@ -1,7 +1,10 @@
-# Fichas de noticias del norte: indicación permanente de mejora continua
+# Fichas de noticias del norte y Lima: indicación permanente de mejora continua
 
 Esta indicación vale para cualquier sesión o rutina que trabaje en este repositorio
 (la rutina diaria en la nube incluida). Página: https://jorgetaglep.github.io/fichas-noticias/
+Departamentos que se siguen: Tumbes, Piura, Lambayeque, Cajamarca, Áncash y Lima (estos dos desde el
+11/11/2026). La lista está en `lector.mjs`, `conclusiones.mjs`, `mapa.mjs`, `index.html` y
+`apps-script/Codigo.gs`; si cambia, se cambia en todos y en `distritos.json`/`limites-norte.json`.
 
 ## 1. Reglas que no se tocan
 - Lo oficial se cita, no se reinterpreta: fuente, fecha y enlace en cada cifra.

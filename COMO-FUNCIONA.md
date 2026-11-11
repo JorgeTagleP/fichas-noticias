@@ -7,7 +7,8 @@ trae explicaciones línea por línea (son las líneas que empiezan con `//`).
 ## La idea en una frase
 
 El programa hace en unos segundos lo que una persona haría en una mañana entera: revisa
-unas 46 fuentes de noticias, se queda con las que hablan de Tumbes, Piura, Lambayeque y Cajamarca, y
+unas 80 fuentes de noticias, se queda con las que hablan de Tumbes, Piura, Lambayeque, Cajamarca,
+Áncash y Lima (estos dos desde el 11/11/2026), y
 arma con cada una una **ficha** ordenada que luego se ve en la página web.
 
 ## El recorrido de una noticia
@@ -67,8 +68,8 @@ node lector.mjs
 Al terminar muestra un resumen como este:
 
 ```
-Fuentes: 46 · Leídas: 1208 · Fichas: 902 (Tumbes: 212 · Piura: 367 · Cajamarca: 211 · Lambayeque: 150)
-Con distrito: 376 · Emergencias: 219 · Lluvias y clima: 213
+Fuentes: 79 · Leídas: 1839 · Fichas: 1408 (Tumbes: 195 · Piura: 356 · Cajamarca: 205 · Lambayeque: 173 · Áncash: 310 · Lima: 265)
+Con distrito: 649 · Emergencias: 349 · Lluvias y clima: 309
 ```
 
 - **Leídas:** todas las noticias recibidas, incluidas las repetidas.
@@ -190,8 +191,8 @@ huaico, deslizamiento, derrumbe o erosión; y viento, granizo, nevada y otros.
 La página tiene tres mapas. Usan Leaflet con el mapa libre de OpenStreetMap, no Google Maps: no
 necesitan clave ni cuenta, no ponen cookies y no rastrean a quien visita la página.
 
-- **Mapa del norte (pestaña «Personas afectadas»):** cada distrito de Tumbes, Piura, Lambayeque y
-  Cajamarca se marca con un contorno del color de sus afectados del INDECI, sin relleno, para
+- **Mapa de los seis departamentos (pestaña «Personas afectadas»):** cada distrito de Tumbes, Piura,
+  Lambayeque, Cajamarca, Áncash y Lima se marca con un contorno del color de sus afectados del INDECI, sin relleno, para
   que se vea el mapa del distrito. Los damnificados (grupo distinto, nunca
   se suman) aparecen en el rótulo al pasar el cursor y en el detalle. Al tocar un distrito se ve cada reporte con su fenómeno, corte y enlace.
 - **Imagen para Word:** el botón «Descargar como imagen (para Word)» baja ese mismo mapa como PNG,
@@ -206,11 +207,14 @@ De dónde salen los datos:
   distrito de `distritos.json` (por departamento, provincia y nombre, aunque venga sin tilde) y
   escribe `mapa.json`. Si una fila no se puede ubicar, la lectura muestra un aviso en GitHub y el
   pie del mapa la nombra; se corrige agregando el alias en `distritos.json`.
-- `limites-norte.json`: límites de los 243 distritos (INEI, copia simplificada). Faltan
-  Veintiséis de Octubre (Piura, creado después) y Bellavista (Sullana); esos dos no se colorean.
+- `limites-norte.json`: límites de los 581 distritos (INEI, copia simplificada; el nombre del archivo
+  quedó de cuando eran 4 departamentos). Faltan Veintiséis de Octubre (Piura) y Santa María de
+  Huachipa (Lima), creados después, y vienen sin geometría Bellavista (Sullana), Acopampa (Carhuaz) y
+  Santa Anita (Lima); esos cinco no se colorean.
 - `rios-norte.json`: 24 ríos principales (Tumbes, Zarumilla, Chira, Piura, La Leche, Chancay, Zaña,
   Jequetepeque, Marañón, Chinchipe, Huancabamba…), tomados de OpenStreetMap el 11/11/2026,
-  recortados a los 4 departamentos y simplificados. Se ven en los dos mapas y en la imagen para Word;
+  recortados a los 6 departamentos y simplificados (los de Áncash y Lima —Santa, Rímac, Chillón, Lurín,
+  Cañete, Huaura, Pativilca…— se agregaron el 11/11/2026). Se ven en los dos mapas y en la imagen para Word;
   en el mapa del INDECI se pueden ocultar con «Mostrar los ríos» y su nombre aparece al pasar el cursor.
 - Las pruebas revisan que cada distrito se encuentre por su nombre y tenga su límite.
 

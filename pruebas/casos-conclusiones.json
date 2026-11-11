@@ -603,6 +603,69 @@
    "depConsulta": "Lambayeque",
    "con_distrito": "Saña",
    "literal": false
+  },
+  {
+   "origen": "Áncash y Lima (11/11/2026)",
+   "titulo": "Huaico afecta viviendas en San Juan de Lurigancho",
+   "depConsulta": "Lima",
+   "con_distrito": "San Juan de Lurigancho",
+   "literal": false
+  },
+  {
+   "origen": "Áncash y Lima (11/11/2026)",
+   "titulo": "Huaico afecta viviendas en San Juan de Lurigancho",
+   "depConsulta": "Lima",
+   "sin_distrito": "Lurigancho",
+   "literal": false
+  },
+  {
+   "origen": "Áncash y Lima (11/11/2026)",
+   "titulo": "Huaico en Chosica: vecinos evacuan",
+   "depConsulta": "Lima",
+   "con_distrito": "Lurigancho",
+   "literal": false
+  },
+  {
+   "origen": "Áncash y Lima (11/11/2026)",
+   "titulo": "Desborde del río Santa afecta Nuevo Chimbote",
+   "depConsulta": "Áncash",
+   "con_distrito": "Nuevo Chimbote",
+   "literal": false
+  },
+  {
+   "origen": "Áncash y Lima (11/11/2026)",
+   "titulo": "Desborde del río Santa afecta Nuevo Chimbote",
+   "depConsulta": "Áncash",
+   "sin_distrito": "Chimbote",
+   "literal": false
+  },
+  {
+   "origen": "Áncash y Lima (11/11/2026)",
+   "titulo": "Desborde del río Santa afecta Nuevo Chimbote",
+   "depConsulta": "Áncash",
+   "sin_distrito": "Santa",
+   "literal": false
+  },
+  {
+   "origen": "Áncash y Lima (11/11/2026)",
+   "titulo": "Surco: vecinos denuncian aniego",
+   "depConsulta": "Lima",
+   "con_distrito": "Santiago de Surco",
+   "literal": false
+  },
+  {
+   "origen": "Áncash y Lima (11/11/2026)",
+   "titulo": "Surco: vecinos denuncian aniego",
+   "depConsulta": "Lima",
+   "sin_distrito": "Surco",
+   "literal": false
+  },
+  {
+   "origen": "Áncash y Lima (11/11/2026)",
+   "titulo": "Lluvias en Huaraz dejan calles inundadas",
+   "depConsulta": "Áncash",
+   "con_distrito": "Huaraz",
+   "literal": false
   }
  ]
 }
