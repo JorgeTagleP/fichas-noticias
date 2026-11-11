@@ -527,6 +527,25 @@
     "brecha"
    ],
    "literal": true
+  },
+  {
+   "origen": "11/11/2026",
+   "titulo": "Tumbes: lluvias intensas dañan 20 viviendas y afectan vías vecinales en el distrito de Casitas",
+   "dep": "Tumbes",
+   "dist": "Casitas",
+   "tiene": [
+    "damnificados"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "11/11/2026",
+   "titulo": "Fenómeno El Niño en Tumbes: lluvias causan daños en 20 viviendas y afectan 1.5 km de vías",
+   "dep": "Tumbes",
+   "tiene": [
+    "damnificados"
+   ],
+   "literal": true
   }
  ],
  "ubicar": [
