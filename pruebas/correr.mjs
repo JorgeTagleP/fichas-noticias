@@ -22,6 +22,7 @@ import os from 'node:os';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { ubicar, tema, norm } from '../lector.mjs';
+import { unir, indice, buscar } from '../mapa.mjs';
 import { nombre, delArchivo, corteDe, leerTabla, leerTexto, depDeFila } from '../indeci-tablas.mjs';
 
 const AQUI = path.dirname(fileURLToPath(import.meta.url));
@@ -117,6 +118,30 @@ if (os.platform() === 'linux' && conPdftotext) {
 // El departamento del título manda cuando la tabla trae otro (Quilahuani es de Tacna, no de Áncash).
 const quila = esperado.find(r => r.num === 2437);
 prueba('INDECI: Quilahuani queda en Tacna aunque la tabla diga «DPTO ÁNCASH»', quila && depDeFila(quila.filas.find(f => f.nivel === 'DIST'), quila.titulo) === 'Tacna');
+
+// ---------- 5. Mapas (mapa.mjs) ----------
+// Cada distrito de distritos.json se encuentra por su nombre y tiene límite en el mapa
+// (salvo los dos que faltan en la copia del INEI), y los nombres que el INDECI escribe
+// distinto (sin tilde, «Tambo Grande», «San Miguel de el Faique»…) caen en su distrito.
+{
+  const distritos = JSON.parse(fs.readFileSync(path.join(RAIZ, 'distritos.json'), 'utf8'));
+  const lim = JSON.parse(fs.readFileSync(path.join(RAIZ, 'limites-norte.json'), 'utf8'));
+  const ix = indice(distritos);
+  const conLimite = new Set(lim.features.filter(f => f.geometry).map(f => f.properties.ubigeo));
+  const sinLimite = ['200115', '200602'];
+  for (const d of distritos) {
+    prueba(`mapa: «${d.distrito}» (${d.provincia}, ${d.departamento}) se encuentra por su nombre`, buscar(ix, d.departamento, d.provincia, d.distrito) === d.ubigeo);
+    if (!sinLimite.includes(d.ubigeo)) prueba(`mapa: ${d.distrito} (${d.ubigeo}) tiene límite`, conLimite.has(d.ubigeo));
+  }
+  const filas = [
+    ['Cajamarca', 'Celendín', 'Celendin', '060301'], ['Piura', 'Piura', 'Tambo Grande', '200114'], ['Piura', 'Huancabamba', 'San Miguel de el Faique', '200306'],
+    ['Tumbes', 'Contralmirante Villar', 'Canoas de Punta Sal', '240203'], ['Piura', 'Talara', 'Máncora', '200706'], ['Lambayeque', 'Ferreñafe', 'Cañaris', '140202'],
+    ['Piura', 'Morropón', 'Salitral', '200406'], ['Piura', 'Sullana', 'Salitral', '200608'],
+  ].map(([dep, prov, dist, u]) => ({ dep, prov, dist, u, afectados: 5, damnificados: 1, fenomeno: 'Lluvias Intensas', url: 'https://portal.indeci.gob.pe/x.pdf' }));
+  const r = unir([...filas, { dep: 'Cusco', dist: 'Cusco', afectados: 9 }], distritos);
+  for (const f of filas) prueba(`mapa: el INDECI «${f.dist}» (${f.prov}) cae en ${f.u}`, r.porUbigeo[f.u] && r.porUbigeo[f.u].afectados === 5, JSON.stringify(Object.keys(r.porUbigeo)));
+  prueba('mapa: fuera del norte no entra y nada queda sin ubicar', !Object.values(r.porUbigeo).some(o => o.afectados === 9) && r.sinUbicar.length === 0, r.sinUbicar.join(', '));
+}
 
 // ---------- Resultado ----------
 console.log(`Pruebas: ${ok} correctas, ${fallas.length} con falla · ${casos.length} titulares · ${casosUbicar.length} ubicaciones · INDECI: ${indeci}.`);

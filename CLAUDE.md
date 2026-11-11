@@ -9,6 +9,9 @@ Esta indicación vale para cualquier sesión o rutina que trabaje en este reposi
 - La pestaña «Personas afectadas» solo usa cifras del INDECI-COEN; nunca se mezcla con la prensa.
 - Nunca se usan contraseñas ni se publican correos personales. Commits como JorgeTagleP
   (199572888+JorgeTagleP@users.noreply.github.com).
+- Los mapas usan OpenStreetMap (sin Google Maps, sin claves ni cookies). En el mapa del INDECI,
+  afectados y damnificados se muestran por separado, nunca sumados; el mapa de noticias es prensa
+  y va separado del INDECI (`mapa.mjs`, `limites-norte.json`; ver COMO-FUNCIONA.md, «Mapas»).
 - Si una mejora choca con una de estas reglas, no se hace y se anota en MEJORAS.md el porqué.
 
 ## 2. Control de salud en cada lectura
@@ -28,6 +31,8 @@ Hecho: `node pruebas/correr.mjs` corre en cada lectura antes de leer; si falla, 
 - `pruebas/casos-conclusiones.json`: titulares ya corregidos (de MEJORAS.md) y lo que se espera de cada uno.
 - `pruebas/indeci/`: 7 PDF del INDECI verificados a mano y `esperado.json`. Solo se comparan en Linux.
 - Las reglas de lectura del INDECI están en `indeci-tablas.mjs` (funciones puras, sin red).
+- Mapas: cada distrito de `distritos.json` se encuentra por su nombre y tiene límite, y los nombres
+  que el INDECI escribe distinto caen en su distrito (incluidos los homónimos, como Salitral).
 - Un juego de PDF del INDECI y de noticias ya verificados a mano, con su resultado esperado.
 - Toda modificación de `afectados.mjs`, `lector.mjs` o `conclusiones.mjs` debe pasar esas pruebas;
   si falla una, no se publica y queda la versión anterior.

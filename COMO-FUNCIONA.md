@@ -173,6 +173,30 @@ documento Word (capítulo 3.7, fase 7 y secciones 5.10 a 5.14 del manual).
 - **Visitas:** se cuentan con GoatCounter, sin cookies ni datos personales
   (https://fichas-norte.goatcounter.com).
 
+## Mapas (desde el 10/11/2026)
+
+La página tiene tres mapas. Usan Leaflet con el mapa libre de OpenStreetMap, no Google Maps: no
+necesitan clave ni cuenta, no ponen cookies y no rastrean a quien visita la página.
+
+- **Mapa del norte (pestaña «Personas afectadas»):** cada distrito de Tumbes, Piura, Lambayeque y
+  Cajamarca se colorea con los afectados o con los damnificados del INDECI (se elige arriba del
+  mapa; nunca se suman). Al tocar un distrito se ve cada reporte con su fenómeno, corte y enlace.
+- **Imagen para Word:** el botón «Descargar como imagen (para Word)» baja ese mismo mapa como PNG,
+  con título, leyenda, los distritos con más personas, la fuente y la fecha de la lectura.
+- **Mapa de las noticias (pestaña «Todas las fichas», enlace «Ver en el mapa»):** un círculo por
+  distrito, más grande cuantas más fichas lo nombran. Respeta los filtros de arriba (tema, fechas,
+  departamento…): por ejemplo, con el tema «Lluvias y clima» se ven solo esas noticias. Es prensa,
+  no cifras oficiales, y va separado del INDECI.
+
+De dónde salen los datos:
+- `mapa.mjs` corre en cada lectura, después del control de salud. Une cada fila del INDECI con su
+  distrito de `distritos.json` (por departamento, provincia y nombre, aunque venga sin tilde) y
+  escribe `mapa.json`. Si una fila no se puede ubicar, la lectura muestra un aviso en GitHub y el
+  pie del mapa la nombra; se corrige agregando el alias en `distritos.json`.
+- `limites-norte.json`: límites de los 243 distritos (INEI, copia simplificada). Faltan
+  Veintiséis de Octubre (Piura, creado después) y Bellavista (Sullana); esos dos no se colorean.
+- Las pruebas revisan que cada distrito se encuentre por su nombre y tenga su límite.
+
 ## Lo que el programa NO hace
 
 - **No verifica si la noticia es verdadera.** Eso lo hace una persona del equipo.
