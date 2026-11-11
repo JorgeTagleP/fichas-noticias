@@ -433,7 +433,20 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
   const fCorte = s => s ? s.slice(8, 10) + '/' + s.slice(5, 7) + (s.length > 11 && s.slice(11) !== '00:00' ? ' ' + s.slice(11, 16) : '') : '';
   const nv = n => n ? Number(n).toLocaleString('es-PE') : '—';
   const NORTE = ['Tumbes', 'Piura', 'Lambayeque', 'Cajamarca'];
-  let A = null, depA = 'norte';
+  let A = null, depA = 'norte', origA = '';
+  // Origen del daño: agrupación propia de los motivos (fenómenos) que anota el INDECI en cada reporte.
+  // El motivo del INDECI se muestra siempre tal cual; el origen solo sirve para separar, por ejemplo,
+  // el aniego por lluvia del desborde de un río. Lo que no calce en un grupo va a «Otros».
+  const ORIGENES = [
+    { id: 'lluvia', nombre: 'Lluvia', re: /lluvia|tormenta/i, que: 'El agua cae del cielo: aniegos, techos y viviendas dañadas por la lluvia.' },
+    { id: 'drenaje', nombre: 'Agua que no drena', re: /saturaci/i, que: 'El suelo se satura y el agua se empoza (inundación por saturación del suelo).' },
+    { id: 'rio', nombre: 'Desborde de río', re: /desborde de r[ií]o/i, que: 'El río se sale de su cauce.' },
+    { id: 'canal', nombre: 'Desborde de canal o quebrada', re: /desborde de (canal|quebrada)/i, que: 'Se desborda un canal de riego o una quebrada.' },
+    { id: 'masa', nombre: 'Huaico, deslizamiento, derrumbe o erosión', re: /huaico|desliz|derrumbe|erosi/i, que: 'Se mueve el terreno: lodo, piedras o tierra.' },
+    { id: 'otros', nombre: 'Viento, granizo, nevada y otros', re: /./, que: 'Vientos fuertes, granizada, nevada, colapso de estructuras y otros.' },
+  ];
+  const origenDe = fen => ORIGENES.find(o => o.re.test(fen || '')) || ORIGENES[ORIGENES.length - 1];
+  const sumar = (l) => l.reduce((t, f) => { for (const k of ['damnificados', 'afectados', 'fallecidos', 'heridos']) t[k] += f[k] || 0; return t; }, { damnificados: 0, afectados: 0, fallecidos: 0, heridos: 0 });
   function pintarAfect(j) {
     A = j || A; if (!A) return;
     const P = A.peru;
@@ -442,7 +455,12 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
     const enDep = d => depA === 'todos' ? true : depA === 'norte' ? NORTE.includes(d) : d === depA;
     const deps = A.departamentos.map(d => d.departamento).sort((a, b) => a.localeCompare(b, 'es'));
     const provs = A.provincias.filter(p => enDep(p.departamento));
-    const filas = A.filas.filter(f => enDep(f.dep));
+    const filasDep = A.filas.filter(f => enDep(f.dep));
+    const filas = filasDep.filter(f => !origA || origenDe(f.fenomeno).id === origA);
+    const porOrigen = ORIGENES.map(o => { const l = filasDep.filter(f => origenDe(f.fenomeno) === o); return { o, l, t: sumar(l), dist: new Set(l.map(f => f.dep + '|' + f.dist)).size, motivos: [...new Set(l.map(f => f.fenomeno))] }; });
+    // Con un origen elegido, las provincias se suman de las filas de ese origen (mismo cálculo que el total).
+    const provsO = !origA ? provs : [...filas.reduce((m, f) => { const k = f.dep + '|' + (f.prov || ''); if (!m.has(k)) m.set(k, { departamento: f.dep, provincia: f.prov, l: [] }); m.get(k).l.push(f); return m; }, new Map()).values()]
+      .map(p => ({ ...p, ...sumar(p.l) })).sort((a, b) => b.damnificados - a.damnificados || b.afectados - a.afectados);
     const porTema = (tema) => A.salud.filter(s => s.tema === tema);
     const saludTabla = (tema) => `<div class="tabla"><table><thead><tr><th>Lugar</th><th>Indicador</th><th>Cifra</th><th>Corte</th><th>Fuente oficial</th><th>Publicado vía</th></tr></thead><tbody>${porTema(tema).map(s => `<tr><td class="dep">${esc(s.departamento)}</td><td>${esc(s.indicador)}</td><td class="n${/allec/.test(s.indicador) ? ' fall' : ''}">${nf(s.valor)}</td><td>${s.corte ? s.corte.split('-').reverse().join('/') : 's/f'}</td><td>${esc(s.fuente)}</td><td>${s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.via || 'enlace')}</a>` : esc(s.via || '')}</td></tr>`).join('')}</tbody></table></div>`;
     $('v-afect').innerHTML = `
@@ -469,11 +487,15 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
         <p class="nota">Resaltados: los cuatro departamentos que sigue esta página.</p>
       </section>
       <section><h2>Por provincia y por distrito</h2>
-        <div class="fila"><div class="campo chico"><label for="a-dep">Departamento</label><select id="a-dep"><option value="norte">Los 4 del norte</option><option value="todos">Todo el Perú</option>${deps.map(d => `<option${d === depA ? ' selected' : ''}>${esc(d)}</option>`).join('')}</select></div></div>
-        <h3 class="sub">Por provincia</h3>
-        <div class="tabla"><table><thead><tr><th>Departamento</th><th>Provincia</th>${cols}</tr></thead><tbody>${provs.map(p => `<tr><td>${esc(p.departamento)}</td><td class="dep">${esc(p.provincia || '(sin provincia)')}</td>${celdas(p)}</tr>`).join('') || '<tr><td colspan="6">Sin reportes con personas.</td></tr>'}</tbody></table></div>
-        <h3 class="sub">Por distrito y motivo</h3>
-        <div class="tabla"><table><thead><tr><th>Departamento</th><th>Provincia – distrito</th><th>Motivo</th>${cols}<th>Corte</th><th>Reporte oficial</th></tr></thead><tbody>${filas.map(f => `<tr><td>${esc(f.dep)}</td><td class="dep">${esc(f.prov ? f.prov + ' – ' : '')}${esc(f.dist)}</td><td>${esc(f.fenomeno)}</td>${celdas(f).replace(/<td class="n">(\d[^<]*)<\/td>/, f.aprox ? '<td class="n">≈ $1</td>' : '$&')}<td>${fCorte(f.corte)}</td><td><a href="${esc(encodeURI(decodeURI(f.url)))}" target="_blank" rel="noopener noreferrer">${esc(f.reporte)}</a></td></tr>`).join('') || '<tr><td colspan="9">Sin reportes con personas.</td></tr>'}</tbody></table></div>
+        <div class="fila"><div class="campo chico"><label for="a-dep">Departamento</label><select id="a-dep"><option value="norte">Los 4 del norte</option><option value="todos">Todo el Perú</option>${deps.map(d => `<option${d === depA ? ' selected' : ''}>${esc(d)}</option>`).join('')}</select></div>
+          <div class="campo chico"><label for="a-orig">Origen</label><select id="a-orig"><option value="">Todos</option>${ORIGENES.map(o => `<option value="${o.id}"${o.id === origA ? ' selected' : ''}>${esc(o.nombre)}</option>`).join('')}</select></div></div>
+        <h3 class="sub">Por origen</h3>
+        <div class="tabla"><table><thead><tr><th>Origen</th><th>Motivos del INDECI incluidos</th>${cols}<th class="n">Distritos</th></tr></thead><tbody>${porOrigen.map(({ o, l, t, dist, motivos }) => `<tr${o.id === origA ? ' class="norte"' : ''}><td class="dep" title="${esc(o.que)}">${esc(o.nombre)}</td><td>${l.length ? esc(motivos.join(', ')) : '<span style="color:var(--muted)">Sin reportes con personas</span>'}</td>${celdas(t)}<td class="n">${dist || '—'}</td></tr>`).join('')}</tbody></table></div>
+        <p class="nota">El <b>motivo</b> es el fenómeno que anota el INDECI en cada reporte, tal cual. El <b>origen</b> es una agrupación de esta página para separar, por ejemplo, el aniego por lluvia del desborde de un río. Elige un origen arriba para ver solo esos reportes en los cuadros de abajo. Si un reporte de lluvia menciona en su texto el desborde de una quebrada, aquí cuenta como lluvia: se usa el motivo principal del INDECI.</p>
+        <h3 class="sub">Por provincia${origA ? ' · ' + esc(ORIGENES.find(o => o.id === origA).nombre) : ''}</h3>
+        <div class="tabla"><table><thead><tr><th>Departamento</th><th>Provincia</th>${cols}</tr></thead><tbody>${provsO.map(p => `<tr><td>${esc(p.departamento)}</td><td class="dep">${esc(p.provincia || '(sin provincia)')}</td>${celdas(p)}</tr>`).join('') || '<tr><td colspan="6">Sin reportes con personas.</td></tr>'}</tbody></table></div>
+        <h3 class="sub">Por distrito y motivo${origA ? ' · ' + esc(ORIGENES.find(o => o.id === origA).nombre) : ''}</h3>
+        <div class="tabla"><table><thead><tr><th>Departamento</th><th>Provincia – distrito</th><th>Motivo (INDECI)</th><th>Origen</th>${cols}<th>Corte</th><th>Reporte oficial</th></tr></thead><tbody>${filas.map(f => `<tr><td>${esc(f.dep)}</td><td class="dep">${esc(f.prov ? f.prov + ' – ' : '')}${esc(f.dist)}</td><td>${esc(f.fenomeno)}</td><td>${esc(origenDe(f.fenomeno).nombre)}</td>${celdas(f).replace(/<td class="n">(\d[^<]*)<\/td>/, f.aprox ? '<td class="n">≈ $1</td>' : '$&')}<td>${fCorte(f.corte)}</td><td><a href="${esc(encodeURI(decodeURI(f.url)))}" target="_blank" rel="noopener noreferrer">${esc(f.reporte)}</a></td></tr>`).join('') || '<tr><td colspan="10">Sin reportes con personas.</td></tr>'}</tbody></table></div>
       </section>
       <section><h2>Dengue (acumulado 2026)</h2>${saludTabla('Dengue')}</section>
       <section><h2>Leptospirosis (acumulado 2026)</h2>${saludTabla('Leptospirosis')}
@@ -488,6 +510,7 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
         <p class="nota">Las cifras se copian de cada reporte tal como las publica el INDECI. Las sumas por provincia, departamento y país son un cálculo de esta página. Un mismo distrito puede tener cifras distintas en un reporte departamental y en uno distrital de otra fecha: aquí se usa el que registra más personas, por eso los totales pueden superar a los consolidados del INDECI.</p>
       </section>`;
     $('a-dep').addEventListener('change', e => { depA = e.target.value; const y = window.scrollY; pintarAfect(); window.scrollTo({ top: y }); });
+    $('a-orig').addEventListener('change', e => { origA = e.target.value; const y = window.scrollY; pintarAfect(); window.scrollTo({ top: y }); });
     ponerMapaAfect();
   }
 

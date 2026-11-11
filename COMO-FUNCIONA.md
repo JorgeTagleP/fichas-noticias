@@ -173,6 +173,18 @@ documento Word (capítulo 3.7, fase 7 y secciones 5.10 a 5.14 del manual).
 - **Visitas:** se cuentan con GoatCounter, sin cookies ni datos personales
   (https://fichas-norte.goatcounter.com).
 
+## Origen del daño en los cuadros del INDECI (desde el 11/11/2026)
+
+En «Personas afectadas», el cuadro **Por origen** separa los reportes según de dónde vino el daño, y
+el filtro **Origen** deja ver solo esos reportes en los cuadros por provincia y por distrito:
+lluvia; agua que no drena (saturación del suelo); desborde de río; desborde de canal o quebrada;
+huaico, deslizamiento, derrumbe o erosión; y viento, granizo, nevada y otros.
+- El **motivo** es el fenómeno que anota el INDECI en el título de cada reporte y se muestra tal cual.
+  El **origen** es una agrupación de la página (lista `ORIGENES` en `index.html`).
+- Si aparece un motivo nuevo que no calza, cae en «otros»: se agrega su palabra a `ORIGENES`.
+- Límite: si un reporte de «Lluvias intensas» menciona en su texto el desborde de una quebrada,
+  cuenta como lluvia, porque se usa el motivo principal del INDECI.
+
 ## Mapas (desde el 10/11/2026)
 
 La página tiene tres mapas. Usan Leaflet con el mapa libre de OpenStreetMap, no Google Maps: no
