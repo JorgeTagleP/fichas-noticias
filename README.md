@@ -12,4 +12,6 @@ personas, qué hacer, salud, brechas en la atención, pronóstico y proyectos pa
 - Cómo funciona, sin términos técnicos: [COMO-FUNCIONA.md](COMO-FUNCIONA.md)
 - Archivos y versión Google Workspace: [LEEME.md](LEEME.md)
 - Mejoras hechas a las reglas: [MEJORAS.md](MEJORAS.md)
+- Criterios de mejora continua (pruebas, salud, respaldo, visitas): [CLAUDE.md](CLAUDE.md)
+- Documentación SysML v1 y manual de operación: [Fichas-Noticias-SysML-v1-y-manual.docx](Fichas-Noticias-SysML-v1-y-manual.docx)
 - Última lectura guardada: [estado.json](estado.json)

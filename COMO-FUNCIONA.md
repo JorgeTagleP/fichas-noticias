@@ -152,12 +152,33 @@ Para corregirlo a mano:
 - **Una noticia que no es de la zona:** agregar la palabra a `FUERA_DE_ZONA`, en minúsculas y sin tildes.
 - **Una palabra de peligro que falta:** agregarla al `re` de la señal que corresponda en `SENALES`.
 
+## Mejora continua (desde el 10/11/2026)
+
+El sistema se vigila a sí mismo. Los criterios completos están en [CLAUDE.md](CLAUDE.md) y en el
+documento Word (capítulo 3.7, fase 7 y secciones 5.10 a 5.14 del manual).
+
+- **Pruebas antes de publicar** (`node pruebas/correr.mjs`): antes de cada lectura se revisan los
+  titulares que ya se corrigieron (de esta misma lista de mejoras) y 7 reportes del INDECI
+  verificados a mano. Si una regla nueva rompe uno de ellos, la lectura se detiene y la página sigue
+  como estaba. Cada vez que se corrige un error, su titular se agrega a
+  `pruebas/casos-conclusiones.json`. Si una prueba falla, se corrige la regla, no la prueba.
+- **Control de salud** (`salud.mjs`): después de leer, compara con la lectura anterior. Si algo
+  salió vacío, dañado, cayó más de 50 % de golpe o rompe una regla del proyecto, publica la versión
+  anterior. Al pie de la página se ve el estado de la lectura; si hay un problema, aparece arriba un
+  recuadro rojo «Datos al…».
+- **Aviso por correo:** con una alerta, GitHub abre el aviso «Alerta de la lectura de noticias» y
+  manda un correo al dueño del repositorio. Se cierra solo cuando una lectura sale bien.
+- **Respaldo semanal:** cada domingo a las 08:00 se guarda una copia completa en la pestaña
+  Releases del repositorio (últimas 8 semanas).
+- **Visitas:** se cuentan con GoatCounter, sin cookies ni datos personales
+  (https://fichas-norte.goatcounter.com).
+
 ## Lo que el programa NO hace
 
 - **No verifica si la noticia es verdadera.** Eso lo hace una persona del equipo.
 - **No copia el texto de las noticias,** solo titular y enlace, por respeto a los derechos de autor.
 - **No lee radios que solo transmiten al aire o publican solo en Facebook.**
-- **No publica nada por sí solo.** La página en internet se actualiza solo cuando se pide.
+- **No publica datos que no pasaron las pruebas y el control de salud.** Si algo falla, queda la versión anterior.
 
 ## Fechas ilegibles
 
