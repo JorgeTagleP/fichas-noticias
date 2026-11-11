@@ -195,6 +195,10 @@ De dónde salen los datos:
   pie del mapa la nombra; se corrige agregando el alias en `distritos.json`.
 - `limites-norte.json`: límites de los 243 distritos (INEI, copia simplificada). Faltan
   Veintiséis de Octubre (Piura, creado después) y Bellavista (Sullana); esos dos no se colorean.
+- `rios-norte.json`: 24 ríos principales (Tumbes, Zarumilla, Chira, Piura, La Leche, Chancay, Zaña,
+  Jequetepeque, Marañón, Chinchipe, Huancabamba…), tomados de OpenStreetMap el 11/11/2026,
+  recortados a los 4 departamentos y simplificados. Se ven en los dos mapas y en la imagen para Word;
+  en el mapa del INDECI se pueden ocultar con «Mostrar los ríos» y su nombre aparece al pasar el cursor.
 - Las pruebas revisan que cada distrito se encuentre por su nombre y tenga su límite.
 
 ## Lo que el programa NO hace

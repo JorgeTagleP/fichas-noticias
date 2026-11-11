@@ -98,7 +98,7 @@ jobs:
           mkdir -p _site
           cp index.html fichas.json conclusiones.json salud.json _site/
           [ -f afectados.json ] && cp afectados.json _site/ || echo "Sin afectados.json en esta lectura."
-          cp limites-norte.json _site/
+          cp limites-norte.json rios-norte.json _site/
           [ -f mapa.json ] && cp mapa.json _site/ || echo "Sin mapa.json en esta lectura."
           cp conclusiones.md evaluacion.md _site/ 2>/dev/null || true
 

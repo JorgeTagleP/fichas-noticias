@@ -495,7 +495,7 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
   // mapa.json lo arma mapa.mjs en cada lectura: cifras del INDECI por ubigeo (copiadas sin
   // cambio) y el nombre y punto central de cada distrito. limites-norte.json: límites del INEI.
   // Leaflet se descarga solo cuando se abre un mapa, para que la página cargue rápido en el celular.
-  let promLeaflet = null, LIM = null, MAPA = null;
+  let promLeaflet = null, LIM = null, MAPA = null, RIOS = null;
   const cargarLeaflet = () => promLeaflet ??= new Promise((ok, mal) => {
     const c = document.createElement('link'); c.rel = 'stylesheet'; c.href = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css'; document.head.appendChild(c);
     const s = document.createElement('script'); s.src = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';
@@ -504,17 +504,24 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
   const cargarMapa = (forzar) => Promise.all([
     LIM ? LIM : traerJSON('limites-norte.json').then(j => LIM = j),
     MAPA && !forzar ? MAPA : traerJSON('mapa.json').then(j => MAPA = j),
+    RIOS ? RIOS : traerJSON('rios-norte.json').then(j => RIOS = j).catch(() => RIOS = { features: [] }),
   ]);
+  // Ríos principales (rios-norte.json, de OpenStreetMap): línea azul con su nombre al pasar el cursor.
+  const RIO = '#1d6fd1';
+  const capaRios = (L, interactivo) => L.geoJSON(RIOS, {
+    style: { color: RIO, weight: 1.6, opacity: 0.85 }, interactive: interactivo,
+    onEachFeature: (f, l) => { if (interactivo) l.bindTooltip(esc(f.properties.nombre), { sticky: true, direction: 'top', offset: [0, -70], opacity: 0.95 }); },
+  });
   const PAL = ['#fde4c8', '#f7b57c', '#e9793e', '#c2461d', '#7f2410'];
   const ETQ = ['1 – 49', '50 – 199', '200 – 499', '500 – 999', '1 000 o más'];
   const claseDe = v => v < 50 ? 0 : v < 200 ? 1 : v < 500 ? 2 : v < 1000 ? 3 : 4;
-  const fondoOSM = (L, m) => L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 17, attribution: '© colaboradores de <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> · límites: INEI' }).addTo(m);
+  const fondoOSM = (L, m) => L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 17, attribution: '© colaboradores de <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> · límites: INEI · ríos: OpenStreetMap' }).addTo(m);
   const evento = (que) => { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: que, title: que, event: true }); };
   const fechaISO = s => s ? s.split('-').reverse().join('/') : '—';
 
   // Opción 1: mapa interactivo de la pestaña «Personas afectadas».
   // El color es el de los afectados; los damnificados (grupo distinto, no se suman) van en el rótulo y en el detalle.
-  let elA = null, mapaA = null, capaA = null;
+  let elA = null, mapaA = null, capaA = null, riosA = null;
   const indA = 'afectados';
   const valorA = u => { const o = MAPA && MAPA.indeci && MAPA.indeci.distritos[u]; return o ? o[indA] : 0; };
   function ponerMapaAfect() {
@@ -522,12 +529,14 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
     if (!elA) {
       elA = document.createElement('div');
       elA.innerHTML = `<div class="mapa-ctl">
+          <label><input type="checkbox" id="rios-a" checked> Mostrar los ríos</label>
           <button class="btn-sec" type="button" id="png-a">Descargar como imagen (para Word)</button>
         </div>
         <div class="mapa" id="mapa-a"><p class="vacio">Cargando el mapa…</p></div>
         <div class="ley" id="ley-a" aria-label="Leyenda"></div>
         <p class="mapa-pie" id="mapa-a-pie"></p>`;
       elA.querySelector('#png-a').addEventListener('click', descargarPNG);
+      elA.querySelector('#rios-a').addEventListener('change', e => { if (!riosA) return; e.target.checked ? riosA.addTo(mapaA) : riosA.remove(); });
     }
     ph.replaceWith(elA);
     if (!$('v-afect').hidden) iniciarMapaAfect();
@@ -549,6 +558,8 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
           },
         }).addTo(mapaA);
         mapaA.fitBounds(capaA.getBounds());
+        riosA = capaRios(L, true);
+        if ($('rios-a').checked) riosA.addTo(mapaA);
       }
       mapaA.invalidateSize();
       pintarMapaAfect();
@@ -557,7 +568,7 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
   function pintarMapaAfect() {
     if (!capaA) return;
     capaA.setStyle(estiloA);
-    $('ley-a').innerHTML = `<b>${indA === 'afectados' ? 'Afectados' : 'Damnificados'}:</b><span><i style="background:#e3e7ea"></i>Sin reporte</span>` + ETQ.map((t, i) => `<span><i style="background:${PAL[i]}"></i>${t}</span>`).join('');
+    $('ley-a').innerHTML = `<b>${indA === 'afectados' ? 'Afectados' : 'Damnificados'}:</b><span><i style="background:#e3e7ea"></i>Sin reporte</span>` + ETQ.map((t, i) => `<span><i style="background:${PAL[i]}"></i>${t}</span>`).join('') + `<span><i style="background:none;border:0;border-top:3px solid ${RIO};height:0;vertical-align:middle"></i>Ríos principales</span>`;
     const I = MAPA.indeci;
     $('mapa-a-pie').innerHTML = I ? `Fuente: <a href="${esc(I.fuente)}" target="_blank" rel="noopener noreferrer">INDECI-COEN, reportes de emergencia</a>, del ${fechaISO(I.desde)} al ${fechaISO(I.ultimoReporte)}. Para cada distrito y fenómeno se usa el reporte con más personas. Afectados y damnificados se muestran por separado: no se suman. Límites distritales: INEI (copia simplificada; falta Veintiséis de Octubre, Piura, y Bellavista, Sullana).${I.sinUbicar.length ? ` <b>Sin ubicar en el mapa:</b> ${esc(I.sinUbicar.join(', '))}.` : ''}` : 'Todavía no hay datos del INDECI para el mapa.';
   }
@@ -592,19 +603,22 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
     s += `<text x="30" y="48" font-size="28" font-weight="700" fill="#14202b">${nom} por distrito</text>`;
     s += `<text x="30" y="80" font-size="18" fill="#5a6875">Tumbes, Piura, Lambayeque y Cajamarca · reportes del ${fechaISO(I.desde)} al ${fechaISO(I.ultimoReporte)}</text>`;
     for (const f of LIM.features) { const v = valorA(f.properties.ubigeo); s += `<path d="${trazo(f.geometry)}" fill="${v ? PAL[claseDe(v)] : '#eef1f3'}" stroke="#fff" stroke-width="0.8"/>`; }
+    if (!$('rios-a') || $('rios-a').checked) for (const f of (RIOS && RIOS.features) || [])
+      s += `<path d="${f.geometry.coordinates.map(l => 'M' + l.map(([x, y]) => X(x).toFixed(1) + ',' + Y(y).toFixed(1)).join('L')).join('')}" fill="none" stroke="${RIO}" stroke-width="1.8" stroke-linejoin="round" opacity="0.9"/>`;
     const cen = {};
     for (const f of LIM.features) { const d = (MAPA.distritos[f.properties.ubigeo] || {}).d; if (!d) continue; for (const [x, y] of pts(f.geometry.coordinates)) { const c = cen[d] ??= { x: 0, y: 0, n: 0 }; c.x += x; c.y += y; c.n++; } }
     for (const [d, c] of Object.entries(cen)) s += `<text x="${X(c.x / c.n).toFixed(0)}" y="${Y(c.y / c.n).toFixed(0)}" font-size="20" font-weight="700" text-anchor="middle" fill="#14202b" stroke="#fff" stroke-width="4" paint-order="stroke">${esc(d.toUpperCase())}</text>`;
     const lx = 650; let ly = 150;
     s += `<text x="${lx}" y="${ly}" font-size="18" font-weight="700" fill="#14202b">${nom}</text>`;
     [['#eef1f3', 'Sin reporte'], ...ETQ.map((t, i) => [PAL[i], t])].forEach(([c, t], i) => { s += `<rect x="${lx}" y="${ly + 14 + i * 30}" width="26" height="20" fill="${c}" stroke="#c9d1d7"/><text x="${lx + 36}" y="${ly + 30 + i * 30}" font-size="16" fill="#14202b">${t}</text>`; });
+    if (!$('rios-a') || $('rios-a').checked) s += `<line x1="${lx}" y1="${ly + 205}" x2="${lx + 26}" y2="${ly + 205}" stroke="${RIO}" stroke-width="2.5"/><text x="${lx + 36}" y="${ly + 210}" font-size="16" fill="#14202b">Ríos principales</text>`;
     ly += 250;
     const top = Object.entries(I.distritos).filter(([, o]) => o[indA] > 0).sort((a, b) => b[1][indA] - a[1][indA]).slice(0, 12);
     s += `<text x="${lx}" y="${ly}" font-size="18" font-weight="700" fill="#14202b">Distritos con más ${indA}</text>`;
     top.forEach(([u, o], i) => { const d = MAPA.distritos[u] || { n: u, d: '' }; const y = ly + 30 + i * 26;
       s += `<text x="${lx}" y="${y}" font-size="15" fill="#14202b">${esc(d.n)} <tspan fill="#5a6875">(${esc(d.d)})</tspan></text><text x="${W - 30}" y="${y}" font-size="15" text-anchor="end" fill="#14202b">${nv(o[indA])}</text>`; });
     s += `<text x="30" y="${H - 52}" font-size="14" fill="#5a6875">Fuente: INDECI-COEN, reportes de emergencia (portal.indeci.gob.pe/emergencias). Para cada distrito y fenómeno, el reporte con más personas.</text>`;
-    s += `<text x="30" y="${H - 30}" font-size="14" fill="#5a6875">Límites distritales: INEI. Elaboración: Fichas de noticias del norte (jorgetaglep.github.io/fichas-noticias), lectura del ${esc(hLima(I.generado))}.</text></svg>`;
+    s += `<text x="30" y="${H - 30}" font-size="14" fill="#5a6875">Límites distritales: INEI. Ríos: © OpenStreetMap. Elaboración: Fichas de noticias del norte (jorgetaglep.github.io/fichas-noticias), lectura del ${esc(hLima(I.generado))}.</text></svg>`;
     return { s, W, H };
   }
   function descargarPNG() {
@@ -632,6 +646,7 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
         fondoOSM(L, mapaN);
         const lim = L.geoJSON(LIM, { style: { color: '#6b7782', weight: 0.6, fill: false }, interactive: false }).addTo(mapaN);
         mapaN.fitBounds(lim.getBounds());
+        capaRios(L, false).addTo(mapaN);
         capaN = L.featureGroup().addTo(mapaN);
       }
       mapaN.invalidateSize();
