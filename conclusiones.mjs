@@ -56,7 +56,9 @@ const edadDias = f => (AHORA - new Date(f.publicada)) / 864e5;
 // 11/11/2026 17:15: «Lambayeque: ANA evalúa calidad del agua en el mar de Pimentel tras denuncia por presunta descarga de
 // aguas residuales» sumaba «Brecha» y «Agua y desagüe» y ponía a Pimentel en prioridad Alta (y como la brecha más reciente):
 // es una vigilancia ambiental del mar, no una falla de atención a personas afectadas. Se excluye «calidad del agua en el mar».
-const FUERA_DE_ZONA = /incendios?|calidad del agua en el mar|nueva cajamarca|calarca|ibague|tolima|quindio|las mariposas|oxapampa|alianza atletico|fc cajamarca|liga 1|^ucayali:|en pucallpa|en ucayali|federico basadre/;
+const FUERA_DE_ZONA = /incendios?|calidad del agua en el mar|nueva cajamarca|calarca|ibague|tolima|quindio|las mariposas|oxapampa|alianza atletico|fc cajamarca|liga 1|^ucayali:|en pucallpa|en ucayali|federico basadre|\blujan\b/;
+// 11/11/2026 18:30: «León XIV en Devoto, Luján y Lima, Keiko Fujimori y el estado de emergencia, … la muerte de Héctor Aguer»
+// (Infovaticana, Argentina) sumaba «Muertes» a Lima: es una crónica vaticana de Argentina. Se excluye «Luján» (Argentina).
 // 10/11/2026 14:20: «Ministro de Transportes descartó desabastecimiento de combustibles en Ucayali tras un huaico en la
 // carretera Federico Basadre» entraba como brecha e infraestructura con problemas de Lambayeque; es de Ucayali (fuera de la zona).
 
@@ -153,7 +155,9 @@ const PELIGRO_NO_OCURRIDO = /posibles? (huaicos?|desbordes?)|evita\w* (el )?desb
 // en Ayabaca» sumaba «Rayos» a Ayabaca; es un aviso, no una tormenta ocurrida. Solo «alerta sobre/por tormentas eléctricas»,
 // para no excluir «lluvias y tormentas eléctricas inundan calles» (hecho ocurrido).
 const AVISO_ELECTRICO = /alerta\w* (sobre|por) (posibles )?tormentas? electric/;
-const DESBORDE_FIGURADO = /(dengue|casos|contagios|epidemia)\w* se desbord/;
+// 11/11/2026 18:30: «El efecto BTS en Lima: desborde comercial,...» (Panamericana) sumaba «Desborde o crecida de ríos» a Lima;
+// es un uso figurado (ventas por un concierto). «desborde comercial/de fans/de alegría» no suma desborde.
+const DESBORDE_FIGURADO = /(dengue|casos|contagios|epidemia)\w* se desbord|desborde (comercial|de (fans|alegria|emocion|hinchas))/;
 // 08/11/2026 (corrida 7): «Lambayeque: 18 fallecidos por dengue…» sumaba «Muertes o personas arrastradas» y
 // daba la acción «Señalizar o cercar el peligro (ríos, reservorios…)», que no sirve para el dengue.
 // Las muertes por dengue o leptospirosis cuentan en su señal de salud, no en «muertes».

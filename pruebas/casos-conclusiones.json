@@ -756,6 +756,22 @@
    "depConsulta": "Áncash",
    "con_distrito": "Huaraz",
    "literal": false
+  },
+  {
+   "origen": "11/11/2026 18:30",
+   "titulo": "El efecto BTS en Lima: desborde comercial,...",
+   "dep": "Lima",
+   "no_tiene": [
+    "desborde"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "11/11/2026 18:30",
+   "titulo": "León XIV en Devoto, Luján y Lima, Keiko Fujimori y el estado de emergencia, los seiscientos cincuenta mil de Córdoba y la frase ignaciana, el Vaticano responde a las víctimas excluidas, Zen y Müller, la muerte de Héctor Aguer",
+   "dep": "Lima",
+   "fuera": true,
+   "literal": true
   }
  ]
 }
