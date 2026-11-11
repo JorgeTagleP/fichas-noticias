@@ -223,7 +223,10 @@ const edadDias = f => (AHORA - new Date(f.publicada)) / 864e5;
 // 10/11/2026: «Ucayali: grifos en Pucallpa sin combustible tras huaico…» (otra región) salía como «con problemas» en la
 // respuesta humanitaria. Se excluyen titulares encabezados por «Ucayali:» o centrados en Pucallpa; no se excluye «Ucayali» suelto
 // porque aparece en listas de regiones junto a Lambayeque (visita papal) sin ser la noticia principal.
-const FUERA_DE_ZONA = /nueva cajamarca|calarca|ibague|tolima|quindio|las mariposas|oxapampa|alianza atletico|fc cajamarca|liga 1|^ucayali:|en pucallpa|en ucayali|federico basadre/;
+// 11/11/2026 13:40: «Casma: incendio deja tres damnificados y destruye una vivienda en el distrito de Yaután» sumaba
+// «Damnificados» y «Piura: Incendio deja un fallecido… en Paita» podía sumar muertes: los incendios (urbanos y forestales)
+// no son daño de El Niño. Se excluyen los titulares con «incendio(s)» (ninguno de las fichas los vincula a lluvias o rayos).
+const FUERA_DE_ZONA = /incendios?|nueva cajamarca|calarca|ibague|tolima|quindio|las mariposas|oxapampa|alianza atletico|fc cajamarca|liga 1|^ucayali:|en pucallpa|en ucayali|federico basadre/;
 // 10/11/2026 14:20: «Ministro de Transportes descartó desabastecimiento de combustibles en Ucayali tras un huaico en la
 // carretera Federico Basadre» entraba como brecha e infraestructura con problemas de Lambayeque; es de Ucayali (fuera de la zona).
 
