@@ -190,6 +190,23 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
 .visitas a { color: var(--accent); }
 .alerta-lectura { margin: 10px 0 0; padding: 8px 12px; border-radius: 6px; background: var(--emerg-soft); color: var(--ink); font-size: 13.5px; border-left: 4px solid var(--emerg); }
 .alerta-lectura b { color: var(--emerg); }
+/* Mapas (Leaflet + OpenStreetMap). «isolation» encierra los z-index de Leaflet para que el mapa no tape la barra de filtros. */
+.mapa { height: min(68vh, 560px); min-height: 360px; border: 1px solid var(--line); border-radius: 8px; position: relative; z-index: 0; isolation: isolate; background: var(--surface); }
+.mapa-ctl { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; margin: 0 0 8px; font-size: 13.5px; }
+.mapa-ctl label { display: inline-flex; gap: 5px; align-items: center; cursor: pointer; }
+.btn-sec { background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 6px 12px; font: inherit; font-size: 13.5px; cursor: pointer; }
+.btn-sec:hover { border-color: var(--accent); }
+.mapa-pie { font-size: 12.5px; color: var(--muted); margin: 6px 0 0; }
+.ley { display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: center; font-size: 12.5px; color: var(--ink); margin: 8px 0 0; }
+.ley i { display: inline-block; width: 14px; height: 11px; margin-right: 6px; vertical-align: -1px; border: 1px solid #0002; }
+.leaflet-popup-content { font: 13px/1.4 var(--f-ui); color: #14202b; max-height: 300px; overflow: auto; margin: 10px 12px; }
+.leaflet-popup-content h4 { margin: 0; font-size: 15px; }
+.leaflet-popup-content .s { color: #5a6875; font-size: 12px; }
+.leaflet-popup-content a, .leaflet-popup-content .link { color: #0b6283; }
+.leaflet-popup-content table { border-collapse: collapse; width: 100%; margin-top: 6px; }
+.leaflet-popup-content td { border-top: 1px solid #e3e7ea; padding: 4px; vertical-align: top; }
+.leaflet-popup-content td.n { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+#mapa-n-bloque { margin: 12px 0; }
 </style>
 <!-- Contador de visitas GoatCounter: sin cookies ni datos personales. Tablero: https://fichas-norte.goatcounter.com -->
 <script data-goatcounter="https://fichas-norte.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -240,6 +257,13 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
         <button class="link" id="limpiar" type="button">Quitar filtros</button>
       </span>
     </div>
+  </section>
+
+  <p style="margin:12px 0 0"><button class="btn-sec" id="ver-mapa-n" type="button" aria-expanded="false" aria-controls="mapa-n-bloque">Ver estas noticias en el mapa</button></p>
+  <section id="mapa-n-bloque" aria-label="Mapa de las noticias" hidden>
+    <p class="mapa-pie" style="margin:0 0 6px"><b>Es prensa, no cifras oficiales.</b> Cada círculo es un distrito y su tamaño indica cuántas de las fichas filtradas lo nombran. Toca un círculo para ver los titulares tal como los publicó cada medio.</p>
+    <div class="mapa" id="mapa-n"></div>
+    <p class="mapa-pie" id="mapa-n-pie"></p>
   </section>
 
   <main id="salida"></main>
@@ -359,6 +383,7 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
     selects(); resumen(); temas();
     vista = ordenar(F.filter(f => pasaLugar(f) && pasaResto(f)));
     $('cuenta').innerHTML = `<b>${vista.length}</b> de ${F.length} fichas`;
+    pintarMapaNoticias();
     const parte = vista.slice(0, mostrar);
     if (!vista.length) { $('salida').innerHTML = '<p class="vacio">Ninguna ficha coincide con estos filtros. Prueba ampliar las fechas o quitar un tema.</p>'; $('mas').hidden = true; return; }
     const grupos = new Map();
@@ -397,6 +422,8 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
     if (window.goatcounter && window.goatcounter.count && $('t-' + cual).getAttribute('aria-selected') !== 'true')
       window.goatcounter.count({ path: 'pestaña-' + cual, title: $('t-' + cual).textContent, event: true });
     for (const t of ['concl', 'afect', 'fichas']) { $('t-' + t).setAttribute('aria-selected', t === cual); $('v-' + t).hidden = t !== cual; }
+    if (cual === 'afect' && elA && elA.isConnected) iniciarMapaAfect();
+    if (cual === 'fichas') pintarMapaNoticias();
   }
   $('t-concl').addEventListener('click', () => verTab('concl'));
   $('t-afect').addEventListener('click', () => verTab('afect'));
@@ -406,7 +433,20 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
   const fCorte = s => s ? s.slice(8, 10) + '/' + s.slice(5, 7) + (s.length > 11 && s.slice(11) !== '00:00' ? ' ' + s.slice(11, 16) : '') : '';
   const nv = n => n ? Number(n).toLocaleString('es-PE') : '—';
   const NORTE = ['Tumbes', 'Piura', 'Lambayeque', 'Cajamarca'];
-  let A = null, depA = 'norte';
+  let A = null, depA = 'norte', origA = '';
+  // Origen del daño: agrupación propia de los motivos (fenómenos) que anota el INDECI en cada reporte.
+  // El motivo del INDECI se muestra siempre tal cual; el origen solo sirve para separar, por ejemplo,
+  // el aniego por lluvia del desborde de un río. Lo que no calce en un grupo va a «Otros».
+  const ORIGENES = [
+    { id: 'lluvia', nombre: 'Lluvia', re: /lluvia|tormenta/i, que: 'El agua cae del cielo: aniegos, techos y viviendas dañadas por la lluvia.' },
+    { id: 'drenaje', nombre: 'Agua que no drena', re: /saturaci/i, que: 'El suelo se satura y el agua se empoza (inundación por saturación del suelo).' },
+    { id: 'rio', nombre: 'Desborde de río', re: /desborde de r[ií]o/i, que: 'El río se sale de su cauce.' },
+    { id: 'canal', nombre: 'Desborde de canal o quebrada', re: /desborde de (canal|quebrada)/i, que: 'Se desborda un canal de riego o una quebrada.' },
+    { id: 'masa', nombre: 'Huaico, deslizamiento, derrumbe o erosión', re: /huaico|desliz|derrumbe|erosi/i, que: 'Se mueve el terreno: lodo, piedras o tierra.' },
+    { id: 'otros', nombre: 'Viento, granizo, nevada y otros', re: /./, que: 'Vientos fuertes, granizada, nevada, colapso de estructuras y otros.' },
+  ];
+  const origenDe = fen => ORIGENES.find(o => o.re.test(fen || '')) || ORIGENES[ORIGENES.length - 1];
+  const sumar = (l) => l.reduce((t, f) => { for (const k of ['damnificados', 'afectados', 'fallecidos', 'heridos']) t[k] += f[k] || 0; return t; }, { damnificados: 0, afectados: 0, fallecidos: 0, heridos: 0 });
   function pintarAfect(j) {
     A = j || A; if (!A) return;
     const P = A.peru;
@@ -415,7 +455,12 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
     const enDep = d => depA === 'todos' ? true : depA === 'norte' ? NORTE.includes(d) : d === depA;
     const deps = A.departamentos.map(d => d.departamento).sort((a, b) => a.localeCompare(b, 'es'));
     const provs = A.provincias.filter(p => enDep(p.departamento));
-    const filas = A.filas.filter(f => enDep(f.dep));
+    const filasDep = A.filas.filter(f => enDep(f.dep));
+    const filas = filasDep.filter(f => !origA || origenDe(f.fenomeno).id === origA);
+    const porOrigen = ORIGENES.map(o => { const l = filasDep.filter(f => origenDe(f.fenomeno) === o); return { o, l, t: sumar(l), dist: new Set(l.map(f => f.dep + '|' + f.dist)).size, motivos: [...new Set(l.map(f => f.fenomeno))] }; });
+    // Con un origen elegido, las provincias se suman de las filas de ese origen (mismo cálculo que el total).
+    const provsO = !origA ? provs : [...filas.reduce((m, f) => { const k = f.dep + '|' + (f.prov || ''); if (!m.has(k)) m.set(k, { departamento: f.dep, provincia: f.prov, l: [] }); m.get(k).l.push(f); return m; }, new Map()).values()]
+      .map(p => ({ ...p, ...sumar(p.l) })).sort((a, b) => b.damnificados - a.damnificados || b.afectados - a.afectados);
     const porTema = (tema) => A.salud.filter(s => s.tema === tema);
     const saludTabla = (tema) => `<div class="tabla"><table><thead><tr><th>Lugar</th><th>Indicador</th><th>Cifra</th><th>Corte</th><th>Fuente oficial</th><th>Publicado vía</th></tr></thead><tbody>${porTema(tema).map(s => `<tr><td class="dep">${esc(s.departamento)}</td><td>${esc(s.indicador)}</td><td class="n${/allec/.test(s.indicador) ? ' fall' : ''}">${nf(s.valor)}</td><td>${s.corte ? s.corte.split('-').reverse().join('/') : 's/f'}</td><td>${esc(s.fuente)}</td><td>${s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.via || 'enlace')}</a>` : esc(s.via || '')}</td></tr>`).join('')}</tbody></table></div>`;
     $('v-afect').innerHTML = `
@@ -429,6 +474,10 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
         </tbody></table></div>
         <p class="nota">Damnificados y afectados son grupos distintos: cada persona se cuenta en uno solo. No se suman.</p>
       </section>
+      <section><h2>Mapa del norte</h2>
+        <p class="nota">Tumbes, Piura, Lambayeque y Cajamarca. El color del contorno de cada distrito indica cuántas personas afectadas reporta el INDECI (por dentro se ve el mapa del distrito); pasa el cursor para ver también los damnificados y tócalo para ver cada reporte con su corte y su enlace. El mapa de las noticias de prensa está en «Todas las fichas», con el botón «Ver estas noticias en el mapa».</p>
+        <div id="ph-mapa"></div>
+      </section>
       <section><h2>Total del Perú</h2>
         <div class="kpis"><div><b>${nv(P.damnificados)}</b><span>damnificados</span></div><div><b>${nv(P.afectados)}</b><span>afectados</span></div><div class="fall"><b>${nv(P.fallecidos)}</b><span>fallecidos</span></div><div><b>${nv(P.heridos)}</b><span>heridos</span></div><div><b>${nv(P.distritos)}</b><span>distritos con reportes</span></div></div>
         <p class="nota">Suma propia de las cifras oficiales por distrito. Si un distrito tiene varios reportes del mismo fenómeno, se usa el que registra más personas, y se cita completo. Las cifras son preliminares mientras dure la evaluación de daños.</p>
@@ -438,11 +487,15 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
         <p class="nota">Resaltados: los cuatro departamentos que sigue esta página.</p>
       </section>
       <section><h2>Por provincia y por distrito</h2>
-        <div class="fila"><div class="campo chico"><label for="a-dep">Departamento</label><select id="a-dep"><option value="norte">Los 4 del norte</option><option value="todos">Todo el Perú</option>${deps.map(d => `<option${d === depA ? ' selected' : ''}>${esc(d)}</option>`).join('')}</select></div></div>
-        <h3 class="sub">Por provincia</h3>
-        <div class="tabla"><table><thead><tr><th>Departamento</th><th>Provincia</th>${cols}</tr></thead><tbody>${provs.map(p => `<tr><td>${esc(p.departamento)}</td><td class="dep">${esc(p.provincia || '(sin provincia)')}</td>${celdas(p)}</tr>`).join('') || '<tr><td colspan="6">Sin reportes con personas.</td></tr>'}</tbody></table></div>
-        <h3 class="sub">Por distrito y motivo</h3>
-        <div class="tabla"><table><thead><tr><th>Departamento</th><th>Provincia – distrito</th><th>Motivo</th>${cols}<th>Corte</th><th>Reporte oficial</th></tr></thead><tbody>${filas.map(f => `<tr><td>${esc(f.dep)}</td><td class="dep">${esc(f.prov ? f.prov + ' – ' : '')}${esc(f.dist)}</td><td>${esc(f.fenomeno)}</td>${celdas(f).replace(/<td class="n">(\d[^<]*)<\/td>/, f.aprox ? '<td class="n">≈ $1</td>' : '$&')}<td>${fCorte(f.corte)}</td><td><a href="${esc(encodeURI(decodeURI(f.url)))}" target="_blank" rel="noopener noreferrer">${esc(f.reporte)}</a></td></tr>`).join('') || '<tr><td colspan="9">Sin reportes con personas.</td></tr>'}</tbody></table></div>
+        <div class="fila"><div class="campo chico"><label for="a-dep">Departamento</label><select id="a-dep"><option value="norte">Los 4 del norte</option><option value="todos">Todo el Perú</option>${deps.map(d => `<option${d === depA ? ' selected' : ''}>${esc(d)}</option>`).join('')}</select></div>
+          <div class="campo chico"><label for="a-orig">Origen</label><select id="a-orig"><option value="">Todos</option>${ORIGENES.map(o => `<option value="${o.id}"${o.id === origA ? ' selected' : ''}>${esc(o.nombre)}</option>`).join('')}</select></div></div>
+        <h3 class="sub">Por origen</h3>
+        <div class="tabla"><table><thead><tr><th>Origen</th><th>Motivos del INDECI incluidos</th>${cols}<th class="n">Distritos</th></tr></thead><tbody>${porOrigen.map(({ o, l, t, dist, motivos }) => `<tr${o.id === origA ? ' class="norte"' : ''}><td class="dep" title="${esc(o.que)}">${esc(o.nombre)}</td><td>${l.length ? esc(motivos.join(', ')) : '<span style="color:var(--muted)">Sin reportes con personas</span>'}</td>${celdas(t)}<td class="n">${dist || '—'}</td></tr>`).join('')}</tbody></table></div>
+        <p class="nota">El <b>motivo</b> es el fenómeno que anota el INDECI en cada reporte, tal cual. El <b>origen</b> es una agrupación de esta página para separar, por ejemplo, el aniego por lluvia del desborde de un río. Elige un origen arriba para ver solo esos reportes en los cuadros de abajo. Si un reporte de lluvia menciona en su texto el desborde de una quebrada, aquí cuenta como lluvia: se usa el motivo principal del INDECI.</p>
+        <h3 class="sub">Por provincia${origA ? ' · ' + esc(ORIGENES.find(o => o.id === origA).nombre) : ''}</h3>
+        <div class="tabla"><table><thead><tr><th>Departamento</th><th>Provincia</th>${cols}</tr></thead><tbody>${provsO.map(p => `<tr><td>${esc(p.departamento)}</td><td class="dep">${esc(p.provincia || '(sin provincia)')}</td>${celdas(p)}</tr>`).join('') || '<tr><td colspan="6">Sin reportes con personas.</td></tr>'}</tbody></table></div>
+        <h3 class="sub">Por distrito y motivo${origA ? ' · ' + esc(ORIGENES.find(o => o.id === origA).nombre) : ''}</h3>
+        <div class="tabla"><table><thead><tr><th>Departamento</th><th>Provincia – distrito</th><th>Motivo (INDECI)</th><th>Origen</th>${cols}<th>Corte</th><th>Reporte oficial</th></tr></thead><tbody>${filas.map(f => `<tr><td>${esc(f.dep)}</td><td class="dep">${esc(f.prov ? f.prov + ' – ' : '')}${esc(f.dist)}</td><td>${esc(f.fenomeno)}</td><td>${esc(origenDe(f.fenomeno).nombre)}</td>${celdas(f).replace(/<td class="n">(\d[^<]*)<\/td>/, f.aprox ? '<td class="n">≈ $1</td>' : '$&')}<td>${fCorte(f.corte)}</td><td><a href="${esc(encodeURI(decodeURI(f.url)))}" target="_blank" rel="noopener noreferrer">${esc(f.reporte)}</a></td></tr>`).join('') || '<tr><td colspan="10">Sin reportes con personas.</td></tr>'}</tbody></table></div>
       </section>
       <section><h2>Dengue (acumulado 2026)</h2>${saludTabla('Dengue')}</section>
       <section><h2>Leptospirosis (acumulado 2026)</h2>${saludTabla('Leptospirosis')}
@@ -457,7 +510,213 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
         <p class="nota">Las cifras se copian de cada reporte tal como las publica el INDECI. Las sumas por provincia, departamento y país son un cálculo de esta página. Un mismo distrito puede tener cifras distintas en un reporte departamental y en uno distrital de otra fecha: aquí se usa el que registra más personas, por eso los totales pueden superar a los consolidados del INDECI.</p>
       </section>`;
     $('a-dep').addEventListener('change', e => { depA = e.target.value; const y = window.scrollY; pintarAfect(); window.scrollTo({ top: y }); });
+    $('a-orig').addEventListener('change', e => { origA = e.target.value; const y = window.scrollY; pintarAfect(); window.scrollTo({ top: y }); });
+    ponerMapaAfect();
   }
+
+  // ---------- Mapas (Leaflet + OpenStreetMap: gratis, sin clave y sin cookies) ----------
+  // mapa.json lo arma mapa.mjs en cada lectura: cifras del INDECI por ubigeo (copiadas sin
+  // cambio) y el nombre y punto central de cada distrito. limites-norte.json: límites del INEI.
+  // Leaflet se descarga solo cuando se abre un mapa, para que la página cargue rápido en el celular.
+  let promLeaflet = null, LIM = null, MAPA = null, RIOS = null;
+  const cargarLeaflet = () => promLeaflet ??= new Promise((ok, mal) => {
+    const c = document.createElement('link'); c.rel = 'stylesheet'; c.href = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css'; document.head.appendChild(c);
+    const s = document.createElement('script'); s.src = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';
+    s.onload = () => ok(window.L); s.onerror = () => { promLeaflet = null; mal(new Error('Leaflet')); }; document.head.appendChild(s);
+  });
+  const cargarMapa = (forzar) => Promise.all([
+    LIM ? LIM : traerJSON('limites-norte.json').then(j => LIM = j),
+    MAPA && !forzar ? MAPA : traerJSON('mapa.json').then(j => MAPA = j),
+    RIOS ? RIOS : traerJSON('rios-norte.json').then(j => RIOS = j).catch(() => RIOS = { features: [] }),
+  ]);
+  // Ríos principales (rios-norte.json, de OpenStreetMap): línea azul con su nombre al pasar el cursor.
+  const RIO = '#1d6fd1';
+  const capaRios = (L, interactivo) => L.geoJSON(RIOS, {
+    style: { color: RIO, weight: 1.6, opacity: 0.85 }, interactive: interactivo,
+    onEachFeature: (f, l) => { if (interactivo) l.bindTooltip(esc(f.properties.nombre), { sticky: true, direction: 'top', offset: [0, -38], opacity: 0.95 }); },
+  });
+  // Colores un poco más intensos que antes: en el mapa del INDECI se usan solo como contorno.
+  const PAL = ['#f0b37a', '#e98a45', '#d9622a', '#b23a17', '#6e1c0c'];
+  const ETQ = ['1 – 49', '50 – 199', '200 – 499', '500 – 999', '1 000 o más'];
+  const claseDe = v => v < 50 ? 0 : v < 200 ? 1 : v < 500 ? 2 : v < 1000 ? 3 : 4;
+  const fondoOSM = (L, m) => L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 17, attribution: '© colaboradores de <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> · límites: INEI · ríos: OpenStreetMap' }).addTo(m);
+  const evento = (que) => { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: que, title: que, event: true }); };
+  const fechaISO = s => s ? s.split('-').reverse().join('/') : '—';
+
+  // Opción 1: mapa interactivo de la pestaña «Personas afectadas».
+  // El color es el de los afectados; los damnificados (grupo distinto, no se suman) van en el rótulo y en el detalle.
+  let elA = null, mapaA = null, capaA = null, riosA = null;
+  const indA = 'afectados';
+  const valorA = u => { const o = MAPA && MAPA.indeci && MAPA.indeci.distritos[u]; return o ? o[indA] : 0; };
+  function ponerMapaAfect() {
+    const ph = $('ph-mapa'); if (!ph) return;
+    if (!elA) {
+      elA = document.createElement('div');
+      elA.innerHTML = `<div class="mapa-ctl">
+          <label><input type="checkbox" id="rios-a" checked> Mostrar los ríos</label>
+          <button class="btn-sec" type="button" id="png-a">Descargar como imagen (para Word)</button>
+        </div>
+        <div class="mapa" id="mapa-a"><p class="vacio">Cargando el mapa…</p></div>
+        <div class="ley" id="ley-a" aria-label="Leyenda"></div>
+        <p class="mapa-pie" id="mapa-a-pie"></p>`;
+      elA.querySelector('#png-a').addEventListener('click', descargarPNG);
+      elA.querySelector('#rios-a').addEventListener('change', e => { if (!riosA) return; e.target.checked ? riosA.addTo(mapaA) : riosA.remove(); });
+    }
+    ph.replaceWith(elA);
+    if (!$('v-afect').hidden) iniciarMapaAfect();
+  }
+  function iniciarMapaAfect(forzar) {
+    Promise.all([cargarLeaflet(), cargarMapa(forzar)]).then(([L]) => {
+      if (!mapaA) {
+        $('mapa-a').innerHTML = '';
+        mapaA = L.map('mapa-a', { zoomSnap: 0.5, scrollWheelZoom: false });
+        fondoOSM(L, mapaA);
+        // El estilo se calcula siempre con estiloA, para que al quitar el cursor el distrito vuelva a su color.
+        capaA = L.geoJSON(LIM, {
+          style: estiloA,
+          onEachFeature: (f, l) => {
+            l.bindPopup(() => popupA(f.properties.ubigeo), { maxWidth: 340 });
+            l.bindTooltip(() => rotuloA(f.properties.ubigeo), { sticky: true, direction: 'top', offset: [0, -38], opacity: 0.95 });
+            l.on('mouseover', () => { l.setStyle({ weight: 4, fillOpacity: 0.12 }); l.bringToFront(); });
+            l.on('mouseout', () => { l.setStyle(estiloA(f)); if (!valorA(f.properties.ubigeo)) l.bringToBack(); if (riosA && mapaA.hasLayer(riosA)) riosA.bringToFront(); });
+          },
+        }).addTo(mapaA);
+        mapaA.fitBounds(capaA.getBounds());
+        riosA = capaRios(L, true);
+        if ($('rios-a').checked) riosA.addTo(mapaA);
+      }
+      mapaA.invalidateSize();
+      pintarMapaAfect();
+    }).catch(() => { $('mapa-a').innerHTML = '<p class="vacio">No se pudo cargar el mapa. Las cifras están en los cuadros de abajo.</p>'; });
+  }
+  function pintarMapaAfect() {
+    if (!capaA) return;
+    capaA.setStyle(estiloA);
+    // Los contornos de color van encima de los grises de los vecinos, y los ríos encima de todo.
+    capaA.eachLayer(l => { if (valorA(l.feature.properties.ubigeo)) l.bringToFront(); });
+    if (riosA && mapaA.hasLayer(riosA)) riosA.bringToFront();
+    $('ley-a').innerHTML = `<b>${indA === 'afectados' ? 'Afectados' : 'Damnificados'}:</b><span><i style="background:none;border:1px solid #8a96a0"></i>Sin reporte</span>` + ETQ.map((t, i) => `<span><i style="background:none;border:3px solid ${PAL[i]}"></i>${t}</span>`).join('') + `<span><i style="background:none;border:0;border-top:3px solid ${RIO};height:0;vertical-align:middle"></i>Ríos principales</span>`;
+    const I = MAPA.indeci;
+    $('mapa-a-pie').innerHTML = I ? `Fuente: <a href="${esc(I.fuente)}" target="_blank" rel="noopener noreferrer">INDECI-COEN, reportes de emergencia</a>, del ${fechaISO(I.desde)} al ${fechaISO(I.ultimoReporte)}. Para cada distrito y fenómeno se usa el reporte con más personas. Afectados y damnificados se muestran por separado: no se suman. Límites distritales: INEI (copia simplificada; falta Veintiséis de Octubre, Piura, y Bellavista, Sullana).${I.sinUbicar.length ? ` <b>Sin ubicar en el mapa:</b> ${esc(I.sinUbicar.join(', '))}.` : ''}` : 'Todavía no hay datos del INDECI para el mapa.';
+  }
+  function estiloA(f) {
+    const v = valorA(f.properties.ubigeo);
+    // Solo contorno: el relleno es casi transparente para que se vea el mapa del distrito (calles, ríos, pueblos).
+    return v ? { color: PAL[claseDe(v)], weight: 3, opacity: 1, fillColor: PAL[claseDe(v)], fillOpacity: 0.06 }
+             : { color: '#8a96a0', weight: 0.6, opacity: 0.8, fillColor: '#fff', fillOpacity: 0.01 };
+  }
+  function rotuloA(u) {
+    const d = MAPA.distritos[u] || { n: u, p: '' }, o = MAPA.indeci && MAPA.indeci.distritos[u];
+    return `<b>${esc(d.n)}</b> (${esc(d.p)}) · ${o ? [o.afectados && `${nv(o.afectados)} afectados`, o.damnificados && `${nv(o.damnificados)} damnificados`].filter(Boolean).join(' · ') || 'reporte sin personas' : 'sin reporte del INDECI'}<br><span style="color:#5a6875">Toca para ver los reportes</span>`;
+  }
+  function popupA(u) {
+    const d = MAPA.distritos[u] || { n: u, p: '', d: '' }, o = MAPA.indeci && MAPA.indeci.distritos[u];
+    let h = `<h4>${esc(d.n)}</h4><div class="s">${esc(d.p)} · ${esc(d.d)}</div>`;
+    if (!o) return h + `<p>Sin reportes del INDECI con personas desde el ${fechaISO(MAPA.indeci && MAPA.indeci.desde)}.</p>`;
+    h += `<p style="margin:6px 0 0"><b>${nv(o.afectados)}</b> afectados · <b>${nv(o.damnificados)}</b> damnificados${o.fallecidos ? ` · <b style="color:#b3361f">${nv(o.fallecidos)}</b> fallecidos` : ''}</p><table>`;
+    return h + o.filas.map(r => `<tr><td>${esc(r.fenomeno)}<br><a href="${esc(encodeURI(decodeURI(r.url)))}" target="_blank" rel="noopener noreferrer">${esc(r.reporte)}</a><span class="s"> · corte ${fCorte(r.corte)}</span></td><td class="n">${r.aprox ? '≈ ' : ''}${nv(r.afectados)} af.<br>${nv(r.damnificados)} dam.</td></tr>`).join('') + '</table>';
+  }
+
+  // Opción 2: el mismo mapa como imagen fija (PNG) con título, leyenda, fuente y fecha, para Word.
+  function svgEstatico() {
+    const pts = c => typeof c[0] === 'number' ? [c] : c.flatMap(pts);
+    let x0 = 1e9, x1 = -1e9, y0 = 1e9, y1 = -1e9;
+    for (const f of LIM.features) for (const [x, y] of pts(f.geometry.coordinates)) { x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y); }
+    const W = 1000, H = 1050, k = Math.min(560 / (x1 - x0), 820 / (y1 - y0));
+    const X = x => 30 + (x - x0) * k, Y = y => 120 + (y1 - y) * k;
+    const anillo = r => 'M' + r.map(([x, y]) => X(x).toFixed(1) + ',' + Y(y).toFixed(1)).join('L') + 'Z';
+    const trazo = g => (g.type === 'Polygon' ? [g.coordinates] : g.coordinates).map(p => p.map(anillo).join('')).join('');
+    const I = MAPA.indeci, nom = indA === 'afectados' ? 'Personas afectadas' : 'Personas damnificadas';
+    const fuente = 'font-family="Segoe UI, Arial, sans-serif"';
+    let s = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" ${fuente}><rect width="${W}" height="${H}" fill="#fff"/>`;
+    s += `<text x="30" y="48" font-size="28" font-weight="700" fill="#14202b">${nom} por distrito</text>`;
+    s += `<text x="30" y="80" font-size="18" fill="#5a6875">Tumbes, Piura, Lambayeque y Cajamarca · reportes del ${fechaISO(I.desde)} al ${fechaISO(I.ultimoReporte)}</text>`;
+    // Solo bordes, como en la página: primero los distritos sin reporte (gris fino), luego los de color encima.
+    for (const f of LIM.features) if (!valorA(f.properties.ubigeo)) s += `<path d="${trazo(f.geometry)}" fill="#fff" stroke="#b8c2ca" stroke-width="0.7"/>`;
+    for (const f of LIM.features) { const v = valorA(f.properties.ubigeo); if (v) s += `<path d="${trazo(f.geometry)}" fill="none" stroke="${PAL[claseDe(v)]}" stroke-width="2.6" stroke-linejoin="round"/>`; }
+    if (!$('rios-a') || $('rios-a').checked) for (const f of (RIOS && RIOS.features) || [])
+      s += `<path d="${f.geometry.coordinates.map(l => 'M' + l.map(([x, y]) => X(x).toFixed(1) + ',' + Y(y).toFixed(1)).join('L')).join('')}" fill="none" stroke="${RIO}" stroke-width="1.8" stroke-linejoin="round" opacity="0.9"/>`;
+    const cen = {};
+    for (const f of LIM.features) { const d = (MAPA.distritos[f.properties.ubigeo] || {}).d; if (!d) continue; for (const [x, y] of pts(f.geometry.coordinates)) { const c = cen[d] ??= { x: 0, y: 0, n: 0 }; c.x += x; c.y += y; c.n++; } }
+    for (const [d, c] of Object.entries(cen)) s += `<text x="${X(c.x / c.n).toFixed(0)}" y="${Y(c.y / c.n).toFixed(0)}" font-size="20" font-weight="700" text-anchor="middle" fill="#14202b" stroke="#fff" stroke-width="4" paint-order="stroke">${esc(d.toUpperCase())}</text>`;
+    const lx = 650; let ly = 150;
+    s += `<text x="${lx}" y="${ly}" font-size="18" font-weight="700" fill="#14202b">${nom}</text>`;
+    [['#b8c2ca', 'Sin reporte'], ...ETQ.map((t, i) => [PAL[i], t])].forEach(([c, t], i) => { s += `<rect x="${lx + 1.5}" y="${ly + 15.5 + i * 30}" width="23" height="17" fill="#fff" stroke="${c}" stroke-width="${i ? 3 : 1}"/><text x="${lx + 36}" y="${ly + 30 + i * 30}" font-size="16" fill="#14202b">${t}</text>`; });
+    if (!$('rios-a') || $('rios-a').checked) s += `<line x1="${lx}" y1="${ly + 205}" x2="${lx + 26}" y2="${ly + 205}" stroke="${RIO}" stroke-width="2.5"/><text x="${lx + 36}" y="${ly + 210}" font-size="16" fill="#14202b">Ríos principales</text>`;
+    ly += 250;
+    const top = Object.entries(I.distritos).filter(([, o]) => o[indA] > 0).sort((a, b) => b[1][indA] - a[1][indA]).slice(0, 12);
+    s += `<text x="${lx}" y="${ly}" font-size="18" font-weight="700" fill="#14202b">Distritos con más ${indA}</text>`;
+    top.forEach(([u, o], i) => { const d = MAPA.distritos[u] || { n: u, d: '' }; const y = ly + 30 + i * 26;
+      s += `<text x="${lx}" y="${y}" font-size="15" fill="#14202b">${esc(d.n)} <tspan fill="#5a6875">(${esc(d.d)})</tspan></text><text x="${W - 30}" y="${y}" font-size="15" text-anchor="end" fill="#14202b">${nv(o[indA])}</text>`; });
+    s += `<text x="30" y="${H - 52}" font-size="14" fill="#5a6875">Fuente: INDECI-COEN, reportes de emergencia (portal.indeci.gob.pe/emergencias). Para cada distrito y fenómeno, el reporte con más personas.</text>`;
+    s += `<text x="30" y="${H - 30}" font-size="14" fill="#5a6875">Límites distritales: INEI. Ríos: © OpenStreetMap. Elaboración: Fichas de noticias del norte (jorgetaglep.github.io/fichas-noticias), lectura del ${esc(hLima(I.generado))}.</text></svg>`;
+    return { s, W, H };
+  }
+  function descargarPNG() {
+    if (!LIM || !MAPA || !MAPA.indeci) return;
+    const { s, W, H } = svgEstatico();
+    const img = new Image();
+    img.onload = () => {
+      const c = document.createElement('canvas'); c.width = W * 2; c.height = H * 2;
+      c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+      const a = document.createElement('a');
+      a.download = `mapa-${indA}-norte-${(MAPA.indeci.ultimoReporte || '').replace(/-/g, '')}.png`;
+      a.href = c.toDataURL('image/png'); a.click();
+      evento('mapa-descarga-png');
+    };
+    img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(s);
+  }
+
+  // Opción 3: mapa de las noticias en «Todas las fichas». Usa las fichas que dejan los filtros.
+  let mapaN = null, capaN = null;
+  function pintarMapaNoticias() {
+    if ($('mapa-n-bloque').hidden) return;
+    Promise.all([cargarLeaflet(), cargarMapa()]).then(([L]) => {
+      if (!mapaN) {
+        mapaN = L.map('mapa-n', { zoomSnap: 0.5, scrollWheelZoom: false });
+        fondoOSM(L, mapaN);
+        const lim = L.geoJSON(LIM, { style: { color: '#6b7782', weight: 0.6, fill: false }, interactive: false }).addTo(mapaN);
+        mapaN.fitBounds(lim.getBounds());
+        capaRios(L, false).addTo(mapaN);
+        capaN = L.featureGroup().addTo(mapaN);
+      }
+      mapaN.invalidateSize();
+      capaN.clearLayers();
+      const por = new Map();
+      for (const f of vista) for (const l of f.lugares) {
+        if (!l.distrito || !l.ubigeo || l.ubigeo.length !== 6) continue;
+        if ((st.dep && l.departamento !== st.dep) || (st.prov && l.provincia !== st.prov) || (st.dist && l.distrito !== st.dist)) continue;
+        if (!por.has(l.ubigeo)) por.set(l.ubigeo, { l, fichas: [] });
+        por.get(l.ubigeo).fichas.push(f);
+      }
+      let n = 0;
+      for (const [u, { l, fichas }] of por) {
+        const d = MAPA.distritos[u]; if (!d) continue; n += fichas.length;
+        L.circleMarker(d.c, { radius: 4 + Math.sqrt(fichas.length) * 3.2, color: '#fff', weight: 1.2, fillColor: '#1f5fae', fillOpacity: 0.75 })
+          .bindPopup(() => `<h4>${esc(d.n)}</h4><div class="s">${esc(d.p)} · ${esc(d.d)} · ${fichas.length} ficha${fichas.length > 1 ? 's' : ''} · prensa</div><table>` +
+            fichas.slice(0, 10).map(f => `<tr><td><a href="${esc(f.enlace)}" target="_blank" rel="noopener noreferrer">${esc(f.titulo)}</a><br><span class="s">${esc(f.medio || '')} · ${fmtHora.format(new Date(f.publicada))}</span></td></tr>`).join('') +
+            `</table><p style="margin:6px 0 0"><button class="link" type="button" data-l='${esc(JSON.stringify([l.departamento, l.provincia, l.distrito]))}'>Ver ${fichas.length > 1 ? `las ${fichas.length} fichas` : 'la ficha'} de ${esc(d.n)}</button></p>`, { maxWidth: 340 })
+          .bindTooltip(`<b>${esc(d.n)}</b> · ${fichas.length} ficha${fichas.length > 1 ? 's' : ''}<br><span style="color:#5a6875">Toca para ver los titulares</span>`, { sticky: true, direction: 'top', offset: [0, -38], opacity: 0.95 })
+          .addTo(capaN);
+      }
+      $('mapa-n-pie').textContent = por.size
+        ? `${n} menciones en ${por.size} distritos (una ficha puede nombrar más de un distrito). Las fichas que solo nombran el departamento o la provincia no aparecen en el mapa. Usa los temas y filtros de arriba para elegir qué noticias ver.`
+        : 'Ninguna de las fichas filtradas nombra un distrito.';
+    }).catch(() => { $('mapa-n-pie').textContent = 'No se pudo cargar el mapa.'; });
+  }
+  $('ver-mapa-n').addEventListener('click', () => {
+    const abrir = $('mapa-n-bloque').hidden;
+    $('mapa-n-bloque').hidden = !abrir;
+    $('ver-mapa-n').setAttribute('aria-expanded', abrir);
+    $('ver-mapa-n').textContent = abrir ? 'Ocultar el mapa de noticias' : 'Ver estas noticias en el mapa';
+    if (abrir) { evento('mapa-noticias'); pintarMapaNoticias(); }
+  });
+  $('mapa-n-bloque').addEventListener('click', e => {
+    const b = e.target.closest('[data-l]'); if (!b) return;
+    const [d, p, x] = JSON.parse(b.dataset.l);
+    Object.assign(st, { dep: d, prov: p && p !== d ? p : '', dist: x || '' });
+    mostrar = 60; pintar(); $('salida').scrollIntoView();
+  });
 
   // ---------- Vista de conclusiones ----------
   const fDia = iso => iso ? new Intl.DateTimeFormat('es-PE', { timeZone: 'America/Lima', day: '2-digit', month: '2-digit' }).format(new Date(iso)) : '';
