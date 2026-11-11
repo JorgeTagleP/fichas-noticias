@@ -510,7 +510,7 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
   const RIO = '#1d6fd1';
   const capaRios = (L, interactivo) => L.geoJSON(RIOS, {
     style: { color: RIO, weight: 1.6, opacity: 0.85 }, interactive: interactivo,
-    onEachFeature: (f, l) => { if (interactivo) l.bindTooltip(esc(f.properties.nombre), { sticky: true, direction: 'top', offset: [0, -70], opacity: 0.95 }); },
+    onEachFeature: (f, l) => { if (interactivo) l.bindTooltip(esc(f.properties.nombre), { sticky: true, direction: 'top', offset: [0, -38], opacity: 0.95 }); },
   });
   // Colores un poco más intensos que antes: en el mapa del INDECI se usan solo como contorno.
   const PAL = ['#f0b37a', '#e98a45', '#d9622a', '#b23a17', '#6e1c0c'];
@@ -553,7 +553,7 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
           style: estiloA,
           onEachFeature: (f, l) => {
             l.bindPopup(() => popupA(f.properties.ubigeo), { maxWidth: 340 });
-            l.bindTooltip(() => rotuloA(f.properties.ubigeo), { sticky: true, direction: 'top', offset: [0, -70], opacity: 0.95 });
+            l.bindTooltip(() => rotuloA(f.properties.ubigeo), { sticky: true, direction: 'top', offset: [0, -38], opacity: 0.95 });
             l.on('mouseover', () => { l.setStyle({ weight: 4, fillOpacity: 0.12 }); l.bringToFront(); });
             l.on('mouseout', () => { l.setStyle(estiloA(f)); if (!valorA(f.properties.ubigeo)) l.bringToBack(); if (riosA && mapaA.hasLayer(riosA)) riosA.bringToFront(); });
           },
@@ -608,7 +608,9 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
     let s = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" ${fuente}><rect width="${W}" height="${H}" fill="#fff"/>`;
     s += `<text x="30" y="48" font-size="28" font-weight="700" fill="#14202b">${nom} por distrito</text>`;
     s += `<text x="30" y="80" font-size="18" fill="#5a6875">Tumbes, Piura, Lambayeque y Cajamarca · reportes del ${fechaISO(I.desde)} al ${fechaISO(I.ultimoReporte)}</text>`;
-    for (const f of LIM.features) { const v = valorA(f.properties.ubigeo); s += `<path d="${trazo(f.geometry)}" fill="${v ? PAL[claseDe(v)] : '#eef1f3'}" stroke="#fff" stroke-width="0.8"/>`; }
+    // Solo bordes, como en la página: primero los distritos sin reporte (gris fino), luego los de color encima.
+    for (const f of LIM.features) if (!valorA(f.properties.ubigeo)) s += `<path d="${trazo(f.geometry)}" fill="#fff" stroke="#b8c2ca" stroke-width="0.7"/>`;
+    for (const f of LIM.features) { const v = valorA(f.properties.ubigeo); if (v) s += `<path d="${trazo(f.geometry)}" fill="none" stroke="${PAL[claseDe(v)]}" stroke-width="2.6" stroke-linejoin="round"/>`; }
     if (!$('rios-a') || $('rios-a').checked) for (const f of (RIOS && RIOS.features) || [])
       s += `<path d="${f.geometry.coordinates.map(l => 'M' + l.map(([x, y]) => X(x).toFixed(1) + ',' + Y(y).toFixed(1)).join('L')).join('')}" fill="none" stroke="${RIO}" stroke-width="1.8" stroke-linejoin="round" opacity="0.9"/>`;
     const cen = {};
@@ -616,7 +618,7 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
     for (const [d, c] of Object.entries(cen)) s += `<text x="${X(c.x / c.n).toFixed(0)}" y="${Y(c.y / c.n).toFixed(0)}" font-size="20" font-weight="700" text-anchor="middle" fill="#14202b" stroke="#fff" stroke-width="4" paint-order="stroke">${esc(d.toUpperCase())}</text>`;
     const lx = 650; let ly = 150;
     s += `<text x="${lx}" y="${ly}" font-size="18" font-weight="700" fill="#14202b">${nom}</text>`;
-    [['#eef1f3', 'Sin reporte'], ...ETQ.map((t, i) => [PAL[i], t])].forEach(([c, t], i) => { s += `<rect x="${lx}" y="${ly + 14 + i * 30}" width="26" height="20" fill="${c}" stroke="#c9d1d7"/><text x="${lx + 36}" y="${ly + 30 + i * 30}" font-size="16" fill="#14202b">${t}</text>`; });
+    [['#b8c2ca', 'Sin reporte'], ...ETQ.map((t, i) => [PAL[i], t])].forEach(([c, t], i) => { s += `<rect x="${lx + 1.5}" y="${ly + 15.5 + i * 30}" width="23" height="17" fill="#fff" stroke="${c}" stroke-width="${i ? 3 : 1}"/><text x="${lx + 36}" y="${ly + 30 + i * 30}" font-size="16" fill="#14202b">${t}</text>`; });
     if (!$('rios-a') || $('rios-a').checked) s += `<line x1="${lx}" y1="${ly + 205}" x2="${lx + 26}" y2="${ly + 205}" stroke="${RIO}" stroke-width="2.5"/><text x="${lx + 36}" y="${ly + 210}" font-size="16" fill="#14202b">Ríos principales</text>`;
     ly += 250;
     const top = Object.entries(I.distritos).filter(([, o]) => o[indA] > 0).sort((a, b) => b[1][indA] - a[1][indA]).slice(0, 12);
@@ -671,7 +673,7 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
           .bindPopup(() => `<h4>${esc(d.n)}</h4><div class="s">${esc(d.p)} · ${esc(d.d)} · ${fichas.length} ficha${fichas.length > 1 ? 's' : ''} · prensa</div><table>` +
             fichas.slice(0, 10).map(f => `<tr><td><a href="${esc(f.enlace)}" target="_blank" rel="noopener noreferrer">${esc(f.titulo)}</a><br><span class="s">${esc(f.medio || '')} · ${fmtHora.format(new Date(f.publicada))}</span></td></tr>`).join('') +
             `</table><p style="margin:6px 0 0"><button class="link" type="button" data-l='${esc(JSON.stringify([l.departamento, l.provincia, l.distrito]))}'>Ver ${fichas.length > 1 ? `las ${fichas.length} fichas` : 'la ficha'} de ${esc(d.n)}</button></p>`, { maxWidth: 340 })
-          .bindTooltip(`<b>${esc(d.n)}</b> · ${fichas.length} ficha${fichas.length > 1 ? 's' : ''}<br><span style="color:#5a6875">Toca para ver los titulares</span>`, { sticky: true, direction: 'top', offset: [0, -70], opacity: 0.95 })
+          .bindTooltip(`<b>${esc(d.n)}</b> · ${fichas.length} ficha${fichas.length > 1 ? 's' : ''}<br><span style="color:#5a6875">Toca para ver los titulares</span>`, { sticky: true, direction: 'top', offset: [0, -38], opacity: 0.95 })
           .addTo(capaN);
       }
       $('mapa-n-pie').textContent = por.size
