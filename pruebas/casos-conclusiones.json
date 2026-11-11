@@ -505,6 +505,16 @@
     "huaicos"
    ],
    "literal": true
+  },
+  {
+   "origen": "11/11/2026",
+   "titulo": "Lambayeque: Baja cobertura de vacunación contra el dengue",
+   "dep": "Lambayeque",
+   "tiene": [
+    "dengue",
+    "brecha"
+   ],
+   "literal": true
   }
  ],
  "ubicar": [
