@@ -55,13 +55,17 @@ const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 const DEP_SIGUE = /^\s*(?:de|en)\s+(?:la region\s+)?(?:piura|tumbes|lambayeque|cajamarca)/;
 const PAIS = /\b(peru|pais|nacional|a nivel nacional)\b/;
 
-function delDepartamento(f, dep) {
+function delDepartamento(f, dep, indId) {
   const t = norm(f.titulo);
   if (dep === '*') return PAIS.test(t);
   if (!f.departamentos.includes(dep)) return false;
   // 10/11/2026: «Sullana: Más de 7 mil casos de dengue en la Subregión» es una cifra de la subregión
   // o provincia, no del departamento; si el titular no nombra el departamento, no se compara
   if (/\b(subregion|provincia)\b/.test(t) && !t.includes(norm(dep))) return false;
+  // 10/11/2026: «Sullana: dengue supera los 7 mil casos…» (sin «subregión») seguía comparándose con
+  // los casos de todo Piura. Los acumulados de salud (dengue, leptospirosis) solo se comparan si el
+  // titular nombra el departamento; la cifra de una provincia o distrito no es la departamental
+  if (/dengue|lepto/.test(indId || '') && !t.includes(norm(dep))) return false;
   // el titular debe nombrar el departamento o uno de sus lugares, y no otro departamento con cifras propias
   return t.includes(norm(dep)) || (f.lugares || []).some(l => l.departamento === dep && l.ubigeo.length > 2);
 }
@@ -74,7 +78,7 @@ for (const ind of ofi.indicadores) {
   const excluir = ind.excluir ? new RegExp(ind.excluir, 'i') : null;
   const afirmaciones = [];
   for (const f of fichas) {
-    if (!tema.test(f.titulo) || !delDepartamento(f, ind.departamento)) continue;
+    if (!tema.test(f.titulo) || !delDepartamento(f, ind.departamento, ind.id)) continue;
     for (const c of extraer(f.titulo, ind.clave)) {
       if (excluir && excluir.test(c.texto)) continue;
       // en un indicador nacional, "65 distritos de Piura" es una cifra regional, no del país
