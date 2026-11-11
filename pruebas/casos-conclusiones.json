@@ -656,6 +656,22 @@
    "dep": "Lima",
    "pronostico": false,
    "literal": true
+  },
+  {
+   "origen": "11/11/2026 18:30",
+   "titulo": "El efecto BTS en Lima: desborde comercial,...",
+   "dep": "Lima",
+   "no_tiene": [
+    "desborde"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "11/11/2026 18:30",
+   "titulo": "León XIV en Devoto, Luján y Lima, Keiko Fujimori y el estado de emergencia, los seiscientos cincuenta mil de Córdoba y la frase ignaciana, el Vaticano responde a las víctimas excluidas, Zen y Müller, la muerte de Héctor Aguer",
+   "dep": "Lima",
+   "fuera": true,
+   "literal": true
   }
  ],
  "ubicar": [
@@ -758,19 +774,59 @@
    "literal": false
   },
   {
-   "origen": "11/11/2026 18:30",
-   "titulo": "El efecto BTS en Lima: desborde comercial,...",
-   "dep": "Lima",
-   "no_tiene": [
-    "desborde"
-   ],
+   "origen": "La Libertad (11/11/2026)",
+   "titulo": "Lluvias en Trujillo inundan calles del centro",
+   "depConsulta": "La Libertad",
+   "con_distrito": "Trujillo",
+   "literal": false
+  },
+  {
+   "origen": "La Libertad (11/11/2026)",
+   "titulo": "Defienden la libertad de prensa en Piura",
+   "depConsulta": "Piura",
+   "sin_distrito": "La Libertad",
+   "literal": false
+  },
+  {
+   "origen": "La Libertad (11/11/2026)",
+   "titulo": "ANA retira más de 500 mil metros cúbicos de sedimentos en Piura y avanza en La Libertad y Ancash",
+   "depConsulta": "Piura",
+   "sin_distrito": "La Libertad",
    "literal": true
   },
   {
-   "origen": "11/11/2026 18:30",
-   "titulo": "León XIV en Devoto, Luján y Lima, Keiko Fujimori y el estado de emergencia, los seiscientos cincuenta mil de Córdoba y la frase ignaciana, el Vaticano responde a las víctimas excluidas, Zen y Müller, la muerte de Héctor Aguer",
-   "dep": "Lima",
-   "fuera": true,
+   "origen": "La Libertad (11/11/2026)",
+   "titulo": "Rondas de Bambamarca anuncian paro",
+   "depConsulta": "La Libertad",
+   "sin_distrito": "Bambamarca",
+   "literal": false
+  },
+  {
+   "origen": "La Libertad (11/11/2026)",
+   "titulo": "Ataque con drones en Santa Rosa, Bolívar, deja tres muertos y 47 heridos",
+   "depConsulta": "La Libertad",
+   "sin_distrito": "Bolívar",
+   "literal": true
+  },
+  {
+   "origen": "La Libertad (11/11/2026)",
+   "titulo": "Desborde en Alto Trujillo y El Porvenir",
+   "depConsulta": "La Libertad",
+   "sin_distrito": "Trujillo",
+   "literal": false
+  },
+  {
+   "origen": "La Libertad (11/11/2026)",
+   "titulo": "Puerto Chicama: surfistas celebran ola",
+   "depConsulta": "La Libertad",
+   "con_distrito": "Rázuri",
+   "literal": false
+  },
+  {
+   "origen": "La Libertad (11/11/2026)",
+   "titulo": "La Libertad: Matan a balazos a teniente gobernador en Lucma",
+   "depConsulta": "La Libertad",
+   "con_distrito": "Lucma",
    "literal": true
   }
  ]

@@ -128,7 +128,7 @@ prueba('INDECI: Quilahuani queda en Tacna aunque la tabla diga «DPTO ÁNCASH»'
   const lim = JSON.parse(fs.readFileSync(path.join(RAIZ, 'limites-norte.json'), 'utf8'));
   const ix = indice(distritos);
   const conLimite = new Set(lim.features.filter(f => f.geometry).map(f => f.properties.ubigeo));
-  const sinLimite = ['200115', '200602', '020602', '150137', '150144'];   // sin geometría en la copia del INEI (ver «nota» de limites-norte.json)
+  const sinLimite = ['200115', '200602', '020602', '150137', '150144', '130112'];   // sin geometría en la copia del INEI (ver «nota» de limites-norte.json)
   for (const d of distritos) {
     prueba(`mapa: «${d.distrito}» (${d.provincia}, ${d.departamento}) se encuentra por su nombre`, buscar(ix, d.departamento, d.provincia, d.distrito) === d.ubigeo);
     if (!sinLimite.includes(d.ubigeo)) prueba(`mapa: ${d.distrito} (${d.ubigeo}) tiene límite`, conLimite.has(d.ubigeo));

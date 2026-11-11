@@ -14,8 +14,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-// Departamentos que sigue la página (Áncash y Lima desde el 11/11/2026).
-export const NORTE = ['Tumbes', 'Piura', 'Lambayeque', 'Cajamarca', 'Áncash', 'Lima'];
+// Departamentos que sigue la página (Áncash, Lima y La Libertad desde el 11/11/2026).
+export const NORTE = ['Tumbes', 'Piura', 'Lambayeque', 'Cajamarca', 'La Libertad', 'Áncash', 'Lima'];
 export const clave = s => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '')
   .toLowerCase().replace(/[^a-z ]/g, ' ').replace(/\s+/g, ' ').trim();
 

@@ -2,8 +2,8 @@
 
 Esta indicación vale para cualquier sesión o rutina que trabaje en este repositorio
 (la rutina diaria en la nube incluida). Página: https://jorgetaglep.github.io/fichas-noticias/
-Departamentos que se siguen: Tumbes, Piura, Lambayeque, Cajamarca, Áncash y Lima (estos dos desde el
-11/11/2026). La lista está en `lector.mjs`, `conclusiones.mjs`, `mapa.mjs`, `index.html` y
+Departamentos que se siguen: Tumbes, Piura, Lambayeque, Cajamarca, La Libertad, Áncash y Lima (los tres
+últimos desde el 11/11/2026). La lista está en `lector.mjs`, `conclusiones.mjs`, `mapa.mjs`, `index.html` y
 `apps-script/Codigo.gs`; si cambia, se cambia en todos y en `distritos.json`/`limites-norte.json`.
 
 ## 1. Reglas que no se tocan

@@ -215,9 +215,9 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
 
 <div class="wrap">
   <header class="top">
-    <div class="eyebrow">Una Sola Fuerza · Tumbes · Piura · Lambayeque · Cajamarca · Áncash · Lima</div>
+    <div class="eyebrow">Una Sola Fuerza · Tumbes · Piura · Lambayeque · Cajamarca · La Libertad · Áncash · Lima</div>
     <h1>Fichas de noticias del norte y Lima</h1>
-    <p class="lede" id="lede">Cada noticia publicada sobre los seis departamentos se convierte en una ficha con su fecha, medio, tema y los distritos que nombra.</p>
+    <p class="lede" id="lede">Cada noticia publicada sobre los siete departamentos se convierte en una ficha con su fecha, medio, tema y los distritos que nombra.</p>
     <p class="act" id="act" aria-live="polite"></p>
     <p class="alerta-lectura" id="alerta-lectura" role="status" hidden></p>
   </header>
@@ -282,7 +282,7 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
 (() => {
   const $ = id => document.getElementById(id);
   const TEMA_ORDEN = ['Emergencias', 'Lluvias y clima', 'Salud', 'Seguridad', 'Política y elecciones', 'Economía y producción', 'Deportes', 'Otros'];
-  const DEPS = ['Tumbes', 'Piura', 'Lambayeque', 'Cajamarca', 'Áncash', 'Lima'];   // Áncash y Lima desde el 11/11/2026
+  const DEPS = ['Tumbes', 'Piura', 'Lambayeque', 'Cajamarca', 'La Libertad', 'Áncash', 'Lima'];   // Áncash, Lima y La Libertad desde el 11/11/2026
   const fmtDia = new Intl.DateTimeFormat('es-PE', { timeZone: 'America/Lima', weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
   const fmtHora = new Intl.DateTimeFormat('es-PE', { timeZone: 'America/Lima', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
   const diaLima = iso => new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Lima' }).format(new Date(iso));
@@ -432,7 +432,7 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
   // ---------- Vista de personas afectadas (reportes del INDECI-COEN) ----------
   const fCorte = s => s ? s.slice(8, 10) + '/' + s.slice(5, 7) + (s.length > 11 && s.slice(11) !== '00:00' ? ' ' + s.slice(11, 16) : '') : '';
   const nv = n => n ? Number(n).toLocaleString('es-PE') : '—';
-  const NORTE = DEPS;   // los seis departamentos que sigue la página
+  const NORTE = DEPS;   // los siete departamentos que sigue la página
   let A = null, depA = 'norte', origA = '';
   // Origen del daño: agrupación propia de los motivos (fenómenos) que anota el INDECI en cada reporte.
   // El motivo del INDECI se muestra siempre tal cual; el origen solo sirve para separar, por ejemplo,
@@ -474,8 +474,8 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
         </tbody></table></div>
         <p class="nota">Damnificados y afectados son grupos distintos: cada persona se cuenta en uno solo. No se suman.</p>
       </section>
-      <section><h2>Mapa de los seis departamentos</h2>
-        <p class="nota">Tumbes, Piura, Lambayeque, Cajamarca, Áncash y Lima. El color del contorno de cada distrito indica cuántas personas afectadas reporta el INDECI (por dentro se ve el mapa del distrito); pasa el cursor para ver también los damnificados y tócalo para ver cada reporte con su corte y su enlace. El mapa de las noticias de prensa está en «Todas las fichas», con el botón «Ver estas noticias en el mapa».</p>
+      <section><h2>Mapa de los siete departamentos</h2>
+        <p class="nota">Tumbes, Piura, Lambayeque, Cajamarca, La Libertad, Áncash y Lima. El color del contorno de cada distrito indica cuántas personas afectadas reporta el INDECI (por dentro se ve el mapa del distrito); pasa el cursor para ver también los damnificados y tócalo para ver cada reporte con su corte y su enlace. El mapa de las noticias de prensa está en «Todas las fichas», con el botón «Ver estas noticias en el mapa».</p>
         <div id="ph-mapa"></div>
       </section>
       <section><h2>Total del Perú</h2>
@@ -484,10 +484,10 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
       </section>
       <section><h2>Por departamento</h2>
         <div class="tabla"><table><thead><tr><th>Departamento</th>${cols}<th class="n">Distritos</th></tr></thead><tbody>${A.departamentos.map(d => `<tr${NORTE.includes(d.departamento) ? ' class="norte"' : ''}><td class="dep">${esc(d.departamento)}</td>${celdas(d)}<td class="n">${d.distritos}</td></tr>`).join('')}</tbody></table></div>
-        <p class="nota">Resaltados: los seis departamentos que sigue esta página.</p>
+        <p class="nota">Resaltados: los siete departamentos que sigue esta página.</p>
       </section>
       <section><h2>Por provincia y por distrito</h2>
-        <div class="fila"><div class="campo chico"><label for="a-dep">Departamento</label><select id="a-dep"><option value="norte">Los 6 de la página</option><option value="todos">Todo el Perú</option>${deps.map(d => `<option${d === depA ? ' selected' : ''}>${esc(d)}</option>`).join('')}</select></div>
+        <div class="fila"><div class="campo chico"><label for="a-dep">Departamento</label><select id="a-dep"><option value="norte">Los 7 de la página</option><option value="todos">Todo el Perú</option>${deps.map(d => `<option${d === depA ? ' selected' : ''}>${esc(d)}</option>`).join('')}</select></div>
           <div class="campo chico"><label for="a-orig">Origen</label><select id="a-orig"><option value="">Todos</option>${ORIGENES.map(o => `<option value="${o.id}"${o.id === origA ? ' selected' : ''}>${esc(o.nombre)}</option>`).join('')}</select></div></div>
         <h3 class="sub">Por origen</h3>
         <div class="tabla"><table><thead><tr><th>Origen</th><th>Motivos del INDECI incluidos</th>${cols}<th class="n">Distritos</th></tr></thead><tbody>${porOrigen.map(({ o, l, t, dist, motivos }) => `<tr${o.id === origA ? ' class="norte"' : ''}><td class="dep" title="${esc(o.que)}">${esc(o.nombre)}</td><td>${l.length ? esc(motivos.join(', ')) : '<span style="color:var(--muted)">Sin reportes con personas</span>'}</td>${celdas(t)}<td class="n">${dist || '—'}</td></tr>`).join('')}</tbody></table></div>
@@ -630,7 +630,7 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
     const fuente = 'font-family="Segoe UI, Arial, sans-serif"';
     let s = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" ${fuente}><rect width="${W}" height="${H}" fill="#fff"/>`;
     s += `<text x="30" y="48" font-size="28" font-weight="700" fill="#14202b">${nom} por distrito</text>`;
-    s += `<text x="30" y="80" font-size="18" fill="#5a6875">Tumbes, Piura, Lambayeque, Cajamarca, Áncash y Lima · reportes del ${fechaISO(I.desde)} al ${fechaISO(I.ultimoReporte)}</text>`;
+    s += `<text x="30" y="80" font-size="18" fill="#5a6875">Tumbes, Piura, Lambayeque, Cajamarca, La Libertad, Áncash y Lima · reportes del ${fechaISO(I.desde)} al ${fechaISO(I.ultimoReporte)}</text>`;
     // Solo bordes, como en la página: primero los distritos sin reporte (gris fino), luego los de color encima.
     for (const f of LIM.features) if (!valorA(f.properties.ubigeo)) s += `<path d="${trazo(f.geometry)}" fill="#fff" stroke="#b8c2ca" stroke-width="0.7"/>`;
     for (const f of LIM.features) { const v = valorA(f.properties.ubigeo); if (v) s += `<path d="${trazo(f.geometry)}" fill="none" stroke="${PAL[claseDe(v)]}" stroke-width="2.6" stroke-linejoin="round"/>`; }
@@ -660,7 +660,7 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
       const c = document.createElement('canvas'); c.width = W * 2; c.height = H * 2;
       c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
       const a = document.createElement('a');
-      a.download = `mapa-${indA}-6-departamentos-${(MAPA.indeci.ultimoReporte || '').replace(/-/g, '')}.png`;
+      a.download = `mapa-${indA}-7-departamentos-${(MAPA.indeci.ultimoReporte || '').replace(/-/g, '')}.png`;
       a.href = c.toDataURL('image/png'); a.click();
       evento('mapa-descarga-png');
     };
@@ -754,7 +754,7 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
     $('v-concl').innerHTML = `
       <section><h2>Lo más importante ahora</h2><p class="nota">${esc(C.aviso)} Lectura del ${fmtHora.format(new Date(C.generado))}; ${C.analizadas} noticias analizadas.</p>
         <ul class="frases">${C.frases.map(f => `<li>${esc(f)}</li>`).join('')}</ul></section>
-      ${ejes ? `<section><h2>Ejes del Gobierno frente a El Niño</h2><p class="nota">Cada eje cita lo que anunció el Gobierno el 15/10/2026, tal cual, con su fuente oficial. Debajo, lo que dicen las noticias de los seis departamentos: qué está en marcha y qué tiene problemas. Las noticias se muestran tal como las publicó cada medio.</p><div class="rejilla">${ejes}</div></section>` : ''}
+      ${ejes ? `<section><h2>Ejes del Gobierno frente a El Niño</h2><p class="nota">Cada eje cita lo que anunció el Gobierno el 15/10/2026, tal cual, con su fuente oficial. Debajo, lo que dicen las noticias de los siete departamentos: qué está en marcha y qué tiene problemas. Las noticias se muestran tal como las publicó cada medio.</p><div class="rejilla">${ejes}</div></section>` : ''}
       <section><h2>Prioridad para salvar vidas</h2><p class="nota">Lugares ordenados por las señales de peligro para las personas en las noticias. Las de los últimos 2 días pesan el doble que las de la semana y seis veces más que las antiguas.</p><div class="prior">${prior}</div></section>
       <section><h2>Brechas en la atención</h2><p class="nota">Noticias de los últimos 14 días sobre ayuda que no llega o servicios que fallan. Conviene llevarlas al COER, a INDECI y a la Defensoría del Pueblo.</p>
         <div class="caja">${C.brechas.length ? `<ul class="tit">${C.brechas.map(b => `<li><span class="m">${fDia(b.fecha)} · ${esc(b.lugar)} · ${esc(b.medio || '')}</span><br><a href="${esc(b.enlace)}" target="_blank" rel="noopener noreferrer">${esc(b.titulo)}</a></li>`).join('')}</ul>` : '<p class="tend">Sin brechas reportadas.</p>'}</div></section>

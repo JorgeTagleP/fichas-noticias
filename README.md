@@ -1,6 +1,6 @@
 # Fichas de noticias del norte y Lima – Una Sola Fuerza
 
-Lee cada hora las noticias de Tumbes, Piura, Lambayeque, Cajamarca, Áncash y Lima (estos dos
+Lee cada hora las noticias de Tumbes, Piura, Lambayeque, Cajamarca, La Libertad, Áncash y Lima (los tres últimos
 desde el 11/11/2026), las convierte en fichas y
 arma conclusiones para enfrentar la emergencia por El Niño: dónde hay más peligro para las
 personas, qué hacer, salud, brechas en la atención, pronóstico y proyectos para el futuro.

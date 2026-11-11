@@ -1,6 +1,6 @@
-# Fichas de noticias – Tumbes, Piura, Lambayeque, Cajamarca, Áncash y Lima
+# Fichas de noticias – Tumbes, Piura, Lambayeque, Cajamarca, La Libertad, Áncash y Lima
 
-Lee noticias sobre los seis departamentos, crea una ficha por noticia y las muestra en una web
+Lee noticias sobre los siete departamentos, crea una ficha por noticia y las muestra en una web
 con filtros por departamento, provincia, distrito, fecha y tema (se pueden combinar), agrupadas por
 día, departamento, provincia o distrito.
 
@@ -14,7 +14,7 @@ Para una explicación sin términos técnicos, ver **[COMO-FUNCIONA.md](COMO-FUN
 | Archivo | Para qué |
 | --- | --- |
 | `lector.mjs` | Lector local (Node 18+): `node lector.mjs` → genera `fichas.json` |
-| `distritos.json` | Los 581 distritos de los 6 departamentos (ubigeo INEI, alias = capital del distrito) |
+| `distritos.json` | Los 665 distritos de los 7 departamentos (ubigeo INEI, alias = capital del distrito) |
 | `fichas.json` | Fichas generadas en la última lectura |
 | `ver-fichas.html` | **Para abrir en la computadora con doble clic**: la web con los datos adentro (la regenera `lector.mjs`) |
 | `fichas.js` | Copia de los datos para abrir `index.html` como archivo local |
@@ -52,17 +52,21 @@ Las noticias no llevan nivel; la columna 13 (antes `verificacion`) queda vacía.
 
 ## Cómo se ubica cada noticia
 
-- Se buscan en el titular los nombres de los 581 distritos y de sus capitales.
+- Se buscan en el titular los nombres de los 665 distritos y de sus capitales.
 - Un nombre que solo aparece dentro de otro más largo no cuenta aparte («San Juan de Lurigancho» no es también Lurigancho).
 - Los nombres ambiguos (Jesús, San Juan, La Unión, Santa Cruz, Castilla…) solo cuentan si el titular
   nombra también la provincia o el departamento.
 - Si el mismo nombre existe en dos provincias, queda el de la provincia nombrada, la capital provincial
   o, si no, el de Lima Metropolitana («Miraflores» solo es el de Lima, no el de Yauyos).
-- «Piura», «Tumbes», «Cajamarca», «Lambayeque», «Áncash» o «Lima» solos se registran a nivel departamento
+- «Piura», «Tumbes», «Cajamarca», «Lambayeque», «La Libertad», «Áncash» o «Lima» solos se registran a nivel departamento
   (por eso las noticias de la ciudad de Lambayeque quedan sin distrito; la capital es Chiclayo).
 - Si el titular no nombra ningún lugar, la ficha queda con el departamento de la búsqueda
-  («por búsqueda») y sin distrito. Lima es la excepción: como allí está la prensa nacional, una
-  noticia solo queda en Lima si el titular nombra a Lima o a uno de sus lugares.
+  («por búsqueda») y sin distrito. Lima y La Libertad son la excepción: como en Lima está la prensa
+  nacional, y la búsqueda «La Libertad» trae «libertad de prensa» de todo el mundo, una noticia solo
+  queda en ellas si el titular las nombra o nombra uno de sus lugares.
+- «La Libertad» cuenta como departamento solo con mayúscula y fuera de frases comunes («libertad de
+  prensa», «privados de su libertad», «La Libertad Avanza»). Si el titular la nombra como departamento,
+  no se marca el distrito La Libertad de Huaraz (Áncash).
 
 ## Límites conocidos
 

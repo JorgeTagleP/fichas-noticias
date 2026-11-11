@@ -21,14 +21,14 @@
 // AJUSTES. Lo que se cambia con más frecuencia está aquí arriba.
 //   DIAS          : cuántos días hacia atrás se guardan y se muestran noticias.
 //   ZONA          : hora de Lima, para fechar las fichas.
-//   DEPARTAMENTOS : los seis departamentos que se vigilan (Áncash y Lima desde el 11/11/2026).
+//   DEPARTAMENTOS : los siete departamentos que se vigilan (Áncash, Lima y La Libertad desde el 11/11/2026).
 //   COLS          : las columnas de la pestaña Fichas, en este orden. Si se
 //                   agrega una columna, se agrega al final para no desordenar
 //                   las fichas ya guardadas.
 // ---------------------------------------------------------------------
 const DIAS = 30;
 const ZONA = 'America/Lima';
-const DEPARTAMENTOS = ['Tumbes', 'Piura', 'Cajamarca', 'Lambayeque', 'Áncash', 'Lima'];
+const DEPARTAMENTOS = ['Tumbes', 'Piura', 'Cajamarca', 'Lambayeque', 'La Libertad', 'Áncash', 'Lima'];
 const COLS = ['id', 'capturada', 'publicada', 'titulo', 'medio', 'tipoMedio', 'via', 'enlace', 'tema',
               'departamentos', 'lugares', 'ubicadaPor', '(sin uso)', 'nota del curador'];
 // La columna 13 se llamaba «verificacion» (niveles A–D). Desde el 08/11/2026 las noticias

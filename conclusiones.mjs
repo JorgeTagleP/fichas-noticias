@@ -342,7 +342,7 @@ precisos.forEach((r, i) => r.prioridad = (i < 3 || r.puntaje >= maxP * 0.5) && r
 const departamentos = ranking.filter(r => r.nivel === 'departamento');
 
 // ---------- 2. Salud ----------
-const DEPS = ['Tumbes', 'Piura', 'Lambayeque', 'Cajamarca', 'Áncash', 'Lima'];   // Áncash y Lima desde el 11/11/2026
+const DEPS = ['Tumbes', 'Piura', 'Lambayeque', 'Cajamarca', 'La Libertad', 'Áncash', 'Lima'];   // Áncash, Lima y La Libertad desde el 11/11/2026
 const salud = DEPS.map(dep => {
   const de = clasificadas.filter(c => c.f.departamentos.includes(dep));
   const enf = id => de.filter(c => c.senales.includes(id));
@@ -392,7 +392,7 @@ const calidad = evaluacion ? {
 // ---------- 7. Ejes del Gobierno frente a El Niño ----------
 // 08/11/2026: el usuario pidió orientar las conclusiones a los ejes de la Presidencia de la República.
 // Cada eje cita tal cual lo que anunció el Gobierno (El Peruano, diario oficial, y gob.pe, 15/10/2026)
-// y muestra qué dicen las noticias de los seis departamentos: qué está en marcha y qué tiene problemas.
+// y muestra qué dicen las noticias de los siete departamentos: qué está en marcha y qué tiene problemas.
 // Lo oficial se cita, no se reinterpreta; las noticias entran tal como están escritas.
 const EP_URL = 'https://elperuano.pe/noticia/306932-presidenta-fujimori-anuncia-importantes-acciones-del-gobierno-frente-al-fenomeno-el-nino';
 const GOB_URL = 'https://www.gob.pe/institucion/presidencia/noticias/1457275-presidenta-keiko-fujimori-ante-fenomeno-el-nino-trabajando-unidos-y-con-un-solo-puno-vamos-a-levantarnos-y-salir-mas-fuertes-como-pais';

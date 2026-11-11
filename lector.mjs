@@ -4,7 +4,7 @@
 //
 //  ¿QUÉ HACE ESTE PROGRAMA?
 //  Hace lo mismo que haría una persona que cada mañana revisa los periódicos y las
-//  radios buscando noticias de Tumbes, Piura, Lambayeque, Cajamarca, Áncash y Lima, solo que en segundos:
+//  radios buscando noticias de Tumbes, Piura, Lambayeque, Cajamarca, La Libertad, Áncash y Lima, solo que en segundos:
 //
 //    1. Visita unas 80 "fuentes" de noticias en internet (Google Noticias y radios).
 //    2. Copia de cada noticia solo lo básico: titular, medio, fecha y enlace.
@@ -51,18 +51,26 @@ import { fileURLToPath } from 'url';
 // sin importar desde dónde se ejecute.
 const DIR = path.dirname(fileURLToPath(import.meta.url));
 
-// La lista oficial de los 581 distritos de los seis departamentos (del INEI).
+// La lista oficial de los 665 distritos de los siete departamentos (del INEI).
 // Cada distrito trae su departamento, provincia, código de ubigeo y "alias"
 // (el nombre de su capital, que a veces es como lo nombran las noticias).
 const DISTRITOS = JSON.parse(fs.readFileSync(path.join(DIR, 'distritos.json'), 'utf8'));
 
-// Los departamentos que vigilamos. Áncash y Lima se agregaron el 11/11/2026.
-const DEPARTAMENTOS = ['Tumbes', 'Piura', 'Cajamarca', 'Lambayeque', 'Áncash', 'Lima'];
+// Los departamentos que vigilamos. Áncash y Lima se agregaron el 11/11/2026; La Libertad, ese mismo día más tarde.
+const DEPARTAMENTOS = ['Tumbes', 'Piura', 'Cajamarca', 'Lambayeque', 'La Libertad', 'Áncash', 'Lima'];
+
+// «La libertad» también es una palabra común: «libertad de prensa», «privados de su libertad»,
+// «La Libertad Avanza» (partido argentino). Esas frases se quitan antes de buscar el departamento (11/11/2026).
+const LIBERTAD_COMUN = /(priv[a-z]* de (su |la |sus )?libertad|la libertad (de|del|religiosa|sindical|condicional|provisional|avanza|individual|economica|personal|financiera|academica|plena)( |$)|(contra|derecho a|estatua de|plaza( de)?|avenida|av|calle|jiron|jr|parque|urbanizacion|urb|colegio|hospital|institucion educativa|ie) la libertad)/g;
+
+// En Google, los nombres de dos palabras («La Libertad») van entre comillas para no traer todo lo que dice «libertad».
+const CONSULTA = d => d.includes(' ') ? `"${d}"` : d;
 
 // Lima es donde está la prensa nacional: la búsqueda «Lima» trae noticias de todo el país.
 // Por eso, una noticia solo queda en Lima si el titular nombra a Lima o a uno de sus lugares;
 // si solo vino de la búsqueda, se descarta (11/11/2026).
-const SOLO_CON_LUGAR = ['Lima'];
+// La Libertad igual: su búsqueda trae «libertad de prensa» de todo el mundo (de 63 noticias sin lugar, casi todas eran de fuera).
+const SOLO_CON_LUGAR = ['Lima', 'La Libertad'];
 
 // Cuántos días hacia atrás se buscan noticias.
 const DIAS = 30;                       // ventana de búsqueda en Google Noticias
@@ -109,7 +117,19 @@ const AMBIGUOS = new Set([
   'cocachacra', 'colonia', 'hongos', 'tomas', 'alis', 'vitis', 'tupe', 'tanta', 'omas', 'cacra', 'ayaviri',
   'azangaro', 'langa', 'laraos', 'chocos', 'carania', 'quinches', 'madean', 'lincha', 'huampara', 'ayauca',
   'carac', 'acos', 'maray', 'jucul', 'colonia', 'cochamarca', 'gorgor',
-  'huaros', 'ihuari', 'antioquia', 'mariatana', 'chicla', 'san jose de los chorrillos', 'san juan de lanca']);
+  'huaros', 'ihuari', 'antioquia', 'mariatana', 'chicla', 'san jose de los chorrillos', 'san juan de lanca',
+  // La Libertad (11/11/2026)
+  'el porvenir', 'moche', 'chicama', 'guadalupe', 'bolivar', 'victor larco herrera', 'poroto', 'chao', 'huaso',
+  'la cuesta', 'laredo', 'casa grande', 'mache', 'marmot', 'pias', 'sarin', 'condormarca', 'huayo', 'urpay',
+  'calamarca', 'mollepata', 'pacanga', 'simbal', 'salpo', 'charat']);
+
+// Nombres ambiguos solo en un departamento: «Bambamarca» casi siempre es la de Cajamarca (Hualgayoc);
+// la de La Libertad (Bolívar) solo cuenta si el titular nombra su provincia o La Libertad (11/11/2026).
+const AMBIGUOS_EN = { 'La Libertad': new Set(['bambamarca', 'la esperanza', 'pueblo nuevo', 'san jose', 'lucma']) };
+
+// Provincias que se llaman igual que su distrito ambiguo: el nombre solo no basta como «provincia nombrada»;
+// «Bolívar» necesita además «La Libertad» o «provincia de Bolívar» (11/11/2026).
+const PROVINCIA_APARTE = new Set(['bolivar']);
 
 // Nombres que solo cuentan si el titular dice «distrito de…» o «provincia del…»: «Santa» (Áncash)
 // aparece en «río Santa», «Semana Santa» o «Santa Rosa» sin hablar del distrito (11/11/2026).
@@ -179,14 +199,14 @@ function fuentesGoogle() {
   const base = q => `https://news.google.com/rss/search?q=${encodeURIComponent(q + ` when:${DIAS}d`)}&hl=es-419&gl=PE&ceid=PE:es-419`;
   const lista = [];
   for (const dep of DEPARTAMENTOS) {
-    lista.push({ medio: null, via: 'Google Noticias', departamento: dep, url: base(dep) });
+    lista.push({ medio: null, via: 'Google Noticias', departamento: dep, url: base(CONSULTA(dep)) });
     lista.push({ medio: null, via: 'Google Noticias', departamento: dep,
-      url: base(`${dep} (lluvia OR huaico OR desborde OR inundación OR deslizamiento OR emergencia)`) });
+      url: base(`${CONSULTA(dep)} (lluvia OR huaico OR desborde OR inundación OR deslizamiento OR emergencia)`) });
   }
   for (const pd of provincias) {
     const [prov, dep] = pd.split('|');
     if (prov === dep) continue;
-    lista.push({ medio: null, via: 'Google Noticias', departamento: dep, url: base(`"${prov}" ${dep}`) });
+    lista.push({ medio: null, via: 'Google Noticias', departamento: dep, url: base(`"${prov}" ${CONSULTA(dep)}`) });
   }
   return lista;
 }
@@ -267,7 +287,7 @@ async function leer(fuente) {
 // =====================================================================================
 //  PASO 3 · ¿DE QUÉ LUGAR HABLA?  Ubicar la noticia
 // =====================================================================================
-// El programa lee el titular y busca en él los nombres de los 581 distritos, siguiendo
+// El programa lee el titular y busca en él los nombres de los 665 distritos, siguiendo
 // estas reglas (en orden):
 //
 //   a) Busca cada nombre de distrito (y sus alias) como palabras completas.
@@ -297,16 +317,21 @@ function ubicar(item) {
   // casi siempre que aparece se refiere a la provincia real.
   // 10/11/2026 08:20: también «B.A.P. <nombre>» (con puntos, que norm convierte en «b a p»).
   const texto = norm(item.titulo).replace(/\bb ?a ?p [a-z]+/g, ' ');   // solo el titular: los resúmenes de radio traen el nombre de la emisora y su ciudad
-  const deps = DEPARTAMENTOS.filter(d => tiene(texto, d));
+  // «La Libertad» como departamento se escribe con mayúscula; «el fútbol y la libertad» o «educar para la libertad» no (11/11/2026).
+  const deps = DEPARTAMENTOS.filter(d => tiene(texto.replace(LIBERTAD_COMUN, ' '), d) && (d !== 'La Libertad' || /Libertad|LIBERTAD/.test(item.titulo)));
   const encontrados = [];
   for (const { d, claves } of nombres) {
     const hallada = claves.filter(c => tiene(texto, c));
     if (!hallada.length) continue;
     if (norm(d.distrito) === norm(d.departamento)) continue;          // "Piura" sola = nivel departamento
+    // «La Libertad» nombrada como departamento no es el distrito La Libertad de Áncash (Huaraz) (11/11/2026).
+    if (hallada.every(c => deps.some(x => norm(x) === c))) continue;
     const dentro = deps.includes(d.departamento) || item.depConsulta === d.departamento;
     if (!dentro) continue;
-    const soloAmbiguas = hallada.every(c => AMBIGUOS.has(c));
-    if (soloAmbiguas && !tiene(texto, d.provincia) && !tiene(texto, d.departamento)) continue;
+    const soloAmbiguas = hallada.every(c => AMBIGUOS.has(c) || AMBIGUOS_EN[d.departamento]?.has(c));
+    // La provincia cuenta si se nombra aparte: «Bolívar» solo (Colombia, Venezuela) no confirma la provincia Bolívar (11/11/2026).
+    const provNombrada = tiene(texto, d.provincia) && !(PROVINCIA_APARTE.has(norm(d.provincia)) && hallada.includes(norm(d.provincia)));
+    if (soloAmbiguas && !provNombrada && !deps.includes(d.departamento)) continue;
     if (hallada.every(c => SOLO_EXPLICITO.has(c) && !new RegExp(`(distrito|provincia) del? ${c}( |$)`).test(texto))) continue;
     encontrados.push({ d, hallada });
   }
@@ -386,7 +411,7 @@ async function main() {
   // 4) Convierte cada noticia en una FICHA, aplicando en orden:
   //    • deja solo las de los últimos 30 días (864e5 = milisegundos que tiene un día);
   //    • la ubica (Paso 3) y le pone tema (Paso 4);
-  //    • descarta las que no son de Tumbes, Piura, Lambayeque, Cajamarca, Áncash o Lima;
+  //    • descarta las que no son de Tumbes, Piura, Lambayeque, Cajamarca, La Libertad, Áncash o Lima;
   //    • de las radios, descarta las que no nombran ningún lugar (suelen ser nacionales);
   //    • las ordena de la más reciente a la más antigua;
   //    • les da un código único, por ejemplo USF-N-261107-0001
