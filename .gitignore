@@ -11,3 +11,6 @@ evaluacion.md
 _site/
 afectados.json
 indeci-cache.json
+
+# Archivos temporales de Word abiertos
+~$*

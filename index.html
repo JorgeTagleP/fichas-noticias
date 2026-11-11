@@ -187,7 +187,10 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
   .tab { padding: 10px 8px; }
 }
 @media (prefers-reduced-motion: no-preference) { .dep, .chip { transition: border-color .15s, background .15s; } }
+.visitas a { color: var(--accent); }
 </style>
+<!-- Contador de visitas GoatCounter: sin cookies ni datos personales. Tablero: https://fichas-norte.goatcounter.com -->
+<script data-goatcounter="https://fichas-norte.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 
@@ -242,6 +245,7 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
 
   <footer>
     <span id="gen"></span>
+    <span class="visitas"><a href="https://fichas-norte.goatcounter.com" target="_blank" rel="noopener noreferrer">¿Quién la consulta? Ver las visitas</a><span id="nvis"></span> · Contador sin cookies que no guarda datos personales.</span>
     <span>Fuentes: Google Noticias (búsquedas por departamento y provincia) y feeds RSS de radios locales. Se guarda solo titular, enlace y metadatos; el texto completo está en el medio original.</span>
   </footer>
 </div>
@@ -385,6 +389,9 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
 
   // ---------- Pestañas ----------
   function verTab(cual) {
+    // Cada cambio de pestaña se anota como evento (no como visita nueva) para saber qué se lee.
+    if (window.goatcounter && window.goatcounter.count && $('t-' + cual).getAttribute('aria-selected') !== 'true')
+      window.goatcounter.count({ path: 'pestaña-' + cual, title: $('t-' + cual).textContent, event: true });
     for (const t of ['concl', 'afect', 'fichas']) { $('t-' + t).setAttribute('aria-selected', t === cual); $('v-' + t).hidden = t !== cual; }
   }
   $('t-concl').addEventListener('click', () => verTab('concl'));
@@ -512,6 +519,9 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
   const cargarAfect = () => traerJSON('afectados.json').then(verAfect)
     .catch(() => { if (!A) $('v-afect').innerHTML = '<p class="vacio">Todavía no hay datos de los reportes del INDECI. Vuelve en unos minutos.</p>'; });
   if (location.protocol !== 'file:') cargarAfect();
+  // Visitas acumuladas (solo si el tablero de GoatCounter permite mostrar el contador).
+  if (location.protocol !== 'file:') fetch('https://fichas-norte.goatcounter.com/counter/TOTAL.json')
+    .then(r => r.ok ? r.json() : null).then(j => { if (j && j.count) $('nvis').textContent = ` · ${j.count} visitas desde el 10/11/2026`; }).catch(() => {});
   (location.protocol === 'file:' ? conclPorScript() : traerJSON('conclusiones.json').catch(conclPorScript))
     .then(verConcl)
     .catch(() => { $('v-concl').innerHTML = '<p class="vacio">Todavía no hay conclusiones para esta lectura. Mira las fichas en la otra pestaña.</p>'; });
