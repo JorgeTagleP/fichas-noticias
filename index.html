@@ -457,7 +457,7 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
         <p class="nota">Damnificados y afectados son grupos distintos: cada persona se cuenta en uno solo. No se suman.</p>
       </section>
       <section><h2>Mapa del norte</h2>
-        <p class="nota">Tumbes, Piura, Lambayeque y Cajamarca. El color de cada distrito indica cuántas personas afectadas reporta el INDECI; pasa el cursor para ver también los damnificados y tócalo para ver cada reporte con su corte y su enlace. El mapa de las noticias de prensa está en «Todas las fichas», con el botón «Ver estas noticias en el mapa».</p>
+        <p class="nota">Tumbes, Piura, Lambayeque y Cajamarca. El color del contorno de cada distrito indica cuántas personas afectadas reporta el INDECI (por dentro se ve el mapa del distrito); pasa el cursor para ver también los damnificados y tócalo para ver cada reporte con su corte y su enlace. El mapa de las noticias de prensa está en «Todas las fichas», con el botón «Ver estas noticias en el mapa».</p>
         <div id="ph-mapa"></div>
       </section>
       <section><h2>Total del Perú</h2>
@@ -512,7 +512,8 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
     style: { color: RIO, weight: 1.6, opacity: 0.85 }, interactive: interactivo,
     onEachFeature: (f, l) => { if (interactivo) l.bindTooltip(esc(f.properties.nombre), { sticky: true, direction: 'top', offset: [0, -70], opacity: 0.95 }); },
   });
-  const PAL = ['#fde4c8', '#f7b57c', '#e9793e', '#c2461d', '#7f2410'];
+  // Colores un poco más intensos que antes: en el mapa del INDECI se usan solo como contorno.
+  const PAL = ['#f0b37a', '#e98a45', '#d9622a', '#b23a17', '#6e1c0c'];
   const ETQ = ['1 – 49', '50 – 199', '200 – 499', '500 – 999', '1 000 o más'];
   const claseDe = v => v < 50 ? 0 : v < 200 ? 1 : v < 500 ? 2 : v < 1000 ? 3 : 4;
   const fondoOSM = (L, m) => L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 17, attribution: '© colaboradores de <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> · límites: INEI · ríos: OpenStreetMap' }).addTo(m);
@@ -553,8 +554,8 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
           onEachFeature: (f, l) => {
             l.bindPopup(() => popupA(f.properties.ubigeo), { maxWidth: 340 });
             l.bindTooltip(() => rotuloA(f.properties.ubigeo), { sticky: true, direction: 'top', offset: [0, -70], opacity: 0.95 });
-            l.on('mouseover', () => { l.setStyle({ weight: 2.5, color: '#14202b' }); l.bringToFront(); });
-            l.on('mouseout', () => l.setStyle(estiloA(f)));
+            l.on('mouseover', () => { l.setStyle({ weight: 4, fillOpacity: 0.12 }); l.bringToFront(); });
+            l.on('mouseout', () => { l.setStyle(estiloA(f)); if (!valorA(f.properties.ubigeo)) l.bringToBack(); if (riosA && mapaA.hasLayer(riosA)) riosA.bringToFront(); });
           },
         }).addTo(mapaA);
         mapaA.fitBounds(capaA.getBounds());
@@ -568,13 +569,18 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
   function pintarMapaAfect() {
     if (!capaA) return;
     capaA.setStyle(estiloA);
-    $('ley-a').innerHTML = `<b>${indA === 'afectados' ? 'Afectados' : 'Damnificados'}:</b><span><i style="background:#e3e7ea"></i>Sin reporte</span>` + ETQ.map((t, i) => `<span><i style="background:${PAL[i]}"></i>${t}</span>`).join('') + `<span><i style="background:none;border:0;border-top:3px solid ${RIO};height:0;vertical-align:middle"></i>Ríos principales</span>`;
+    // Los contornos de color van encima de los grises de los vecinos, y los ríos encima de todo.
+    capaA.eachLayer(l => { if (valorA(l.feature.properties.ubigeo)) l.bringToFront(); });
+    if (riosA && mapaA.hasLayer(riosA)) riosA.bringToFront();
+    $('ley-a').innerHTML = `<b>${indA === 'afectados' ? 'Afectados' : 'Damnificados'}:</b><span><i style="background:none;border:1px solid #8a96a0"></i>Sin reporte</span>` + ETQ.map((t, i) => `<span><i style="background:none;border:3px solid ${PAL[i]}"></i>${t}</span>`).join('') + `<span><i style="background:none;border:0;border-top:3px solid ${RIO};height:0;vertical-align:middle"></i>Ríos principales</span>`;
     const I = MAPA.indeci;
     $('mapa-a-pie').innerHTML = I ? `Fuente: <a href="${esc(I.fuente)}" target="_blank" rel="noopener noreferrer">INDECI-COEN, reportes de emergencia</a>, del ${fechaISO(I.desde)} al ${fechaISO(I.ultimoReporte)}. Para cada distrito y fenómeno se usa el reporte con más personas. Afectados y damnificados se muestran por separado: no se suman. Límites distritales: INEI (copia simplificada; falta Veintiséis de Octubre, Piura, y Bellavista, Sullana).${I.sinUbicar.length ? ` <b>Sin ubicar en el mapa:</b> ${esc(I.sinUbicar.join(', '))}.` : ''}` : 'Todavía no hay datos del INDECI para el mapa.';
   }
   function estiloA(f) {
     const v = valorA(f.properties.ubigeo);
-    return { color: '#fff', weight: 0.8, fillColor: v ? PAL[claseDe(v)] : '#9aa5ae', fillOpacity: v ? 0.85 : 0.15 };
+    // Solo contorno: el relleno es casi transparente para que se vea el mapa del distrito (calles, ríos, pueblos).
+    return v ? { color: PAL[claseDe(v)], weight: 3, opacity: 1, fillColor: PAL[claseDe(v)], fillOpacity: 0.06 }
+             : { color: '#8a96a0', weight: 0.6, opacity: 0.8, fillColor: '#fff', fillOpacity: 0.01 };
   }
   function rotuloA(u) {
     const d = MAPA.distritos[u] || { n: u, p: '' }, o = MAPA.indeci && MAPA.indeci.distritos[u];
