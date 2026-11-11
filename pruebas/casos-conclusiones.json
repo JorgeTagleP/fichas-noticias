@@ -1,0 +1,512 @@
+{
+ "comentario": "Casos ya corregidos (tomados de MEJORAS.md). Cada titular se evalúa solo, como si fuera la única ficha de hoy. tiene / no_tiene: señales de peligro (muertes, aislamiento, desborde, huaicos, damnificados, inundacion, electrico, dengue, leptospirosis, agua, brecha). fuera: no debe contar en nada. proyecto / eje: id y estado esperado. Cuando se corrija un error nuevo, se agrega aquí su titular. literal: true = titular real tal como lo publicó el medio; false = redactado a partir de la descripción en MEJORAS.md (el titular original ya salió de la ventana de 30 días o allí está resumido).",
+ "casos": [
+  {
+   "origen": "08/11/2026",
+   "titulo": "Asesinan a balazos a mototaxista en Sullana",
+   "dep": "Piura",
+   "dist": "Sullana",
+   "fuera": true,
+   "literal": false
+  },
+  {
+   "origen": "08/11/2026",
+   "titulo": "Vecinos bloquean vía en protesta contra la municipalidad de Sullana",
+   "dep": "Piura",
+   "dist": "Sullana",
+   "no_tiene": [
+    "aislamiento"
+   ],
+   "literal": false
+  },
+  {
+   "origen": "08/11/2026",
+   "titulo": "Nueva Cajamarca: lluvias inundan viviendas en San Martín",
+   "dep": "Cajamarca",
+   "fuera": true,
+   "literal": false
+  },
+  {
+   "origen": "08/11/2026 04:11",
+   "titulo": "Sechura se vería inundada con el desvío del río Piura, advierten",
+   "dep": "Piura",
+   "prov": "Sechura",
+   "no_tiene": [
+    "inundacion"
+   ],
+   "literal": false
+  },
+  {
+   "origen": "08/11/2026",
+   "titulo": "Cajamarca: simulacro por lluvias intensas deja más de 800 damnificados y 1,500 afectados",
+   "dep": "Cajamarca",
+   "dist": "Cajamarca",
+   "no_tiene": [
+    "damnificados"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "08/11/2026",
+   "titulo": "Fenómeno El Niño en Lambayeque: crecida del río Zaña destruye puente y aisla a 4 caseríos",
+   "dep": "Lambayeque",
+   "dist": "Zaña",
+   "tiene": [
+    "aislamiento",
+    "desborde"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "08/11/2026",
+   "titulo": "Lambayeque: Inician obra de agua y alcantarillado en Chiclayo con inversión de S/ 12 millones",
+   "dep": "Lambayeque",
+   "dist": "Chiclayo",
+   "no_tiene": [
+    "agua"
+   ],
+   "proyecto": {
+    "id": "drenaje"
+   },
+   "literal": true
+  },
+  {
+   "origen": "08/11/2026",
+   "titulo": "Piura: Contraloría supervisa limpieza de quebradas en Huancabamba ante emergencia por El Niño",
+   "dep": "Piura",
+   "dist": "Huancabamba",
+   "no_tiene": [
+    "huaicos"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "08/11/2026",
+   "titulo": "Tumbes bajo emergencia por lluvias: Ejército despliega militares y motobombas en zonas críticas ante riesgo de inundaciones",
+   "dep": "Tumbes",
+   "no_tiene": [
+    "brecha"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "08/11/2026",
+   "titulo": "Tumbes: alcalde reporta un fallecido, mil agricultores afectados y cerca de 300 viviendas dañadas en Papayal por lluvias",
+   "dep": "Tumbes",
+   "dist": "Papayal",
+   "tiene": [
+    "muertes",
+    "damnificados"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "08/11/2026",
+   "titulo": "Dengue se desborda en Lambayeque",
+   "dep": "Lambayeque",
+   "tiene": [
+    "dengue"
+   ],
+   "no_tiene": [
+    "desborde"
+   ],
+   "literal": false
+  },
+  {
+   "origen": "08/11/2026",
+   "titulo": "Lambayeque: 18 fallecidos por dengue y vacunación no supera el 50 % (VIDEO)",
+   "dep": "Lambayeque",
+   "tiene": [
+    "dengue"
+   ],
+   "no_tiene": [
+    "muertes"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "08/11/2026",
+   "titulo": "Tumbes: gobierno evalúa reubicación de 120 familias en Aguas Verdes",
+   "dep": "Tumbes",
+   "dist": "Aguas Verdes",
+   "tiene": [
+    "damnificados"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "08/11/2026 12:10",
+   "titulo": "Encauzan el río Chancay-Lambayeque para reducir riesgos en terrenos agrícolas de La Ramada",
+   "dep": "Lambayeque",
+   "proyecto": {
+    "id": "defensas",
+    "estado": "En curso"
+   },
+   "literal": false
+  },
+  {
+   "origen": "08/11/2026 17:12",
+   "titulo": "Cajamarca: Qocha La Florida almacenará 149 137,64 m³ de agua para impulsar la agricultura y ganadería",
+   "dep": "Cajamarca",
+   "proyecto": {
+    "id": "agua"
+   },
+   "literal": true
+  },
+  {
+   "origen": "08/11/2026 19:10",
+   "titulo": "Tumbes: lluvias intensas dejan más de mil 600 personas afectadas",
+   "dep": "Tumbes",
+   "tiene": [
+    "damnificados"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "08/11/2026",
+   "titulo": "Tumbes: adoptan medidas para evitar colapso de hospitales y desabastecimiento de medicinas",
+   "dep": "Tumbes",
+   "no_tiene": [
+    "brecha"
+   ],
+   "literal": false
+  },
+  {
+   "origen": "08/11/2026 20:00",
+   "titulo": "Senamhi: ¿Piura tendrá fuertes lluvias hoy, domingo 8 de noviembre? Conoce el pronóstico completo",
+   "dep": "Piura",
+   "pronostico": false,
+   "literal": true
+  },
+  {
+   "origen": "08/11/2026",
+   "titulo": "Senamhi alerta por lluvias fuertes en Piura este 7 y 8 de noviembre",
+   "dep": "Piura",
+   "pronostico": true,
+   "literal": true
+  },
+  {
+   "origen": "09/11/2026",
+   "titulo": "Tumbes: instalan tres albergues para atender a familias que resulten damnificadas por el fenómeno de El Niño",
+   "dep": "Tumbes",
+   "no_tiene": [
+    "damnificados"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "09/11/2026 05:xx",
+   "titulo": "Piura: limpian drenes Sechura y 1308 ante posibles lluvias intensas",
+   "dep": "Piura",
+   "proyecto": {
+    "id": "drenaje",
+    "estado": "En curso"
+   },
+   "literal": true
+  },
+  {
+   "origen": "09/11/2026",
+   "titulo": "Video viral de inundaciones en Tumbes corresponde a abril de 2025 y no a la emergencia actual",
+   "dep": "Tumbes",
+   "no_tiene": [
+    "inundacion"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "09/11/2026",
+   "titulo": "Chiclayo: entregan kits educativos y pelotas a niños de albergue en Ferreñafe",
+   "dep": "Lambayeque",
+   "dist": "Ferreñafe",
+   "no_tiene": [
+    "damnificados"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "09/11/2026",
+   "titulo": "🔴 Piura continúa bajo lluvias intensas: Senamhi alerta sobre tormentas eléctricas y posibles huaicos en Ayabaca",
+   "dep": "Piura",
+   "dist": "Ayabaca",
+   "no_tiene": [
+    "huaicos"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "09/11/2026 16:20",
+   "titulo": "Piura: Una obra pone en peligro a la población ante El Niño",
+   "dep": "Piura",
+   "tiene": [
+    "brecha"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "09/11/2026 17:30",
+   "titulo": "El Niño: activan “puente terrestre” para evitar que Morropón quede aislada",
+   "dep": "Piura",
+   "dist": "Morropón",
+   "no_tiene": [
+    "aislamiento"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "09/11/2026 13:12",
+   "titulo": "Buscan a familiares de motociclista herido en la vía Cajamarca-Ibagué",
+   "dep": "Cajamarca",
+   "fuera": true,
+   "literal": true
+  },
+  {
+   "origen": "09/11/2026 13:12",
+   "titulo": "¡Milagroso rescate! Río arrastra camioneta con una mujer y niños a bordo en Cajamarca",
+   "dep": "Cajamarca",
+   "tiene": [
+    "muertes"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "09/11/2026 18:30",
+   "titulo": "Tumbes: Oficina Regional de Gestión del Riesgo reporta vías afectadas y más de 10 quebradas activadas por intensas lluvias",
+   "dep": "Tumbes",
+   "tiene": [
+    "aislamiento",
+    "huaicos"
+   ],
+   "literal": false
+  },
+  {
+   "origen": "09/11/2026 18:30",
+   "titulo": "Piura: Pobladores llevan 5 días sin agua potable",
+   "dep": "Piura",
+   "tiene": [
+    "agua",
+    "brecha"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "09/11/2026 19:20",
+   "titulo": "Piura frente a El Niño: las intervenciones en el río, drenajes y abastecimiento de agua financiadas con una inversión de S/20 mllns.",
+   "dep": "Piura",
+   "proyecto": {
+    "id": "drenaje"
+   },
+   "literal": true
+  },
+  {
+   "origen": "09/11/2026 21:10",
+   "titulo": "Antiguas culturas del Perú sacrificaban personas tras inundaciones de El Niño, pero apenas registraban violencia cotidiana",
+   "dep": "Lambayeque",
+   "no_tiene": [
+    "inundacion",
+    "muertes"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "09/11/2026 17:10",
+   "titulo": "Colegio de Ingenieros califica de “engaño” afirmar que el río Piura soportará 4000 m³/s tras descolmatación",
+   "dep": "Piura",
+   "proyecto": {
+    "id": "defensas",
+    "estado": "En conflicto"
+   },
+   "eje": {
+    "id": "prevencion",
+    "estado": "Con problemas"
+   },
+   "literal": true
+  },
+  {
+   "origen": "09/11/2026 18:11",
+   "titulo": "¡Preocupante! Jaén: vecinos exigen solución ante constantes colapsos de desagüe en Camal Municipal",
+   "dep": "Cajamarca",
+   "dist": "Jaén",
+   "no_tiene": [
+    "agua",
+    "brecha"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "09/11/2026 22:15",
+   "titulo": "Piura: Detectan riesgo eléctrico en puestos frente a cementerio en Sullana",
+   "dep": "Piura",
+   "dist": "Sullana",
+   "no_tiene": [
+    "electrico"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "09/11/2026 23:15",
+   "titulo": "Piura: lluvias inundan viviendas tras fallas en obra de alcantarillado en Ayabaca",
+   "dep": "Piura",
+   "dist": "Ayabaca",
+   "tiene": [
+    "inundacion",
+    "brecha"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "10/11/2026 03:30",
+   "titulo": "El Niño y dengue: Essalud refuerza atención hospitalaria y vacunación en Tumbes y Piura",
+   "dep": "Tumbes",
+   "no_tiene": [
+    "dengue"
+   ],
+   "proyecto": {
+    "id": "salud",
+    "estado": "En curso"
+   },
+   "literal": true
+  },
+  {
+   "origen": "10/11/2026 06:20",
+   "titulo": "Ucayali: grifos en Pucallpa sin combustible tras huaico que impidió ingreso de camiones cisterna",
+   "dep": "Lambayeque",
+   "fuera": true,
+   "literal": false
+  },
+  {
+   "origen": "10/11/2026 07:20",
+   "titulo": "Keiko Fujimori moviliza buque y más de 230 marinos a Piura por El Niño: “Lo vamos a enfrentar por tierra, mar y cielo”",
+   "dep": "Piura",
+   "eje": {
+    "id": "conectividad"
+   },
+   "literal": true
+  },
+  {
+   "origen": "10/11/2026 10:30",
+   "titulo": "Keiko Fujimori descarta salida del río Piura por Sechura y prioriza aliviadero de Chutuque ante El Niño",
+   "dep": "Piura",
+   "proyecto": {
+    "id": "rio-piura",
+    "estado": "Atrasado"
+   },
+   "literal": true
+  },
+  {
+   "origen": "10/11/2026 10:30",
+   "titulo": "Piura: con apoyo privado ejecutan descolmatación en canal de derivación de la laguna Ramón",
+   "dep": "Piura",
+   "proyecto": {
+    "id": "defensas",
+    "estado": "En curso"
+   },
+   "literal": true
+  },
+  {
+   "origen": "10/11/2026 11:20",
+   "titulo": "Piura: vecinos molestos reportan falta de agua hace cinco días",
+   "dep": "Piura",
+   "tiene": [
+    "agua",
+    "brecha"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "10/11/2026 12:25",
+   "titulo": "Río Piura: colegio de ingenieros advierte riesgo de desborde en el sector La Mariposa y otros puntos vulnerables por El Niño",
+   "dep": "Piura",
+   "no_tiene": [
+    "desborde"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "10/11/2026 13:35",
+   "titulo": "Piura: más de 300 hectáreas estarían en riesgo de inundación por deterioro del dique La Mariposa",
+   "dep": "Piura",
+   "no_tiene": [
+    "inundacion"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "10/11/2026 14:20",
+   "titulo": "Ministro de Transportes descartó desabastecimiento de combustibles en Ucayali tras un huaico en la carretera Federico Basadre",
+   "dep": "Lambayeque",
+   "fuera": true,
+   "literal": true
+  },
+  {
+   "origen": "10/11/2026 15:20",
+   "titulo": "Fenómeno El Niño: Senamhi emite aviso rojo por lluvias en Tumbes, Piura y otras regiones",
+   "dep": "Tumbes",
+   "pronostico": true,
+   "frase": "Aviso rojo",
+   "literal": true
+  },
+  {
+   "origen": "10/11/2026 16:30",
+   "titulo": "Chiclayo cuenta con 45 puntos críticos de inundaciones",
+   "dep": "Lambayeque",
+   "dist": "Chiclayo",
+   "no_tiene": [
+    "inundacion"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "10/11/2026 17:25",
+   "titulo": "Piura: Contraloría advierte deficiencias en almacenes de Defensa Civil de Huancabamba",
+   "dep": "Piura",
+   "dist": "Huancabamba",
+   "tiene": [
+    "brecha"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "10/11/2026 18:20",
+   "titulo": "SUNASS ADVIERTE QUE CAJAMARCA DESPERDICIA AGUA DE LLUVIAS POR FALTA DE RESERVORIOS Y URGE AMPLIAR PLANTA EL MILAGRO Y EJECUTAR PRESA CHONTA",
+   "dep": "Cajamarca",
+   "no_tiene": [
+    "brecha"
+   ],
+   "proyecto": {
+    "id": "agua",
+    "estado": "Pedido"
+   },
+   "literal": true
+  }
+ ],
+ "ubicar": [
+  {
+   "origen": "10/11/2026 01:12",
+   "titulo": "Marina de Guerra despliega buque BAP Paita con ayuda humanitaria ante el Fenómeno El Niño",
+   "depConsulta": "Piura",
+   "sin_distrito": "Paita",
+   "literal": true
+  },
+  {
+   "origen": "10/11/2026 08:20",
+   "titulo": "DESDE EL CALLAO: BUQUE MULTIPROPÓSITO B.A.P. PAITA ZARPA HACIA PIURA CON HOSPITAL DE CAMPAÑA Y 230 MARINOS ANTE EMERGENCIA POR EL NIÑO",
+   "depConsulta": "Piura",
+   "sin_distrito": "Paita",
+   "literal": true
+  },
+  {
+   "origen": "regla AMBIGUOS",
+   "titulo": "Fiesta de San Juan reúne a cientos de vecinos",
+   "depConsulta": "Cajamarca",
+   "sin_distrito": "San Juan",
+   "literal": false
+  },
+  {
+   "origen": "regla AMBIGUOS",
+   "titulo": "Lluvias en San Juan, Cajamarca dejan viviendas afectadas",
+   "depConsulta": "Cajamarca",
+   "con_distrito": "San Juan",
+   "literal": false
+  }
+ ]
+}

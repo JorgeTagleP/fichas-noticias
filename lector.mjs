@@ -395,5 +395,7 @@ async function main() {
   console.log(`Con distrito: ${fichas.filter(f => f.lugares.some(l => l.distrito)).length} · Emergencias: ${fichas.filter(f => f.tema === 'Emergencias').length} · Lluvias y clima: ${fichas.filter(f => f.tema === 'Lluvias y clima').length}`);
 }
 
-// Aquí empieza realmente todo: se ejecuta el programa principal.
-main();
+// Aquí empieza realmente todo: se ejecuta el programa principal. Si el archivo se importa
+// (por ejemplo, desde pruebas/correr.mjs), solo se usan sus funciones y no se lee nada.
+export { ubicar, tema, norm };
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();

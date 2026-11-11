@@ -1,0 +1,356 @@
+[
+ {
+  "archivo": "tumbes-distrito.pdf",
+  "url": "https://portal.indeci.gob.pe/wp-content/uploads/2026/11/REPORTE-COMPLEMENTARIO-N.º-15633-7NOV2026-LLUVIAS-INTENSAS-EN-EL-DISTRITO-DE-TUMBES-TUMBES-1.pdf",
+  "num": 15633,
+  "tipo": "REPORTE-COMPLEMENTARIO",
+  "fecha": "2026-11-07",
+  "titulo": "LLUVIAS INTENSAS EN EL DISTRITO DE TUMBES TUMBES",
+  "fenomeno": "Lluvias Intensas",
+  "corte": "2026-11-07T22:40",
+  "filas": [
+   {
+    "nivel": "DIST",
+    "dep": "Tumbes",
+    "prov": "Tumbes",
+    "dist": "Tumbes",
+    "p": {
+     "afectados": 10
+    }
+   }
+  ]
+ },
+ {
+  "archivo": "piura-evaluacion-en-texto.pdf",
+  "url": "https://portal.indeci.gob.pe/wp-content/uploads/2026/11/REPORTE-COMPLEMENTARIO-N.º-15631-7NOV2026-LLUVIAS-INTENSAS-EN-EL-DEPARTAMENTO-DE-PIURA-1.pdf",
+  "num": 15631,
+  "tipo": "REPORTE-COMPLEMENTARIO",
+  "fecha": "2026-11-07",
+  "titulo": "LLUVIAS INTENSAS EN EL DEPARTAMENTO DE PIURA",
+  "fenomeno": "Lluvias Intensas",
+  "corte": "2026-11-07T00:00",
+  "filas": [
+   {
+    "nivel": "DIST",
+    "dep": "Piura",
+    "prov": "",
+    "dist": "Yamango",
+    "p": {
+     "afectados": 200
+    },
+    "aprox": true
+   }
+  ]
+ },
+ {
+  "archivo": "piura-departamento.pdf",
+  "url": "https://portal.indeci.gob.pe/wp-content/uploads/2026/11/REPORTE-COMPLEMENTARIO-N.º-15591-6NOV2026-LLUVIAS-INTENSAS-EN-EL-DEPARTAMENTO-DE-PIURA-16.pdf",
+  "num": 15591,
+  "tipo": "REPORTE-COMPLEMENTARIO",
+  "fecha": "2026-11-06",
+  "titulo": "LLUVIAS INTENSAS EN EL DEPARTAMENTO DE PIURA",
+  "fenomeno": "Lluvias Intensas",
+  "corte": "2026-11-04T06:00",
+  "filas": [
+   {
+    "nivel": "DPTO",
+    "dep": "Piura",
+    "prov": "",
+    "dist": "",
+    "p": {
+     "damnificados": 30,
+     "afectados": 109
+    }
+   },
+   {
+    "nivel": "PROV",
+    "dep": "Piura",
+    "prov": "Ayabaca",
+    "dist": "",
+    "p": {
+     "damnificados": 12,
+     "afectados": 47
+    }
+   },
+   {
+    "nivel": "DIST",
+    "dep": "Piura",
+    "prov": "Ayabaca",
+    "dist": "Sicchez",
+    "p": {
+     "damnificados": 12,
+     "afectados": 47
+    }
+   },
+   {
+    "nivel": "PROV",
+    "dep": "Piura",
+    "prov": "Morropón",
+    "dist": "",
+    "p": {
+     "damnificados": 18,
+     "afectados": 7
+    }
+   },
+   {
+    "nivel": "DIST",
+    "dep": "Piura",
+    "prov": "Morropón",
+    "dist": "Chulucanas",
+    "p": {
+     "damnificados": 18,
+     "afectados": 7
+    }
+   },
+   {
+    "nivel": "PROV",
+    "dep": "Piura",
+    "prov": "Piura",
+    "dist": "",
+    "p": {
+     "afectados": 55
+    }
+   },
+   {
+    "nivel": "DIST",
+    "dep": "Piura",
+    "prov": "Piura",
+    "dist": "Piura",
+    "p": {}
+   },
+   {
+    "nivel": "DIST",
+    "dep": "Piura",
+    "prov": "Piura",
+    "dist": "Castilla",
+    "p": {
+     "afectados": 28
+    }
+   },
+   {
+    "nivel": "DIST",
+    "dep": "Piura",
+    "prov": "Piura",
+    "dist": "Catacaos",
+    "p": {
+     "afectados": 20
+    }
+   },
+   {
+    "nivel": "DIST",
+    "dep": "Piura",
+    "prov": "Piura",
+    "dist": "Cura Mori",
+    "p": {}
+   },
+   {
+    "nivel": "DIST",
+    "dep": "Piura",
+    "prov": "Piura",
+    "dist": "Tambo Grande",
+    "p": {
+     "afectados": 7
+    }
+   },
+   {
+    "nivel": "PROV",
+    "dep": "Piura",
+    "prov": "Talara",
+    "dist": "",
+    "p": {
+     "afectados": 120
+    }
+   },
+   {
+    "nivel": "DIST",
+    "dep": "Piura",
+    "prov": "Talara",
+    "dist": "Máncora",
+    "p": {
+     "afectados": 120
+    }
+   }
+  ]
+ },
+ {
+  "archivo": "contumaza-fallecido.pdf",
+  "url": "https://portal.indeci.gob.pe/wp-content/uploads/2026/10/REPORTE-COMPLEMENTARIO-N.º-15270-30OCT2026-DERRUMBE-DE-CERRO-EN-EL-DISTRITO-DE-CONTUMAZÁ-CAJAMARCA-2.pdf",
+  "num": 15270,
+  "tipo": "REPORTE-COMPLEMENTARIO",
+  "fecha": "2026-10-30",
+  "titulo": "DERRUMBE DE CERRO EN EL DISTRITO DE CONTUMAZÁ CAJAMARCA",
+  "fenomeno": "Derrumbe de Cerro",
+  "corte": "2026-10-17T02:45",
+  "filas": [
+   {
+    "nivel": "DIST",
+    "dep": "Cajamarca",
+    "prov": "Contumazá",
+    "dist": "Contumazá",
+    "p": {
+     "heridos": 1,
+     "fallecidos": 1
+    }
+   }
+  ]
+ },
+ {
+  "archivo": "quilahuani-sin-personas.pdf",
+  "url": "https://portal.indeci.gob.pe/wp-content/uploads/2026/08/INFORME-DE-EMERGENCIA-N.º-2448-18OCT2026-VIENTOS-FUERTES-EN-EL-DISTRITO-DE-QUILAHUANI-TACNA1.pdf",
+  "num": 2448,
+  "tipo": "INFORME-DE-EMERGENCIA",
+  "fecha": "2026-10-18",
+  "titulo": "VIENTOS FUERTES EN EL DISTRITO DE QUILAHUANI TACNA1",
+  "fenomeno": "Vientos Fuertes",
+  "corte": "2026-10-18T21:15",
+  "filas": []
+ },
+ {
+  "archivo": "quilahuani-dep-del-titulo.pdf",
+  "url": "https://portal.indeci.gob.pe/wp-content/uploads/2026/09/INFORME-DE-EMERGENCIA-N.º-2437-17OCT2026-VIENTOS-FUERTES-EN-EL-DISTRITO-DE-QUILAHUANI-TACNA-1.pdf",
+  "num": 2437,
+  "tipo": "INFORME-DE-EMERGENCIA",
+  "fecha": "2026-10-17",
+  "titulo": "VIENTOS FUERTES EN EL DISTRITO DE QUILAHUANI TACNA",
+  "fenomeno": "Vientos Fuertes",
+  "corte": "2026-10-17T19:20",
+  "filas": [
+   {
+    "nivel": "DIST",
+    "dep": "Áncash",
+    "prov": "Candarave",
+    "dist": "Quilahuani",
+    "p": {
+     "damnificados": 4,
+     "afectados": 37
+    }
+   }
+  ]
+ },
+ {
+  "archivo": "tumbes-departamento.pdf",
+  "url": "https://portal.indeci.gob.pe/wp-content/uploads/2026/11/REPORTE-COMPLEMENTARIO-N.º-15734-10NOV2026-LLUVIAS-INTENSAS-EN-EL-DEPARTAMENTO-DE-TUMBES-TUMBES-16.pdf",
+  "num": 15734,
+  "tipo": "REPORTE-COMPLEMENTARIO",
+  "fecha": "2026-11-10",
+  "titulo": "LLUVIAS INTENSAS EN EL DEPARTAMENTO DE TUMBES TUMBES",
+  "fenomeno": "Lluvias Intensas",
+  "corte": "2026-11-10T06:50",
+  "filas": [
+   {
+    "nivel": "DPTO",
+    "dep": "Tumbes",
+    "prov": "",
+    "dist": "",
+    "p": {
+     "damnificados": 340,
+     "afectados": 1284
+    }
+   },
+   {
+    "nivel": "PROV",
+    "dep": "Tumbes",
+    "prov": "Tumbes",
+    "dist": "",
+    "p": {
+     "damnificados": 6,
+     "afectados": 448
+    }
+   },
+   {
+    "nivel": "DIST",
+    "dep": "Tumbes",
+    "prov": "Tumbes",
+    "dist": "San Jacinto",
+    "p": {
+     "afectados": 40
+    }
+   },
+   {
+    "nivel": "DIST",
+    "dep": "Tumbes",
+    "prov": "Tumbes",
+    "dist": "Tumbes",
+    "p": {
+     "damnificados": 4,
+     "afectados": 225
+    }
+   },
+   {
+    "nivel": "DIST",
+    "dep": "Tumbes",
+    "prov": "Tumbes",
+    "dist": "La Cruz",
+    "p": {
+     "damnificados": 2,
+     "afectados": 183
+    }
+   },
+   {
+    "nivel": "DIST",
+    "dep": "Tumbes",
+    "prov": "Tumbes",
+    "dist": "Pampas de Hospital",
+    "p": {}
+   },
+   {
+    "nivel": "DIST",
+    "dep": "Tumbes",
+    "prov": "Tumbes",
+    "dist": "Corrales",
+    "p": {}
+   },
+   {
+    "nivel": "DIST",
+    "dep": "Tumbes",
+    "prov": "Tumbes",
+    "dist": "San Juan de la Virgen",
+    "p": {}
+   },
+   {
+    "nivel": "PROV",
+    "dep": "Tumbes",
+    "prov": "Zarumilla",
+    "dist": "",
+    "p": {
+     "damnificados": 334,
+     "afectados": 836
+    }
+   },
+   {
+    "nivel": "DIST",
+    "dep": "Tumbes",
+    "prov": "Zarumilla",
+    "dist": "Aguas Verdes",
+    "p": {
+     "damnificados": 316,
+     "afectados": 120
+    }
+   },
+   {
+    "nivel": "DIST",
+    "dep": "Tumbes",
+    "prov": "Zarumilla",
+    "dist": "Papayal",
+    "p": {}
+   },
+   {
+    "nivel": "DIST",
+    "dep": "Tumbes",
+    "prov": "Zarumilla",
+    "dist": "Zarumilla",
+    "p": {
+     "damnificados": 18,
+     "afectados": 716
+    }
+   },
+   {
+    "nivel": "DIST",
+    "dep": "Tumbes",
+    "prov": "Contralmirante Villar",
+    "dist": "Zorritos",
+    "p": {}
+   }
+  ]
+ }
+]

@@ -12,6 +12,10 @@ Esta indicación vale para cualquier sesión o rutina que trabaje en este reposi
 - Si una mejora choca con una de estas reglas, no se hace y se anota en MEJORAS.md el porqué.
 
 ## 2. Control de salud en cada lectura
+Hecho en `salud.mjs` (paso «Control de salud» de `lectura.yml`). La página lo muestra al pie y,
+si hay alertas o la última lectura tiene más de 3 horas, en un recuadro arriba con «Datos al…».
+Con alerta se abre un solo issue «Alerta de la lectura de noticias» (GitHub avisa por correo) y se
+cierra solo cuando una lectura sale bien.
 - `salud.json`, visible al pie de la página: hora de la última lectura buena de noticias y del INDECI;
   cantidad de noticias, reportes del INDECI y distritos, comparada con la lectura anterior.
 - Alerta si: no hubo lectura en 3 horas; el INDECI falló 3 veces seguidas (ENOTFOUND, HTTP o el
@@ -20,6 +24,10 @@ Esta indicación vale para cualquier sesión o rutina que trabaje en este reposi
 - Con alerta se conservan los datos anteriores y la página dice «datos al <hora>».
 
 ## 3. Pruebas antes de publicar (carpeta `pruebas/`)
+Hecho: `node pruebas/correr.mjs` corre en cada lectura antes de leer; si falla, no se publica.
+- `pruebas/casos-conclusiones.json`: titulares ya corregidos (de MEJORAS.md) y lo que se espera de cada uno.
+- `pruebas/indeci/`: 7 PDF del INDECI verificados a mano y `esperado.json`. Solo se comparan en Linux.
+- Las reglas de lectura del INDECI están en `indeci-tablas.mjs` (funciones puras, sin red).
 - Un juego de PDF del INDECI y de noticias ya verificados a mano, con su resultado esperado.
 - Toda modificación de `afectados.mjs`, `lector.mjs` o `conclusiones.mjs` debe pasar esas pruebas;
   si falla una, no se publica y queda la versión anterior.
@@ -33,6 +41,7 @@ Esta indicación vale para cualquier sesión o rutina que trabaje en este reposi
   3) que se lea bien en el celular, 4) lo demás.
 
 ## 5. Respaldo semanal
+Hecho en `.github/workflows/respaldo.yml` (domingos 08:00 de Lima, o «Run workflow»).
 - Los domingos se genera un `git bundle` de `main` y `datos` y se guarda como Release del
   repositorio, conservando las últimas 8 semanas.
 
@@ -41,6 +50,8 @@ Esta indicación vale para cualquier sesión o rutina que trabaje en este reposi
   oficiales coincidieron o difirieron, cuántas visitas hubo y qué queda pendiente para una persona.
 
 ## 7. Visitas a la página
+Hecho: contador en `index.html`. El tablero y el total al pie necesitan que el dueño active en
+GoatCounter «Allow public access to the dashboard» y «Allow adding visitor counts on your website».
 - La página lleva el contador de GoatCounter (sin cookies, sin datos personales, sin IP guardadas).
   No se usa Google Analytics ni nada que rastree a las personas.
 - Tablero: https://fichas-norte.goatcounter.com (acceso público de solo lectura, si el dueño lo activó).

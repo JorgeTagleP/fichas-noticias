@@ -27,6 +27,7 @@ permissions:
   pages: write                # para publicar la página
   id-token: write
   actions: write              # para volver a encender el reloj de respaldo si se cortó
+  issues: write               # para abrir (y cerrar) el aviso «Alerta de la lectura»
 
 concurrency:
   group: lectura
@@ -43,6 +44,16 @@ jobs:
         with:
           node-version: 24
 
+      - name: Preparar (hora de inicio y pdftotext)
+        run: |
+          echo "INICIO_LECTURA=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_ENV"
+          sudo apt-get install -y -qq poppler-utils >/dev/null
+
+      - name: Pruebas antes de publicar
+        # Si una regla nueva rompe un caso ya corregido o la lectura de un PDF verificado,
+        # la lectura se detiene aquí y la página sigue mostrando la versión anterior.
+        run: node pruebas/correr.mjs
+
       - name: Leer noticias
         run: node lector.mjs
 
@@ -57,7 +68,6 @@ jobs:
         continue-on-error: true
         timeout-minutes: 8
         run: |
-          sudo apt-get install -y -qq poppler-utils >/dev/null
           # El DNS del INDECI solo responde a consultas desde el Perú. Desde fuera, el nombre se
           # resuelve por su cortafuegos (FortiWeb Cloud, el mismo destino que ven los usuarios en el Perú).
           # Autorizado por el dueño del proyecto el 09/11/2026.
@@ -69,12 +79,20 @@ jobs:
           git fetch -q --depth 1 origin datos && git show origin/datos:indeci-cache.json > indeci-cache.tmp && mv indeci-cache.tmp indeci-cache.json || echo "Sin memoria previa: se leerá desde el inicio."
           # Datos de la lectura anterior, por si el portal no responde esta vez
           git show origin/datos:afectados.json > afectados.tmp 2>/dev/null && mv afectados.tmp afectados.json || true
-          node afectados.mjs
+          set -o pipefail
+          node afectados.mjs 2>&1 | tee indeci.log
+
+      - name: Control de salud (si algo salió mal, se publica la versión anterior)
+        run: |
+          mkdir -p prev
+          git fetch -q --depth 1 origin datos 2>/dev/null || true
+          for f in fichas.json conclusiones.json afectados.json salud.json; do git show origin/datos:$f > prev/$f 2>/dev/null || rm -f prev/$f; done
+          node salud.mjs prev
 
       - name: Preparar la página
         run: |
           mkdir -p _site
-          cp index.html fichas.json conclusiones.json _site/
+          cp index.html fichas.json conclusiones.json salud.json _site/
           [ -f afectados.json ] && cp afectados.json _site/ || echo "Sin afectados.json en esta lectura."
           cp conclusiones.md evaluacion.md _site/ 2>/dev/null || true
 
@@ -90,11 +108,32 @@ jobs:
           D=$(mktemp -d)
           cp fichas.json conclusiones.json conclusiones.md evaluacion.json evaluacion.md "$D"/
           cp afectados.json indeci-cache.json "$D"/ 2>/dev/null || true
+          cp salud.json "$D"/ 2>/dev/null || true
           cd "$D"
           git init -q -b datos
           git add .
           git -c user.name="lector-noticias" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -qm "Datos de la lectura del $(date -u +%Y-%m-%dT%H:%MZ)"
           git push -f -q "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" datos || echo "No se pudo actualizar la rama datos (la página se publica igual)."
+
+      - name: Avisar por GitHub si la lectura tiene alertas
+        # Abre un solo aviso (issue) mientras dure el problema y lo cierra cuando todo vuelve a estar bien.
+        # GitHub manda un correo al dueño del repositorio cuando se abre.
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ESTADO=$(node -p "require('./salud.json').estado")
+          N=$(gh issue list --state open --search "Alerta de la lectura in:title" --json number --jq '.[0].number // empty')
+          if [ "$ESTADO" = "alerta" ] && [ -z "$N" ]; then
+            { echo "El control de salud de la lectura del $(node -p "require('./salud.json').generado") (UTC) encontró:"; echo
+              node -p "require('./salud.json').alertas.map(a => '- ' + a).join(String.fromCharCode(10))"; echo
+              echo "La página sigue mostrando los datos anteriores buenos. Este aviso se cierra solo cuando una lectura vuelve a salir bien."; } > aviso.md
+            gh issue create --title "Alerta de la lectura de noticias" --body-file aviso.md
+          elif [ "$ESTADO" = "bien" ] && [ -n "$N" ]; then
+            gh issue close "$N" --comment "La lectura del $(date -u +%Y-%m-%dT%H:%MZ) salió bien: se cierra el aviso."
+          else
+            echo "Estado: $ESTADO; aviso abierto: ${N:-ninguno}."
+          fi
 
       - name: Guardar el resumen del día (estado.json)
         run: |

@@ -188,6 +188,8 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
 }
 @media (prefers-reduced-motion: no-preference) { .dep, .chip { transition: border-color .15s, background .15s; } }
 .visitas a { color: var(--accent); }
+.alerta-lectura { margin: 10px 0 0; padding: 8px 12px; border-radius: 6px; background: var(--emerg-soft); color: var(--ink); font-size: 13.5px; border-left: 4px solid var(--emerg); }
+.alerta-lectura b { color: var(--emerg); }
 </style>
 <!-- Contador de visitas GoatCounter: sin cookies ni datos personales. Tablero: https://fichas-norte.goatcounter.com -->
 <script data-goatcounter="https://fichas-norte.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -200,6 +202,7 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
     <h1>Fichas de noticias del norte</h1>
     <p class="lede" id="lede">Cada noticia publicada sobre los cuatro departamentos se convierte en una ficha con su fecha, medio, tema y los distritos que nombra.</p>
     <p class="act" id="act" aria-live="polite"></p>
+    <p class="alerta-lectura" id="alerta-lectura" role="status" hidden></p>
   </header>
 
   <nav class="tabs" role="tablist" aria-label="Vistas">
@@ -245,6 +248,7 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
 
   <footer>
     <span id="gen"></span>
+    <span id="salud"></span>
     <span class="visitas"><a href="https://fichas-norte.goatcounter.com" target="_blank" rel="noopener noreferrer">¿Quién la consulta? Ver las visitas</a><span id="nvis"></span> · Contador sin cookies que no guarda datos personales.</span>
     <span>Fuentes: Google Noticias (búsquedas por departamento y provincia) y feeds RSS de radios locales. Se guarda solo titular, enlace y metadatos; el texto completo está en el medio original.</span>
   </footer>
@@ -519,6 +523,20 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
   const cargarAfect = () => traerJSON('afectados.json').then(verAfect)
     .catch(() => { if (!A) $('v-afect').innerHTML = '<p class="vacio">Todavía no hay datos de los reportes del INDECI. Vuelve en unos minutos.</p>'; });
   if (location.protocol !== 'file:') cargarAfect();
+  // Control de salud (salud.json): cuándo fue la última lectura buena de noticias y del INDECI.
+  // Si la última lectura tuvo alertas o tiene más de 3 horas, se avisa arriba con la hora de los datos.
+  const hLima = iso => iso ? new Intl.DateTimeFormat('es-PE', { timeZone: 'America/Lima', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(new Date(iso)) : '—';
+  const verSalud = (s) => {
+    const n = s.noticias || {}, i = s.indeci || {};
+    $('salud').textContent = `Estado de la lectura: ${s.estado === 'bien' ? 'al día' : 'con alertas'} · noticias al ${hLima(n.datosAl)} · reportes del INDECI al ${hLima(i.datosAl)}${i.ok === false ? ' (la última lectura del INDECI falló)' : ''}.`;
+    const viejas = (Date.now() - new Date(s.generado)) / 36e5 > 3;
+    const motivos = [...(s.alertas || [])];
+    if (viejas) motivos.unshift(`No hubo lectura nueva desde el ${hLima(s.generado)}.`);
+    $('alerta-lectura').hidden = !motivos.length;
+    if (motivos.length) $('alerta-lectura').innerHTML = `<b>Datos al ${esc(hLima(n.datosAl))}.</b> ${motivos.map(esc).join(' ')}`;
+  };
+  const cargarSalud = () => traerJSON('salud.json').then(verSalud).catch(() => {});
+  if (location.protocol !== 'file:') { cargarSalud(); setInterval(cargarSalud, 15 * 60 * 1000); }
   // Visitas acumuladas (solo si el tablero de GoatCounter permite mostrar el contador).
   if (location.protocol !== 'file:') fetch('https://fichas-norte.goatcounter.com/counter/TOTAL.json')
     .then(r => r.ok ? r.json() : null).then(j => { if (j && j.count) $('nvis').textContent = ` · ${j.count} visitas desde el 10/11/2026`; }).catch(() => {});
