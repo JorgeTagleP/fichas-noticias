@@ -53,7 +53,10 @@ const edadDias = f => (AHORA - new Date(f.publicada)) / 864e5;
 // 11/11/2026 13:40: «Casma: incendio deja tres damnificados y destruye una vivienda en el distrito de Yaután» sumaba
 // «Damnificados» y «Piura: Incendio deja un fallecido… en Paita» podía sumar muertes: los incendios (urbanos y forestales)
 // no son daño de El Niño. Se excluyen los titulares con «incendio(s)» (ninguno de las fichas los vincula a lluvias o rayos).
-const FUERA_DE_ZONA = /incendios?|nueva cajamarca|calarca|ibague|tolima|quindio|las mariposas|oxapampa|alianza atletico|fc cajamarca|liga 1|^ucayali:|en pucallpa|en ucayali|federico basadre/;
+// 11/11/2026 17:15: «Lambayeque: ANA evalúa calidad del agua en el mar de Pimentel tras denuncia por presunta descarga de
+// aguas residuales» sumaba «Brecha» y «Agua y desagüe» y ponía a Pimentel en prioridad Alta (y como la brecha más reciente):
+// es una vigilancia ambiental del mar, no una falla de atención a personas afectadas. Se excluye «calidad del agua en el mar».
+const FUERA_DE_ZONA = /incendios?|calidad del agua en el mar|nueva cajamarca|calarca|ibague|tolima|quindio|las mariposas|oxapampa|alianza atletico|fc cajamarca|liga 1|^ucayali:|en pucallpa|en ucayali|federico basadre/;
 // 10/11/2026 14:20: «Ministro de Transportes descartó desabastecimiento de combustibles en Ucayali tras un huaico en la
 // carretera Federico Basadre» entraba como brecha e infraestructura con problemas de Lambayeque; es de Ucayali (fuera de la zona).
 
