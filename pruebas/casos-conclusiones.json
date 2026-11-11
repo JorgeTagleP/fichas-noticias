@@ -477,6 +477,34 @@
     "estado": "Pedido"
    },
    "literal": true
+  },
+  {
+   "origen": "10/11/2026 20:30",
+   "titulo": "COEN alerta sobre activación de quebradas en Cajamarca y Piura desde el 22 de noviembre",
+   "dep": "Cajamarca",
+   "no_tiene": [
+    "huaicos"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "10/11/2026 20:30",
+   "titulo": "Indeci alerta activación de quebradas en siete regiones, Cajamarca y Piura en rojo",
+   "dep": "Cajamarca",
+   "no_tiene": [
+    "huaicos"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "10/11/2026 20:30",
+   "titulo": "Tumbes: lluvias activan seis quebradas en San Jacinto y varios poblados quedan aislados",
+   "dep": "Tumbes",
+   "dist": "San Jacinto",
+   "tiene": [
+    "huaicos"
+   ],
+   "literal": true
   }
  ],
  "ubicar": [

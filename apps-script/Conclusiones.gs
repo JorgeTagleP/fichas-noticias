@@ -2,7 +2,7 @@
  * Una Sola Fuerza – Conclusiones para la emergencia (versión Google Workspace)
  *
  * NO EDITAR AQUÍ: este archivo lo genera preparar-apps-script.mjs a partir de
- * conclusiones.mjs y oficiales.json (2026-11-10).
+ * conclusiones.mjs y oficiales.json (2026-11-11).
  * Para cambiar una regla, se cambia conclusiones.mjs y se vuelve a preparar.
  *
  * Qué hace: toma las fichas de la pestaña Fichas y arma la pestaña
@@ -298,7 +298,10 @@ const HIPOTETICO = /se veria inundad|no se va a inundar|evitar futura inundac|po
 // 10/11/2026 12:20: «Río Piura: colegio de ingenieros advierte riesgo de desborde en el sector La Mariposa…» y
 // «Alcalde de Piura … advierte riesgo de desborde del río» sumaban «Desborde»; son advertencias. Solo con «advierte»,
 // para no excluir «río supera alerta roja por riesgo de desborde» (crecida real en Zarumilla).
-const PELIGRO_NO_OCURRIDO = /posibles? (huaicos?|desbordes?)|evita\w* (el )?desborde|evitar que \w+( \w+)? queden? aislad|advierte\w* (el )?riesgo de desborde/;
+// 10/11/2026 20:30: «COEN alerta sobre activación de quebradas en Cajamarca y Piura…», «Indeci alerta activación de quebradas
+// en siete regiones…» y «Fuertes lluvias … podrían activar quebradas» sumaban «Huaicos» a Cajamarca y Piura; son avisos,
+// no quebradas ya activadas. («lluvias activan quebradas», un hecho ocurrido, sigue contando.)
+const PELIGRO_NO_OCURRIDO = /posibles? (huaicos?|desbordes?)|evita\w* (el )?desborde|evitar que \w+( \w+)? queden? aislad|advierte\w* (el )?riesgo de desborde|podrian activar quebradas|alerta\w* (sobre )?(la )?activacion de quebradas/;
 const DESBORDE_FIGURADO = /(dengue|casos|contagios|epidemia)\w* se desbord/;
 // 08/11/2026 (corrida 7): «Lambayeque: 18 fallecidos por dengue…» sumaba «Muertes o personas arrastradas» y
 // daba la acción «Señalizar o cercar el peligro (ríos, reservorios…)», que no sirve para el dengue.
