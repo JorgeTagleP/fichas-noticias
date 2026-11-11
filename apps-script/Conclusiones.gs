@@ -376,8 +376,12 @@ const PROYECTOS = [
   { id: 'agua',        nombre: 'Presas y reservorios de agua', re: /\bpresas?\b|represa|almacenar agua|\bqochas?\b|cosecha de agua/ },
   // 08/11/2026 17:12: «Cajamarca: Qocha La Florida almacenará 149 137,64 m³ de agua…» no contaba: se agregan «qocha» y «cosecha de agua».
   { id: 'cuencas',     nombre: 'Reforestación y cuidado de cuencas', re: /reforest|arboles plantados|desarrollo forestal|cuenca/ },
-  { id: 'reubicacion', nombre: 'Reubicación de familias en zonas de riesgo', re: /reubica/ },
-  { id: 'salud',       nombre: 'Hospitales y salud preparada', re: /ampliacion de su hospital|hospital (regional|de especialidades)|centro de salud|grupo electrogeno|control vectorial|vacunacion/ },
+  // 11/11/2026 13:20: «Lambayeque: Serfor rescata y reubica a 14 animales silvestres…» contaba como reubicación de
+  // familias: se excluyen los titulares de fauna (animales, silvestres, fauna).
+  { id: 'reubicacion', nombre: 'Reubicación de familias en zonas de riesgo', re: /^(?!.*(animales|silvestres?|fauna)).*reubica/ },
+  // 11/11/2026 13:20: «DIRESA reporta tres casos de sarampión en Casma y refuerza vacunación infantil» contaba como
+  // proyecto de salud ante El Niño: se excluyen los titulares de sarampión (brote ajeno a las lluvias).
+  { id: 'salud',       nombre: 'Hospitales y salud preparada', re: /^(?!.*sarampion).*(ampliacion de su hospital|hospital (regional|de especialidades)|centro de salud|grupo electrogeno|control vectorial|vacunacion)/ },
   { id: 'colegios',    nombre: 'Colegios seguros', re: /techo de \d+ colegios|colegios? .*(obras por impuestos|mejorar)/ },
   { id: 'alerta',      nombre: 'Alerta temprana e información', re: /alerta temprana|pluviometr|inteligencia geoespacial|sistema de alerta|umbrales de inundacion/ },
   { id: 'patrimonio',  nombre: 'Protección del patrimonio cultural', re: /patrimonio|huacas|arqueolog/ },
