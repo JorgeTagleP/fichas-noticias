@@ -211,7 +211,7 @@ De dónde salen los datos:
   quedó de cuando eran 4 departamentos). Faltan Veintiséis de Octubre (Piura) y Santa María de
   Huachipa (Lima), creados después, y vienen sin geometría Bellavista (Sullana), Acopampa (Carhuaz) y
   Santa Anita (Lima); esos cinco no se colorean.
-- `rios-norte.json`: 24 ríos principales (Tumbes, Zarumilla, Chira, Piura, La Leche, Chancay, Zaña,
+- `rios-norte.json`: 42 ríos principales (Tumbes, Zarumilla, Chira, Piura, La Leche, Chancay, Zaña,
   Jequetepeque, Marañón, Chinchipe, Huancabamba…), tomados de OpenStreetMap el 11/11/2026,
   recortados a los 6 departamentos y simplificados (los de Áncash y Lima —Santa, Rímac, Chillón, Lurín,
   Cañete, Huaura, Pativilca…— se agregaron el 11/11/2026). Se ven en los dos mapas y en la imagen para Word;
