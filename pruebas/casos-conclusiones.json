@@ -556,6 +556,16 @@
     "brecha"
    ],
    "literal": true
+  },
+  {
+   "origen": "11/11/2026 12:30",
+   "titulo": "Piura: más de 19 mil familias podrían quedar aisladas por deterioro del puente Salitral–Morropón",
+   "dep": "Piura",
+   "dist": "Morropón",
+   "no_tiene": [
+    "aislamiento"
+   ],
+   "literal": true
   }
  ],
  "ubicar": [

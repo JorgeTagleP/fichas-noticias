@@ -306,7 +306,10 @@ const HIPOTETICO = /se veria inundad|no se va a inundar|evitar futura inundac|po
 // 10/11/2026 20:30: «COEN alerta sobre activación de quebradas en Cajamarca y Piura…», «Indeci alerta activación de quebradas
 // en siete regiones…» y «Fuertes lluvias … podrían activar quebradas» sumaban «Huaicos» a Cajamarca y Piura; son avisos,
 // no quebradas ya activadas. («lluvias activan quebradas», un hecho ocurrido, sigue contando.)
-const PELIGRO_NO_OCURRIDO = /posibles? (huaicos?|desbordes?)|evita\w* (el )?desborde|evitar que \w+( \w+)? queden? aislad|advierte\w* (el )?riesgo de desborde|podrian activar quebradas|alerta\w* (sobre )?(la )?activacion de quebradas/;
+const PELIGRO_NO_OCURRIDO = /posibles? (huaicos?|desbordes?)|evita\w* (el )?desborde|evitar que \w+( \w+)? queden? aislad|advierte\w* (el )?riesgo de desborde|podrian activar quebradas|alerta\w* (sobre )?(la )?activacion de quebradas|podrian? quedar aislad/;
+// 11/11/2026 12:30: «Piura: más de 19 mil familias podrían quedar aisladas por deterioro del puente Salitral–Morropón»
+// (07/11) sumaba «Aislamiento» y ponía a Morropón y Salitral en prioridad Alta; es una advertencia (ya hay «puente
+// terrestre» para evitarlo). «podría(n) quedar aislad» no suma aislamiento; «quedan aislados» sigue contando.
 // 11/11/2026 08:30: «Piura continúa bajo lluvias intensas: Senamhi alerta sobre tormentas eléctricas y posibles huaicos
 // en Ayabaca» sumaba «Rayos» a Ayabaca; es un aviso, no una tormenta ocurrida. Solo «alerta sobre/por tormentas eléctricas»,
 // para no excluir «lluvias y tormentas eléctricas inundan calles» (hecho ocurrido).
