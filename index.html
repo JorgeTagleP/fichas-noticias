@@ -254,12 +254,12 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
       <span id="cuenta">Cargando fichas…</span>
       <span style="display:flex;gap:14px;flex-wrap:wrap">
         <label class="check"><input type="checkbox" id="f-condist"> Solo con distrito identificado</label>
-        <button class="link" id="ver-mapa-n" type="button" aria-expanded="false" aria-controls="mapa-n-bloque">Ver en el mapa</button>
         <button class="link" id="limpiar" type="button">Quitar filtros</button>
       </span>
     </div>
   </section>
 
+  <p style="margin:12px 0 0"><button class="btn-sec" id="ver-mapa-n" type="button" aria-expanded="false" aria-controls="mapa-n-bloque">Ver estas noticias en el mapa</button></p>
   <section id="mapa-n-bloque" aria-label="Mapa de las noticias" hidden>
     <p class="mapa-pie" style="margin:0 0 6px"><b>Es prensa, no cifras oficiales.</b> Cada círculo es un distrito y su tamaño indica cuántas de las fichas filtradas lo nombran. Toca un círculo para ver los titulares tal como los publicó cada medio.</p>
     <div class="mapa" id="mapa-n"></div>
@@ -457,7 +457,7 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
         <p class="nota">Damnificados y afectados son grupos distintos: cada persona se cuenta en uno solo. No se suman.</p>
       </section>
       <section><h2>Mapa del norte</h2>
-        <p class="nota">Tumbes, Piura, Lambayeque y Cajamarca. Cada distrito se colorea con la cifra del INDECI que elijas; tócalo para ver cada reporte con su corte y su enlace.</p>
+        <p class="nota">Tumbes, Piura, Lambayeque y Cajamarca. Cada distrito se colorea con la cifra del INDECI que elijas; tócalo para ver cada reporte con su corte y su enlace. El mapa de las noticias de prensa está en «Todas las fichas», con el botón «Ver estas noticias en el mapa».</p>
         <div id="ph-mapa"></div>
       </section>
       <section><h2>Total del Perú</h2>
@@ -540,11 +540,14 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
         $('mapa-a').innerHTML = '';
         mapaA = L.map('mapa-a', { zoomSnap: 0.5, scrollWheelZoom: false });
         fondoOSM(L, mapaA);
+        // El estilo se calcula siempre con estiloA, para que al quitar el cursor el distrito vuelva a su color.
         capaA = L.geoJSON(LIM, {
+          style: estiloA,
           onEachFeature: (f, l) => {
             l.bindPopup(() => popupA(f.properties.ubigeo), { maxWidth: 340 });
-            l.on('mouseover', () => l.setStyle({ weight: 2.5, color: '#14202b' }));
-            l.on('mouseout', () => capaA.resetStyle(l));
+            l.bindTooltip(() => rotuloA(f.properties.ubigeo), { sticky: true, direction: 'top', opacity: 0.95 });
+            l.on('mouseover', () => { l.setStyle({ weight: 2.5, color: '#14202b' }); l.bringToFront(); });
+            l.on('mouseout', () => l.setStyle(estiloA(f)));
           },
         }).addTo(mapaA);
         mapaA.fitBounds(capaA.getBounds());
@@ -555,10 +558,18 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
   }
   function pintarMapaAfect() {
     if (!capaA) return;
-    capaA.setStyle(f => { const v = valorA(f.properties.ubigeo); return { color: '#fff', weight: 0.8, fillColor: v ? PAL[claseDe(v)] : '#9aa5ae', fillOpacity: v ? 0.85 : 0.15 }; });
+    capaA.setStyle(estiloA);
     $('ley-a').innerHTML = `<b>${indA === 'afectados' ? 'Afectados' : 'Damnificados'}:</b><span><i style="background:#e3e7ea"></i>Sin reporte</span>` + ETQ.map((t, i) => `<span><i style="background:${PAL[i]}"></i>${t}</span>`).join('');
     const I = MAPA.indeci;
     $('mapa-a-pie').innerHTML = I ? `Fuente: <a href="${esc(I.fuente)}" target="_blank" rel="noopener noreferrer">INDECI-COEN, reportes de emergencia</a>, del ${fechaISO(I.desde)} al ${fechaISO(I.ultimoReporte)}. Para cada distrito y fenómeno se usa el reporte con más personas. Afectados y damnificados se muestran por separado: no se suman. Límites distritales: INEI (copia simplificada; falta Veintiséis de Octubre, Piura, y Bellavista, Sullana).${I.sinUbicar.length ? ` <b>Sin ubicar en el mapa:</b> ${esc(I.sinUbicar.join(', '))}.` : ''}` : 'Todavía no hay datos del INDECI para el mapa.';
+  }
+  function estiloA(f) {
+    const v = valorA(f.properties.ubigeo);
+    return { color: '#fff', weight: 0.8, fillColor: v ? PAL[claseDe(v)] : '#9aa5ae', fillOpacity: v ? 0.85 : 0.15 };
+  }
+  function rotuloA(u) {
+    const d = MAPA.distritos[u] || { n: u, p: '' }, o = MAPA.indeci && MAPA.indeci.distritos[u];
+    return `<b>${esc(d.n)}</b> (${esc(d.p)}) · ${o ? [o.afectados && `${nv(o.afectados)} afectados`, o.damnificados && `${nv(o.damnificados)} damnificados`].filter(Boolean).join(' · ') || 'reporte sin personas' : 'sin reporte del INDECI'}<br><span style="color:#5a6875">Toca para ver los reportes</span>`;
   }
   function popupA(u) {
     const d = MAPA.distritos[u] || { n: u, p: '', d: '' }, o = MAPA.indeci && MAPA.indeci.distritos[u];
@@ -641,6 +652,7 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
           .bindPopup(() => `<h4>${esc(d.n)}</h4><div class="s">${esc(d.p)} · ${esc(d.d)} · ${fichas.length} ficha${fichas.length > 1 ? 's' : ''} · prensa</div><table>` +
             fichas.slice(0, 10).map(f => `<tr><td><a href="${esc(f.enlace)}" target="_blank" rel="noopener noreferrer">${esc(f.titulo)}</a><br><span class="s">${esc(f.medio || '')} · ${fmtHora.format(new Date(f.publicada))}</span></td></tr>`).join('') +
             `</table><p style="margin:6px 0 0"><button class="link" type="button" data-l='${esc(JSON.stringify([l.departamento, l.provincia, l.distrito]))}'>Ver ${fichas.length > 1 ? `las ${fichas.length} fichas` : 'la ficha'} de ${esc(d.n)}</button></p>`, { maxWidth: 340 })
+          .bindTooltip(`<b>${esc(d.n)}</b> · ${fichas.length} ficha${fichas.length > 1 ? 's' : ''}<br><span style="color:#5a6875">Toca para ver los titulares</span>`, { direction: 'top', opacity: 0.95 })
           .addTo(capaN);
       }
       $('mapa-n-pie').textContent = por.size
@@ -652,7 +664,7 @@ h3.sub { font: 600 15px/1.3 var(--f-ui); margin: 14px 0 8px; }
     const abrir = $('mapa-n-bloque').hidden;
     $('mapa-n-bloque').hidden = !abrir;
     $('ver-mapa-n').setAttribute('aria-expanded', abrir);
-    $('ver-mapa-n').textContent = abrir ? 'Ocultar el mapa' : 'Ver en el mapa';
+    $('ver-mapa-n').textContent = abrir ? 'Ocultar el mapa de noticias' : 'Ver estas noticias en el mapa';
     if (abrir) { evento('mapa-noticias'); pintarMapaNoticias(); }
   });
   $('mapa-n-bloque').addEventListener('click', e => {
