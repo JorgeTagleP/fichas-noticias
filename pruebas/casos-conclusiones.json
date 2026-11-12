@@ -911,6 +911,27 @@
     "huaicos"
    ],
    "literal": true
+  },
+  {
+   "origen": "12/11/2026",
+   "titulo": "Huaico destruye 60 metros de carretera y bloquea el tránsito en Yupán",
+   "dep": "Áncash",
+   "dist": "Yupán",
+   "tiene": [
+    "aislamiento",
+    "huaicos"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "12/11/2026",
+   "titulo": "Chiclayo restringe el tránsito vehicular en el centro por visita del papa León XIV",
+   "dep": "Lambayeque",
+   "dist": "Chiclayo",
+   "no_tiene": [
+    "aislamiento"
+   ],
+   "literal": true
   }
  ],
  "ubicar": [
