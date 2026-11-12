@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-11",
+  "actualizado": "2026-11-12",
   "nota": "Cifras de referencia oficiales. Se citan tal como las publica la entidad; no se reinterpretan. 'via' indica cuando la cifra oficial se tomó de una nota de prensa que la atribuye a la entidad (confianza menor que la fuente primaria). Actualizar en cada lectura.",
   "indicadores": [
     {
@@ -37,6 +37,18 @@
       "fuente": "INDECI (reporte actualizado al 07/11/2026)",
       "via": "Sol TV Perú, 08/11/2026",
       "url": "https://soltvperu.com/lluvias-intensas-tumbes-personas-afectadas/"
+    },
+    {
+      "id": "tumbes-albergues",
+      "indicador": "Albergues temporales instalados por lluvias (Aguas Verdes, Nuevo Aguas Verdes y Tumbes)",
+      "departamento": "Tumbes",
+      "tema": "albergue",
+      "clave": "albergues?(?![a-z])",
+      "valor": 3,
+      "corte": "2026-11-08",
+      "fuente": "Ministerio de Defensa (Indeci y Ejército), en El Peruano 08/11/2026",
+      "via": "",
+      "url": "https://elperuano.pe/noticia/308553-tumbes-cuenta-con-tres-albergues-temporales-para-familias-damnificadas-por-las-lluvias"
     },
     {
       "id": "tumbes-dengue-casos",

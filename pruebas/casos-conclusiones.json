@@ -1023,6 +1023,16 @@
         "estado": "Mencionado"
       },
       "literal": true
+    },
+    {
+      "origen": "12/11/2026 12:30",
+      "titulo": "La Libertad: ANIN fortalece la prevención ante El Niño con la instalación de puente Bailey en Conache",
+      "dep": "La Libertad",
+      "proyecto": {
+        "id": "puentes",
+        "estado": "En curso"
+      },
+      "literal": true
     }
   ],
   "ubicar": [

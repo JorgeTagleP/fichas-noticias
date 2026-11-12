@@ -265,7 +265,9 @@ const PROYECTOS = [
   { id: 'defensas',    nombre: 'Defensas ribereñas y descolmatación', re: /defensas? riberen|descolmat|\bdiques?\b|limpieza de (la )?(quebrada|rio|cauce)|encauzamiento|encauzan?\b|sedimentos|reforzaran defensas|proteger a \d+ localidades/ },
   // 12/11/2026 11:20: «Huarmey: Contraloría alerta por deterioro de la estructura del puente Cuscus» (12/11) no aparecía en
   // ningún lado: un puente deteriorado antes de las lluvias es una obra pendiente. Se agrega «deterioro … del puente».
-  { id: 'puentes',     nombre: 'Puentes y vías definitivas', re: /deterioro de (la estructura del? )?puente|puente de concreto|puentes? definitiv|construccion de(l)? puente|via de evitamiento|carretera .*(invertira|mejorar|millones)|estribo|puentes modulares/ },
+  // 12/11/2026 12:30: «La Libertad: ANIN fortalece la prevención ante El Niño con la instalación de puente Bailey en Conache»
+  // (12/11) no aparecía en Proyectos: se agregan «puente(s) Bailey» e «instalación de(l) puente»; cuenta como «En curso».
+  { id: 'puentes',     nombre: 'Puentes y vías definitivas', re: /deterioro de (la estructura del? )?puente|puentes? bailey|instalacion de(l)? puente|puente de concreto|puentes? definitiv|construccion de(l)? puente|via de evitamiento|carretera .*(invertira|mejorar|millones)|estribo|puentes modulares/ },
   // 08/11/2026 06:xx: «presa» como palabra completa; antes coincidía dentro de «empresas»
   // («anula contratación de empresas para la salida del río Piura» caía en presas).
   { id: 'agua',        nombre: 'Presas y reservorios de agua', re: /\bpresas?\b|represa|almacenar agua|\bqochas?\b|cosecha de agua/ },
@@ -288,7 +290,7 @@ const PROYECTOS = [
 // «Hospitales y salud preparada» (solo se buscaba «reforz»): se agrega «refuerza(n)» como palabra completa; cuenta «En curso».
 // 10/11/2026 18:20: «urge (ejecutar una obra)» cuenta como proyecto pedido.
 // 12/11/2026 11:20: se agregan «vulnerabilidad» y «deterioro» (dique La Mariposa, puente Cuscus).
-const ES_PROYECTO = /\burge\b|vulnerabilidad|deterioro|\brefuerzan?\b|supervisa|preventiv|obra|proyecto|construc|ejecuc|invert|inversion|destina|millones|ampliacion|buena pro|propuesta|plan\b|estudio|exige|piden|pide|solicita|pendiente|reforz|impulsa|meta|protege|limpieza|\blimpian?\b|descolmat|retira|rechaz|anula|descarta|prioriza|encauza/;
+const ES_PROYECTO = /\burge\b|instalacion de(l)? puente|vulnerabilidad|deterioro|\brefuerzan?\b|supervisa|preventiv|obra|proyecto|construc|ejecuc|invert|inversion|destina|millones|ampliacion|buena pro|propuesta|plan\b|estudio|exige|piden|pide|solicita|pendiente|reforz|impulsa|meta|protege|limpieza|\blimpian?\b|descolmat|retira|rechaz|anula|descarta|prioriza|encauza/;
 // 09/11/2026 05:xx: «Piura: limpian drenes Sechura y 1308 ante posibles lluvias intensas» no contaba como proyecto
 // (solo se buscaba «limpieza»): se agrega el verbo «limpia(n)», que cuenta como «En curso».
 // 08/11/2026 12:10: «Encauzan el río Chancay-Lambayeque para reducir riesgos…» no contaba como defensa ribereña
@@ -308,7 +310,7 @@ function estadoProyecto(t) {
   if (/sin ejecucion|pendiente|paraliz|medio motor|atras|10 anos|no estara lista|posterga|\bdescartan?\b|obras? inconclusas?|fallas en (la )?obra/.test(t)) return 'Atrasado';
   if (/piden|pide|exige|solicita|reclam|demanda|\burge\b/.test(t)) return 'Pedido';
   // 12/11/2026 01:00: «Obras de descolmatación en el cauce del río Chicama alcanzan el 50% de avance» quedaba como «Mencionado».
-  if (/inicia|ejecuc|\bejecutan?\b|trabajos de (descolmatacion|limpieza|encauzamiento)|avanza|concluye|encauzan|buena pro|destina|invertira|retira|impulsa|cofinanciara|reforzaran|despliega|supervisa|\blimpian?\b|\brefuerzan?\b|\bde avance\b/.test(t)) return 'En curso';
+  if (/inicia|ejecuc|\bejecutan?\b|trabajos de (descolmatacion|limpieza|encauzamiento)|avanza|concluye|encauzan|buena pro|destina|invertira|retira|impulsa|cofinanciara|reforzaran|despliega|supervisa|\blimpian?\b|\brefuerzan?\b|\bde avance\b|instalacion de(l)? puente/.test(t)) return 'En curso';
   return 'Mencionado';
 }
 
