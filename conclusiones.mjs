@@ -149,7 +149,9 @@ const DONACION_ALBERGUE = /kits? educativ|pelotas|juguetes|utiles escolares/;
 // 12/11/2026 03:20: «Alerta en Piura: Senamhi advierte riesgo de huaicos por lluvias y establece umbrales de inundación en el río Piura»
 // (03/11) sumaba «Huaicos» e «Inundaciones urbanas»; es un aviso con umbrales, no un daño: «umbrales de inundac». Y «Es falso que
 // este video muestre las recientes inundaciones en Zarumilla: fue grabado en 2025» (03/11) sumaba «Inundaciones»; es un desmentido.
-const HIPOTETICO = /advierte\w* (el )?riesgo de inundac|presenta\w* riesgo de inundac|se veria inundad|no se va a inundar|evitar futura inundac|pondria en riesgo|por riesgo de inundac|estarian en riesgo de inundac|simulacro|que resulten damnificad|instalan \w+ albergues|no a la emergencia actual|video viral\w* .*corresponde a|antiguas culturas|sacrificaban|ciclon yaku|puntos criticos de inundac|reducir (los |el )?riesgos? de inundac|umbrales de inundac|es falso que (este|el) video|fue grabado en \d{4}/;
+// 12/11/2026 05:20: «En Trujillo… los pobladores temen que las intensas lluvias provoquen la activación de quebradas» (21/10) sumaba
+// «Huaicos»: es un temor, no un daño. Se agrega «temen que … provoque(n)».
+const HIPOTETICO = /temen que [^.]{0,60}provoquen?|advierte\w* (el )?riesgo de inundac|presenta\w* riesgo de inundac|se veria inundad|no se va a inundar|evitar futura inundac|pondria en riesgo|por riesgo de inundac|estarian en riesgo de inundac|simulacro|que resulten damnificad|instalan \w+ albergues|no a la emergencia actual|video viral\w* .*corresponde a|antiguas culturas|sacrificaban|ciclon yaku|puntos criticos de inundac|reducir (los |el )?riesgos? de inundac|umbrales de inundac|es falso que (este|el) video|fue grabado en \d{4}/;
 // 08/11/2026 (corrida 7): «Dengue se desborda en Lambayeque» sumaba «Desborde o crecida de ríos»:
 // es un uso figurado (aumento de casos). No suma esa señal (sigue contando como dengue).
 // 09/11/2026 10:10: «Senamhi alerta sobre … posibles huaicos en Ayabaca» sumaba «Huaicos» y «trabajos de descolmatación evitan desborde del río Tumbes»
@@ -216,7 +218,9 @@ const CLIMA = /lluvia|inund|desbord|el nino|huaico|quebrad|precipitac/;
 const ELECTRICO_CLIMA = /rayo|tormenta/;
 // 08/11/2026 (corrida 5): «Contraloría supervisa limpieza de quebradas en Huancabamba» sumaba «Huaicos y quebradas activas»:
 // es trabajo preventivo, no una quebrada activa. Esos titulares no suman la señal de huaicos (siguen contando como proyecto).
-const PREVENCION_QUEBRADA = /limpieza de (las )?quebradas?|descolmatac\w* de (las? )?quebradas?/;
+// 12/11/2026 05:20: «Trujillo: Inician limpieza en la quebrada San Ildefonso para mitigar riesgos…» (09/11) sumaba «Huaicos» y subía
+// a Trujillo en la tabla; es prevención. Se acepta también «limpieza en (la) quebrada».
+const PREVENCION_QUEBRADA = /limpieza (de|en) (las? )?quebradas?|descolmatac\w* de (las? )?quebradas?/;
 const RESPUESTA = /albergue|hospital de campana|ayuda humanitaria|motobomba|puente modular|puente terrestre|brigada|despliega|maquinaria|bienes de ayuda|minsa movil|kits?/;
 const PRONOSTICO = /senamhi|aviso|alerta roja|pronostic|preve\b|prevén|coen|indeci (alerta|emite|advierte)|enfen/;
 

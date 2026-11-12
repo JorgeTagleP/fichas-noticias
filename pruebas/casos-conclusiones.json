@@ -882,6 +882,35 @@
     "inundacion"
    ],
    "literal": true
+  },
+  {
+   "origen": "12/11/2026 05:20",
+   "titulo": "Trujillo: Inician limpieza en la quebrada San Ildefonso para mitigar riesgos ante temporada de lluvias",
+   "dep": "La Libertad",
+   "dist": "Trujillo",
+   "no_tiene": [
+    "huaicos"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "12/11/2026 05:20",
+   "titulo": "En Trujillo, crece la preocupación por los posibles efectos del fenómeno El Niño. Los pobladores temen que las intensas lluvias provoquen la activación de quebradas y pongan en riesgo a la población.",
+   "dep": "La Libertad",
+   "dist": "Trujillo",
+   "no_tiene": [
+    "huaicos"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "12/11/2026 05:20 (control)",
+   "titulo": "Lluvias intensas en Tumbes activan quebrada, dañan 20 viviendas y afectan 1.5 km de vías vecinales",
+   "dep": "Tumbes",
+   "tiene": [
+    "huaicos"
+   ],
+   "literal": true
   }
  ],
  "ubicar": [
