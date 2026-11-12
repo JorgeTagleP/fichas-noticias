@@ -275,15 +275,17 @@ const SENALES = [
   { id: 'aislamiento',  grupo: 'vida',  peso: 8,  nombre: 'Aislamiento o vías cortadas', re: /aislad|\baislan?\b|incomunicad|interrump|bloque\w* (la )?(via|carretera|transito)|puente\w* (artesanal )?(\w+ )?(colaps|cae|cay|arras|destru)|colapso de(l)? puente|arrasa con (el )?puente|queda aislado|via cerrada|cerrad\w* (el )?(transito|tunel)|(vias|carreteras) afectadas/ },
   { id: 'desborde',     grupo: 'vida',  peso: 8,  nombre: 'Desborde o crecida de ríos', re: /desbord|crecida|umbral rojo|supera\w* (el )?(umbral|alerta roja)|nivel critico|caudal/ },
   { id: 'huaicos',      grupo: 'vida',  peso: 7,  nombre: 'Huaicos y quebradas activas', re: /huaico|quebrada|deslizamiento|derrumbe/ },
-  { id: 'damnificados', grupo: 'vida',  peso: 6,  nombre: 'Damnificados, evacuación o viviendas perdidas', re: /evacu|damnificad|inhabitable|viviendas? (colapsad|destruid|danad)|(danos en|danan) (\w+ )?\d+ viviendas|\d+ viviendas (pierden|afectadas)|casas colapsaron|reubica|albergue|(deja\w*|\d|mil|cientos de) (a |mas de )?(\w+ )?(personas|familias) afectadas/ },
+  { id: 'damnificados', grupo: 'vida',  peso: 6,  nombre: 'Damnificados, evacuación o viviendas perdidas', re: /evacu|damnificad|inhabitable|viviendas? (colapsad|destruid|danad)|(danos en|danan) (\w+ )?\d+ viviendas|\d+ viviendas (pierden|afectadas)|casas colapsaron|afecta(n|ron) (\w+ )?viviendas|reubica|albergue|(deja\w*|\d|mil|cientos de) (a |mas de )?(\w+ )?(personas|familias) afectadas/ },
   // 08/11/2026 19:10: «Tumbes: lluvias intensas dejan más de mil 600 personas afectadas» no sumaba ninguna señal; se agrega «N personas/familias afectadas» (no «atención de familias afectadas», que es respuesta).
   // 11/11/2026 11:20: «lluvias causan daños en 20 viviendas» y «lluvias intensas dañan 20 viviendas… Casitas» (11/11) no sumaban damnificados; se agrega «daños en / dañan N viviendas» y «N viviendas pierden (sus techos) / afectadas».
   // 08/11/2026 10:11: «… cerca de 300 viviendas dañadas en Papayal por lluvias» no sumaba damnificados: se agrega «viviendas dañadas».
+  // 12/11/2026 00:30: «Áncash: lluvias provocan colapso de alcantarillas y afectan viviendas y vías en Huaraz» (09/11) no
+  // sumaba ninguna señal. Se agrega «afectan/afectaron (N) viviendas» en damnificados y «colapso de (las) alcantarillas» en agua.
   { id: 'inundacion',   grupo: 'vida',  peso: 4,  nombre: 'Inundaciones urbanas', re: /inund|aniego|bajo el agua|anegad|sumergid/ },
   { id: 'electrico',    grupo: 'vida',  peso: 3,  nombre: 'Rayos y riesgo eléctrico', re: /rayo|tormenta\w* electric|riesgo electrico|descargas? electric|postes? electric|cortes? de luz/ },
   { id: 'dengue',       grupo: 'salud', peso: 6,  nombre: 'Dengue', re: /dengue|zancudo|aedes/ },
   { id: 'leptospirosis',grupo: 'salud', peso: 6,  nombre: 'Leptospirosis', re: /leptospir/ },
-  { id: 'agua',         grupo: 'salud', peso: 4,  nombre: 'Agua potable y desagüe', re: /agua potable|desague|aguas residuales|alcantarillado|colaps\w* (de )?desag|falta de agua (hace|desde|por)|dias sin agua|semanas? sin (servicio de )?agua/ },
+  { id: 'agua',         grupo: 'salud', peso: 4,  nombre: 'Agua potable y desagüe', re: /agua potable|desague|aguas residuales|alcantarillado|colaps\w* (de )?desag|colaps\w* (de )?(las )?alcantarillas|falta de agua (hace|desde|por)|dias sin agua|semanas? sin (servicio de )?agua/ },
   // 11/11/2026 11:20: «Piura: Las Dalias lleva una semana sin servicio de agua» (11/11) no contaba: la regla solo decía
   // «días sin agua». Se agrega «semana(s) sin (servicio de) agua» (aquí y en CONTEXTO) y «lleva(n) una semana sin» en brecha.
   // 10/11/2026 11:20: «Piura: vecinos molestos reportan falta de agua hace cinco días» no contaba (sin «agua potable»):
@@ -292,7 +294,9 @@ const SENALES = [
   // «vacunación no supera el 50 %» sí contaba. Se agrega «baja cobertura de vacunación/atención».
   // 11/11/2026 20:xx: «Huaraz: lluvias y granizada inundan emergencia del centro de salud de Huarupampa» solo contaba como
   // inundación; un establecimiento de salud inundado deja sin atención en plena emergencia. Se agrega «inunda… centro de salud/hospital/posta».
-  { id: 'brecha',       grupo: 'brecha',peso: 5,  nombre: 'Brecha en la atención', re: /no cuenta|sin (banos|techo|grupo electrogeno|presupuesto|apoyo|fondos|respuesta|camas)|falta de|no soporto|no estan preparados|denuncia|cuestiona|\bcritica (a|al|la|el|las|los|falta|demora|lentitud)\b|(alcalde|gobernador|congresista|defensoria|poblacion|vecinos|dirigentes?|pobladores) critica|exige|exigen|piden|pide (ayuda|maquinaria)|reclam|sin ejecucion|medio motor|desabastec|no supera|solo hay|solo s\/|obra\w* (\w+ )?pone\w* en (peligro|riesgo)|llevan? \d+ dias sin|llevan? (una|\d+) semanas? sin|fallas? en (la )?obra|obras? (\w+ )?inconclus|abiertas e inconclus|deficiencias en (los )?almacenes|baja cobertura de (vacunacion|atencion)|inunda\w* (\w+ ){0,3}(centro de salud|hospital|posta|establecimiento de salud)/ },
+  { id: 'brecha',       grupo: 'brecha',peso: 5,  nombre: 'Brecha en la atención', re: /no cuenta|sin (banos|techo|grupo electrogeno|presupuesto|apoyo|fondos|respuesta|camas)|falta de|no soporto|no estan preparados|denuncia|cuestiona|\bcritica (a|al|la|el|las|los|falta|demora|lentitud)\b|(alcalde|gobernador|congresista|defensoria|poblacion|vecinos|dirigentes?|pobladores) critica|exige|exigen|piden|pide (ayuda|maquinaria)|reclam|sin ejecucion|medio motor|desabastec|no supera|solo hay|solo s\/|obra\w* (\w+ )?pone\w* en (peligro|riesgo)|llevan? \d+ dias sin|llevan? (una|\d+) semanas? sin|fallas? en (la )?obra|obras? (\w+ )?inconclus|abiertas e inconclus|deficiencias en (los )?almacenes|baja cobertura de (vacunacion|atencion)|inunda\w* (\w+ ){0,3}(centro de salud|hospital|posta|establecimiento de salud)|(hospital|centro de salud|posta)( de campana)?( \w+){0,3} (termina |queda |resulta )?inundad/ },
+  // 12/11/2026 00:30: «Hospital de campaña en Tumbes termina inundado tras intensas lluvias» (09/11) solo contaba como
+  // inundación; la regla del 11/11 solo tomaba «inunda… hospital». Se agrega el orden inverso «hospital (de campaña) … inundado».
   // 10/11/2026 17:20: «Piura: Contraloría advierte deficiencias en almacenes de Defensa Civil de Huancabamba» no sumaba
   // ninguna señal ni salía en brechas: almacenes de ayuda deficientes son una falla de atención. Se agrega «deficiencias en (los) almacenes» (aquí y en CONTEXTO).
   // 09/11/2026 23:15: «Piura: lluvias inundan viviendas tras fallas en obra de alcantarillado en Ayabaca» y la nota de Exitosa sobre
@@ -373,7 +377,10 @@ const MUERTE_SALUD = /dengue|leptospir/;
 // la ficha más reciente de peligro en Tumbes; son respuesta, no brote. Sin palabras de brote no suman dengue/lepto.
 // 11/11/2026 22:20: «Dengue en Piura: 5 claves sobre la vacuna gratuita y cómo prevenir la enfermedad» y «La Libertad lidera
 // vacunación contra el dengue» sumaban «Dengue» (peligro); son notas de servicio o de respuesta, no de brote.
-const SALUD_RESPUESTA = /claves sobre|como prevenir|lidera vacunacion|refuerza|instala|vacunacion en|campana contra|fumiga|capacita|prepara a/;
+// 12/11/2026 00:30: «La Libertad ocupa el primer lugar en vacunación contra el dengue», «Chimbote: hospital La Caleta busca
+// contratar a 54 profesionales… por el dengue» y «Casma: Región destinará 784 mil para fortalecer atención… dengue» sumaban
+// «Dengue» (peligro); son respuesta. Se agregan «primer lugar en vacunación», «busca contratar» y «fortalecer (la) atención».
+const SALUD_RESPUESTA = /claves sobre|como prevenir|lidera vacunacion|primer lugar en vacunacion|busca contratar|fortalecer (la )?atencion|refuerza|instala|vacunacion en|campana contra|fumiga|capacita|prepara a/;
 const SALUD_BROTE = /casos|brote|epidemia|muert|fallec|contagi|aument|alerta|solo hay|camas|colaps/;
 // 08/11/2026 19:10: «Tumbes: adoptan medidas para evitar colapso de hospitales y desabastecimiento de medicinas» salía como brecha
 // por «desabastec»; es una medida preventiva, no una falla. Las «medidas para evitar/prevenir» no suman brecha.

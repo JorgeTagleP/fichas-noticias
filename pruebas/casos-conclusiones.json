@@ -754,6 +754,47 @@
     "electrico"
    ],
    "literal": false
+  },
+  {
+   "origen": "12/11/2026 00:30",
+   "titulo": "Hospital de campaña en Tumbes termina inundado tras intensas lluvias",
+   "dep": "Tumbes",
+   "prov": "Tumbes",
+   "tiene": [
+    "inundacion",
+    "brecha"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "12/11/2026 00:30",
+   "titulo": "La Libertad ocupa el primer lugar en vacunación contra el dengue",
+   "dep": "La Libertad",
+   "no_tiene": [
+    "dengue"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "12/11/2026 00:30",
+   "titulo": "Chimbote: hospital La Caleta busca contratar a 54 profesionales de la salud por el dengue",
+   "dep": "Áncash",
+   "dist": "Chimbote",
+   "no_tiene": [
+    "dengue"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "12/11/2026 00:30",
+   "titulo": "Áncash: lluvias provocan colapso de alcantarillas y afectan viviendas y vías en Huaraz",
+   "dep": "Áncash",
+   "dist": "Huaraz",
+   "tiene": [
+    "damnificados",
+    "agua"
+   ],
+   "literal": true
   }
  ],
  "ubicar": [
