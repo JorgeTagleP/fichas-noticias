@@ -144,7 +144,9 @@ const DONACION_ALBERGUE = /kits? educativ|pelotas|juguetes|utiles escolares/;
 // recuerdo, no un daño actual. Se agrega «ciclon yaku» a los hechos históricos.
 // 11/11/2026 22:20: «CIP Piura advierte riesgo de inundación por vulnerabilidad del dique La Mariposa…» y «Lluvias en Lima: 20 de
 // los 33 bypasses… presentan riesgo de inundación» sumaban «Inundaciones urbanas»; son advertencias, no inundaciones ocurridas.
-const HIPOTETICO = /advierte\w* (el )?riesgo de inundac|presenta\w* riesgo de inundac|se veria inundad|no se va a inundar|evitar futura inundac|pondria en riesgo|por riesgo de inundac|estarian en riesgo de inundac|simulacro|que resulten damnificad|instalan \w+ albergues|no a la emergencia actual|video viral\w* .*corresponde a|antiguas culturas|sacrificaban|ciclon yaku|puntos criticos de inundac/;
+// 12/11/2026 01:15: «La Libertad: Culminan trabajos para reducir riesgos de inundación en dos sectores del río Santa» (05/11)
+// sumaba «Inundaciones urbanas»; es una obra preventiva terminada: «reducir riesgos de inundac».
+const HIPOTETICO = /advierte\w* (el )?riesgo de inundac|presenta\w* riesgo de inundac|se veria inundad|no se va a inundar|evitar futura inundac|pondria en riesgo|por riesgo de inundac|estarian en riesgo de inundac|simulacro|que resulten damnificad|instalan \w+ albergues|no a la emergencia actual|video viral\w* .*corresponde a|antiguas culturas|sacrificaban|ciclon yaku|puntos criticos de inundac|reducir (los |el )?riesgos? de inundac/;
 // 08/11/2026 (corrida 7): «Dengue se desborda en Lambayeque» sumaba «Desborde o crecida de ríos»:
 // es un uso figurado (aumento de casos). No suma esa señal (sigue contando como dengue).
 // 09/11/2026 10:10: «Senamhi alerta sobre … posibles huaicos en Ayabaca» sumaba «Huaicos» y «trabajos de descolmatación evitan desborde del río Tumbes»
@@ -159,7 +161,9 @@ const HIPOTETICO = /advierte\w* (el )?riesgo de inundac|presenta\w* riesgo de in
 // 11/11/2026 14:20: «Huaraz: supervisan trabajos de descolmatación en el río Casca ante riesgo de desborde por el Fenómeno El Niño»
 // sumaba «Desborde» a Huaraz (prioridad Crítica); es trabajo preventivo. «ante (el) riesgo de desborde» no suma desborde
 // («río supera alerta roja por riesgo de desborde», crecida real, sigue contando).
-const PELIGRO_NO_OCURRIDO = /posibles? (huaicos?|desbordes?)|evita\w* (el )?desborde|evitar que \w+( \w+)? queden? aislad|advierte\w* (el )?riesgo de desborde|podrian activar quebradas|alerta\w* (sobre )?(la )?activacion de quebradas|podrian? quedar aislad|ante (el )?riesgo de desborde/;
+// 12/11/2026 01:15: «CIP: Es falso que el río Piura soporte un caudal de 4 000 m3/s» (09/11) sumaba «Desborde» por «caudal»;
+// es un debate sobre la capacidad del cauce, no una crecida: «soport… (un) caudal».
+const PELIGRO_NO_OCURRIDO = /posibles? (huaicos?|desbordes?)|evita\w* (el )?desborde|evitar que \w+( \w+)? queden? aislad|advierte\w* (el )?riesgo de desborde|podrian activar quebradas|alerta\w* (sobre )?(la )?activacion de quebradas|podrian? quedar aislad|ante (el )?riesgo de desborde|soport\w* (un )?caudal/;
 // 11/11/2026 12:30: «Piura: más de 19 mil familias podrían quedar aisladas por deterioro del puente Salitral–Morropón»
 // (07/11) sumaba «Aislamiento» y ponía a Morropón y Salitral en prioridad Alta; es una advertencia (ya hay «puente
 // terrestre» para evitarlo). «podría(n) quedar aislad» no suma aislamiento; «quedan aislados» sigue contando.
@@ -183,7 +187,9 @@ const MUERTE_SALUD = /dengue|leptospir/;
 // 12/11/2026 00:30: «La Libertad ocupa el primer lugar en vacunación contra el dengue», «Chimbote: hospital La Caleta busca
 // contratar a 54 profesionales… por el dengue» y «Casma: Región destinará 784 mil para fortalecer atención… dengue» sumaban
 // «Dengue» (peligro); son respuesta. Se agregan «primer lugar en vacunación», «busca contratar» y «fortalecer (la) atención».
-const SALUD_RESPUESTA = /claves sobre|como prevenir|lidera vacunacion|primer lugar en vacunacion|busca contratar|fortalecer (la )?atencion|refuerza|instala|vacunacion en|campana contra|fumiga|capacita|prepara a/;
+// 12/11/2026 01:15: «Áncash fortalece hospitales y despliega brigadas para frenar avance del dengue» (10/11) sumaba «Dengue» (peligro);
+// es una nota de respuesta: «fortalece hospitales», «despliega brigadas».
+const SALUD_RESPUESTA = /claves sobre|como prevenir|lidera vacunacion|primer lugar en vacunacion|busca contratar|fortalecer (la )?atencion|refuerza|instala|vacunacion en|campana contra|fumiga|capacita|prepara a|fortalece hospitales|despliega brigadas/;
 const SALUD_BROTE = /casos|brote|epidemia|muert|fallec|contagi|aument|alerta|solo hay|camas|colaps/;
 // 08/11/2026 19:10: «Tumbes: adoptan medidas para evitar colapso de hospitales y desabastecimiento de medicinas» salía como brecha
 // por «desabastec»; es una medida preventiva, no una falla. Las «medidas para evitar/prevenir» no suman brecha.

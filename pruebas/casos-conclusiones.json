@@ -816,6 +816,33 @@
     "estado": "Atrasado"
    },
    "literal": true
+  },
+  {
+   "origen": "12/11/2026 01:15",
+   "titulo": "La Libertad: Culminan trabajos para reducir riesgos de inundación en dos sectores del río Santa",
+   "dep": "La Libertad",
+   "no_tiene": [
+    "inundacion"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "12/11/2026 01:15",
+   "titulo": "CIP: Es falso que el río Piura soporte un caudal de 4 000 m3/s»",
+   "dep": "Piura",
+   "no_tiene": [
+    "desborde"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "12/11/2026 01:15",
+   "titulo": "Áncash fortalece hospitales y despliega brigadas para frenar avance del dengue",
+   "dep": "Áncash",
+   "no_tiene": [
+    "dengue"
+   ],
+   "literal": true
   }
  ],
  "ubicar": [
