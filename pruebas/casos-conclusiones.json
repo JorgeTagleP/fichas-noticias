@@ -698,6 +698,62 @@
     "brecha"
    ],
    "literal": true
+  },
+  {
+   "origen": "11/11/2026 22:20",
+   "titulo": "CIP Piura advierte riesgo de inundación por vulnerabilidad del dique La Mariposa y sedimentación de presa Los Ejidos",
+   "dep": "Piura",
+   "no_tiene": [
+    "inundacion"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "11/11/2026 22:20",
+   "titulo": "Lluvias en Lima: 20 de los 33 bypasses evaluados por Cenepred presentan riesgo de inundación",
+   "dep": "Lima",
+   "no_tiene": [
+    "inundacion"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "11/11/2026 22:20",
+   "titulo": "Dengue en Piura: 5 claves sobre la vacuna gratuita y cómo prevenir la enfermedad",
+   "dep": "Piura",
+   "no_tiene": [
+    "dengue"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "11/11/2026 22:20",
+   "titulo": "Tormentas eléctricas y 60 mm de agua: la severa advertencia del Senamhi que pone en riesgo a Piura, Tumbes y Cajamarca",
+   "dep": "Cajamarca",
+   "no_tiene": [
+    "electrico"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "11/11/2026 22:20",
+   "titulo": "Lambayeque: Baja cobertura de vacunación contra el dengue",
+   "dep": "Lambayeque",
+   "tiene": [
+    "brecha"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "11/11/2026 22:20",
+   "titulo": "Piura: fuerte lluvia con tormenta eléctrica y granizo inunda calles y mercados de Ayabaca",
+   "dep": "Piura",
+   "dist": "Ayabaca",
+   "tiene": [
+    "inundacion",
+    "electrico"
+   ],
+   "literal": false
   }
  ],
  "ubicar": [

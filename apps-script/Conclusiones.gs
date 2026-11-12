@@ -335,7 +335,9 @@ const DONACION_ALBERGUE = /kits? educativ|pelotas|juguetes|utiles escolares/;
 // 11/11/2026 14:20: «En Íllimo, Lambayeque, realizaron un mural en homenaje al papa León XIV, que recuerda el apoyo… a las familias
 // damnificadas por los efectos del ciclón Yaku» sumaba «Damnificados» a Íllimo (prioridad Media); el ciclón Yaku fue en 2023: es un
 // recuerdo, no un daño actual. Se agrega «ciclon yaku» a los hechos históricos.
-const HIPOTETICO = /se veria inundad|no se va a inundar|evitar futura inundac|pondria en riesgo|por riesgo de inundac|estarian en riesgo de inundac|simulacro|que resulten damnificad|instalan \w+ albergues|no a la emergencia actual|video viral\w* .*corresponde a|antiguas culturas|sacrificaban|ciclon yaku|puntos criticos de inundac/;
+// 11/11/2026 22:20: «CIP Piura advierte riesgo de inundación por vulnerabilidad del dique La Mariposa…» y «Lluvias en Lima: 20 de
+// los 33 bypasses… presentan riesgo de inundación» sumaban «Inundaciones urbanas»; son advertencias, no inundaciones ocurridas.
+const HIPOTETICO = /advierte\w* (el )?riesgo de inundac|presenta\w* riesgo de inundac|se veria inundad|no se va a inundar|evitar futura inundac|pondria en riesgo|por riesgo de inundac|estarian en riesgo de inundac|simulacro|que resulten damnificad|instalan \w+ albergues|no a la emergencia actual|video viral\w* .*corresponde a|antiguas culturas|sacrificaban|ciclon yaku|puntos criticos de inundac/;
 // 08/11/2026 (corrida 7): «Dengue se desborda en Lambayeque» sumaba «Desborde o crecida de ríos»:
 // es un uso figurado (aumento de casos). No suma esa señal (sigue contando como dengue).
 // 09/11/2026 10:10: «Senamhi alerta sobre … posibles huaicos en Ayabaca» sumaba «Huaicos» y «trabajos de descolmatación evitan desborde del río Tumbes»
@@ -357,7 +359,8 @@ const PELIGRO_NO_OCURRIDO = /posibles? (huaicos?|desbordes?)|evita\w* (el )?desb
 // 11/11/2026 08:30: «Piura continúa bajo lluvias intensas: Senamhi alerta sobre tormentas eléctricas y posibles huaicos
 // en Ayabaca» sumaba «Rayos» a Ayabaca; es un aviso, no una tormenta ocurrida. Solo «alerta sobre/por tormentas eléctricas»,
 // para no excluir «lluvias y tormentas eléctricas inundan calles» (hecho ocurrido).
-const AVISO_ELECTRICO = /alerta\w* (sobre|por) (posibles )?tormentas? electric/;
+// 11/11/2026 22:20: «Tormentas eléctricas y 60 mm de agua: la severa advertencia del Senamhi…» sumaba «Rayos» a Cajamarca; es un pronóstico.
+const AVISO_ELECTRICO = /alerta\w* (sobre|por) (posibles )?tormentas? electric|advertencia del senamhi/;
 // 11/11/2026 18:30: «El efecto BTS en Lima: desborde comercial,...» (Panamericana) sumaba «Desborde o crecida de ríos» a Lima;
 // es un uso figurado (ventas por un concierto). «desborde comercial/de fans/de alegría» no suma desborde.
 const DESBORDE_FIGURADO = /(dengue|casos|contagios|epidemia)\w* se desbord|desborde (comercial|de (fans|alegria|emocion|hinchas))/;
@@ -368,7 +371,9 @@ const MUERTE_SALUD = /dengue|leptospir/;
 // 10/11/2026 05:20: «El Niño y dengue: Essalud refuerza atención hospitalaria y vacunación en Tumbes y Piura» y
 // «Tumbes: Ejército instala hospital de campaña para atender dengue…» sumaban la señal «Dengue» (peligro) y eran
 // la ficha más reciente de peligro en Tumbes; son respuesta, no brote. Sin palabras de brote no suman dengue/lepto.
-const SALUD_RESPUESTA = /refuerza|instala|vacunacion en|campana contra|fumiga|capacita|prepara a/;
+// 11/11/2026 22:20: «Dengue en Piura: 5 claves sobre la vacuna gratuita y cómo prevenir la enfermedad» y «La Libertad lidera
+// vacunación contra el dengue» sumaban «Dengue» (peligro); son notas de servicio o de respuesta, no de brote.
+const SALUD_RESPUESTA = /claves sobre|como prevenir|lidera vacunacion|refuerza|instala|vacunacion en|campana contra|fumiga|capacita|prepara a/;
 const SALUD_BROTE = /casos|brote|epidemia|muert|fallec|contagi|aument|alerta|solo hay|camas|colaps/;
 // 08/11/2026 19:10: «Tumbes: adoptan medidas para evitar colapso de hospitales y desabastecimiento de medicinas» salía como brecha
 // por «desabastec»; es una medida preventiva, no una falla. Las «medidas para evitar/prevenir» no suman brecha.
