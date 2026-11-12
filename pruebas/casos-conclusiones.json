@@ -965,6 +965,18 @@
       "literal": true
     },
     {
+      "origen": "12/11/2026 10:30",
+      "titulo": "¡PESADILLA EN TUMBES! Quebrada se activa por intensas LLUVIAS, dañan viviendas y deja a tres pueblos INCOMUNICADOS",
+      "dep": "Tumbes",
+      "dist": "Tumbes",
+      "tiene": [
+        "huaicos",
+        "aislamiento",
+        "damnificados"
+      ],
+      "literal": true
+    },
+    {
       "origen": "12/11/2026",
       "titulo": "Lima: 20 pasos a desnivel en riesgo de inundación",
       "dep": "Lima",
