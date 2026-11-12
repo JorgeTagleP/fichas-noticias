@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-10",
+  "actualizado": "2026-11-11",
   "nota": "Cifras de referencia oficiales. Se citan tal como las publica la entidad; no se reinterpretan. 'via' indica cuando la cifra oficial se tomó de una nota de prensa que la atribuye a la entidad (confianza menor que la fuente primaria). Actualizar en cada lectura.",
   "indicadores": [
     {
@@ -181,6 +181,30 @@
       "fuente": "CDC-MINSA (SE 43)",
       "via": "La República, 09/11/2026",
       "url": "https://larepublica.pe/sociedad/2026/11/09/leptospirosis-aumenta-109-en-peru-y-deja-54-muertos-en-lo-que-va-de-2026-497448"
+    },
+    {
+      "id": "lalibertad-dengue-casos",
+      "indicador": "Casos de dengue 2026",
+      "departamento": "La Libertad",
+      "tema": "dengue",
+      "clave": "casos",
+      "valor": 17953,
+      "corte": "2026-10-31",
+      "fuente": "MINSA – Sala Situacional (SE 43)",
+      "via": "El Búho, 09/11/2026",
+      "url": "https://elbuho.pe/?p=442404"
+    },
+    {
+      "id": "lalibertad-dengue-fallecidos",
+      "indicador": "Fallecidos por dengue 2026 (Geresa: 5 confirmados y 5 en investigación)",
+      "departamento": "La Libertad",
+      "tema": "dengue",
+      "clave": "fallecid|muert|decesos",
+      "valor": 7,
+      "corte": "2026-10-31",
+      "fuente": "MINSA – Sala Situacional (SE 43)",
+      "via": "El Búho, 09/11/2026",
+      "url": "https://elbuho.pe/?p=442404"
     }
   ]
 }

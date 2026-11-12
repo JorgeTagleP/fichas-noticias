@@ -672,6 +672,22 @@
    "dep": "Lima",
    "fuera": true,
    "literal": true
+  },
+  {
+   "origen": "11/11/2026",
+   "titulo": "Pacasmayo: exigen S/ 7 mil a dueña de vivienda frente al Juzgado de Paz en Ciudad de Dios",
+   "dep": "La Libertad",
+   "dist": "Pacasmayo",
+   "fuera": true,
+   "literal": true
+  },
+  {
+   "origen": "11/11/2026",
+   "titulo": "El Búho.pe. . PASÓ EN EL PERÚ | Información desde las regiones: 1. Pucallpa: huaicos afectan abastecimiento de combustible antes de visita del papa 2. Piura: teniente de la Policía agrede a colegas durante intervención en Paita",
+   "dep": "Piura",
+   "dist": "Paita",
+   "fuera": true,
+   "literal": true
   }
  ],
  "ubicar": [

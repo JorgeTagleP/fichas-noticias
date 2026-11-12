@@ -2,7 +2,7 @@
  * Una Sola Fuerza – Conclusiones para la emergencia (versión Google Workspace)
  *
  * NO EDITAR AQUÍ: este archivo lo genera preparar-apps-script.mjs a partir de
- * conclusiones.mjs y oficiales.json (2026-11-11).
+ * conclusiones.mjs y oficiales.json (2026-11-12).
  * Para cambiar una regla, se cambia conclusiones.mjs y se vuelve a preparar.
  *
  * Qué hace: toma las fichas de la pestaña Fichas y arma la pestaña
@@ -14,7 +14,7 @@
 
 // Cifras oficiales de referencia (copiadas de oficiales.json; se citan, no se reinterpretan).
 const OFICIALES = {
- "actualizado": "2026-11-10",
+ "actualizado": "2026-11-11",
  "nota": "Cifras de referencia oficiales. Se citan tal como las publica la entidad; no se reinterpretan. 'via' indica cuando la cifra oficial se tomó de una nota de prensa que la atribuye a la entidad (confianza menor que la fuente primaria). Actualizar en cada lectura.",
  "indicadores": [
   {
@@ -196,6 +196,30 @@ const OFICIALES = {
    "fuente": "CDC-MINSA (SE 43)",
    "via": "La República, 09/11/2026",
    "url": "https://larepublica.pe/sociedad/2026/11/09/leptospirosis-aumenta-109-en-peru-y-deja-54-muertos-en-lo-que-va-de-2026-497448"
+  },
+  {
+   "id": "lalibertad-dengue-casos",
+   "indicador": "Casos de dengue 2026",
+   "departamento": "La Libertad",
+   "tema": "dengue",
+   "clave": "casos",
+   "valor": 17953,
+   "corte": "2026-10-31",
+   "fuente": "MINSA – Sala Situacional (SE 43)",
+   "via": "El Búho, 09/11/2026",
+   "url": "https://elbuho.pe/?p=442404"
+  },
+  {
+   "id": "lalibertad-dengue-fallecidos",
+   "indicador": "Fallecidos por dengue 2026 (Geresa: 5 confirmados y 5 en investigación)",
+   "departamento": "La Libertad",
+   "tema": "dengue",
+   "clave": "fallecid|muert|decesos",
+   "valor": 7,
+   "corte": "2026-10-31",
+   "fuente": "MINSA – Sala Situacional (SE 43)",
+   "via": "El Búho, 09/11/2026",
+   "url": "https://elbuho.pe/?p=442404"
   }
  ]
 };
@@ -229,7 +253,11 @@ const edadDias = f => (AHORA - new Date(f.publicada)) / 864e5;
 // 11/11/2026 17:15: «Lambayeque: ANA evalúa calidad del agua en el mar de Pimentel tras denuncia por presunta descarga de
 // aguas residuales» sumaba «Brecha» y «Agua y desagüe» y ponía a Pimentel en prioridad Alta (y como la brecha más reciente):
 // es una vigilancia ambiental del mar, no una falla de atención a personas afectadas. Se excluye «calidad del agua en el mar».
-const FUERA_DE_ZONA = /incendios?|calidad del agua en el mar|nueva cajamarca|calarca|ibague|tolima|quindio|las mariposas|oxapampa|alianza atletico|fc cajamarca|liga 1|^ucayali:|en pucallpa|en ucayali|federico basadre|\blujan\b/;
+// 11/11/2026 19:15: «Pacasmayo: exigen S/ 7 mil a dueña de vivienda frente al Juzgado de Paz en Ciudad de Dios» salía como
+// brecha en la atención («exigen» + «vivienda»); es un conflicto entre particulares ante el juez de paz. Se excluye «juzgado de paz».
+// 11/11/2026 19:15: el resumen de El Búho «… 1. Pucallpa: huaicos afectan abastecimiento de combustible …» quedaba en Paita
+// (Piura) y sumaba «Huaicos»; el huaico es de Ucayali. «en pucallpa» pasa a «\bpucallpa\b» para tomar también «Pucallpa:».
+const FUERA_DE_ZONA = /incendios?|calidad del agua en el mar|nueva cajamarca|calarca|ibague|tolima|quindio|las mariposas|oxapampa|alianza atletico|fc cajamarca|liga 1|^ucayali:|\bpucallpa\b|en ucayali|federico basadre|\blujan\b|juzgado de paz/;
 // 11/11/2026 18:30: «León XIV en Devoto, Luján y Lima, Keiko Fujimori y el estado de emergencia, … la muerte de Héctor Aguer»
 // (Infovaticana, Argentina) sumaba «Muertes» a Lima: es una crónica vaticana de Argentina. Se excluye «Luján» (Argentina).
 // 10/11/2026 14:20: «Ministro de Transportes descartó desabastecimiento de combustibles en Ucayali tras un huaico en la

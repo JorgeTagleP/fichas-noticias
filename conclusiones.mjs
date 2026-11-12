@@ -56,7 +56,11 @@ const edadDias = f => (AHORA - new Date(f.publicada)) / 864e5;
 // 11/11/2026 17:15: «Lambayeque: ANA evalúa calidad del agua en el mar de Pimentel tras denuncia por presunta descarga de
 // aguas residuales» sumaba «Brecha» y «Agua y desagüe» y ponía a Pimentel en prioridad Alta (y como la brecha más reciente):
 // es una vigilancia ambiental del mar, no una falla de atención a personas afectadas. Se excluye «calidad del agua en el mar».
-const FUERA_DE_ZONA = /incendios?|calidad del agua en el mar|nueva cajamarca|calarca|ibague|tolima|quindio|las mariposas|oxapampa|alianza atletico|fc cajamarca|liga 1|^ucayali:|en pucallpa|en ucayali|federico basadre|\blujan\b/;
+// 11/11/2026 19:15: «Pacasmayo: exigen S/ 7 mil a dueña de vivienda frente al Juzgado de Paz en Ciudad de Dios» salía como
+// brecha en la atención («exigen» + «vivienda»); es un conflicto entre particulares ante el juez de paz. Se excluye «juzgado de paz».
+// 11/11/2026 19:15: el resumen de El Búho «… 1. Pucallpa: huaicos afectan abastecimiento de combustible …» quedaba en Paita
+// (Piura) y sumaba «Huaicos»; el huaico es de Ucayali. «en pucallpa» pasa a «\bpucallpa\b» para tomar también «Pucallpa:».
+const FUERA_DE_ZONA = /incendios?|calidad del agua en el mar|nueva cajamarca|calarca|ibague|tolima|quindio|las mariposas|oxapampa|alianza atletico|fc cajamarca|liga 1|^ucayali:|\bpucallpa\b|en ucayali|federico basadre|\blujan\b|juzgado de paz/;
 // 11/11/2026 18:30: «León XIV en Devoto, Luján y Lima, Keiko Fujimori y el estado de emergencia, … la muerte de Héctor Aguer»
 // (Infovaticana, Argentina) sumaba «Muertes» a Lima: es una crónica vaticana de Argentina. Se excluye «Luján» (Argentina).
 // 10/11/2026 14:20: «Ministro de Transportes descartó desabastecimiento de combustibles en Ucayali tras un huaico en la
