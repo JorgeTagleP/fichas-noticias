@@ -345,6 +345,8 @@ const DONACION_ALBERGUE = /kits? educativ|pelotas|juguetes|utiles escolares/;
 // recuerdo, no un daño actual. Se agrega «ciclon yaku» a los hechos históricos.
 // 11/11/2026 22:20: «CIP Piura advierte riesgo de inundación por vulnerabilidad del dique La Mariposa…» y «Lluvias en Lima: 20 de
 // los 33 bypasses… presentan riesgo de inundación» sumaban «Inundaciones urbanas»; son advertencias, no inundaciones ocurridas.
+// 12/11/2026 09:30: «Lima: 20 pasos a desnivel en riesgo de inundación» (03/11) sumaba «Inundaciones urbanas» a Lima; es una
+// evaluación de riesgo. Solo con el sujeto (pasos a desnivel, bypass, puntos, zonas) para no quitar crecidas reales.
 // 12/11/2026 01:15: «La Libertad: Culminan trabajos para reducir riesgos de inundación en dos sectores del río Santa» (05/11)
 // sumaba «Inundaciones urbanas»; es una obra preventiva terminada: «reducir riesgos de inundac».
 // 12/11/2026 03:20: «Alerta en Piura: Senamhi advierte riesgo de huaicos por lluvias y establece umbrales de inundación en el río Piura»
@@ -352,7 +354,7 @@ const DONACION_ALBERGUE = /kits? educativ|pelotas|juguetes|utiles escolares/;
 // este video muestre las recientes inundaciones en Zarumilla: fue grabado en 2025» (03/11) sumaba «Inundaciones»; es un desmentido.
 // 12/11/2026 05:20: «En Trujillo… los pobladores temen que las intensas lluvias provoquen la activación de quebradas» (21/10) sumaba
 // «Huaicos»: es un temor, no un daño. Se agrega «temen que … provoque(n)».
-const HIPOTETICO = /temen que [^.]{0,60}provoquen?|advierte\w* (el )?riesgo de inundac|presenta\w* riesgo de inundac|se veria inundad|no se va a inundar|evitar futura inundac|pondria en riesgo|por riesgo de inundac|estarian en riesgo de inundac|simulacro|que resulten damnificad|instalan \w+ albergues|no a la emergencia actual|video viral\w* .*corresponde a|antiguas culturas|sacrificaban|ciclon yaku|puntos criticos de inundac|reducir (los |el )?riesgos? de inundac|umbrales de inundac|es falso que (este|el) video|fue grabado en \d{4}/;
+const HIPOTETICO = /temen que [^.]{0,60}provoquen?|advierte\w* (el )?riesgo de inundac|presenta\w* riesgo de inundac|se veria inundad|no se va a inundar|evitar futura inundac|pondria en riesgo|por riesgo de inundac|estarian en riesgo de inundac|simulacro|que resulten damnificad|instalan \w+ albergues|no a la emergencia actual|video viral\w* .*corresponde a|antiguas culturas|sacrificaban|ciclon yaku|puntos criticos de inundac|reducir (los |el )?riesgos? de inundac|umbrales de inundac|es falso que (este|el) video|fue grabado en \d{4}|(pasos a desnivel|bypass\w*|puntos|zonas) en riesgo de inundac/;
 // 08/11/2026 (corrida 7): «Dengue se desborda en Lambayeque» sumaba «Desborde o crecida de ríos»:
 // es un uso figurado (aumento de casos). No suma esa señal (sigue contando como dengue).
 // 09/11/2026 10:10: «Senamhi alerta sobre … posibles huaicos en Ayabaca» sumaba «Huaicos» y «trabajos de descolmatación evitan desborde del río Tumbes»
@@ -371,7 +373,9 @@ const HIPOTETICO = /temen que [^.]{0,60}provoquen?|advierte\w* (el )?riesgo de i
 // es un debate sobre la capacidad del cauce, no una crecida: «soport… (un) caudal».
 // 12/11/2026 03:20: «El Senamhi mantiene vigente una alerta en Piura por la posible activación de quebradas y huaicos…» (03/11)
 // sumaba «Huaicos» a Piura; es un aviso: «posible activación de quebradas» y «advierte riesgo de huaico(s)».
-const PELIGRO_NO_OCURRIDO = /posibles? (huaicos?|desbordes?)|evita\w* (el )?desborde|evitar que \w+( \w+)? queden? aislad|advierte\w* (el )?riesgo de desborde|podrian activar quebradas|alerta\w* (sobre )?(la )?activacion de quebradas|podrian? quedar aislad|ante (el )?riesgo de desborde|soport\w* (un )?caudal|posibles? activacion de quebradas|advierte\w* (el )?riesgo de huaicos?/;
+// 12/11/2026 09:30: «Indeci emite pronóstico de activación de quebradas para las próximas 24 horas: Cajamarca y Piura en
+// alerta roja…» (21/10) era la única ficha de peligro de Cajamarca y sumaba «Huaicos»; es un pronóstico.
+const PELIGRO_NO_OCURRIDO = /posibles? (huaicos?|desbordes?)|evita\w* (el )?desborde|evitar que \w+( \w+)? queden? aislad|advierte\w* (el )?riesgo de desborde|podrian activar quebradas|alerta\w* (sobre )?(la )?activacion de quebradas|podrian? quedar aislad|ante (el )?riesgo de desborde|soport\w* (un )?caudal|posibles? activacion de quebradas|advierte\w* (el )?riesgo de huaicos?|pronostico de activacion de quebradas/;
 // 11/11/2026 12:30: «Piura: más de 19 mil familias podrían quedar aisladas por deterioro del puente Salitral–Morropón»
 // (07/11) sumaba «Aislamiento» y ponía a Morropón y Salitral en prioridad Alta; es una advertencia (ya hay «puente
 // terrestre» para evitarlo). «podría(n) quedar aislad» no suma aislamiento; «quedan aislados» sigue contando.
@@ -400,7 +404,9 @@ const MUERTE_SALUD = /dengue|leptospir/;
 // 12/11/2026 08:30: «Ascope activa tres Unidades Febriles frente a la amenaza del dengue», «Fortalecen la lucha contra el dengue e
 // implementan Unidades Febriles…» y «Sector privado suma su apoyo… acciones preventivas contra… el dengue» sumaban «Dengue» (peligro)
 // y ponían a Ascope en la tabla; son respuesta. Se agregan «unidades febriles», «implementa(n)», «fortalecen la lucha», «suma su apoyo», «acciones preventivas».
-const SALUD_RESPUESTA = /claves sobre|como prevenir|lidera vacunacion|primer lugar en vacunacion|busca contratar|fortalecer (la )?atencion|refuerza|instala|vacunacion en|campana contra|fumiga|capacita|prepara a|fortalece hospitales|despliega brigadas|unidades febriles|\bimplementan?\b|fortalecen la lucha|suma su apoyo|acciones preventivas/;
+// 12/11/2026 09:30: «Geanmarco Quezada gestiona 5 mil vacunas adicionales para el dengue en La Libertad» (10/11) era la
+// ficha de peligro más reciente de La Libertad; es respuesta: «vacunas adicionales», «gestiona N mil vacunas».
+const SALUD_RESPUESTA = /claves sobre|como prevenir|lidera vacunacion|primer lugar en vacunacion|busca contratar|fortalecer (la )?atencion|refuerza|instala|vacunacion en|campana contra|fumiga|capacita|prepara a|fortalece hospitales|despliega brigadas|unidades febriles|\bimplementan?\b|fortalecen la lucha|suma su apoyo|acciones preventivas|vacunas adicionales|gestiona d+ mil vacunas/;
 const SALUD_BROTE = /casos|brote|epidemia|muert|fallec|contagi|aument|alerta|solo hay|camas|colaps/;
 // 08/11/2026 19:10: «Tumbes: adoptan medidas para evitar colapso de hospitales y desabastecimiento de medicinas» salía como brecha
 // por «desabastec»; es una medida preventiva, no una falla. Las «medidas para evitar/prevenir» no suman brecha.

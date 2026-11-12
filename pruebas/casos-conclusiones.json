@@ -963,6 +963,33 @@
         "damnificados"
       ],
       "literal": true
+    },
+    {
+      "origen": "12/11/2026",
+      "titulo": "Lima: 20 pasos a desnivel en riesgo de inundación",
+      "dep": "Lima",
+      "no_tiene": [
+        "inundacion"
+      ],
+      "literal": true
+    },
+    {
+      "origen": "12/11/2026",
+      "titulo": "Indeci emite pronóstico de activación de quebradas para las próximas 24 horas: Cajamarca y Piura en alerta roja",
+      "dep": "Cajamarca",
+      "no_tiene": [
+        "huaicos"
+      ],
+      "literal": false
+    },
+    {
+      "origen": "12/11/2026",
+      "titulo": "Geanmarco Quezada gestiona 5 mil vacunas adicionales para el dengue en La Libertad",
+      "dep": "La Libertad",
+      "no_tiene": [
+        "dengue"
+      ],
+      "literal": true
     }
   ],
   "ubicar": [
