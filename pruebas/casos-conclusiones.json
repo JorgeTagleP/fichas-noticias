@@ -952,6 +952,17 @@
         "dengue"
       ],
       "literal": true
+    },
+    {
+      "origen": "12/11/2026",
+      "titulo": "Cajamarca: deslizamiento de cerro en Saucepampa deja nueve casas destruidas y vías afectadas",
+      "dep": "Cajamarca",
+      "dist": "Saucepampa",
+      "tiene": [
+        "huaicos",
+        "damnificados"
+      ],
+      "literal": true
     }
   ],
   "ubicar": [
