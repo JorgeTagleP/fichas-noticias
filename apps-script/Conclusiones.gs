@@ -449,7 +449,9 @@ const ELECTRICO_CLIMA = /rayo|tormenta/;
 // a Trujillo en la tabla; es prevención. Se acepta también «limpieza en (la) quebrada».
 // 12/11/2026 16:30: «CAJAMARCA PROTEGE CORREDOR VIAL HACIA BAMBAMARCA: ENTREGAN TERRENO PARA CONSTRUIR DIQUES EN LA
 // QUEBRADA ROSAMAYOPATA» (12/11) sumaba «Huaicos» y ponía a Bambamarca en Alta con tendencia «sube»; es obra preventiva.
-const PREVENCION_QUEBRADA = /limpieza (de|en) (las? )?quebradas?|descolmatac\w* de (las? )?quebradas?|diques? en (las? )?quebradas?/;
+// 12/11/2026 18:20: la variante «…CONSTRUIR DIQUES DE RETENCIÓN DE SEDIMENTOS EN LA QUEBRADA ROSAMAYOPATA» seguía sumando
+// «Huaicos»; se acepta «diques (de …, hasta 4 palabras) en (la) quebrada».
+const PREVENCION_QUEBRADA = /limpieza (de|en) (las? )?quebradas?|descolmatac\w* de (las? )?quebradas?|diques? (de [a-z]+( [a-z]+){0,3} )?en (las? )?quebradas?/;
 const RESPUESTA = /albergue|hospital de campana|ayuda humanitaria|motobomba|puente modular|puente terrestre|brigada|despliega|maquinaria|bienes de ayuda|minsa movil|kits?/;
 const PRONOSTICO = /senamhi|aviso|alerta roja|pronostic|preve\b|prevén|coen|indeci (alerta|emite|advierte)|enfen/;
 
