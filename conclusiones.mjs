@@ -146,7 +146,10 @@ const DONACION_ALBERGUE = /kits? educativ|pelotas|juguetes|utiles escolares/;
 // los 33 bypasses… presentan riesgo de inundación» sumaban «Inundaciones urbanas»; son advertencias, no inundaciones ocurridas.
 // 12/11/2026 01:15: «La Libertad: Culminan trabajos para reducir riesgos de inundación en dos sectores del río Santa» (05/11)
 // sumaba «Inundaciones urbanas»; es una obra preventiva terminada: «reducir riesgos de inundac».
-const HIPOTETICO = /advierte\w* (el )?riesgo de inundac|presenta\w* riesgo de inundac|se veria inundad|no se va a inundar|evitar futura inundac|pondria en riesgo|por riesgo de inundac|estarian en riesgo de inundac|simulacro|que resulten damnificad|instalan \w+ albergues|no a la emergencia actual|video viral\w* .*corresponde a|antiguas culturas|sacrificaban|ciclon yaku|puntos criticos de inundac|reducir (los |el )?riesgos? de inundac/;
+// 12/11/2026 03:20: «Alerta en Piura: Senamhi advierte riesgo de huaicos por lluvias y establece umbrales de inundación en el río Piura»
+// (03/11) sumaba «Huaicos» e «Inundaciones urbanas»; es un aviso con umbrales, no un daño: «umbrales de inundac». Y «Es falso que
+// este video muestre las recientes inundaciones en Zarumilla: fue grabado en 2025» (03/11) sumaba «Inundaciones»; es un desmentido.
+const HIPOTETICO = /advierte\w* (el )?riesgo de inundac|presenta\w* riesgo de inundac|se veria inundad|no se va a inundar|evitar futura inundac|pondria en riesgo|por riesgo de inundac|estarian en riesgo de inundac|simulacro|que resulten damnificad|instalan \w+ albergues|no a la emergencia actual|video viral\w* .*corresponde a|antiguas culturas|sacrificaban|ciclon yaku|puntos criticos de inundac|reducir (los |el )?riesgos? de inundac|umbrales de inundac|es falso que (este|el) video|fue grabado en \d{4}/;
 // 08/11/2026 (corrida 7): «Dengue se desborda en Lambayeque» sumaba «Desborde o crecida de ríos»:
 // es un uso figurado (aumento de casos). No suma esa señal (sigue contando como dengue).
 // 09/11/2026 10:10: «Senamhi alerta sobre … posibles huaicos en Ayabaca» sumaba «Huaicos» y «trabajos de descolmatación evitan desborde del río Tumbes»
@@ -163,7 +166,9 @@ const HIPOTETICO = /advierte\w* (el )?riesgo de inundac|presenta\w* riesgo de in
 // («río supera alerta roja por riesgo de desborde», crecida real, sigue contando).
 // 12/11/2026 01:15: «CIP: Es falso que el río Piura soporte un caudal de 4 000 m3/s» (09/11) sumaba «Desborde» por «caudal»;
 // es un debate sobre la capacidad del cauce, no una crecida: «soport… (un) caudal».
-const PELIGRO_NO_OCURRIDO = /posibles? (huaicos?|desbordes?)|evita\w* (el )?desborde|evitar que \w+( \w+)? queden? aislad|advierte\w* (el )?riesgo de desborde|podrian activar quebradas|alerta\w* (sobre )?(la )?activacion de quebradas|podrian? quedar aislad|ante (el )?riesgo de desborde|soport\w* (un )?caudal/;
+// 12/11/2026 03:20: «El Senamhi mantiene vigente una alerta en Piura por la posible activación de quebradas y huaicos…» (03/11)
+// sumaba «Huaicos» a Piura; es un aviso: «posible activación de quebradas» y «advierte riesgo de huaico(s)».
+const PELIGRO_NO_OCURRIDO = /posibles? (huaicos?|desbordes?)|evita\w* (el )?desborde|evitar que \w+( \w+)? queden? aislad|advierte\w* (el )?riesgo de desborde|podrian activar quebradas|alerta\w* (sobre )?(la )?activacion de quebradas|podrian? quedar aislad|ante (el )?riesgo de desborde|soport\w* (un )?caudal|posibles? activacion de quebradas|advierte\w* (el )?riesgo de huaicos?/;
 // 11/11/2026 12:30: «Piura: más de 19 mil familias podrían quedar aisladas por deterioro del puente Salitral–Morropón»
 // (07/11) sumaba «Aislamiento» y ponía a Morropón y Salitral en prioridad Alta; es una advertencia (ya hay «puente
 // terrestre» para evitarlo). «podría(n) quedar aislad» no suma aislamiento; «quedan aislados» sigue contando.

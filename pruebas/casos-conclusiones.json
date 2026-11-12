@@ -843,6 +843,45 @@
     "dengue"
    ],
    "literal": true
+  },
+  {
+   "origen": "12/11/2026 03:20",
+   "titulo": "Alerta en Piura: Senamhi advierte riesgo de huaicos por lluvias y establece umbrales de inundación en el río Piura",
+   "dep": "Piura",
+   "no_tiene": [
+    "huaicos",
+    "inundacion"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "12/11/2026 03:20",
+   "titulo": "El Senamhi mantiene vigente una alerta en Piura por la posible activación de quebradas y huaicos debido a las lluvias previstas",
+   "dep": "Piura",
+   "no_tiene": [
+    "huaicos"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "12/11/2026 03:20",
+   "titulo": "Es falso que este video muestre las recientes inundaciones en Zarumilla: fue grabado en 2025",
+   "dep": "Tumbes",
+   "dist": "Zarumilla",
+   "no_tiene": [
+    "inundacion"
+   ],
+   "literal": true
+  },
+  {
+   "origen": "12/11/2026 03:20 (control)",
+   "titulo": "Tumbes: intensas lluvias activan quebradas e inundan zonas urbanas",
+   "dep": "Tumbes",
+   "tiene": [
+    "huaicos",
+    "inundacion"
+   ],
+   "literal": true
   }
  ],
  "ubicar": [
