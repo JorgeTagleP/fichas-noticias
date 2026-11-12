@@ -457,8 +457,12 @@ const PROYECTOS = [
   // inversión de S/20 mllns.» no contaba en drenaje (solo «drenaje pluvial» o «drenes»): se agrega «drenaje(s)» como palabra completa.
   { id: 'drenaje',     nombre: 'Drenaje pluvial y alcantarillado', re: /drenaje pluvial|\bdrenajes?\b|alcantarillado|drenes?\b|agua y alcantarillado/ },
   { id: 'rio-piura',   nombre: 'Salida definitiva del río Piura al mar', re: /salida (definitiva )?del rio piura|desvio del rio piura|derivacion del rio piura|chutuque|rio loco|dren 1308|bifurcacion del rio|reventazon/ },
-  { id: 'defensas',    nombre: 'Defensas ribereñas y descolmatación', re: /defensas? riberen|descolmat|limpieza de (la )?(quebrada|rio|cauce)|encauzamiento|encauzan?\b|sedimentos|reforzaran defensas|proteger a \d+ localidades/ },
-  { id: 'puentes',     nombre: 'Puentes y vías definitivas', re: /puente de concreto|puentes? definitiv|construccion de(l)? puente|via de evitamiento|carretera .*(invertira|mejorar|millones)|estribo|puentes modulares/ },
+  // 12/11/2026 11:20: «Piura: Colegio de Ingenieros … pide reforzar dique La Mariposa» (10/11) y «CIP Piura advierte riesgo de
+  // inundación por vulnerabilidad del dique La Mariposa…» (11/11) no contaban como defensa ribereña: se agrega «dique(s)».
+  { id: 'defensas',    nombre: 'Defensas ribereñas y descolmatación', re: /defensas? riberen|descolmat|\bdiques?\b|limpieza de (la )?(quebrada|rio|cauce)|encauzamiento|encauzan?\b|sedimentos|reforzaran defensas|proteger a \d+ localidades/ },
+  // 12/11/2026 11:20: «Huarmey: Contraloría alerta por deterioro de la estructura del puente Cuscus» (12/11) no aparecía en
+  // ningún lado: un puente deteriorado antes de las lluvias es una obra pendiente. Se agrega «deterioro … del puente».
+  { id: 'puentes',     nombre: 'Puentes y vías definitivas', re: /deterioro de (la estructura del? )?puente|puente de concreto|puentes? definitiv|construccion de(l)? puente|via de evitamiento|carretera .*(invertira|mejorar|millones)|estribo|puentes modulares/ },
   // 08/11/2026 06:xx: «presa» como palabra completa; antes coincidía dentro de «empresas»
   // («anula contratación de empresas para la salida del río Piura» caía en presas).
   { id: 'agua',        nombre: 'Presas y reservorios de agua', re: /\bpresas?\b|represa|almacenar agua|\bqochas?\b|cosecha de agua/ },
@@ -480,7 +484,8 @@ const PROYECTOS = [
 // 10/11/2026 03:30: «El Niño y dengue: Essalud refuerza atención hospitalaria y vacunación en Tumbes y Piura» no contaba en
 // «Hospitales y salud preparada» (solo se buscaba «reforz»): se agrega «refuerza(n)» como palabra completa; cuenta «En curso».
 // 10/11/2026 18:20: «urge (ejecutar una obra)» cuenta como proyecto pedido.
-const ES_PROYECTO = /\burge\b|\brefuerzan?\b|supervisa|preventiv|obra|proyecto|construc|ejecuc|invert|inversion|destina|millones|ampliacion|buena pro|propuesta|plan\b|estudio|exige|piden|pide|solicita|pendiente|reforz|impulsa|meta|protege|limpieza|\blimpian?\b|descolmat|retira|rechaz|anula|descarta|prioriza|encauza/;
+// 12/11/2026 11:20: se agregan «vulnerabilidad» y «deterioro» (dique La Mariposa, puente Cuscus).
+const ES_PROYECTO = /\burge\b|vulnerabilidad|deterioro|\brefuerzan?\b|supervisa|preventiv|obra|proyecto|construc|ejecuc|invert|inversion|destina|millones|ampliacion|buena pro|propuesta|plan\b|estudio|exige|piden|pide|solicita|pendiente|reforz|impulsa|meta|protege|limpieza|\blimpian?\b|descolmat|retira|rechaz|anula|descarta|prioriza|encauza/;
 // 09/11/2026 05:xx: «Piura: limpian drenes Sechura y 1308 ante posibles lluvias intensas» no contaba como proyecto
 // (solo se buscaba «limpieza»): se agrega el verbo «limpia(n)», que cuenta como «En curso».
 // 08/11/2026 12:10: «Encauzan el río Chancay-Lambayeque para reducir riesgos…» no contaba como defensa ribereña

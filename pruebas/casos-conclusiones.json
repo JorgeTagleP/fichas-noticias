@@ -1002,6 +1002,27 @@
         "dengue"
       ],
       "literal": true
+    },
+    {
+      "origen": "12/11/2026 11:20",
+      "titulo": "Piura: Colegio de Ingenieros advierte riesgo de desborde del río y pide reforzar dique La Mariposa",
+      "dep": "Piura",
+      "proyecto": {
+        "id": "defensas",
+        "estado": "Pedido"
+      },
+      "literal": true
+    },
+    {
+      "origen": "12/11/2026 11:20",
+      "titulo": "Huarmey: Contraloría alerta por deterioro de la estructura del puente Cuscus",
+      "dep": "Áncash",
+      "prov": "Huarmey",
+      "proyecto": {
+        "id": "puentes",
+        "estado": "Mencionado"
+      },
+      "literal": true
     }
   ],
   "ubicar": [
