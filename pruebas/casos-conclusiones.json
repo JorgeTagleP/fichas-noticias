@@ -688,6 +688,16 @@
    "dist": "Paita",
    "fuera": true,
    "literal": true
+  },
+  {
+   "origen": "11/11/2026 20:30",
+   "titulo": "Huaraz: lluvias y granizada inundan emergencia del centro de salud de Huarupampa",
+   "dep": "Áncash",
+   "tiene": [
+    "inundacion",
+    "brecha"
+   ],
+   "literal": true
   }
  ],
  "ubicar": [
