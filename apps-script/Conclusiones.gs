@@ -465,9 +465,12 @@ const ES_PROYECTO = /\burge\b|\brefuerzan?\b|supervisa|preventiv|obra|proyecto|c
 // limpieza/encauzamiento» cuentan como «En curso» («ejecuc» no reconocía el verbo).
 function estadoProyecto(t) {
   if (/\bengano\b|rechaz|en pie de lucha|no permitiran|conflicto|anula/.test(t)) return 'En conflicto';
-  if (/sin ejecucion|pendiente|paraliz|medio motor|atras|10 anos|no estara lista|posterga|\bdescartan?\b/.test(t)) return 'Atrasado';
+  // 12/11/2026 01:00: «…deficiencias en el drenaje y obras inconclusas…» y «lluvias inundan viviendas tras fallas en obra de
+  // alcantarillado en Ayabaca» quedaban como «Mencionado»; una obra inconclusa o fallada que ya agrava daños es un atraso.
+  if (/sin ejecucion|pendiente|paraliz|medio motor|atras|10 anos|no estara lista|posterga|\bdescartan?\b|obras? inconclusas?|fallas en (la )?obra/.test(t)) return 'Atrasado';
   if (/piden|pide|exige|solicita|reclam|demanda|\burge\b/.test(t)) return 'Pedido';
-  if (/inicia|ejecuc|\bejecutan?\b|trabajos de (descolmatacion|limpieza|encauzamiento)|avanza|concluye|encauzan|buena pro|destina|invertira|retira|impulsa|cofinanciara|reforzaran|despliega|supervisa|\blimpian?\b|\brefuerzan?\b/.test(t)) return 'En curso';
+  // 12/11/2026 01:00: «Obras de descolmatación en el cauce del río Chicama alcanzan el 50% de avance» quedaba como «Mencionado».
+  if (/inicia|ejecuc|\bejecutan?\b|trabajos de (descolmatacion|limpieza|encauzamiento)|avanza|concluye|encauzan|buena pro|destina|invertira|retira|impulsa|cofinanciara|reforzaran|despliega|supervisa|\blimpian?\b|\brefuerzan?\b|\bde avance\b/.test(t)) return 'En curso';
   return 'Mencionado';
 }
 

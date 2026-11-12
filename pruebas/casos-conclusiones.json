@@ -795,6 +795,27 @@
     "agua"
    ],
    "literal": true
+  },
+  {
+   "origen": "12/11/2026 01:00",
+   "titulo": "La Libertad: Obras de descolmatación en el cauce del río Chicama alcanzan el 50% de avance",
+   "dep": "La Libertad",
+   "proyecto": {
+    "id": "defensas",
+    "estado": "En curso"
+   },
+   "literal": true
+  },
+  {
+   "origen": "12/11/2026 01:00",
+   "titulo": "Piura: lluvias inundan viviendas tras fallas en obra de alcantarillado en Ayabaca",
+   "dep": "Piura",
+   "dist": "Ayabaca",
+   "proyecto": {
+    "id": "drenaje",
+    "estado": "Atrasado"
+   },
+   "literal": true
   }
  ],
  "ubicar": [
