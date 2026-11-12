@@ -396,7 +396,10 @@ const MUERTE_SALUD = /dengue|leptospir/;
 // «Dengue» (peligro); son respuesta. Se agregan «primer lugar en vacunación», «busca contratar» y «fortalecer (la) atención».
 // 12/11/2026 01:15: «Áncash fortalece hospitales y despliega brigadas para frenar avance del dengue» (10/11) sumaba «Dengue» (peligro);
 // es una nota de respuesta: «fortalece hospitales», «despliega brigadas».
-const SALUD_RESPUESTA = /claves sobre|como prevenir|lidera vacunacion|primer lugar en vacunacion|busca contratar|fortalecer (la )?atencion|refuerza|instala|vacunacion en|campana contra|fumiga|capacita|prepara a|fortalece hospitales|despliega brigadas/;
+// 12/11/2026 08:30: «Ascope activa tres Unidades Febriles frente a la amenaza del dengue», «Fortalecen la lucha contra el dengue e
+// implementan Unidades Febriles…» y «Sector privado suma su apoyo… acciones preventivas contra… el dengue» sumaban «Dengue» (peligro)
+// y ponían a Ascope en la tabla; son respuesta. Se agregan «unidades febriles», «implementa(n)», «fortalecen la lucha», «suma su apoyo», «acciones preventivas».
+const SALUD_RESPUESTA = /claves sobre|como prevenir|lidera vacunacion|primer lugar en vacunacion|busca contratar|fortalecer (la )?atencion|refuerza|instala|vacunacion en|campana contra|fumiga|capacita|prepara a|fortalece hospitales|despliega brigadas|unidades febriles|\bimplementan?\b|fortalecen la lucha|suma su apoyo|acciones preventivas/;
 const SALUD_BROTE = /casos|brote|epidemia|muert|fallec|contagi|aument|alerta|solo hay|camas|colaps/;
 // 08/11/2026 19:10: «Tumbes: adoptan medidas para evitar colapso de hospitales y desabastecimiento de medicinas» salía como brecha
 // por «desabastec»; es una medida preventiva, no una falla. Las «medidas para evitar/prevenir» no suman brecha.
