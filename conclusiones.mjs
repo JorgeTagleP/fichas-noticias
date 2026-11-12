@@ -238,7 +238,9 @@ const ELECTRICO_CLIMA = /rayo|tormenta/;
 // es trabajo preventivo, no una quebrada activa. Esos titulares no suman la señal de huaicos (siguen contando como proyecto).
 // 12/11/2026 05:20: «Trujillo: Inician limpieza en la quebrada San Ildefonso para mitigar riesgos…» (09/11) sumaba «Huaicos» y subía
 // a Trujillo en la tabla; es prevención. Se acepta también «limpieza en (la) quebrada».
-const PREVENCION_QUEBRADA = /limpieza (de|en) (las? )?quebradas?|descolmatac\w* de (las? )?quebradas?/;
+// 12/11/2026 16:30: «CAJAMARCA PROTEGE CORREDOR VIAL HACIA BAMBAMARCA: ENTREGAN TERRENO PARA CONSTRUIR DIQUES EN LA
+// QUEBRADA ROSAMAYOPATA» (12/11) sumaba «Huaicos» y ponía a Bambamarca en Alta con tendencia «sube»; es obra preventiva.
+const PREVENCION_QUEBRADA = /limpieza (de|en) (las? )?quebradas?|descolmatac\w* de (las? )?quebradas?|diques? en (las? )?quebradas?/;
 const RESPUESTA = /albergue|hospital de campana|ayuda humanitaria|motobomba|puente modular|puente terrestre|brigada|despliega|maquinaria|bienes de ayuda|minsa movil|kits?/;
 const PRONOSTICO = /senamhi|aviso|alerta roja|pronostic|preve\b|prevén|coen|indeci (alerta|emite|advierte)|enfen/;
 

@@ -1042,6 +1042,15 @@
         "brecha"
       ],
       "literal": true
+    },
+    {
+      "origen": "12/11/2026 16:30",
+      "titulo": "CAJAMARCA PROTEGE CORREDOR VIAL HACIA BAMBAMARCA: ENTREGAN TERRENO PARA CONSTRUIR DIQUES EN LA QUEBRADA ROSAMAYOPATA",
+      "dep": "Cajamarca",
+      "no_tiene": [
+        "huaicos"
+      ],
+      "literal": true
     }
   ],
   "ubicar": [
@@ -1211,6 +1220,27 @@
       "titulo": "Fiscalía Anticorrupción de Lima Norte despliega campaña de prevención y sensibilización en el sector educación de Canta",
       "depConsulta": "Lima",
       "con_distrito": "Canta",
+      "literal": true
+    },
+    {
+      "origen": "12/11/2026 16:30",
+      "titulo": "Carhuaz: deslizamiento por lluvias restringe tránsito en vía vecinal de Amashca",
+      "depConsulta": "Áncash",
+      "sin_distrito": "Carhuaz",
+      "literal": true
+    },
+    {
+      "origen": "12/11/2026 16:30",
+      "titulo": "Carhuaz: deslizamiento por lluvias restringe tránsito en vía vecinal de Amashca",
+      "depConsulta": "Áncash",
+      "con_distrito": "Amashca",
+      "literal": true
+    },
+    {
+      "origen": "12/11/2026 16:30 (control)",
+      "titulo": "Yungay: ANIN admite retrasos en la vía Yungay - Yanama y reestructurará proyecto para evitar paralización",
+      "depConsulta": "Áncash",
+      "con_distrito": "Yungay",
       "literal": true
     }
   ]

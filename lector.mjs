@@ -363,6 +363,19 @@ function ubicar(item) {
     const deLima = grupo.filter(d => d.departamento === 'Lima' && d.provincia === 'Lima');
     elegidos.push(...(conProv.length ? conProv : capital.length ? capital : deLima.length ? deLima : grupo));
   }
+  // 12/11/2026 16:30: «Carhuaz: deslizamiento… vía vecinal de Amashca» sumaba también el distrito Carhuaz.
+  // El «<Provincia>:» del inicio es la etiqueta de la provincia: si el titular nombra otro distrito de esa
+  // provincia y la capital no vuelve a aparecer después del prefijo, se quita el distrito capital.
+  const dosPuntos = (item.titulo || '').indexOf(':');
+  if (dosPuntos > 2 && dosPuntos < 32) {
+    const prefijo = norm(item.titulo.slice(0, dosPuntos));
+    const resto = norm(item.titulo.slice(dosPuntos + 1));
+    for (let i = elegidos.length - 1; i >= 0; i--) {
+      const d = elegidos[i], cap = norm(d.distrito);
+      if (cap !== norm(d.provincia) || cap !== prefijo || tiene(resto, cap)) continue;
+      if (elegidos.some(o => o !== d && o.provincia === d.provincia && norm(o.distrito) !== cap)) elegidos.splice(i, 1);
+    }
+  }
   // "provincia de Hualgayoc" (o "provincia del Santa") → nivel provincia, no el distrito del mismo nombre.
   const lugares = [...new Set(elegidos)].map(d => {
     const esProvincia = norm(d.provincia) === norm(d.distrito) && new RegExp(`provincia (del? )?${norm(d.provincia)}`).test(texto);
