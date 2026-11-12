@@ -129,7 +129,8 @@ const AMBIGUOS_EN = { 'La Libertad': new Set(['bambamarca', 'la esperanza', 'pue
 
 // Provincias que se llaman igual que su distrito ambiguo: el nombre solo no basta como «provincia nombrada»;
 // «Bolívar» necesita además «La Libertad» o «provincia de Bolívar» (11/11/2026).
-const PROVINCIA_APARTE = new Set(['bolivar']);
+// 12/11/2026: «canta» (verbo) ubicaba en la provincia Canta (Lima) el titular «León XIV llega a Perú, canta el himno…».
+const PROVINCIA_APARTE = new Set(['bolivar', 'canta']);
 
 // Nombres que solo cuentan si el titular dice «distrito de…» o «provincia del…»: «Santa» (Áncash)
 // aparece en «río Santa», «Semana Santa» o «Santa Rosa» sin hablar del distrito (11/11/2026).
@@ -316,7 +317,10 @@ function ubicar(item) {
   // nombre del barco no ubique la noticia en ese distrito. Paita no va a AMBIGUOS porque
   // casi siempre que aparece se refiere a la provincia real.
   // 10/11/2026 08:20: también «B.A.P. <nombre>» (con puntos, que norm convierte en «b a p»).
-  const texto = norm(item.titulo).replace(/\bb ?a ?p [a-z]+/g, ' ');   // solo el titular: los resúmenes de radio traen el nombre de la emisora y su ciudad
+  // 12/11/2026: «canta el himno», «canta su canción» (verbo) no es la provincia Canta (Lima);
+  // «en Canta», «de Canta» o «a Canta» sí siguen contando.
+  const texto = norm(item.titulo).replace(/\bb ?a ?p [a-z]+/g, ' ')
+    .replace(/(^|[^a-z])((?!(?:en|de|a|hacia) )[a-z]+ )canta (el|la|los|las|un|una|su|sus|con|en vivo|junto)\b/g, '$1$2 _ $3');   // solo el titular: los resúmenes de radio traen el nombre de la emisora y su ciudad
   // «La Libertad» como departamento se escribe con mayúscula; «el fútbol y la libertad» o «educar para la libertad» no (11/11/2026).
   const deps = DEPARTAMENTOS.filter(d => tiene(texto.replace(LIBERTAD_COMUN, ' '), d) && (d !== 'La Libertad' || /Libertad|LIBERTAD/.test(item.titulo)));
   const encontrados = [];

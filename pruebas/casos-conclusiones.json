@@ -1038,6 +1038,20 @@
    "depConsulta": "La Libertad",
    "con_distrito": "Lucma",
    "literal": true
+  },
+  {
+   "origen": "12/11/2026",
+   "titulo": "El papa León XIV canta el himno de Perú durante su recibimiento oficial en Lima y conmueve al país",
+   "depConsulta": "Lima",
+   "sin_distrito": "Canta",
+   "literal": true
+  },
+  {
+   "origen": "12/11/2026",
+   "titulo": "Fiscalía Anticorrupción de Lima Norte despliega campaña de prevención y sensibilización en el sector educación de Canta",
+   "depConsulta": "Lima",
+   "con_distrito": "Canta",
+   "literal": true
   }
  ]
 }
