@@ -1033,6 +1033,15 @@
         "estado": "En curso"
       },
       "literal": true
+    },
+    {
+      "origen": "12/11/2026 15:30",
+      "titulo": "Áncash: Defensoría solicita informe por deficiencias en drenaje de la avenida Raimondi",
+      "dep": "Áncash",
+      "tiene": [
+        "brecha"
+      ],
+      "literal": true
     }
   ],
   "ubicar": [
