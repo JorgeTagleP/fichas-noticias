@@ -321,7 +321,9 @@ function estadoProyecto(t) {
   if (/\bengano\b|rechaz|en pie de lucha|no permitiran|conflicto|anula/.test(t)) return 'En conflicto';
   // 12/11/2026 01:00: «…deficiencias en el drenaje y obras inconclusas…» y «lluvias inundan viviendas tras fallas en obra de
   // alcantarillado en Ayabaca» quedaban como «Mencionado»; una obra inconclusa o fallada que ya agrava daños es un atraso.
-  if (/sin ejecucion|pendiente|paraliz|medio motor|atras|10 anos|no estara lista|posterga|\bdescartan?\b|obras? inconclusas?|fallas en (la )?obra/.test(t)) return 'Atrasado';
+  // 13/11/2026 03:30: «Huarmey: Contraloría alerta por deterioro de la estructura del puente Cuscus» quedaba como «Mencionado»;
+  // una estructura deteriorada que la Contraloría observa antes de las lluvias es una obra que falla, no una simple mención.
+  if (/sin ejecucion|pendiente|paraliz|medio motor|atras|10 anos|no estara lista|posterga|\bdescartan?\b|obras? inconclusas?|fallas en (la )?obra|deterioro de (la estructura del? )?puente/.test(t)) return 'Atrasado';
   if (/piden|pide|exige|solicita|reclam|demanda|\burge\b/.test(t)) return 'Pedido';
   // 12/11/2026 01:00: «Obras de descolmatación en el cauce del río Chicama alcanzan el 50% de avance» quedaba como «Mencionado».
   if (/inicia|ejecuc|\bejecutan?\b|trabajos de (descolmatacion|limpieza|encauzamiento)|avanza|concluye|encauzan|buena pro|destina|invertira|retira|impulsa|cofinanciara|reforzaran|despliega|supervisa|\blimpian?\b|\brefuerzan?\b|\bde avance\b|instalacion de(l)? puente/.test(t)) return 'En curso';

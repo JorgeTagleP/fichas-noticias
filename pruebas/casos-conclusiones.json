@@ -1025,13 +1025,13 @@
       "literal": true
     },
     {
-      "origen": "12/11/2026 11:20",
+      "origen": "12/11/2026 11:20 (estado corregido 13/11/2026 03:30)",
       "titulo": "Huarmey: Contraloría alerta por deterioro de la estructura del puente Cuscus",
       "dep": "Áncash",
       "prov": "Huarmey",
       "proyecto": {
         "id": "puentes",
-        "estado": "Mencionado"
+        "estado": "Atrasado"
       },
       "literal": true
     },
