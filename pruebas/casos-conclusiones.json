@@ -1217,6 +1217,20 @@
       "dep": "Piura",
       "pronostico": true,
       "literal": true
+    },
+    {
+      "origen": "13/11/2026 17:20",
+      "titulo": "Ferrocarril Lima–Barranca: MTC prevé entregable final de su etapa de estudios en diciembre",
+      "dep": "Lima",
+      "pronostico": false,
+      "literal": true
+    },
+    {
+      "origen": "13/11/2026 17:20 (control)",
+      "titulo": "Ola de calor en Piura: Senamhi prevé temperaturas de más de 36 °C y posibles lluvias hasta el 12 de noviembre",
+      "dep": "Piura",
+      "pronostico": true,
+      "literal": true
     }
   ],
   "ubicar": [

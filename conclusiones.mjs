@@ -263,7 +263,9 @@ const ELECTRICO_CLIMA = /rayo|tormenta/;
 // es control municipal, no una quebrada activa: «(arrojar|botar) basura/desmonte/residuos en (las) quebradas».
 const PREVENCION_QUEBRADA = /(arroja\w*|bota\w*) (basura|desmonte|residuos) en (las? )?quebradas?|limpieza (de|en) (las? )?quebradas?|descolmatac\w* de (las? )?quebradas?|diques? (de [a-z]+( [a-z]+){0,3} )?en (las? )?quebradas?|barreras? ([a-z]+ ){0,2}(contra|para (reducir|mitigar) (el )?(impacto|riesgo) de) (los )?huaicos?/;
 const RESPUESTA = /albergue|hospital de campana|ayuda humanitaria|motobomba|puente modular|puente terrestre|brigada|despliega|maquinaria|bienes de ayuda|minsa movil|kits?/;
-const PRONOSTICO = /senamhi|aviso|alerta roja|pronostic|preve\b|prevén|coen|indeci (alerta|emite|advierte)|enfen/;
+// 13/11/2026 17:20: «Ferrocarril Lima–Barranca: MTC prevé entregable final de su etapa de estudios en diciembre» (Rumbo Minero)
+// encabezaba el pronóstico por el verbo «prevé». Ahora «prevé» solo cuenta si el titular habla de clima o de sus efectos.
+const PRONOSTICO = /senamhi|aviso|alerta roja|pronostic|preve\b(?=.*(lluvi|precipit|temperatur|caudal|calor|clima|tormenta|granizo|helada|friaje|oleaje|viento|huaico|desborde|meteorolog))|prevén|coen|indeci (alerta|emite|advierte)|enfen/;
 
 // Qué hacer cuando aparece cada señal (acciones para salvar vidas).
 const ACCION = {
