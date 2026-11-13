@@ -339,7 +339,10 @@ function estadoProyecto(t) {
 // 11/11/2026 16:15: «¿Hoy habrá llovizna en Lima? Este es el pronóstico meteorológico del Senamhi para hoy…» y «Senamhi:
 // Piura tendrá máximas de hasta 32 °C hoy 9 de noviembre…» y «¿Nueva llovizna en Lima? El Senamhi revela su pronóstico
 // para hoy…» (notas diarias de servicio) ocupaban 3 de 8 lugares del pronóstico.
-const PRONOSTICO_GENERICO = /el pronostico del tiempo para|conoce el pronostico completo|temperaturas predominantes|asi estara el clima en cada|visita del papa|pronostico meteorologico del senamhi para hoy|su pronostico para hoy|tendra maximas de hasta/;
+// 13/11/2026: «SENAMHI recomienda llevar paraguas a fieles que acudan a ver al Papa León XIV en Santa Cruz…» y
+// «¿Hoy lloverá en Piura? El Senamhi lo aclara con su pronóstico por localidades…» (servicio y evento) ocupaban
+// 2 de 8 lugares del pronóstico; se agregan «al papa leon» y «pronostico por localidades».
+const PRONOSTICO_GENERICO = /el pronostico del tiempo para|conoce el pronostico completo|temperaturas predominantes|asi estara el clima en cada|visita del papa|al papa leon|pronostico meteorologico del senamhi para hoy|su pronostico para hoy|tendra maximas de hasta|pronostico por localidades/;
 const UTILES = new Set(['Emergencias', 'Lluvias y clima', 'Salud', 'Economía y producción', 'Otros']);
 const peso = f => { const d = edadDias(f); return d <= 2 ? 3 : d <= 7 ? 1.5 : 0.5; };
 
