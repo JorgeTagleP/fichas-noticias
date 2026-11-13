@@ -319,8 +319,9 @@ function ubicar(item) {
   // 10/11/2026 08:20: también «B.A.P. <nombre>» (con puntos, que norm convierte en «b a p»).
   // 12/11/2026: «canta el himno», «canta su canción» (verbo) no es la provincia Canta (Lima);
   // «en Canta», «de Canta» o «a Canta» sí siguen contando.
+  // 13/11/2026: también «canta vals…», «canta 'Contigo Perú'», «canta poema…» (papa León XIV, Susana Baca).
   const texto = norm(item.titulo).replace(/\bb ?a ?p [a-z]+/g, ' ')
-    .replace(/(^|[^a-z])((?!(?:en|de|a|hacia) )[a-z]+ )canta (el|la|los|las|un|una|su|sus|con|en vivo|junto)\b/g, '$1$2 _ $3');   // solo el titular: los resúmenes de radio traen el nombre de la emisora y su ciudad
+    .replace(/(^|[^a-z])((?!(?:en|de|a|hacia) )[a-z]+ )canta (el|la|los|las|un|una|su|sus|con|en vivo|junto|vals|valses|poema|poemas|contigo|cancion|canciones|himno|tema|temas|emocionado|emocionada)\b/g, '$1$2 _ $3');   // solo el titular: los resúmenes de radio traen el nombre de la emisora y su ciudad
   // «La Libertad» como departamento se escribe con mayúscula; «el fútbol y la libertad» o «educar para la libertad» no (11/11/2026).
   const deps = DEPARTAMENTOS.filter(d => tiene(texto.replace(LIBERTAD_COMUN, ' '), d) && (d !== 'La Libertad' || /Libertad|LIBERTAD/.test(item.titulo)));
   const encontrados = [];
