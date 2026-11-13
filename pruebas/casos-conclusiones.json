@@ -797,6 +797,17 @@
       "literal": true
     },
     {
+      "origen": "12/11/2026 20:20",
+      "titulo": "Lluvia torrencial de más de tres horas inunda Chulucanas y afecta viviendas y comercios",
+      "dep": "Piura",
+      "dist": "Chulucanas",
+      "tiene": [
+        "damnificados",
+        "inundacion"
+      ],
+      "literal": true
+    },
+    {
       "origen": "12/11/2026 01:00",
       "titulo": "La Libertad: Obras de descolmatación en el cauce del río Chicama alcanzan el 50% de avance",
       "dep": "La Libertad",
