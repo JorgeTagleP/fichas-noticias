@@ -1231,6 +1231,26 @@
       "dep": "Piura",
       "pronostico": true,
       "literal": true
+    },
+    {
+      "origen": "13/11/2026 18:30",
+      "titulo": "Sechura: plantean propuesta técnica Reventazón para evacuar aguas del río Piura hacia el mar",
+      "dep": "Piura",
+      "prov": "Sechura",
+      "no_tiene": [
+        "damnificados"
+      ],
+      "literal": true
+    },
+    {
+      "origen": "13/11/2026 18:30 (control)",
+      "titulo": "Ministro de Defensa se refirió sobre la evacuación de los pobladores del asentamiento humano Puerto Perú en Zarumilla, Tumbes, frente a las lluvias",
+      "dep": "Tumbes",
+      "prov": "Zarumilla",
+      "tiene": [
+        "damnificados"
+      ],
+      "literal": false
     }
   ],
   "ubicar": [
