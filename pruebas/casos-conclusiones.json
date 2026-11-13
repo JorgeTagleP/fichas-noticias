@@ -1060,6 +1060,24 @@
         "huaicos"
       ],
       "literal": true
+    },
+    {
+      "origen": "12/11/2026 19:20",
+      "titulo": "ANA instala 12 barreras para reducir el impacto de huaicos en Lima y Huarochirí",
+      "dep": "Lima",
+      "no_tiene": [
+        "huaicos"
+      ],
+      "literal": true
+    },
+    {
+      "origen": "12/11/2026 19:20",
+      "titulo": "ANA avanza 12 barreras contra huaicos en Lima y Huarochirí: dos ya están listas",
+      "dep": "Lima",
+      "no_tiene": [
+        "huaicos"
+      ],
+      "literal": true
     }
   ],
   "ubicar": [
