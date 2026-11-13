@@ -195,7 +195,9 @@ const PELIGRO_NO_OCURRIDO = /posibles? (huaicos?|desbordes?)|evita\w* (el )?desb
 const AVISO_ELECTRICO = /alerta\w* (sobre|por) (posibles )?tormentas? electric|advertencia del senamhi/;
 // 11/11/2026 18:30: «El efecto BTS en Lima: desborde comercial,...» (Panamericana) sumaba «Desborde o crecida de ríos» a Lima;
 // es un uso figurado (ventas por un concierto). «desborde comercial/de fans/de alegría» no suma desborde.
-const DESBORDE_FIGURADO = /(dengue|casos|contagios|epidemia)\w* se desbord|desborde (comercial|de (fans|alegria|emocion|hinchas))/;
+// 13/11/2026 04:30: «¡Papa desata euforia en Lima! Peruanos desbordan las calles para recibir al papa León XIV» (12/11)
+// sumaba «Desborde o crecida de ríos» a Lima; es una multitud. «desbordan las calles/plazas para recibir/ver/celebrar…» no suma.
+const DESBORDE_FIGURADO = /(dengue|casos|contagios|epidemia)\w* se desbord|desborde (comercial|de (fans|alegria|emocion|hinchas))|desborda\w* (las )?(calles|plazas|avenidas) (para|por) (recibir|ver|celebrar|saludar|alentar|acompanar)/;
 // 08/11/2026 (corrida 7): «Lambayeque: 18 fallecidos por dengue…» sumaba «Muertes o personas arrastradas» y
 // daba la acción «Señalizar o cercar el peligro (ríos, reservorios…)», que no sirve para el dengue.
 // Las muertes por dengue o leptospirosis cuentan en su señal de salud, no en «muertes».
@@ -215,7 +217,10 @@ const MUERTE_SALUD = /dengue|leptospir/;
 // y ponían a Ascope en la tabla; son respuesta. Se agregan «unidades febriles», «implementa(n)», «fortalecen la lucha», «suma su apoyo», «acciones preventivas».
 // 12/11/2026 09:30: «Geanmarco Quezada gestiona 5 mil vacunas adicionales para el dengue en La Libertad» (10/11) era la
 // ficha de peligro más reciente de La Libertad; es respuesta: «vacunas adicionales», «gestiona N mil vacunas».
-const SALUD_RESPUESTA = /claves sobre|como prevenir|lidera vacunacion|primer lugar en vacunacion|busca contratar|fortalecer (la )?atencion|refuerza|instala|vacunacion en|campana contra|fumiga|capacita|prepara a|fortalece hospitales|despliega brigadas|unidades febriles|\bimplementan?\b|fortalecen la lucha|suma su apoyo|acciones preventivas|vacunas adicionales|gestiona d+ mil vacunas/;
+const SALUD_RESPUESTA = /claves sobre|como prevenir|lidera vacunacion|primer lugar en vacunacion|busca contratar|fortalecer (la )?atencion|refuerza|instala|vacunacion en|campana contra|fumiga|capacita|prepara a|fortalece hospitales|despliega brigadas|unidades febriles|\bimplementan?\b|fortalecen la lucha|suma su apoyo|acciones preventivas|vacunas adicionales|gestiona \d+ mil vacunas|interviene\w* (mas de )?[\d.,]+ viviendas|para prevenir (el )?dengue/;
+// 13/11/2026 04:30: «Diresa interviene más de 1,500 viviendas en 5 sectores del distrito de Piura para prevenir el dengue» (El Peruano, 13/11)
+// sumaba «Dengue» (peligro); es respuesta: «interviene(n) N viviendas» y «para prevenir el dengue». También se corrige
+// «gestiona d+ mil» → «gestiona \d+ mil» (le faltaba la barra y no reconocía el número).
 const SALUD_BROTE = /casos|brote|epidemia|muert|fallec|contagi|aument|alerta|solo hay|camas|colaps/;
 // 08/11/2026 19:10: «Tumbes: adoptan medidas para evitar colapso de hospitales y desabastecimiento de medicinas» salía como brecha
 // por «desabastec»; es una medida preventiva, no una falla. Las «medidas para evitar/prevenir» no suman brecha.

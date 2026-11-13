@@ -1089,6 +1089,42 @@
         "huaicos"
       ],
       "literal": true
+    },
+    {
+      "origen": "13/11/2026 04:30",
+      "titulo": "¡Papa desata euforia en Lima! Peruanos desbordan las calles para recibir al papa León XIV (VIDEO)",
+      "dep": "Lima",
+      "no_tiene": [
+        "desborde"
+      ],
+      "literal": true
+    },
+    {
+      "origen": "13/11/2026 04:30",
+      "titulo": "Río Piura se desborda e inunda calles de Castilla",
+      "dep": "Piura",
+      "tiene": [
+        "desborde"
+      ],
+      "literal": false
+    },
+    {
+      "origen": "13/11/2026 04:30",
+      "titulo": "Diresa interviene más de 1,500 viviendas en 5 sectores del distrito de Piura para prevenir el dengue",
+      "dep": "Piura",
+      "no_tiene": [
+        "dengue"
+      ],
+      "literal": true
+    },
+    {
+      "origen": "13/11/2026 04:30",
+      "titulo": "Huarmey: Aumenta a 37 casos de Dengue en la provincia y región registra un total de 2,168 casos",
+      "dep": "Áncash",
+      "tiene": [
+        "dengue"
+      ],
+      "literal": true
     }
   ],
   "ubicar": [
