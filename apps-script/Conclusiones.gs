@@ -472,7 +472,10 @@ const ACCION = {
   leptospirosis: 'Botas y guantes; no caminar en agua de desagüe; atender pronto la fiebre.',
   agua: 'Agua segura (cloración, cisternas) y reparación de desagües.',
   brecha: 'Llevar la brecha al COER, a INDECI y a la Defensoría del Pueblo, con nombre y lugar.',
+  saludGrave: 'Hay muertes u hospitalizados: reconocer signos de alarma, referir a tiempo al hospital y asegurar camas, hidratación y sangre.',
 };
+// 12/11/2026 23:30: muertes u hospitalizaciones en noticias de dengue o leptospirosis (ver «acciones» en el ranking).
+const SALUD_GRAVE = /fallec|muert|victima mortal|decesos|hospitaliz|grave/;
 
 // ---------- 5. Proyectos que reducirían el daño de El Niño ----------
 const PROYECTOS = [
@@ -607,7 +610,11 @@ const ranking = [...lugares.values()]
       nombre: L.nombre, nivel: L.nivel, departamento: L.departamento, provincia: L.provincia, distrito: L.distrito,
       puntaje: Math.round(L.puntaje), menciones: L.fichas.length, ultima, tendencia,
       senales: top.map(([id, n]) => ({ id, nombre: porId[id].nombre, n })),
-      acciones: [...new Set(top.slice(0, 4).map(([id]) => ACCION[id]).filter(Boolean))],
+      // 12/11/2026 23:30: Casma (Áncash) tenía 4 noticias de muertes por dengue y 32 hospitalizados, pero la acción solo
+      // decía «eliminar criaderos, fumigar…», que no salva a los enfermos graves. Si las noticias de dengue o leptospirosis
+      // del lugar reportan muertes u hospitalizados, se agrega la acción de casos graves.
+      // va primero para que se vea en la tabla (que muestra dos acciones)
+      acciones: [...new Set((L.fichas.some(c => (c.senales.indexOf('dengue') >= 0 || c.senales.indexOf('leptospirosis') >= 0) && SALUD_GRAVE.test(c.t)) ? [ACCION.saludGrave] : []).concat(top.slice(0, 4).map(([id]) => ACCION[id])).filter(Boolean))],
       fichas: fichasTop,
     };
   })
