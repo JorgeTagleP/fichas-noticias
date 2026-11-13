@@ -78,7 +78,9 @@ const SENALES = [
   // 12/11/2026 07:20: «Huaico destruye 60 metros de carretera y bloquea el tránsito en Yupán» (05/11) y «… bloquean el tránsito en la
   // vía a Huancabamba» (29/10) no sumaban aislamiento: la regla solo aceptaba «bloquea la vía». Se acepta «bloquea el …».
   // (Se probó también «restringen tránsito» (Amashca), pero subía a crítica una vía vecinal con paso restringido: se descartó.)
-  { id: 'aislamiento',  grupo: 'vida',  peso: 8,  nombre: 'Aislamiento o vías cortadas', re: /aislad|\baislan?\b|incomunicad|interrump|bloque\w* (el |la )?(via|carretera|transito)|puente\w* (artesanal )?(\w+ )?(colaps|cae|cay|arras|destru)|colapso de(l)? puente|arrasa con (el )?puente|queda aislado|via cerrada|cerrad\w* (el )?(transito|tunel)|(vias|carreteras) afectadas/ },
+  // 13/11/2026 10:30: «Dos puentes vehiculares resultan dañados por incremento del caudal del río en Aija» no sumaba aislamiento;
+  // un puente dañado o socavado puede cortar el acceso: se agrega «puente(s) … dañado(s)/socavado(s)».
+  { id: 'aislamiento',  grupo: 'vida',  peso: 8,  nombre: 'Aislamiento o vías cortadas', re: /aislad|\baislan?\b|incomunicad|interrump|bloque\w* (el |la )?(via|carretera|transito)|puente\w* (artesanal )?(\w+ )?(colaps|cae|cay|arras|destru)|colapso de(l)? puente|arrasa con (el )?puente|queda aislado|via cerrada|cerrad\w* (el )?(transito|tunel)|(vias|carreteras) afectadas|puentes? (\w+ ){0,2}(resultan? |quedan? |quedo |fue |fueron )?(danad|socavad)/ },
   { id: 'desborde',     grupo: 'vida',  peso: 8,  nombre: 'Desborde o crecida de ríos', re: /desbord|crecida|umbral rojo|supera\w* (el )?(umbral|alerta roja)|nivel critico|caudal/ },
   { id: 'huaicos',      grupo: 'vida',  peso: 7,  nombre: 'Huaicos y quebradas activas', re: /huaico|quebrada|deslizamiento|derrumbe/ },
   // 12/11/2026: «casas destruidas» cuenta igual que «viviendas destruidas» (Saucepampa: «deslizamiento de cerro… deja nueve casas destruidas»).
@@ -359,7 +361,9 @@ function estadoProyecto(t) {
 // 2 de 8 lugares del pronóstico; se agregan «al papa leon» y «pronostico por localidades».
 // 13/11/2026 09:10: «“No se esperan lluvias significativas” para la llegada el papa León XIV a Chiclayo…» (RPP) entraba al
 // pronóstico; «al papa leon» no cubría «el/del papa leon». Se amplía a «(al|el|del) papa leon».
-const PRONOSTICO_GENERICO = /el pronostico del tiempo para|conoce el pronostico completo|temperaturas predominantes|asi estara el clima en cada|visita del papa|(al|el|del) papa leon|pronostico meteorologico del senamhi para hoy|su pronostico para hoy|tendra maximas de hasta|pronostico por localidades/;
+// 13/11/2026 10:30: «Papa León XIV en Perú: Senamhi pronostica 30 °C en Chiclayo…» (Diario Correo) entraba al pronóstico: el titular
+// empieza con «Papa León», sin artículo; se acepta también al inicio del titular.
+const PRONOSTICO_GENERICO = /el pronostico del tiempo para|conoce el pronostico completo|temperaturas predominantes|asi estara el clima en cada|visita del papa|(^|al |el |del )papa leon|pronostico meteorologico del senamhi para hoy|su pronostico para hoy|tendra maximas de hasta|pronostico por localidades/;
 const UTILES = new Set(['Emergencias', 'Lluvias y clima', 'Salud', 'Economía y producción', 'Otros']);
 const peso = f => { const d = edadDias(f); return d <= 2 ? 3 : d <= 7 ? 1.5 : 0.5; };
 

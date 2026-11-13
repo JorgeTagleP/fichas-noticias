@@ -1178,6 +1178,24 @@
       "dep": "Lambayeque",
       "pronostico": false,
       "literal": true
+    },
+    {
+      "origen": "13/11/2026 10:30",
+      "titulo": "Dos puentes vehiculares resultan dañados por incremento del caudal del río en Aija",
+      "dep": "Áncash",
+      "dist": "Aija",
+      "tiene": [
+        "aislamiento",
+        "desborde"
+      ],
+      "literal": true
+    },
+    {
+      "origen": "13/11/2026 10:30",
+      "titulo": "Papa León XIV en Perú: Senamhi pronostica 30 °C en Chiclayo y lluvias en Cajamarca",
+      "dep": "Lambayeque",
+      "pronostico": false,
+      "literal": true
     }
   ],
   "ubicar": [
