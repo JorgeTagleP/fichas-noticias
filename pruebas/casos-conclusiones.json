@@ -1125,6 +1125,43 @@
         "dengue"
       ],
       "literal": true
+    },
+    {
+      "origen": "13/11/2026 05:30",
+      "titulo": "Lluvias en Áncash: Senamhi advierte precipitaciones y tormentas eléctricas del 12 al 14 de noviembre",
+      "dep": "Áncash",
+      "no_tiene": [
+        "electrico"
+      ],
+      "literal": true
+    },
+    {
+      "origen": "13/11/2026 05:30 (control)",
+      "titulo": "Piura: fuerte lluvia con tormenta eléctrica y granizo inunda calles y mercados de Ayabaca [VIDEO]",
+      "dep": "Piura",
+      "tiene": [
+        "electrico",
+        "inundacion"
+      ],
+      "literal": true
+    },
+    {
+      "origen": "13/11/2026 05:30",
+      "titulo": "La Libertad: Multas y retención de vehículos por arrojar basura en quebradas",
+      "dep": "La Libertad",
+      "no_tiene": [
+        "huaicos"
+      ],
+      "literal": true
+    },
+    {
+      "origen": "13/11/2026 05:30",
+      "titulo": "Lluvias en Lima: 20 bypasses están en riesgo de inundación, ¿cuáles son?",
+      "dep": "Lima",
+      "no_tiene": [
+        "inundacion"
+      ],
+      "literal": true
     }
   ],
   "ubicar": [

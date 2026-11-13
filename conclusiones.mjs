@@ -163,7 +163,9 @@ const DONACION_ALBERGUE = /kits? educativ|pelotas|juguetes|utiles escolares/;
 // este video muestre las recientes inundaciones en Zarumilla: fue grabado en 2025» (03/11) sumaba «Inundaciones»; es un desmentido.
 // 12/11/2026 05:20: «En Trujillo… los pobladores temen que las intensas lluvias provoquen la activación de quebradas» (21/10) sumaba
 // «Huaicos»: es un temor, no un daño. Se agrega «temen que … provoque(n)».
-const HIPOTETICO = /temen que [^.]{0,60}provoquen?|advierte\w* (el )?riesgo de inundac|presenta\w* riesgo de inundac|se veria inundad|no se va a inundar|evitar futura inundac|pondria en riesgo|por riesgo de inundac|estarian en riesgo de inundac|simulacro|que resulten damnificad|instalan \w+ albergues|no a la emergencia actual|video viral\w* .*corresponde a|antiguas culturas|sacrificaban|ciclon yaku|puntos criticos de inundac|reducir (los |el )?riesgos? de inundac|umbrales de inundac|es falso que (este|el) video|fue grabado en \d{4}|(pasos a desnivel|bypass\w*|puntos|zonas) en riesgo de inundac/;
+const HIPOTETICO = /temen que [^.]{0,60}provoquen?|advierte\w* (el )?riesgo de inundac|presenta\w* riesgo de inundac|se veria inundad|no se va a inundar|evitar futura inundac|pondria en riesgo|por riesgo de inundac|estarian en riesgo de inundac|simulacro|que resulten damnificad|instalan \w+ albergues|no a la emergencia actual|video viral\w* .*corresponde a|antiguas culturas|sacrificaban|ciclon yaku|puntos criticos de inundac|reducir (los |el )?riesgos? de inundac|umbrales de inundac|es falso que (este|el) video|fue grabado en \d{4}|(pasos a desnivel|bypass\w*|puntos|zonas) (estan )?en riesgo de inundac/;
+// 13/11/2026 05:30: «Lluvias en Lima: 20 bypasses están en riesgo de inundación, ¿cuáles son?» (02/11) sumaba «Inundaciones»;
+// se acepta «(sujeto) están en riesgo de inundac».
 // 08/11/2026 (corrida 7): «Dengue se desborda en Lambayeque» sumaba «Desborde o crecida de ríos»:
 // es un uso figurado (aumento de casos). No suma esa señal (sigue contando como dengue).
 // 09/11/2026 10:10: «Senamhi alerta sobre … posibles huaicos en Ayabaca» sumaba «Huaicos» y «trabajos de descolmatación evitan desborde del río Tumbes»
@@ -192,7 +194,9 @@ const PELIGRO_NO_OCURRIDO = /posibles? (huaicos?|desbordes?)|evita\w* (el )?desb
 // en Ayabaca» sumaba «Rayos» a Ayabaca; es un aviso, no una tormenta ocurrida. Solo «alerta sobre/por tormentas eléctricas»,
 // para no excluir «lluvias y tormentas eléctricas inundan calles» (hecho ocurrido).
 // 11/11/2026 22:20: «Tormentas eléctricas y 60 mm de agua: la severa advertencia del Senamhi…» sumaba «Rayos» a Cajamarca; es un pronóstico.
-const AVISO_ELECTRICO = /alerta\w* (sobre|por) (posibles )?tormentas? electric|advertencia del senamhi/;
+// 13/11/2026 05:30: «Lluvias en Áncash: Senamhi advierte precipitaciones y tormentas eléctricas del 12 al 14 de noviembre» sumaba
+// «Rayos» a Áncash; es un pronóstico. Se acepta «advierte (palabra) (y) tormentas eléctricas».
+const AVISO_ELECTRICO = /alerta\w* (sobre|por) (posibles )?tormentas? electric|advertencia del senamhi|advierte\w* (\w+ )?(y )?tormentas? electric/;
 // 11/11/2026 18:30: «El efecto BTS en Lima: desborde comercial,...» (Panamericana) sumaba «Desborde o crecida de ríos» a Lima;
 // es un uso figurado (ventas por un concierto). «desborde comercial/de fans/de alegría» no suma desborde.
 // 13/11/2026 04:30: «¡Papa desata euforia en Lima! Peruanos desbordan las calles para recibir al papa León XIV» (12/11)
@@ -251,7 +255,9 @@ const ELECTRICO_CLIMA = /rayo|tormenta/;
 // 12/11/2026 19:20: «ANA instala 12 barreras para reducir el impacto de huaicos en Lima y Huarochirí» y «ANA avanza 12 barreras
 // contra huaicos…» (24-25/10) sumaban «Huaicos» y ponían a Huarochirí en la tabla; son obras preventivas. Se acepta
 // «barreras (hasta 2 palabras) contra huaicos» y «barreras para reducir/mitigar el impacto/riesgo de huaicos».
-const PREVENCION_QUEBRADA = /limpieza (de|en) (las? )?quebradas?|descolmatac\w* de (las? )?quebradas?|diques? (de [a-z]+( [a-z]+){0,3} )?en (las? )?quebradas?|barreras? ([a-z]+ ){0,2}(contra|para (reducir|mitigar) (el )?(impacto|riesgo) de) (los )?huaicos?/;
+// 13/11/2026 05:30: «La Libertad: Multas y retención de vehículos por arrojar basura en quebradas» (25/10) sumaba «Huaicos»;
+// es control municipal, no una quebrada activa: «(arrojar|botar) basura/desmonte/residuos en (las) quebradas».
+const PREVENCION_QUEBRADA = /(arroja\w*|bota\w*) (basura|desmonte|residuos) en (las? )?quebradas?|limpieza (de|en) (las? )?quebradas?|descolmatac\w* de (las? )?quebradas?|diques? (de [a-z]+( [a-z]+){0,3} )?en (las? )?quebradas?|barreras? ([a-z]+ ){0,2}(contra|para (reducir|mitigar) (el )?(impacto|riesgo) de) (los )?huaicos?/;
 const RESPUESTA = /albergue|hospital de campana|ayuda humanitaria|motobomba|puente modular|puente terrestre|brigada|despliega|maquinaria|bienes de ayuda|minsa movil|kits?/;
 const PRONOSTICO = /senamhi|aviso|alerta roja|pronostic|preve\b|prevén|coen|indeci (alerta|emite|advierte)|enfen/;
 
