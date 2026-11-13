@@ -14,7 +14,7 @@
 
 // Cifras oficiales de referencia (copiadas de oficiales.json; se citan, no se reinterpretan).
 const OFICIALES = {
- "actualizado": "2026-11-12",
+ "actualizado": "2026-11-13",
  "nota": "Cifras de referencia oficiales. Se citan tal como las publica la entidad; no se reinterpretan. 'via' indica cuando la cifra oficial se tomó de una nota de prensa que la atribuye a la entidad (confianza menor que la fuente primaria). Actualizar en cada lectura.",
  "indicadores": [
   {
