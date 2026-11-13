@@ -410,7 +410,9 @@ const AVISO_ELECTRICO = /alerta\w* (sobre|por) (posibles )?tormentas? electric|a
 // es un uso figurado (ventas por un concierto). «desborde comercial/de fans/de alegría» no suma desborde.
 // 13/11/2026 04:30: «¡Papa desata euforia en Lima! Peruanos desbordan las calles para recibir al papa León XIV» (12/11)
 // sumaba «Desborde o crecida de ríos» a Lima; es una multitud. «desbordan las calles/plazas para recibir/ver/celebrar…» no suma.
-const DESBORDE_FIGURADO = /(dengue|casos|contagios|epidemia)\w* se desbord|desborde (comercial|de (fans|alegria|emocion|hinchas))|desborda\w* (las )?(calles|plazas|avenidas) (para|por) (recibir|ver|celebrar|saludar|alentar|acompanar)/;
+// 13/11/2026 09:10: «Chiclayo se desborda de emoción para recibir al papa León XIV en las Pampas de Pimentel» (Correo, 13/11)
+// sumaba «Desborde» a Chiclayo y Pimentel (Alta); es una multitud. «se desborda de emoción/alegría/fervor/fe/júbilo/euforia» no suma.
+const DESBORDE_FIGURADO = /(dengue|casos|contagios|epidemia)\w* se desbord|desborde (comercial|de (fans|alegria|emocion|hinchas))|desborda\w* (las )?(calles|plazas|avenidas) (para|por) (recibir|ver|celebrar|saludar|alentar|acompanar)|se desborda\w* de (emocion|alegria|fervor|fe|jubilo|euforia)/;
 // 08/11/2026 (corrida 7): «Lambayeque: 18 fallecidos por dengue…» sumaba «Muertes o personas arrastradas» y
 // daba la acción «Señalizar o cercar el peligro (ríos, reservorios…)», que no sirve para el dengue.
 // Las muertes por dengue o leptospirosis cuentan en su señal de salud, no en «muertes».
@@ -564,7 +566,9 @@ function estadoProyecto(t) {
 // 13/11/2026: «SENAMHI recomienda llevar paraguas a fieles que acudan a ver al Papa León XIV en Santa Cruz…» y
 // «¿Hoy lloverá en Piura? El Senamhi lo aclara con su pronóstico por localidades…» (servicio y evento) ocupaban
 // 2 de 8 lugares del pronóstico; se agregan «al papa leon» y «pronostico por localidades».
-const PRONOSTICO_GENERICO = /el pronostico del tiempo para|conoce el pronostico completo|temperaturas predominantes|asi estara el clima en cada|visita del papa|al papa leon|pronostico meteorologico del senamhi para hoy|su pronostico para hoy|tendra maximas de hasta|pronostico por localidades/;
+// 13/11/2026 09:10: «“No se esperan lluvias significativas” para la llegada el papa León XIV a Chiclayo…» (RPP) entraba al
+// pronóstico; «al papa leon» no cubría «el/del papa leon». Se amplía a «(al|el|del) papa leon».
+const PRONOSTICO_GENERICO = /el pronostico del tiempo para|conoce el pronostico completo|temperaturas predominantes|asi estara el clima en cada|visita del papa|(al|el|del) papa leon|pronostico meteorologico del senamhi para hoy|su pronostico para hoy|tendra maximas de hasta|pronostico por localidades/;
 const UTILES = new Set(['Emergencias', 'Lluvias y clima', 'Salud', 'Economía y producción', 'Otros']);
 const peso = f => { const d = edadDias(f); return d <= 2 ? 3 : d <= 7 ? 1.5 : 0.5; };
 

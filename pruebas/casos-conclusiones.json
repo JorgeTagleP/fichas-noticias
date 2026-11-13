@@ -1162,6 +1162,22 @@
         "inundacion"
       ],
       "literal": true
+    },
+    {
+      "origen": "13/11/2026 09:10",
+      "titulo": "Chiclayo se desborda de emoción para recibir al papa León XIV en las Pampas de Pimentel",
+      "dep": "Lambayeque",
+      "no_tiene": [
+        "desborde"
+      ],
+      "literal": true
+    },
+    {
+      "origen": "13/11/2026 09:10",
+      "titulo": "“No se esperan lluvias significativas” para la llegada el papa León XIV a Chiclayo, señala especialista del Senamhi",
+      "dep": "Lambayeque",
+      "pronostico": false,
+      "literal": true
     }
   ],
   "ubicar": [
