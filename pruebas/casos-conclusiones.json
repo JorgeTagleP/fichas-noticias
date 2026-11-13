@@ -1196,6 +1196,27 @@
       "dep": "Lambayeque",
       "pronostico": false,
       "literal": true
+    },
+    {
+      "origen": "13/11/2026 14:20",
+      "titulo": "¿Vuelven las lloviznas a Lima? Conoce el pronóstico del Senamhi para hoy, 13 de noviembre",
+      "dep": "Lima",
+      "pronostico": false,
+      "literal": true
+    },
+    {
+      "origen": "13/11/2026 14:20",
+      "titulo": "Senamhi: Piura llegará a 36 °C hoy 13 de noviembre, pero esta localidad tendrá una mínima de 9 °C",
+      "dep": "Piura",
+      "pronostico": false,
+      "literal": true
+    },
+    {
+      "origen": "13/11/2026 14:20 (control)",
+      "titulo": "Alerta roja en el norte: Tumbes y Piura enfrentarán lluvias extremas este sábado 14 de noviembre",
+      "dep": "Piura",
+      "pronostico": true,
+      "literal": true
     }
   ],
   "ubicar": [

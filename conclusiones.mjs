@@ -363,7 +363,8 @@ function estadoProyecto(t) {
 // pronóstico; «al papa leon» no cubría «el/del papa leon». Se amplía a «(al|el|del) papa leon».
 // 13/11/2026 10:30: «Papa León XIV en Perú: Senamhi pronostica 30 °C en Chiclayo…» (Diario Correo) entraba al pronóstico: el titular
 // empieza con «Papa León», sin artículo; se acepta también al inicio del titular.
-const PRONOSTICO_GENERICO = /el pronostico del tiempo para|conoce el pronostico completo|temperaturas predominantes|asi estara el clima en cada|visita del papa|(^|al |el |del )papa leon|pronostico meteorologico del senamhi para hoy|su pronostico para hoy|tendra maximas de hasta|pronostico por localidades/;
+const PRONOSTICO_GENERICO = /el pronostico del tiempo para|conoce el pronostico completo|temperaturas predominantes|asi estara el clima en cada|visita del papa|(^|al |el |del )papa leon|pronostico meteorologico del senamhi para hoy|su pronostico para hoy|tendra maximas de hasta|pronostico por localidades|conoce el pronostico del senamhi para hoy|el senamhi pronostica como estara el clima|llegara a \d+ ?°c hoy/;
+// 13/11/2026 14:20: notas de servicio diario («¿Vuelven las lloviznas a Lima? Conoce el pronóstico del Senamhi para hoy…», «Piura llegará a 36 °C hoy…») ocupaban 3 de 8 lugares del pronóstico y dejaban fuera avisos por lluvias.
 const UTILES = new Set(['Emergencias', 'Lluvias y clima', 'Salud', 'Economía y producción', 'Otros']);
 const peso = f => { const d = edadDias(f); return d <= 2 ? 3 : d <= 7 ? 1.5 : 0.5; };
 
