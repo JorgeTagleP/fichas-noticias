@@ -1,0 +1,24 @@
+{
+ "generado": "2026-11-14T15:13:11.680Z",
+ "estado": "bien",
+ "alertas": [],
+ "avisos": [],
+ "noticias": {
+  "ok": true,
+  "ultimaBuena": "2026-11-14T15:13:05.880Z",
+  "datosAl": "2026-11-14T15:13:05.880Z",
+  "fichas": 1600,
+  "anterior": 1592,
+  "fuentes": 93
+ },
+ "indeci": {
+  "ok": true,
+  "ultimaBuena": "2026-11-14T15:13:11.402Z",
+  "datosAl": "2026-11-14T15:13:11.402Z",
+  "reportes": 552,
+  "anterior": 552,
+  "distritos": 214,
+  "fallasSeguidas": 0,
+  "ultimoMensaje": "INDECI: 4 páginas, 0 reportes nuevos (0 leídos, 0 con falla); 552 en el periodo; 241 filas; Perú: 1492 damnificados, 12107 afectados, 3 fallecidos."
+ }
+}

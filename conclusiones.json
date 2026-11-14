@@ -1,0 +1,3165 @@
+{
+ "generado": "2026-11-14T15:13:05.880Z",
+ "lecturaFichas": 1600,
+ "analizadas": 1354,
+ "aviso": "Noticias de prensa, tal como las publicó cada medio. Sirven para priorizar la atención; las cifras oficiales son las de INDECI, SENAMHI y MINSA.",
+ "frases": [
+  "Ejes del Gobierno con más noticias de problemas: trabajo articulado y unidad («un solo puño») (6 de 32) y respuesta humanitaria ágil (5 de 46).",
+  "Prioridad para salvar vidas: Zarumilla (Tumbes), Aija (Áncash), Casma (Áncash), Huaraz (Áncash) y Huancabamba (Piura). Señal principal: desborde o crecida de ríos, aislamiento o vías cortadas, dengue y inundaciones urbanas.",
+  "Por departamento, las noticias de peligro se concentran en Tumbes y Áncash; muchas no nombran el distrito, así que hay que confirmar con el COER dónde está la gente afectada.",
+  "Riesgo de aislamiento en Aija, Huancabamba, Casitas, Ayabaca, Yupán y Saña: abastecer antes del corte de vías.",
+  "Aumentan las noticias de peligro en los últimos 3 días en Aija, Casma, Huarmey y Amashca.",
+  "Aviso rojo por calor en las noticias de los últimos 3 días: «Senamhi emite alerta roja en Lima y en toda la costa peruana por ola de calor extremo» (RPP Noticias). Confirmar el aviso vigente en senamhi.gob.pe; agua segura y sombra en albergues, y vigilar a niños, adultos mayores y trabajadores al aire libre.",
+  "Salud: Áncash (26 noticias de dengue, 1 de leptospirosis), La Libertad (6 noticias de dengue), Piura (4 noticias de dengue) y Lambayeque (2 noticias de dengue).",
+  "14 noticias recientes señalan brechas en la atención; la más reciente: «Tumbes pierde casi el 70% del agua que produce y reservas cubrirían menos de medio día ante una emergencia».",
+  "Proyectos atrasados o en conflicto que agravan el daño: salida definitiva del río Piura al mar, defensas ribereñas y descolmatación, puentes y vías definitivas, drenaje pluvial y alcantarillado y hospitales y salud preparada.",
+  "2 cifras de prensa difieren de la oficial; usar siempre la cifra oficial."
+ ],
+ "ejes": [
+  {
+   "id": "vidas",
+   "nombre": "Prioridad nacional: proteger las vidas",
+   "cita": "«Lo que tenemos que cuidar y priorizar son las vidas humanas». Se identificaron 1800 puntos de riesgo y se priorizaron 536.",
+   "fuente": "El Peruano (diario oficial), 15/10/2026",
+   "url": "https://elperuano.pe/noticia/306932-presidenta-fujimori-anuncia-importantes-acciones-del-gobierno-frente-al-fenomeno-el-nino",
+   "menciones": 33,
+   "recientes": 9,
+   "estados": {
+    "En marcha": 9,
+    "Con problemas": 4,
+    "Mencionado": 20
+   },
+   "porDep": {
+    "Tumbes": {
+     "total": 8,
+     "problemas": 1
+    },
+    "Piura": {
+     "total": 7,
+     "problemas": 1
+    },
+    "Lambayeque": {
+     "total": 4,
+     "problemas": 0
+    },
+    "Cajamarca": {
+     "total": 1,
+     "problemas": 0
+    },
+    "La Libertad": {
+     "total": 4,
+     "problemas": 0
+    },
+    "Áncash": {
+     "total": 4,
+     "problemas": 2
+    },
+    "Lima": {
+     "total": 5,
+     "problemas": 0
+    }
+   },
+   "compromisos": [],
+   "problemas": [
+    {
+     "id": "USF-N-261112-0413",
+     "titulo": "Áncash: Contraloría detecta 118 obras paralizadas en puntos críticos ante El Niño -",
+     "enlace": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPeFFXeE5DZjdLTGhDNkhMb3plQTd6SU9nWEZKQVJoNzgzNnFOaVY0ZHF4Rmx4RlFtNVRLY2pXZ2txNS1ESG5FRTZVMlNhT0p2UVJiLTFEcWtlS3IxREdmLUxsQzVWbGZQeXRZdGRScUZkRW83OE5vYi05cnphYUtBYjZXUnJyUXQ5WUpaZThyUXQ4eUY0cElVSV90QlNnTnpWem9Ec2lvMU1JLWMxV1dyRGlSR0wycmc?oc=5",
+     "medio": "luminanoticias.pe",
+     "fecha": "2026-11-12T02:23:03.000Z",
+     "senales": [],
+     "estado": "Con problemas"
+    },
+    {
+     "id": "USF-N-261026-1250",
+     "titulo": "Tumbes: agricultores de Zarumilla anuncian paro por falta de prevención ante El Niño",
+     "enlace": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOUXlsT0U3cm1LNkNGNFBJSTU0TmYxSG14UzFELU4xMDV3dnhNc3BoaG5oV2lNdkpLcXJLQjZuckRWNEtPYjJYNlkyTHQ3MmIyUHJGSHlWWGdfRVVXeEJZSjNqNFAxZWhHQ0dUTnkxSUpPMFdnbXpJTmZQS0hhVE9lZjVhbHVUNjNGT1g2Yl9qNHB3RENMblJuRmRaOEdXMEF2WFlxYnFtOGthSUk5bGRxcFN1aFFoQ2pEYlFPTUVhZ19CbnNmRDI2RmV5ONIB3wFBVV95cUxQRExlZlk5enN4WjRCbm8za0Z4b1EzYjItdHRpREd6YzE5RG5hWUV4WlVlcXlnX1FXWWdLVC0wekRGOUJxLXVmUHFwM1I4QV9JMmpqRTVzOTlONG84Y0VHeW5VUVhGbzVsdUNBTk9QT3B0WHFJbzZfdFVHVUhndnNrMDFpM3JKQlNjWGFpX0dOa01lX2VMdjhmQ250ZlMyQVpGTjBKMGZad0hicWFlTmFRNFB3YTZNT1AzWk9kT050b2c3YkhkS2ZrTWVaMURQQkItWkxwMFNnampXeTVvRVJj?oc=5",
+     "medio": "Diario Correo",
+     "fecha": "2026-10-26T07:00:00.000Z",
+     "senales": [
+      "brecha"
+     ],
+     "estado": "Con problemas"
+    },
+    {
+     "id": "USF-N-261025-1273",
+     "titulo": "Piura: Las obras de prevención tienen medio motor apagado frente a El Niño",
+     "enlace": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPdUJxTVR5S2Q0Smw2aFowX0Q3VkUwbTFlLWk3aDZ6elN1dk9CSVBIbEpCTmpJc1dGQlJoR2R6Wk5LMGZWOEhySmtCNlBubmRiZEtoWThqb3M3RHVhaUtrQ3ZEUUJ0N3JRVTBHNnRUVmlyaXllUVc2UVFkeWhjbG9PYzVHREJfVkp5UFZxQW9sSUZwa1ZuSTlXOFhwZjFGR2ZBVjl2MUxGY2w5TjRXdzBQS2kwZ0pEdTRsRWZr0gHPAUFVX3lxTE9TenlfWkVlcTdwMnp1d3VSOGlpdFN6bjNtWXZ1WDc1RUNaTzd5a3FsUzZYNGhOYzB3YlNyUnVvZ3hjNk9qZ3BldHpPYTVFX2l4ajNOcWU0RG5NbUUxWUZGTVYyb3R4dHBpc2x4RndtcGl4OTQ5VENTYXZMR29VU1dBdmJtYmhQc1JSODZialRIbWdBQUVnQkJqN3dnS2ZYaHJHdU9nanhTYVFXQ2VwZ1BlSS16Y0xaS1lNVExLTHFpZ2Z4X0tRZGZ5SmxKTl9mZw?oc=5",
+     "medio": "Diario Correo",
+     "fecha": "2026-10-25T07:00:00.000Z",
+     "senales": [
+      "brecha"
+     ],
+     "estado": "Con problemas"
+    }
+   ],
+   "avances": [
+    {
+     "id": "USF-N-261112-0415",
+     "titulo": "Perú envía buque a Piura y atiende 700 puntos críticos ante El Niño",
+     "enlace": "https://news.google.com/rss/articles/CBMibkFVX3lxTE4yc2txdjFzXzc1OUNpNFhHQVh5WnVoUTB2WmJxUFprTzNzNEx6dHlodGtxdWRsZU04S24xOTQ2Vkl3bUZ2YWg5alRqdnRxakpwc2dTMzFWa1Z6amgtWnZHMGczUVdfNmNtZXlPVXhn?oc=5",
+     "medio": "https://fomoera.com/",
+     "fecha": "2026-11-12T01:45:00.000Z",
+     "senales": [],
+     "estado": "En marcha"
+    },
+    {
+     "id": "USF-N-261106-0776",
+     "titulo": "La Libertad: Ejecutan trabajos de prevención en carreteras de Otuzco ante posibles lluvias",
+     "enlace": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNYXppWFgyZzE3MWNacWhpdmtPVmJvUVk1em9YbjNBdHVfWG1OSDBPXzVJR1ViSWg0ZjlDZ3RqaWZOTTViX2dtalRsVTVtdl93b1lMZFR2VWpGRV9NajRyQ0VhMnlXNEpkT096aENQaVVyTmJ4UW5xNzk4MURiNEdXNTFuOWhMR2JwekJiY1Q1WERqMUdTaW1oTnE4QkN3LTNNWVRIekh2NWYtclpINEZ3NHR0dXNWYk1UWGdBSnJ2a3NLWDVDMndzbFQwSEU2Yi0zUlFycm81ajBLYVlCSlFQNNIB9AFBVV95cUxNYThDc1Y3MUNmcTZYbWlaYzFPWUY2OW9rRVVfVjY0c05pai0xWEsyRGRucG5wckJOUmw2TWNFcE45bHJiampXOFE3Yjd4OXk3VG4yVF9WQm5VSVVQUUxMSmNVay1GOVdhSGZpeFRKQ2dWQkJCTGNMRHRUNzVtMkVGUUYzdUV6R2FQd2xmVEE4SUV4RnZubEYtdVF3cjBrc1JEaWNTd0JVNkYxZHhBWXRUNDRrdEhNbFp6LU9CR3RKVXZDRHpqQlRvMjhETktOTGI5RFlTam9QQzR3ZU0xeWxlNHptNzFSaERDaWxYemxpanJZQlgz?oc=5",
+     "medio": "Diario Correo",
+     "fecha": "2026-11-06T15:30:00.000Z",
+     "senales": [],
+     "estado": "En marcha"
+    },
+    {
+     "id": "USF-N-261027-1179",
+     "titulo": "Alcalde de Tumbes solicita al Gobierno destinar mayores recursos para trabajos de prevención ante intensas lluvias",
+     "enlace": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOTC1xMHVfcVpncDVnXzRycVMzdXJuRmRCS1VwbXQ0MS1Lalgzei1iNmg4WFc2ajBtM1FqWk4tOUpPb2FDMGxJWUs2WWNMNkJEX2tUWVpzeFEyeEZVc1JWbGNxTkhYalphQzJ4V3BYNW1Oa1o3MUpDRGc4OUI3Y3hrMVRnWmd5Y1NWVTNuU2FObnN0elVrNnVlZ2VXSUx2bmhhRTJ3VVMxY0x4aE1nR3hPM1FXb0xIUmZ5YUxjUXNZb0ZUajJRSVpNTnRucnJpMktEQVZZQ283NDJxbzVMWVZyYTViaGRIeHYtX1E?oc=5",
+     "medio": "RPP Noticias",
+     "fecha": "2026-10-27T07:00:00.000Z",
+     "senales": [],
+     "estado": "En marcha"
+    }
+   ]
+  },
+  {
+   "id": "articulacion",
+   "nombre": "Trabajo articulado y unidad («un solo puño»)",
+   "cita": "«Trabajando unidos y con un solo puño vamos a levantarnos». El Gobierno ofrece «una intervención articulada y simultánea en las regiones más vulnerables» y pide a empresas, instituciones y políticos sumarse.",
+   "fuente": "Presidencia (gob.pe) y El Peruano, 15/10/2026",
+   "url": "https://www.gob.pe/institucion/presidencia/noticias/1457275-presidenta-keiko-fujimori-ante-fenomeno-el-nino-trabajando-unidos-y-con-un-solo-puno-vamos-a-levantarnos-y-salir-mas-fuertes-como-pais",
+   "menciones": 32,
+   "recientes": 6,
+   "estados": {
+    "En marcha": 6,
+    "Con problemas": 6,
+    "Mencionado": 20
+   },
+   "porDep": {
+    "Tumbes": {
+     "total": 9,
+     "problemas": 3
+    },
+    "Piura": {
+     "total": 9,
+     "problemas": 2
+    },
+    "Lambayeque": {
+     "total": 2,
+     "problemas": 1
+    },
+    "Cajamarca": {
+     "total": 3,
+     "problemas": 0
+    },
+    "La Libertad": {
+     "total": 4,
+     "problemas": 0
+    },
+    "Áncash": {
+     "total": 5,
+     "problemas": 0
+    },
+    "Lima": {
+     "total": 1,
+     "problemas": 0
+    }
+   },
+   "compromisos": [],
+   "problemas": [
+    {
+     "id": "USF-N-261103-0889",
+     "titulo": "“Sirve para casi nada”: Alcalde de Tumbes cuestiona la declaratoria de emergencia",
+     "enlace": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNSkNrX3hRNU1YanhlX0JYS0xWdDVhOFNnNllTS296Tk9DODZrcUZJUlctOEpQWTNnMXVROU4zUWV6aWVvRV9NY1FjWm5DRUFXM01ReXB1VVljVHp5akhQZGF0d0hlWUQ3c1hta3Z1QnJaMnVWNi1iRUUxaDJ6a2VOMGNrWEZIYWxZdDBBNWNvZ0JaMmVKc1o5ODQ1TVJqQlhFb0NzbmwzUElKNUNWbFZvWG84Zk1Bb3F3a0ltWWFRaw?oc=5",
+     "medio": "altavoz.pe",
+     "fecha": "2026-11-03T21:21:45.000Z",
+     "senales": [
+      "brecha"
+     ],
+     "estado": "Con problemas"
+    },
+    {
+     "id": "USF-N-261102-0975",
+     "titulo": "Emergencia en Tumbes: alcalde provincial pide al Gobierno \"ir en auxilio\" de distritos afectados por intensas lluvias",
+     "enlace": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxPV3FFV2llVEwyT3RlVVI2LTRGN0s3azVIb1R5NDRfZndnY2l0b3pYMmNoNzZSNlNFWTJoUUk2VHMxZklqaW5VSWZZbWh6Tm1NQ2ZSVTVrNXhZSEI3TVRwNFpWSi1BR3FJX0c3bnQ2bzNBN2pzNWdNY0l6S2RsRklhSW1XRHZOZlJfaHNkekdLX19wb2pEWnpUVzQydnB2RF9veXZhM1M3d0RmWDJVVDN2V2lXaml3WmZSbGJTekhoMjRtZmM2aElHM0xZOEhhSmowSTdMSk5SYVZwMkg0dVNUay13dHJYZ0ZSbUczeTNlcVIzbFpXMmhYaXFpSmgwdw?oc=5",
+     "medio": "RPP Noticias",
+     "fecha": "2026-11-02T08:00:00.000Z",
+     "senales": [],
+     "estado": "Con problemas"
+    },
+    {
+     "id": "USF-N-261021-1401",
+     "titulo": "🔴🔵 #MegaNiño ⛈️🇵🇪 | En diálogo con Exitosa, la jefa del COER Lambayeque, ingeniera Cristina Huamanchumo, advirtió sobre la falta de presupuesto para ejecutar acciones preventivas frente al impacto del fenómeno El Niño en la región. 📻 95.5 FM 📡 6.1",
+     "enlace": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxOeTc5STlfNGFONnUyNjdDSElaU2pFcnBfdUNjeXU0R0w0Y0EzLTJRV0t1NWRaUEtqVmpmTkZ6ZzkzaHItS3VxX2plN0FTWEJGZzZCLXNOckhVOE94ZjJoUktvRHJ4TWUxeXpFcWhieVNOanBiUmtEczFLdFBRTXloOXpGQ2s4RzAzZzlTNVlRbTBZR2h4TTFfcHJ5TFN5SFI2bEI0c3E4QkNUaWptUGN6ejBwdXZiRDNmVEJ6ak81VlpmMG5uczFERUQwTVJickFLYzZGTVZpVWRwVWNZWnVZeVRpM050QmtWeVJNOFRKb0pjbG54aVE?oc=5",
+     "medio": "Facebook",
+     "fecha": "2026-10-21T07:00:00.000Z",
+     "senales": [
+      "brecha"
+     ],
+     "estado": "Con problemas"
+    }
+   ],
+   "avances": [
+    {
+     "id": "USF-N-261113-0216",
+     "titulo": "El Niño: B. A. P. Paita llega a Piura con hospital de campaña, vehículos militares y equipos de rescate",
+     "enlace": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOMEdhd3NkY0NUV3ZxZ3FORS1JTWdJYjhuX0Q2VllXb01Ia0lHRHhiZ2Q0alV2OW5UOXByUE41MFJVRTJWaFlnUG43UkdrdlNnUEdqRmR2S3gxOUl2XzhUWUE2UHpVaXVtTzFJRjgxQmNPY08xLWNra2F6SDk5ejZRNmY0Vk9ZM0JLblo3eEUzYmY5Z0FYX2NQVWZPS2FaLWg5eU1fTEJGYVRCck5pSzFXMkVLamN5bEFId190Ti1R?oc=5",
+     "medio": "Tvperu.gob.pe",
+     "fecha": "2026-11-13T14:38:07.000Z",
+     "senales": [],
+     "estado": "En marcha"
+    },
+    {
+     "id": "USF-N-261110-0601",
+     "titulo": "Marina de Guerra despliega buque BAP Paita con ayuda humanitaria ante el Fenómeno El Niño",
+     "enlace": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNSmVqLVB1QVB0ZGJudzFkNnJkZFFRM1dGQWRDajJadk5ORjg4cVB2Z3VRTE04TEQ1RkdEaDA0d2NQYmFGUjgtRW51NHRBY0lYbGU0Y0hXeTdyRnlSSDBtWHBjRVJ6ZjhLNmIxc3dlRHVYR1RFT2N6NjF4NXZZSDRBQXpaLXVlbWV2V0NyOEtDWjFRRGY1eU9saEZjbHlpRzRvZHo0M2dxTUlmWkJUZTV6VktwcGJrQmZSMzhyV3gyOHJWWE5DYTctR0VPLUktamlGam1qMmNKZ3JCOVVid3JBdjNFWm8wTlp4d001LQ?oc=5",
+     "medio": "El Regional de Piura",
+     "fecha": "2026-11-10T05:10:55.000Z",
+     "senales": [],
+     "estado": "En marcha"
+    },
+    {
+     "id": "USF-N-261106-0780",
+     "titulo": "Cajamarca inicia ampliación de su Hospital Regional por más de S/ 260 millones con Obras por Impuestos",
+     "enlace": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQVXQ0SlhMRWtzQ1g0Tnlvd2ZvOWJoQmFTMUJSTm1DeXVTWVY5SE1RMTRzRzByTUdpbUdfdUNDblVoUENkcWRXYzllU0NfMkMteTE5UEFhUndnbF9XdEVpT1otcHZyQ25uYmdra0RQMXR2Wm1LSHUxZ0ZpVXdIUVNsSVJQLU1zMWxvaFU4Q3Fsam5JY0RSYl8wSDJhWnhZeUVMVVRNc1NIZk1jT25XM3lhUmVIcw?oc=5",
+     "medio": "Rumbo Minero",
+     "fecha": "2026-11-06T14:57:56.000Z",
+     "senales": [],
+     "estado": "En marcha"
+    }
+   ]
+  },
+  {
+   "id": "prevencion",
+   "nombre": "Obras de prevención y descolmatación",
+   "cita": "«El río Tumbes está limpiándose a máxima velocidad. El río Piura casi hemos culminado. En Lambayeque […] se está trabajando en los ríos La Leche y Reque». Avance declarado: 70 % de los 536 puntos.",
+   "fuente": "El Peruano (diario oficial), 15/10/2026",
+   "url": "https://elperuano.pe/noticia/306932-presidenta-fujimori-anuncia-importantes-acciones-del-gobierno-frente-al-fenomeno-el-nino",
+   "menciones": 15,
+   "recientes": 6,
+   "estados": {
+    "En marcha": 8,
+    "Con problemas": 4,
+    "Mencionado": 3
+   },
+   "porDep": {
+    "Tumbes": {
+     "total": 3,
+     "problemas": 2
+    },
+    "Piura": {
+     "total": 4,
+     "problemas": 1
+    },
+    "Lambayeque": {
+     "total": 1,
+     "problemas": 0
+    },
+    "Cajamarca": {
+     "total": 1,
+     "problemas": 0
+    },
+    "La Libertad": {
+     "total": 2,
+     "problemas": 0
+    },
+    "Áncash": {
+     "total": 4,
+     "problemas": 1
+    },
+    "Lima": {
+     "total": 1,
+     "problemas": 0
+    }
+   },
+   "compromisos": [
+    {
+     "nombre": "Limpieza del río Tumbes",
+     "menciones": 1,
+     "problemas": 1,
+     "ultima": {
+      "id": "USF-N-261019-1480",
+      "titulo": "Fenómeno El Niño: Defensoría del Pueblo advierte que falta de labores de descolmatación en río Tumbes podría repetir escenarios como los registrados en años anteriores",
+      "enlace": "https://news.google.com/rss/articles/CBMiowJBVV95cUxNQnFkcGU2RE5yQkl4LUpoOHRlTjRnUjhjRTV3cXdCN3ZDQjhpeGRIa0N1WENjY09MRnJvUlUyak8ydHJNcU1CcTJYbHZidmpCcTllX2doekIxVTZtOC0xZkszaVMwTE1oWlRqa2pwZFlLWjN5aFZkcklBSldGRXdfckF3cDBIb1E4ZEY1VDlmVjJnYVVvb1JPa1AzNnU4aW1idGhST0ZaVDRyUHVINFYzNE96WVMtc3BDWWNfVlJOQU4tMVY1Qk5mQ3B2VndZc1pPSWU5YnU3RVpXQy00R1FxUVg1ckdCYTZLVHN1eG9tWFpUZVMzRWZRRmZPN21sbVZZRVpWYmJVTVV6YmM2WXoyZEtZejhvckJxWkFxWThYcmlWX00?oc=5",
+      "medio": "Defensoria del Pueblo Peru",
+      "fecha": "2026-10-19T07:00:00.000Z",
+      "senales": [
+       "brecha"
+      ],
+      "estado": "Con problemas"
+     }
+    },
+    {
+     "nombre": "Río Piura",
+     "menciones": 0,
+     "problemas": 0,
+     "ultima": null
+    },
+    {
+     "nombre": "Ríos La Leche y Reque (Lambayeque)",
+     "menciones": 0,
+     "problemas": 0,
+     "ultima": null
+    }
+   ],
+   "problemas": [
+    {
+     "id": "USF-N-261112-0413",
+     "titulo": "Áncash: Contraloría detecta 118 obras paralizadas en puntos críticos ante El Niño -",
+     "enlace": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPeFFXeE5DZjdLTGhDNkhMb3plQTd6SU9nWEZKQVJoNzgzNnFOaVY0ZHF4Rmx4RlFtNVRLY2pXZ2txNS1ESG5FRTZVMlNhT0p2UVJiLTFEcWtlS3IxREdmLUxsQzVWbGZQeXRZdGRScUZkRW83OE5vYi05cnphYUtBYjZXUnJyUXQ5WUpaZThyUXQ4eUY0cElVSV90QlNnTnpWem9Ec2lvMU1JLWMxV1dyRGlSR0wycmc?oc=5",
+     "medio": "luminanoticias.pe",
+     "fecha": "2026-11-12T02:23:03.000Z",
+     "senales": [],
+     "estado": "Con problemas"
+    },
+    {
+     "id": "USF-N-261110-0571",
+     "titulo": "Piura: Colegio de Ingenieros advierte riesgo de desborde del río y pide reforzar dique La Mariposa",
+     "enlace": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNNldxREd3RVpuLXppc3Rsc2pSZlc0ampiSTJDaVBDTFpENEpUNGt6SmRnMlhZNzM2TFp1UXZkVGdKdThOU1FHYnZqeXQxVnhvWUVMcGNiUlFidEZUal8tdDFUNUtHcTZZUmRmOWYtWHNSeWh2eHM5eDVxT2pZMF93cG5TU2piV01MaEpQdmhNVGd4UzNqN3Z1amxhc1hlRnNTblo5b3J6Q3h0MFFlMnE4UzVSbVQzUQ?oc=5",
+     "medio": "Canal N",
+     "fecha": "2026-11-10T15:07:06.000Z",
+     "senales": [],
+     "estado": "Con problemas"
+    },
+    {
+     "id": "USF-N-261028-1160",
+     "titulo": "Tumbes: Defensoría del Pueblo pide agilizar obras de defensas ribereñas en río Zarumilla ante posibles desbordes por fenómeno El Niño",
+     "enlace": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxQSC05b0k5UjdFU0F3ZUlKV0xpYXQ4Y3lsV2E0Nm1ueGhtQVVpazV5b3BkYXF0ZGlRTUlOcmRCSENfWWJTNGM5ckpmMC1NVGFsUXRycE1HbFc3ZDV1dTB4REJDXy1VRktuUExNSG9DWjY5a0RfVDVzaWxtTmNHR0xHd0t5dTZNTjR1bDhYeDlZZ0RzMnBiUTBkUTJDbk1HX2RyVlhTeEdMd3pvZFlKUXpKc1R2b3JDd0Q2S0l3NWZBdEZDLXFYQ01KQXNBVDN5d2lxX3FDTHpFNHVybmg1MTltNzI1MG9YWGtRa3dJejNrQV95Q0wtNGc?oc=5",
+     "medio": "Defensoria del Pueblo Peru",
+     "fecha": "2026-10-28T07:00:00.000Z",
+     "senales": [],
+     "estado": "Con problemas"
+    }
+   ],
+   "avances": [
+    {
+     "id": "USF-N-261112-0415",
+     "titulo": "Perú envía buque a Piura y atiende 700 puntos críticos ante El Niño",
+     "enlace": "https://news.google.com/rss/articles/CBMibkFVX3lxTE4yc2txdjFzXzc1OUNpNFhHQVh5WnVoUTB2WmJxUFprTzNzNEx6dHlodGtxdWRsZU04S24xOTQ2Vkl3bUZ2YWg5alRqdnRxakpwc2dTMzFWa1Z6amgtWnZHMGczUVdfNmNtZXlPVXhn?oc=5",
+     "medio": "https://fomoera.com/",
+     "fecha": "2026-11-12T01:45:00.000Z",
+     "senales": [],
+     "estado": "En marcha"
+    },
+    {
+     "id": "USF-N-261111-0492",
+     "titulo": "GORE La Libertad alcanza el 50% de avance en trabajos de descolmatación del río Chicama",
+     "enlace": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxObk5jb2Z1U051Sk84ZHRNaDY2M3VxM2tsemotUDRteWJjb0ZzdUpfOXdkNVhaX002VmFoNnhEbkNRSkd2VEF5VUZ6ejJ3ZVVuNzlJSEx3NnFhai1QS2RySlNOYVhaaDduYndUVG9KOUx3d2VfRk0xVGdrLUo0ck5lblA3bDVXVXM2ejBlYktvOFdNNkZnNEdrd01neHJOcDRzLXltdEtDak15bC1yWkU1MEgzTVlZT21zXzJlbGEwTm9QNzEyd0oyNUY2ZFQ2TXl2Q2dFcXgtNmpjb2M10gHwAUFVX3lxTFB6OHlDbERSNkRBeU1rZkNHNTNEdzQ2c2JUd2pxXzhrNWdZeVMtS3A4Nl9NOTBUX0VSckhraEZKN2p2dzlWTDFFekxCZHUwNTRWN0F3ai1saFdLSHQ0MjItYkIyNFA2SjNhc3hFczl0Y2lSNGxHSlpzQ1FFdFhPX1pUNzBQQnNYZ096clFMZ0pKclFPekRnejI5NTY1YmFjV3dPZlNneFVVSnpralVfZXNmS0dhaFEzYWZaNVU5OTZCVFJNZUZDRWEzSld5c3ZIeEtCaENlTk5VbVpBOW1fNkJXbW52RmJucUdSQnFRbVJVUQ?oc=5",
+     "medio": "Diario Correo",
+     "fecha": "2026-11-11T13:33:08.000Z",
+     "senales": [],
+     "estado": "En marcha"
+    },
+    {
+     "id": "USF-N-261109-0669",
+     "titulo": "Piura despliega brigadas y descolmatación del río ante alerta por El Niño Costero",
+     "enlace": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBMNkl3QWJiNi1BY1FEekhCMkxsSlBzcV9pb1A5MHRwbGFqVERqTTh1QkVrcFU4TkEzczBneS05MTE4X1pSOFdMU18xR3gzMHhkcHhhdzhYY1BNZVVmTGxsekhmc3VtODNQWWc?oc=5",
+     "medio": "ATV.pe",
+     "fecha": "2026-11-09T09:02:33.000Z",
+     "senales": [],
+     "estado": "En marcha"
+    }
+   ]
+  },
+  {
+   "id": "conectividad",
+   "nombre": "Infraestructura y conectividad",
+   "cita": "«Hemos enviado 20 puentes al norte de nuestro país». Además, 22 helicópteros y cinco buques de la Marina disponibles.",
+   "fuente": "El Peruano (diario oficial), 15/10/2026",
+   "url": "https://elperuano.pe/noticia/306932-presidenta-fujimori-anuncia-importantes-acciones-del-gobierno-frente-al-fenomeno-el-nino",
+   "menciones": 28,
+   "recientes": 9,
+   "estados": {
+    "En marcha": 7,
+    "Con problemas": 2,
+    "Mencionado": 19
+   },
+   "porDep": {
+    "Tumbes": {
+     "total": 1,
+     "problemas": 0
+    },
+    "Piura": {
+     "total": 20,
+     "problemas": 0
+    },
+    "Lambayeque": {
+     "total": 3,
+     "problemas": 2
+    },
+    "Cajamarca": {
+     "total": 2,
+     "problemas": 0
+    },
+    "La Libertad": {
+     "total": 1,
+     "problemas": 0
+    },
+    "Áncash": {
+     "total": 1,
+     "problemas": 0
+    },
+    "Lima": {
+     "total": 0,
+     "problemas": 0
+    }
+   },
+   "compromisos": [
+    {
+     "nombre": "Puentes modulares en el norte",
+     "menciones": 1,
+     "problemas": 1,
+     "ultima": {
+      "id": "USF-N-261106-0790",
+      "titulo": "Lambayeque: piden puentes modulares ante lluvias",
+      "enlace": "https://soltvperu.com/puentes-modulares-lluvias-lambayeque/",
+      "medio": "Sol TV Perú (sección Lambayeque)",
+      "fecha": "2026-11-06T13:09:43.000Z",
+      "senales": [
+       "brecha"
+      ],
+      "estado": "Con problemas"
+     }
+    }
+   ],
+   "problemas": [
+    {
+     "id": "USF-N-261106-0749",
+     "titulo": "Lambayeque: Colapso de puente artesanal Sorronto deja aislados a cuatro caseríos en Oyotún",
+     "enlace": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxONFBaNDR6TkctaFlNT0w3Q0FuejNINDV2NjdIWnpWckc1Q3RJRkxveHZJT2IzeURjcktLT19JUDRXZnY0Mm1oRVB0OXl5dzBwWmRkOWtmemNieHdlMmU2am05YTNuQW92MWNyMDdVSHlNaENFMGVYYmpKQmJsZDdVQlFYTHdhbmJTcWw5RWUzbnZ5LVR5UVl3Y2lWUHFNdFR5SDFPYUVpbWU3dHlQLTR1eVFCdUFZc3M2ak9Z?oc=5",
+     "medio": "La Lupa",
+     "fecha": "2026-11-06T23:04:51.000Z",
+     "senales": [
+      "aislamiento"
+     ],
+     "estado": "Con problemas"
+    },
+    {
+     "id": "USF-N-261106-0790",
+     "titulo": "Lambayeque: piden puentes modulares ante lluvias",
+     "enlace": "https://soltvperu.com/puentes-modulares-lluvias-lambayeque/",
+     "medio": "Sol TV Perú (sección Lambayeque)",
+     "fecha": "2026-11-06T13:09:43.000Z",
+     "senales": [
+      "brecha"
+     ],
+     "estado": "Con problemas"
+    }
+   ],
+   "avances": [
+    {
+     "id": "USF-N-261112-0313",
+     "titulo": "Fenómeno El Niño: Buque de la Marina llega a Piura con hospital de campaña",
+     "enlace": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQNnlfazQ4N0RRQnZ4Slc2OFpYVWhMZ0I2X1FLbmZNdW01NndVZ1ZzSWlIOC1oRkI5Q2tVM1NTMkVBTW54MHQ1aThqTEtCb2E5Zk5kQ3hDZVBRVXYxYWtyb3hQSW4zYUpzNy1lUEloMUJ2dUxLdDlJNy1CZlRVbERrak5zaGVpeEE4X2pNcGlZUnhmNEdIckhJeXN1NHA3RlowaXJaRHJDWHFDTUZVWXp6eGo0VzRBN0lSYU81NdIB0AFBVV95cUxPQ2ZuMUdWUDJwN3JFV2ItZl9XbElTdWFrU3hZeVBOLTNRdXBQb3NxdUVibTE0alp1TGQwYU9SZXh3djUySUhXMjgyQjMteGNoWUpKMU9wOVVweTQ3S09Sanh3TnQzUy15RllNbXZCVEZoQ3ZCcmJOSk1nNGVjYkJlZWpQU3hUY0EtWjFwdEdyd0VtRG5jdnNMWlpnTFkwMHZpOUJhTzN5ZEJsV21NRG9jd2czcHdaMFVxX1Qxa0Y5dlNkM0pXenhHZmxCZ0J1Mjlr?oc=5",
+     "medio": "Diario Correo",
+     "fecha": "2026-11-12T22:31:03.000Z",
+     "senales": [],
+     "estado": "En marcha"
+    },
+    {
+     "id": "USF-N-261112-0415",
+     "titulo": "Perú envía buque a Piura y atiende 700 puntos críticos ante El Niño",
+     "enlace": "https://news.google.com/rss/articles/CBMibkFVX3lxTE4yc2txdjFzXzc1OUNpNFhHQVh5WnVoUTB2WmJxUFprTzNzNEx6dHlodGtxdWRsZU04S24xOTQ2Vkl3bUZ2YWg5alRqdnRxakpwc2dTMzFWa1Z6amgtWnZHMGczUVdfNmNtZXlPVXhn?oc=5",
+     "medio": "https://fomoera.com/",
+     "fecha": "2026-11-12T01:45:00.000Z",
+     "senales": [],
+     "estado": "En marcha"
+    },
+    {
+     "id": "USF-N-261110-0601",
+     "titulo": "Marina de Guerra despliega buque BAP Paita con ayuda humanitaria ante el Fenómeno El Niño",
+     "enlace": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNSmVqLVB1QVB0ZGJudzFkNnJkZFFRM1dGQWRDajJadk5ORjg4cVB2Z3VRTE04TEQ1RkdEaDA0d2NQYmFGUjgtRW51NHRBY0lYbGU0Y0hXeTdyRnlSSDBtWHBjRVJ6ZjhLNmIxc3dlRHVYR1RFT2N6NjF4NXZZSDRBQXpaLXVlbWV2V0NyOEtDWjFRRGY1eU9saEZjbHlpRzRvZHo0M2dxTUlmWkJUZTV6VktwcGJrQmZSMzhyV3gyOHJWWE5DYTctR0VPLUktamlGam1qMmNKZ3JCOVVid3JBdjNFWm8wTlp4d001LQ?oc=5",
+     "medio": "El Regional de Piura",
+     "fecha": "2026-11-10T05:10:55.000Z",
+     "senales": [],
+     "estado": "En marcha"
+    }
+   ]
+  },
+  {
+   "id": "humanitaria",
+   "nombre": "Respuesta humanitaria ágil",
+   "cita": "«Se van a construir albergues para 30,000 personas». Hospitales de campaña «movilizados en Tumbes, en Piura y en Lambayeque». Reserva de 5600 toneladas de ayuda humanitaria.",
+   "fuente": "El Peruano (diario oficial), 15/10/2026",
+   "url": "https://elperuano.pe/noticia/306932-presidenta-fujimori-anuncia-importantes-acciones-del-gobierno-frente-al-fenomeno-el-nino",
+   "menciones": 46,
+   "recientes": 11,
+   "estados": {
+    "En marcha": 16,
+    "Con problemas": 5,
+    "Mencionado": 25
+   },
+   "porDep": {
+    "Tumbes": {
+     "total": 18,
+     "problemas": 3
+    },
+    "Piura": {
+     "total": 10,
+     "problemas": 2
+    },
+    "Lambayeque": {
+     "total": 2,
+     "problemas": 0
+    },
+    "Cajamarca": {
+     "total": 9,
+     "problemas": 0
+    },
+    "La Libertad": {
+     "total": 1,
+     "problemas": 0
+    },
+    "Áncash": {
+     "total": 1,
+     "problemas": 0
+    },
+    "Lima": {
+     "total": 11,
+     "problemas": 0
+    }
+   },
+   "compromisos": [
+    {
+     "nombre": "Albergues temporales",
+     "menciones": 11,
+     "problemas": 0,
+     "ultima": {
+      "id": "USF-N-261110-0574",
+      "titulo": "Tumbes: instalan tres albergues para damnificados...",
+      "enlace": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNNUZDUHI1aThFV25tTVRLMThuS21CbGs2Yk1ydGdjSGZSeDVlQkc0ZE4teEV6blRjLTBZOERrWGNKUG53NmJETExIbUNMcDRzMGJ5a0Z0Z0tCWGNXamJGcVZZcTRFNllMaDNuMG51SDlMMUxrbVdwdTJXUnZ6OUNKRC1DeHNVdGp0UTRwUlFkZkExSzB0MEpnbFVCUVJyNUlIck92MkJMTWUxa1VrRDlWcDBGSjTSAboBQVVfeXFMUHpGaVZsb2xxWWtVUDNxX2NTZGs3ZElqTV9kTlFyNmdiNTVFWlBLY1VqWXdTMElWZjZ0dTZ3X2xsV3hjc2ZmTzUxaUs5bFpjNVdDTFRTanRDMTFJMVhnam5RMEt3YmJGdXd2OHJmdG5zX28zcXNMZWZTNDNxNGdkeGVWUFc4ZEZCMV81S0t3NkQ3SG5rV2hqYTRPQ1NsQ0NybDh0TXpVZHBjdGVlbnVyaEVWQVpJSmFPemtn?oc=5",
+      "medio": "Panamericana TV",
+      "fecha": "2026-11-10T14:31:06.000Z",
+      "senales": [],
+      "estado": "En marcha"
+     }
+    },
+    {
+     "nombre": "Hospitales de campaña",
+     "menciones": 11,
+     "problemas": 2,
+     "ultima": {
+      "id": "USF-N-261113-0216",
+      "titulo": "El Niño: B. A. P. Paita llega a Piura con hospital de campaña, vehículos militares y equipos de rescate",
+      "enlace": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOMEdhd3NkY0NUV3ZxZ3FORS1JTWdJYjhuX0Q2VllXb01Ia0lHRHhiZ2Q0alV2OW5UOXByUE41MFJVRTJWaFlnUG43UkdrdlNnUEdqRmR2S3gxOUl2XzhUWUE2UHpVaXVtTzFJRjgxQmNPY08xLWNra2F6SDk5ejZRNmY0Vk9ZM0JLblo3eEUzYmY5Z0FYX2NQVWZPS2FaLWg5eU1fTEJGYVRCck5pSzFXMkVLamN5bEFId190Ti1R?oc=5",
+      "medio": "Tvperu.gob.pe",
+      "fecha": "2026-11-13T14:38:07.000Z",
+      "senales": [],
+      "estado": "En marcha"
+     }
+    },
+    {
+     "nombre": "Entrega de ayuda humanitaria",
+     "menciones": 6,
+     "problemas": 2,
+     "ultima": {
+      "id": "USF-N-261114-0049",
+      "titulo": "B.A.P. Paita y B.A.P. Tacna llevan ayuda humanitaria y agua potable a familias de Piura",
+      "enlace": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOVXlfNzRsTXpTZlpWUEFsVGp3T2F5RTc5Q1BYNmxkdkdhSERZRm9iTzFfSEVnUUxJQU4zMkRBRHY1QXJPZ09hbFVrZ3lfZ3lDWUdSRllPdlktR2pZdEU0TDBWa2drZDlEWjRzdE5NUWNEYnpId2RMTW5veUpva1VKenkzQlVwMFFBMGdqRkpPQXhmeDRQSGZQdG5UdW9DQjBGU2RQa2xvRDZGTktOcmtNbS1MTllYMDdBNFhVMnpodzJmS28?oc=5",
+      "medio": "Agencia Andina",
+      "fecha": "2026-11-14T11:53:16.000Z",
+      "senales": [
+       "agua"
+      ],
+      "estado": "En marcha"
+     }
+    }
+   ],
+   "problemas": [
+    {
+     "id": "USF-N-261110-0530",
+     "titulo": "Huancabamba: Contraloría alerta deficiencias en almacenes de ayuda humanitaria de El Carmen de la Frontera y Sóndor",
+     "enlace": "https://news.google.com/rss/articles/CBMimgJBVV95cUxOSVo2ekZXTGFrM0NvbklDQUhBX2UyNXJaX2luYndSaVZjZWdURUNCTjdLSm5zRjNXT3E4YUpuMnQ3QTVQaFc4czVCX2FKWDhyQ2F1YlBfWjFuNGdmRjVxMjFPSXhsUjc4enA4dWJXU1hCNkdIOElHXzZITm5pSGlWakExa3NTc1hodkEwcl9WbEFBc3kyQTZTR3ZGdDJnTzRvdnVLc2VJaGpnUWdXeHd0RGYyc2lnZURJQVptRjBsOS1IV21NZGsyamFoXzUtVGhLZ3FCN0RzRWRKMnRHUlZlRXVQaUlYTkpUMW1zZGh3TlNoaVZaVWliRHlxSjlFSUdnck56SzdTel9obVBTZnVoaDNLZGFNaU14dHc?oc=5",
+     "medio": "El Regional de Piura",
+     "fecha": "2026-11-10T23:14:16.000Z",
+     "senales": [
+      "brecha"
+     ],
+     "estado": "Con problemas"
+    },
+    {
+     "id": "USF-N-261109-0649",
+     "titulo": "Hospital de campaña en Tumbes termina inundado tras intensas lluvias",
+     "enlace": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9uUjFYRmt5LWlEbzJZRTN4YUU1NGZhcGRrMzZiZ3hVUVVvMEFSX053Y0w4d19jMXhjS0hqWC02S1dScms3U0FlMlpUZ3pTOUoxNHZNS3ItaE1wXzR6c2RmZFM4em15cEhlVEZ2RmRDRUxwbm5KalFn?oc=5",
+     "medio": "ATV.pe",
+     "fecha": "2026-11-09T15:44:56.000Z",
+     "senales": [
+      "inundacion",
+      "brecha"
+     ],
+     "estado": "Con problemas"
+    },
+    {
+     "id": "USF-N-261103-0889",
+     "titulo": "“Sirve para casi nada”: Alcalde de Tumbes cuestiona la declaratoria de emergencia",
+     "enlace": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNSkNrX3hRNU1YanhlX0JYS0xWdDVhOFNnNllTS296Tk9DODZrcUZJUlctOEpQWTNnMXVROU4zUWV6aWVvRV9NY1FjWm5DRUFXM01ReXB1VVljVHp5akhQZGF0d0hlWUQ3c1hta3Z1QnJaMnVWNi1iRUUxaDJ6a2VOMGNrWEZIYWxZdDBBNWNvZ0JaMmVKc1o5ODQ1TVJqQlhFb0NzbmwzUElKNUNWbFZvWG84Zk1Bb3F3a0ltWWFRaw?oc=5",
+     "medio": "altavoz.pe",
+     "fecha": "2026-11-03T21:21:45.000Z",
+     "senales": [
+      "brecha"
+     ],
+     "estado": "Con problemas"
+    }
+   ],
+   "avances": [
+    {
+     "id": "USF-N-261114-0049",
+     "titulo": "B.A.P. Paita y B.A.P. Tacna llevan ayuda humanitaria y agua potable a familias de Piura",
+     "enlace": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOVXlfNzRsTXpTZlpWUEFsVGp3T2F5RTc5Q1BYNmxkdkdhSERZRm9iTzFfSEVnUUxJQU4zMkRBRHY1QXJPZ09hbFVrZ3lfZ3lDWUdSRllPdlktR2pZdEU0TDBWa2drZDlEWjRzdE5NUWNEYnpId2RMTW5veUpva1VKenkzQlVwMFFBMGdqRkpPQXhmeDRQSGZQdG5UdW9DQjBGU2RQa2xvRDZGTktOcmtNbS1MTllYMDdBNFhVMnpodzJmS28?oc=5",
+     "medio": "Agencia Andina",
+     "fecha": "2026-11-14T11:53:16.000Z",
+     "senales": [
+      "agua"
+     ],
+     "estado": "En marcha"
+    },
+    {
+     "id": "USF-N-261113-0216",
+     "titulo": "El Niño: B. A. P. Paita llega a Piura con hospital de campaña, vehículos militares y equipos de rescate",
+     "enlace": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOMEdhd3NkY0NUV3ZxZ3FORS1JTWdJYjhuX0Q2VllXb01Ia0lHRHhiZ2Q0alV2OW5UOXByUE41MFJVRTJWaFlnUG43UkdrdlNnUEdqRmR2S3gxOUl2XzhUWUE2UHpVaXVtTzFJRjgxQmNPY08xLWNra2F6SDk5ejZRNmY0Vk9ZM0JLblo3eEUzYmY5Z0FYX2NQVWZPS2FaLWg5eU1fTEJGYVRCck5pSzFXMkVLamN5bEFId190Ti1R?oc=5",
+     "medio": "Tvperu.gob.pe",
+     "fecha": "2026-11-13T14:38:07.000Z",
+     "senales": [],
+     "estado": "En marcha"
+    },
+    {
+     "id": "USF-N-261110-0574",
+     "titulo": "Tumbes: instalan tres albergues para damnificados...",
+     "enlace": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNNUZDUHI1aThFV25tTVRLMThuS21CbGs2Yk1ydGdjSGZSeDVlQkc0ZE4teEV6blRjLTBZOERrWGNKUG53NmJETExIbUNMcDRzMGJ5a0Z0Z0tCWGNXamJGcVZZcTRFNllMaDNuMG51SDlMMUxrbVdwdTJXUnZ6OUNKRC1DeHNVdGp0UTRwUlFkZkExSzB0MEpnbFVCUVJyNUlIck92MkJMTWUxa1VrRDlWcDBGSjTSAboBQVVfeXFMUHpGaVZsb2xxWWtVUDNxX2NTZGs3ZElqTV9kTlFyNmdiNTVFWlBLY1VqWXdTMElWZjZ0dTZ3X2xsV3hjc2ZmTzUxaUs5bFpjNVdDTFRTanRDMTFJMVhnam5RMEt3YmJGdXd2OHJmdG5zX28zcXNMZWZTNDNxNGdkeGVWUFc4ZEZCMV81S0t3NkQ3SG5rV2hqYTRPQ1NsQ0NybDh0TXpVZHBjdGVlbnVyaEVWQVpJSmFPemtn?oc=5",
+     "medio": "Panamericana TV",
+     "fecha": "2026-11-10T14:31:06.000Z",
+     "senales": [],
+     "estado": "En marcha"
+    }
+   ]
+  },
+  {
+   "id": "economia",
+   "nombre": "Inversión y soporte económico",
+   "cita": "22 decretos supremos y de urgencia aprobados, 14 de ellos por 2000 millones de soles. Fondo de Contingencia: de 800 millones a 10,000 millones de soles para enero.",
+   "fuente": "El Peruano (diario oficial), 15/10/2026",
+   "url": "https://elperuano.pe/noticia/306932-presidenta-fujimori-anuncia-importantes-acciones-del-gobierno-frente-al-fenomeno-el-nino",
+   "menciones": 5,
+   "recientes": 1,
+   "estados": {
+    "En marcha": 0,
+    "Con problemas": 4,
+    "Mencionado": 1
+   },
+   "porDep": {
+    "Tumbes": {
+     "total": 3,
+     "problemas": 2
+    },
+    "Piura": {
+     "total": 0,
+     "problemas": 0
+    },
+    "Lambayeque": {
+     "total": 1,
+     "problemas": 1
+    },
+    "Cajamarca": {
+     "total": 0,
+     "problemas": 0
+    },
+    "La Libertad": {
+     "total": 0,
+     "problemas": 0
+    },
+    "Áncash": {
+     "total": 1,
+     "problemas": 1
+    },
+    "Lima": {
+     "total": 0,
+     "problemas": 0
+    }
+   },
+   "compromisos": [],
+   "problemas": [
+    {
+     "id": "USF-N-261112-0413",
+     "titulo": "Áncash: Contraloría detecta 118 obras paralizadas en puntos críticos ante El Niño -",
+     "enlace": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPeFFXeE5DZjdLTGhDNkhMb3plQTd6SU9nWEZKQVJoNzgzNnFOaVY0ZHF4Rmx4RlFtNVRLY2pXZ2txNS1ESG5FRTZVMlNhT0p2UVJiLTFEcWtlS3IxREdmLUxsQzVWbGZQeXRZdGRScUZkRW83OE5vYi05cnphYUtBYjZXUnJyUXQ5WUpaZThyUXQ4eUY0cElVSV90QlNnTnpWem9Ec2lvMU1JLWMxV1dyRGlSR0wycmc?oc=5",
+     "medio": "luminanoticias.pe",
+     "fecha": "2026-11-12T02:23:03.000Z",
+     "senales": [],
+     "estado": "Con problemas"
+    },
+    {
+     "id": "USF-N-261026-1250",
+     "titulo": "Tumbes: agricultores de Zarumilla anuncian paro por falta de prevención ante El Niño",
+     "enlace": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOUXlsT0U3cm1LNkNGNFBJSTU0TmYxSG14UzFELU4xMDV3dnhNc3BoaG5oV2lNdkpLcXJLQjZuckRWNEtPYjJYNlkyTHQ3MmIyUHJGSHlWWGdfRVVXeEJZSjNqNFAxZWhHQ0dUTnkxSUpPMFdnbXpJTmZQS0hhVE9lZjVhbHVUNjNGT1g2Yl9qNHB3RENMblJuRmRaOEdXMEF2WFlxYnFtOGthSUk5bGRxcFN1aFFoQ2pEYlFPTUVhZ19CbnNmRDI2RmV5ONIB3wFBVV95cUxQRExlZlk5enN4WjRCbm8za0Z4b1EzYjItdHRpREd6YzE5RG5hWUV4WlVlcXlnX1FXWWdLVC0wekRGOUJxLXVmUHFwM1I4QV9JMmpqRTVzOTlONG84Y0VHeW5VUVhGbzVsdUNBTk9QT3B0WHFJbzZfdFVHVUhndnNrMDFpM3JKQlNjWGFpX0dOa01lX2VMdjhmQ250ZlMyQVpGTjBKMGZad0hicWFlTmFRNFB3YTZNT1AzWk9kT050b2c3YkhkS2ZrTWVaMURQQkItWkxwMFNnampXeTVvRVJj?oc=5",
+     "medio": "Diario Correo",
+     "fecha": "2026-10-26T07:00:00.000Z",
+     "senales": [
+      "brecha"
+     ],
+     "estado": "Con problemas"
+    },
+    {
+     "id": "USF-N-261025-1289",
+     "titulo": "Exitosa Noticias. . 🔴🔵 #ExitosaPerú | Dirigentes agricultores de Zarumilla anunciaron un paro para los próximos días y cuestionaron la falta de apoyo de las autoridades frente al fenómeno El Niño. Además, recordaron que las recientes lluvias dejaron una víc",
+     "enlace": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQTmxMTno0c2IxUzZsUDVveVBrSkdQcXJYV0k3MElaWENFQ09ZRzZiVkRiTktGS2hZM2Iwd3Q5T296SnhWS3BWSzJmUlJMaHdjMXlZVTE0SzRxbXBSVFVuQ09mdXlfWnRseWc3N0pOY2FzUE9kcWhCTHZmMFZtbTFoQWNHOU9wS21maFRBSTYtNW53cWN2cllKVFVMdUxJQk5VTkduNGpEanY2eEpidFZGX0hsWlhSTnRiLTlydEg4dFhzZkZ3X2NJVG5aR0t1bUR4dWRTdW9uNzFwV0dkTExMSjJfZ2Rmdw?oc=5",
+     "medio": "Facebook",
+     "fecha": "2026-10-25T07:00:00.000Z",
+     "senales": [
+      "brecha"
+     ],
+     "estado": "Con problemas"
+    }
+   ],
+   "avances": []
+  }
+ ],
+ "prioridad": [
+  {
+   "nombre": "Zarumilla",
+   "nivel": "distrito",
+   "departamento": "Tumbes",
+   "provincia": "Zarumilla",
+   "distrito": null,
+   "puntaje": 137,
+   "menciones": 24,
+   "ultima": "2026-11-08T02:36:36.000Z",
+   "tendencia": "estable",
+   "senales": [
+    {
+     "id": "desborde",
+     "nombre": "Desborde o crecida de ríos",
+     "n": 15
+    },
+    {
+     "id": "damnificados",
+     "nombre": "Damnificados, evacuación o viviendas perdidas",
+     "n": 10
+    },
+    {
+     "id": "inundacion",
+     "nombre": "Inundaciones urbanas",
+     "n": 10
+    },
+    {
+     "id": "brecha",
+     "nombre": "Brecha en la atención",
+     "n": 3
+    },
+    {
+     "id": "agua",
+     "nombre": "Agua potable y desagüe",
+     "n": 2
+    },
+    {
+     "id": "electrico",
+     "nombre": "Rayos y riesgo eléctrico",
+     "n": 1
+    }
+   ],
+   "acciones": [
+    "Evacuar a tiempo las riberas; vigilar el caudal con el umbral oficial del SENAMHI.",
+    "Albergues con baños, techo, agua y luz; registrar a las familias y a las personas vulnerables.",
+    "Motobombas y limpieza de drenes; advertir que el agua acumulada puede estar contaminada.",
+    "Llevar la brecha al COER, a INDECI y a la Defensoría del Pueblo, con nombre y lugar."
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261108-0713",
+     "titulo": "El Niño provoca desborde del río Zarumilla en Perú, dejando a cientos de familias afectadas en Tumbes",
+     "enlace": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNWEFZTnVXWWtwQ3FuSmkwTnhkVDBFNUxFWjBESWJSc3Niak14MEMtWlZtSGJqVUtzN2p2cXNTVDJJYXlwYndWc3dUMmhfYWExek1Tb3haelFWYU9jbVZjaDMwTWQ2ZTdRb3ppd3kyQVRmWnZZaHBpSmZMcElHSFpPXzk4eW9zbDdFZmNhWEdnaXBGZVdqWTVXZmRlaGI3U1A5WXdRbS1nMXRiMEY0MTZwd2lrTGtMbVU0SzJPOU1RRW9iNWM2UUptaGtXTGwwcE5LOE9XbUVIRGo5VkhkVjl6Nw?oc=5",
+     "medio": "Meteored México",
+     "fecha": "2026-11-08T02:36:36.000Z",
+     "senales": [
+      "desborde",
+      "damnificados"
+     ]
+    },
+    {
+     "id": "USF-N-261106-0777",
+     "titulo": "Tumbes: presidenta Keiko Fujimori inspeccionó instalación de albergue en Zarumilla",
+     "enlace": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOSnZhNUlqcmdQVDNGZzBnQXZuNURKRjlESnEzaUhhZklxRDB2bzhfY0FLaVFRNnB4cF9vNE9RcERxZjNHVU16SnRYN2lJZXB6T21wdkhqUUptcndGZkpHOE9rOVZnQnZRQ0dCU1hRQXNwdFBVeExDNVlOWExmcG55OV94MEZEZlBteWJPNGNLczFsNmk2SzQzTjhnYTJNNjhvbnVUVko0SG0tbnMxbFJKNmVxOF9ON0hfanRtZ2IyQ1FsaW1sVlg3dEJRNXBGZGF6MkJFWFlkbXlpZw?oc=5",
+     "medio": "RPP Noticias",
+     "fecha": "2026-11-06T15:15:26.000Z",
+     "senales": [
+      "damnificados"
+     ]
+    },
+    {
+     "id": "USF-N-261106-0797",
+     "titulo": "Exitosa Noticias. . 🔴🔵 #InformamosYOpinamos 🗯️🗯️ | En diálogo con Exitosa, el ministro de Defensa, Rafael Belaúnde Llosa, se refirió sobre la evacuación de los pobladores del asentamiento humano Puerto Perú en Zarumilla, Tumbes, frente a las lluvias",
+     "enlace": "https://news.google.com/rss/articles/CBMijAJBVV95cUxPUlRJYzlhRXdUQ2R5WnRyNjBWREp4eHBLRmRBZy0yZ3A0UFlOOWdoZlNLQ2MzMW8tdjFSRzZ1OHJYYlpNRG1vVWdzcjFZZzVxVWdiekNJc0FwSHdJZnJmRmF3cjU1aXBZeVh4enpyVFhiNk52eUFjQUo2c2dTRDJLa0lQQnFndGNlZ0JnTm9rYmotOWNaRGdqbXVTb0Q2ZnM1Q1JkTEp1WFdmRXRGS3VtWXRRR1NUYmxHc3lGMDByeXVSNktJTDlobm9EaE9wdFhLZnczUktQLXE5SWYycnhGLUFHZ0VXYkNDcWtnQ1JFblJlZ1ZrejJmSTVIZzhGNnpBX0FiZGlsOHJKMFNO?oc=5",
+     "medio": "Facebook",
+     "fecha": "2026-11-06T03:51:49.000Z",
+     "senales": [
+      "damnificados"
+     ]
+    },
+    {
+     "id": "USF-N-261104-0871",
+     "titulo": "Tumbes: Fuertes lluvias, vientos y tormentas eléctricas sorprenden a pobladores de Zarumilla [VIDEO]",
+     "enlace": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQNTJlV0hWRlJoVDdPN0xPd3Z3NndOM2R0a1g3U1ZSaEZSWFNSY1dLNmo3NVNHbW80bXhBbi1LN0p2ZVpEWTFQSXdDOG5wN1R3VzFBNDd6MlBfRFV3Z2p1RUdJT3pudFV0V0FZTVN5X0RRMVdMN3A2QVY4Smd0VTh1MG5PSEs5V1J2TEdOS1o3MHY2RkFDeDRj?oc=5",
+     "medio": "Perú 21",
+     "fecha": "2026-11-04T08:00:00.000Z",
+     "senales": [
+      "electrico"
+     ]
+    }
+   ],
+   "prioridad": "Crítica"
+  },
+  {
+   "nombre": "Aija",
+   "nivel": "distrito",
+   "departamento": "Áncash",
+   "provincia": "Aija",
+   "distrito": "Aija",
+   "puntaje": 96,
+   "menciones": 2,
+   "ultima": "2026-11-13T15:58:46.000Z",
+   "tendencia": "sube",
+   "senales": [
+    {
+     "id": "aislamiento",
+     "nombre": "Aislamiento o vías cortadas",
+     "n": 2
+    },
+    {
+     "id": "desborde",
+     "nombre": "Desborde o crecida de ríos",
+     "n": 2
+    }
+   ],
+   "acciones": [
+    "Llevar ya víveres, agua segura, medicinas y combustible; asegurar comunicación por radio o satélite.",
+    "Evacuar a tiempo las riberas; vigilar el caudal con el umbral oficial del SENAMHI."
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261113-0196",
+     "titulo": "Áncash: 2 puentes resultan dañados por incremento del caudal de río en Aija",
+     "enlace": "https://news.google.com/rss/articles/CBMipAFBVV95cUxONlZxZ2FvSEtvTF9JOVRFemRaUVdDWk1IVmszS1MweWRNQWhPRWdlSEhUU3N5TmdMOHNyZWtWekRHR0dJWUtWdS0zeDZvLWowbGZBQnNCZktKbVFnMXRhQVhoUnNxSW04WnZqM2VtUHF4bmwzV253MXl0LVVHUVVQNGdvXzF6b3pvX2NfRmZFY01VZnl4MHUyaWxsSDhKQy1jNGNmZw?oc=5",
+     "medio": "Radio RSD",
+     "fecha": "2026-11-13T15:58:46.000Z",
+     "senales": [
+      "aislamiento",
+      "desborde"
+     ]
+    }
+   ],
+   "prioridad": "Crítica"
+  },
+  {
+   "nombre": "Casma",
+   "nivel": "distrito",
+   "departamento": "Áncash",
+   "provincia": "Casma",
+   "distrito": null,
+   "puntaje": 93,
+   "menciones": 10,
+   "ultima": "2026-11-13T03:15:37.000Z",
+   "tendencia": "sube",
+   "senales": [
+    {
+     "id": "dengue",
+     "nombre": "Dengue",
+     "n": 9
+    },
+    {
+     "id": "leptospirosis",
+     "nombre": "Leptospirosis",
+     "n": 1
+    }
+   ],
+   "acciones": [
+    "Hay muertes u hospitalizados: reconocer signos de alarma, referir a tiempo al hospital y asegurar camas, hidratación y sangre.",
+    "Eliminar criaderos, fumigar, vacunar y reforzar la atención de fiebre.",
+    "Botas y guantes; no caminar en agua de desagüe; atender pronto la fiebre."
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261113-0282",
+     "titulo": "Áncash: Mujer de 33 años muere por dengue tras ser diagnosticada dos días antes en Casma",
+     "enlace": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPdXFjZG02OGJkNERPQ2NsOFpXZFQ2V21vRGRINmd2UlMzcVdwanJOb0FtQTlhRExiVUM5N1NmTUFoanpkSkRZRTJZYXBCblY5Tl9yUERCY2p0MFVVeVU1U0FUUjVDZ0Vtd0djY0wtTnV3dU5fc0tKT3FNSzJncC13Vlc4VjN5eVlSU1Rib0FCdjJIYU41TDF4YTZhRlVXZ3dfSDlhNEJtWnJQU1Z5UmZ3MUJYd3ZsX2MyalNDYl9WaHBiYkcw0gHKAUFVX3lxTE5yWldLWm9Pb0E4bHhpQ2llVk5EOFZ5YkN6X3ExX1RyT3BWbmU1dFZQRklRVjJGVC1nbVBvMW01R01MZzYwZDBIX3BERF8yVzZBTXFaX3Zibkp5aF9IU29FWm14R2p6ell3U2M0WmdyakFfNVptem9STGktUmYtMXZNeDRPSkdLNHNiZkg4dndXaUE4Q0Jha2I2RlNZbGZSeUNPLVBFWmlhUUYzSmFCVzhoaHJVWUVYZnZCYTdELTFxNTJDMnNtSHZxVHc?oc=5",
+     "medio": "Ancash Noticias",
+     "fecha": "2026-11-13T03:15:37.000Z",
+     "senales": [
+      "dengue"
+     ]
+    },
+    {
+     "id": "USF-N-261113-0285",
+     "titulo": "Casma: Comerciante de la parada Milagritos es la tercera víctima mortal del dengue y deja tres hijos huérfanos",
+     "enlace": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQa3RqemxrMDhTbXNWZm9kLVRBMUF6NzJNWHJRaHZ0YU5EdWg1V0pvZlF6SEhVR29TY2hVV2VFelB4NUFqUWFaUnI5bjRxaGVqbWtycDI0Mm9PUDBYTEZoSVdtN0tBSTlGSTlNLWZxNm8xdGVOSEJndlhMMER2WTRiVFBUTVZFZzA1eWR2LXBVMVluR3NoNV9RR3dzaml3Zm0ySFBoeWV0SkRCVkRKdVZFMy02Z0U4bWRaeldxOUpsdG5xXzE4YllqLWdLbUk2aGc?oc=5",
+     "medio": "Ancashaldia",
+     "fecha": "2026-11-13T02:16:08.000Z",
+     "senales": [
+      "dengue"
+     ]
+    },
+    {
+     "id": "USF-N-261113-0296",
+     "titulo": "Dengue en Casma: se eleva a cuatro las víctimas mortales en la región Áncash -",
+     "enlace": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPQ1RaZnJxajB6dkIxcm1HeTJyR0RVRUF5b05nYkRSUlh5NTQzTzI3STU4eFR6U1hPbDBkZ3p5VkFEcnMya0NKVHl3MDMwVlIzc1hkNWxJQUFEa3dtNUNrZ3N5ZTJRbmFKZnlIUGozMEtJbTIwMUUwRUphNjZ2WnFPckprMWREYXhfQU1TcEVhVGFBMVBvNFRrNklVaEc3T0lSTWNnYzBqRDJ5a1VmRHpUOQ?oc=5",
+     "medio": "luminanoticias.pe",
+     "fecha": "2026-11-13T00:33:53.000Z",
+     "senales": [
+      "dengue"
+     ]
+    },
+    {
+     "id": "USF-N-261111-0500",
+     "titulo": "Casma: 32 pacientes con dengue permanecen hospitalizados",
+     "enlace": "https://news.google.com/rss/articles/CBMicEFVX3lxTE84cUtFNTJUZ0JhOTh1OWhGSlJBVFVrbmRNMUlsLVgwNFY5OF9sRGJmd3R6TFpxdno3ZGxrUngtNXRzNlRkZExOZXdfX2FLeUVtUktkNmphRzNoemhuQW40ZXlaTXlNYmpFd1dnZTNzcnA?oc=5",
+     "medio": "soltv peru",
+     "fecha": "2026-11-11T12:12:25.000Z",
+     "senales": [
+      "dengue"
+     ]
+    }
+   ],
+   "prioridad": "Crítica"
+  },
+  {
+   "nombre": "Huaraz",
+   "nivel": "distrito",
+   "departamento": "Áncash",
+   "provincia": "Huaraz",
+   "distrito": "Huaraz",
+   "puntaje": 73,
+   "menciones": 6,
+   "ultima": "2026-11-11T01:57:58.000Z",
+   "tendencia": "baja",
+   "senales": [
+    {
+     "id": "inundacion",
+     "nombre": "Inundaciones urbanas",
+     "n": 6
+    },
+    {
+     "id": "brecha",
+     "nombre": "Brecha en la atención",
+     "n": 3
+    },
+    {
+     "id": "damnificados",
+     "nombre": "Damnificados, evacuación o viviendas perdidas",
+     "n": 2
+    },
+    {
+     "id": "huaicos",
+     "nombre": "Huaicos y quebradas activas",
+     "n": 1
+    }
+   ],
+   "acciones": [
+    "Motobombas y limpieza de drenes; advertir que el agua acumulada puede estar contaminada.",
+    "Llevar la brecha al COER, a INDECI y a la Defensoría del Pueblo, con nombre y lugar.",
+    "Albergues con baños, techo, agua y luz; registrar a las familias y a las personas vulnerables.",
+    "Alejar viviendas y tránsito de los cauces; vigías comunitarios en las quebradas."
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261111-0513",
+     "titulo": "Huaraz: Vecinos de la avenida Raimondi exigen sesión extraordinaria por inundaciones",
+     "enlace": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPb2VLZFNEaGJBUHJOX0xUVHluclJxZlplN3h2dzd2bFZIblhiZE9VdXA3b1hLMVQ1cVY3Ti1KV0J4R1BEek5aY250OHRrdjBvTV8xb3d3WmlvRE5ody1DTVlpUXhoZXVUNVBMTTlrTGgwR0t5TWZyU05ERWdXX2hPX1RkWlBPaDFJNExUTlVGRWxSM1hzeUYtN1pMQ053VXRTR3MzaDRJRUhyVnBHWHA4N2M5T1J5aXFpZllNX1hUb9IBxAFBVV95cUxOcnV0WGhRQjFwaTlpNTdGSllBWTZqcVhwN3dwejlQT1d5a3BaelpicVladTF3THpacy1ZM2dwYmRuNE94V2diRW0yaEFHY2NoNWs5TE01NTFaYnZsSmRUa24yemJwSzluckhjWF9hQmkyd1FZTThYZElsTV9QSHZKVXozZDM1Tk9iTGk1Z0Fka00xLXZWckw3ZXNNY3NmM0FFSzhTd1JWU1V5aGN2dlJ1XzRzdlM3bFBMVkl6OURwMlI0cGhI?oc=5",
+     "medio": "Ancash Noticias",
+     "fecha": "2026-11-11T01:57:58.000Z",
+     "senales": [
+      "inundacion",
+      "brecha"
+     ]
+    },
+    {
+     "id": "USF-N-261109-0639",
+     "titulo": "Huaraz: vecinos afectados por inundación en avenida Raimondi denuncian reducción de rejillas de drenaje",
+     "enlace": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQdndjZ0FmblA3TmxIRWgxaVhfVUM1TUo5UFAtQ3FkWUE1dVMzQ29tYU5jWVV1Z3BVWXd5MDV3REk4dVg5THNuV3AxczVpUVVUMm5MRDlhZTloV29iWFJfblM4aGNkWW1YY0VKc015NUxMYTIxTGRaVzl0bFNrOFdhaXBQQXpBekRlWVJnR05UTzdkdjNkUExRNjNILXg5Zk0yUDc5b1RpNkg5SVExSzN2VkJKal9xY3JBeVdQeld4Wmwta19PRTVFSEV3YURrTFBpOXBZUmJxN2nSAd4BQVVfeXFMT2JFbnJfVkFHUWtncXVtM0tKdDBzNGg2RjZ3bnZINXhHeV9uS2dIa1Z0WGNzZWdfZTFpVlNXN3ZmTUNoOVYzWHpXZTUtM2ZDb2NrRk1Xcy1XQjVCV04tdjc4dC1ZYWxhbHZtVkhYeEJqQml2NVVfWDE4RnNEMnlfOWwwVlF0UHItTnJQWkYwekJQZjI5R2ZhWmVnbE94WnpPN1ZlZ2VadlNQYks4cGgtUlZ5d1BLOXF0bTVHdzk1R3RSX05UZEl0d3kwTGphVEJDYWJDeUFxZDZJdUFXYUln?oc=5",
+     "medio": "Ancash Noticias",
+     "fecha": "2026-11-09T17:54:36.000Z",
+     "senales": [
+      "inundacion",
+      "brecha"
+     ]
+    },
+    {
+     "id": "USF-N-261109-0641",
+     "titulo": "Huaraz: lluvias y granizada inundan emergencia del centro de salud de Huarupampa",
+     "enlace": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPbW1aV2toMHhHSE9ob3lwMk5SbUI5a3h3V0kyaEhoNEpreTU2NDhyQXdCZGxPenhWTnp6Zk90QzF4aEFIYmpKN3R4VGxheHBTa2R4bnNHc25IN3ZpaF9rUkNqZnJPM0E5bUVRR3lWUUQ1NlpmX0M5SV9RS3hZUFA3b0pYaFJqN3k0dVJXZXdYRGN3TW1XUXdlRHNZUUpsSzl6M3B1RDRiemRjNG5RTDUwLVRBVFNCbXFPNnfSAb8BQVVfeXFMTWc5WW8wRGlZZTdvdFJvZ3NWdk5wQmZjWkZPdlB6ejFleHJCSW9qRzhka2pfMVpZdElBUGFrTFVZMHQyYVozNWxtRU9tM1EtM0ZpVloxN18xQjZDNkdDZjhEaEpta0Rqb2Z6QkZ3dnFPUW5Fb0Y1ZDQ1Tmttd0N6TjRXcm4wWjJWaWNDUGVZR05FazhTNFBJNVNOWVBUUjNWMVJ4U2xZWl9BZlB0RXRMSEQ3bUlsUEFDOW53VTkxbTg?oc=5",
+     "medio": "Ancash Noticias",
+     "fecha": "2026-11-09T16:56:36.000Z",
+     "senales": [
+      "inundacion",
+      "brecha"
+     ]
+    },
+    {
+     "id": "USF-N-261107-0722",
+     "titulo": "Fuertes lluvias e inundaciones provocan huaicos y daños en viviendas, colegios y avenidas en Huaraz",
+     "enlace": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQY2t0VkxTVnVxWkhaYlNYNUduLU1BcjFpSnd3bWRab1VNOGxJb3VnZmhjV3dnc3BxdWFPbmU1MXFMNEFpLVRPWHRjRTZJeW9aNGkwSUxIV3lUU3Z0TWNQTGZkSmxHUW5obVdYWmxfU0l6XzZkR3FyV0hLRWs2Y1ZfY0l1UVFlSElXNlp3VkhQUFo4UGtra3VabjA3Qmxodkx2bXVPaTQyQy1OUWNWNWd0TnNpS05KMkVyR2stc3RacWNieGpXaWtRNndTMnhocDJWZS04MXVTMA?oc=5",
+     "medio": "Exitosa Noticias",
+     "fecha": "2026-11-07T19:07:00.000Z",
+     "senales": [
+      "huaicos",
+      "damnificados",
+      "inundacion"
+     ]
+    }
+   ],
+   "prioridad": "Crítica"
+  },
+  {
+   "nombre": "Huancabamba",
+   "nivel": "distrito",
+   "departamento": "Piura",
+   "provincia": "Huancabamba",
+   "distrito": null,
+   "puntaje": 70,
+   "menciones": 9,
+   "ultima": "2026-10-31T00:07:15.000Z",
+   "tendencia": "estable",
+   "senales": [
+    {
+     "id": "aislamiento",
+     "nombre": "Aislamiento o vías cortadas",
+     "n": 9
+    },
+    {
+     "id": "huaicos",
+     "nombre": "Huaicos y quebradas activas",
+     "n": 5
+    },
+    {
+     "id": "desborde",
+     "nombre": "Desborde o crecida de ríos",
+     "n": 4
+    }
+   ],
+   "acciones": [
+    "Llevar ya víveres, agua segura, medicinas y combustible; asegurar comunicación por radio o satélite.",
+    "Alejar viviendas y tránsito de los cauces; vigías comunitarios en las quebradas.",
+    "Evacuar a tiempo las riberas; vigilar el caudal con el umbral oficial del SENAMHI."
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261031-1077",
+     "titulo": "Piura: Desborde del río Serrán aísla localidades de Huancabamba y bloquea la carretera a la sierra",
+     "enlace": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQRFg3alBlQzBVanlqS1BGVFhKNkFOY1IweW5iZjZ4WkpYT1NZMUFzWHc2WF9nTWxscUlfZElFLVo2d3JnNGZRMTVKZ09oaUx1MUNRWjZMWGFzUmRwOU03bi1ZN0JzNEFYU1NTeVFIY0FmY21BOEFveTZJa2YyMDJRSWlTNmotNXFvTnlTR0c1YzV2WjJaNEFRSFZnbFY4U1QzTW5KTTFDOGlOdWFZVWRLT0dxZHBNNXBXRnE4N28wbDJ3emlJ?oc=5",
+     "medio": "Perú Informa",
+     "fecha": "2026-10-31T00:07:15.000Z",
+     "senales": [
+      "aislamiento",
+      "desborde"
+     ]
+    },
+    {
+     "id": "USF-N-261030-1079",
+     "titulo": "Lluvias extremas en Piura: río Serrán se desborda y deja aislados a cuatro distritos de Huancabamba",
+     "enlace": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNYjFGY3UtRVVPRFF2aGVSZUs1blFUYXJ0UHhYTDVsd1B6LXZkT0JzYlE1S3hIa0ZGNlVHUDBheE1iRnVKQ1h5eFAtR1V4dkZSNDlwdmNkeWRCazZUcTRkQ2NVZVVpZExTUkZENWlrTmFNSUJxUGtqV014RDFWMF9tYzJWRTMxZlJaWElvcURHS1hzdDBzSFFwSHhKWmhGcDFvSExZVmFrMFY4emd6eVFuNEt3?oc=5",
+     "medio": "Willax",
+     "fecha": "2026-10-30T21:36:29.000Z",
+     "senales": [
+      "aislamiento",
+      "desborde"
+     ]
+    },
+    {
+     "id": "USF-N-261030-1085",
+     "titulo": "Piura: desborde del río Serrán deja incomunicada a la provincia de Huancabamba",
+     "enlace": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNM3RUaEhtQUV4Y1hQa1BMcVBtOUxlSVZVQjdlWGZSOVdteE9yTWtTYXhfMkRUMGREREttc3ZCTFYyMDBBVFJmZzU0LXJsb2JKYy1QQUQyTkpIMWRMVDB6OW4wQUpKNW5JdkFQZUxTMGtPb19NblMzUVRkUEtwLUluT1UyU05zSm9sRlpmT0hlRTBnaEFlUzdZYVh3MUxZZGJ2MnNiVDRhUUhKQUpIaFlRT1NTR1lNd0FjVFNFNnVsMklOck1T?oc=5",
+     "medio": "Radio Nacional",
+     "fecha": "2026-10-30T07:00:00.000Z",
+     "senales": [
+      "aislamiento",
+      "desborde"
+     ]
+    },
+    {
+     "id": "USF-N-261029-1103",
+     "titulo": "Piura: intensas lluvias activan quebradas y bloquean tránsito en la vía a Huancabamba",
+     "enlace": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQZXltTHhUV2hrU3F3QlRDV1JBTk5RQnROQlc5Q25CSlJJdlg4Ny1vM2owLTVIcE9LTFNpamI4VXlYNUMtMlI0b1BOU1NlUXZfeFRsRnVnWGxsOHRPTjdWc0NzWTJEcDhZMnZxNEZvTkgyQU5VbEFGQXN4dXZyOHl0aVdZZEJocWl2RHlwQXhySFpIOHRESnZtOWZXY0VyWEY1S2RNQnpuRUdVTXp4YnEteW50QUsteGpxWWVzSkEyRktRSjZSX1pTcnNIQnFzQQ?oc=5",
+     "medio": "Radio Nacional",
+     "fecha": "2026-10-29T18:34:02.000Z",
+     "senales": [
+      "aislamiento",
+      "huaicos"
+     ]
+    }
+   ],
+   "prioridad": "Crítica"
+  },
+  {
+   "nombre": "Casitas",
+   "nivel": "distrito",
+   "departamento": "Tumbes",
+   "provincia": "Contralmirante Villar",
+   "distrito": "Casitas",
+   "puntaje": 53,
+   "menciones": 3,
+   "ultima": "2026-11-14T11:56:54.000Z",
+   "tendencia": "estable",
+   "senales": [
+    {
+     "id": "damnificados",
+     "nombre": "Damnificados, evacuación o viviendas perdidas",
+     "n": 2
+    },
+    {
+     "id": "aislamiento",
+     "nombre": "Aislamiento o vías cortadas",
+     "n": 1
+    },
+    {
+     "id": "inundacion",
+     "nombre": "Inundaciones urbanas",
+     "n": 1
+    }
+   ],
+   "acciones": [
+    "Albergues con baños, techo, agua y luz; registrar a las familias y a las personas vulnerables.",
+    "Llevar ya víveres, agua segura, medicinas y combustible; asegurar comunicación por radio o satélite.",
+    "Motobombas y limpieza de drenes; advertir que el agua acumulada puede estar contaminada."
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261114-0047",
+     "titulo": "Lluvias en Tumbes dañan viviendas y vías en Casitas",
+     "enlace": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQRmVmMXBRcDkxMU52cFNua3hZdm9lZnp5QW5uU1hzUmN6bl9famM5Y016V1RnZlRfbV9FSXhkYzBjb1BKUnhuTnYtRlM0Umk4UkVoaVZHY2Z6cE94cmE2SWFJSkVLZHZ4Q0lTWVhBTks3THZ2R3VKTkJQNngyS282VV9hLVplX01kcVFsTmRBX3UwQQ?oc=5",
+     "medio": "Gaceta Perú TV",
+     "fecha": "2026-11-14T11:56:54.000Z",
+     "senales": [
+      "aislamiento",
+      "damnificados"
+     ]
+    },
+    {
+     "id": "USF-N-261104-0857",
+     "titulo": "🔴🔵La región Tumbes nuevamente sufre lluviasextremas. Las precipitaciones comenzaron en Casitas y Teniente Astete, llegando esta noche al centro de la ciudad, ocasionando el rápido aniego de las calles. 🌐Más información en: https://exitosanoticias.pe",
+     "enlace": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNeW4xRk9udkFJN2c5dThxOWhxbUdFM01XMmsxMXlBZHdfMnRYMF8tYXNLRWhraFVSS0NlYVJlQjJ2eFN3TlNIdUxtazdVcUd4aUhxUklKSUVOYkFxdm53TFV2cnp1Qk9TOUF1cVdiT1JaQUctYThTMDdKM3hiOVRvalFjN0R2R1ExNWRlLXZLaVBnc01vVmdQX1d3TW5sREpvWE14ajctLTlIMXcwd1JZV2lHYllneVkyRVU0ZkdITXVZQ3M4dTROUDRCbFhuUmR3dUtFbVZGNnFLM0wtVTRORF8wejA?oc=5",
+     "medio": "Facebook",
+     "fecha": "2026-11-04T08:00:00.000Z",
+     "senales": [
+      "inundacion"
+     ]
+    }
+   ],
+   "prioridad": "Alta"
+  },
+  {
+   "nombre": "Ayabaca",
+   "nivel": "distrito",
+   "departamento": "Piura",
+   "provincia": "Ayabaca",
+   "distrito": "Ayabaca",
+   "puntaje": 45,
+   "menciones": 11,
+   "ultima": "2026-11-05T08:00:00.000Z",
+   "tendencia": "estable",
+   "senales": [
+    {
+     "id": "inundacion",
+     "nombre": "Inundaciones urbanas",
+     "n": 9
+    },
+    {
+     "id": "brecha",
+     "nombre": "Brecha en la atención",
+     "n": 3
+    },
+    {
+     "id": "huaicos",
+     "nombre": "Huaicos y quebradas activas",
+     "n": 2
+    },
+    {
+     "id": "aislamiento",
+     "nombre": "Aislamiento o vías cortadas",
+     "n": 1
+    },
+    {
+     "id": "desborde",
+     "nombre": "Desborde o crecida de ríos",
+     "n": 1
+    },
+    {
+     "id": "damnificados",
+     "nombre": "Damnificados, evacuación o viviendas perdidas",
+     "n": 1
+    },
+    {
+     "id": "electrico",
+     "nombre": "Rayos y riesgo eléctrico",
+     "n": 1
+    }
+   ],
+   "acciones": [
+    "Motobombas y limpieza de drenes; advertir que el agua acumulada puede estar contaminada.",
+    "Llevar la brecha al COER, a INDECI y a la Defensoría del Pueblo, con nombre y lugar.",
+    "Alejar viviendas y tránsito de los cauces; vigías comunitarios en las quebradas.",
+    "Llevar ya víveres, agua segura, medicinas y combustible; asegurar comunicación por radio o satélite."
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261105-0828",
+     "titulo": "Piura: fuerte lluvia con tormenta eléctrica y granizo inunda calles y mercados de Ayabaca [VIDEO]",
+     "enlace": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNNmNJSUxvUzdjTWJPYkZMbVNicUN1WEk4VTlJNUMwZE8xNTUyTm5GaTNrVFR2ZDFTX19BRnlhM0J5dVU4cW90Wjk4X1Atc1o5SkxLbW5zVWYyNVBfMnhHVlRWWUtFMF9iMW5JdnNWR1FDSlhRWGswUHZtd1dyNXlZVjVaWGRhX0t5SjkxcGRjX18xTGxkekhkZG8wUFpNcnJLNU4wN3J3Q3Q3bTRBcDNvYmNfYmJ0NGRld2xZM19QTUhNeFNOcGFEeUdTbXRKaTNzTmtoOXhvN0I?oc=5",
+     "medio": "RPP Noticias",
+     "fecha": "2026-11-05T08:00:00.000Z",
+     "senales": [
+      "inundacion",
+      "electrico"
+     ]
+    },
+    {
+     "id": "USF-N-261029-1114",
+     "titulo": "NIÑO COSTERO 2026 SE INTENSIFICA: EL RÍO PIURA AUMENTA SU CAUDAL Y LLUVIAS INTENSAS DEJAN PUEBLOS AISLADOS EN AYABACA",
+     "enlace": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQbVdpdzk1ekV6NlRGa19zMmNSdEJTQXNhalFyaGQyU3d2elcwbUx3akNuV0pubm1uTnp6bUJCR0V2Y0RqQkI3STRKRmZwZ01jRjdfNkljMUI4Qzc4c3ZCa0h1MERUWGlDYTRRblZFSGt0TVFWek1neG9LTURMajBtZmUydVVwTHR1T0xWUEZyRUhKMW02Y1RWRWNneFo4WTd4aE02Mlo2MnBNZmhhOExhbWFtelJ5OGhZd1VsT0hDRTZJNUdxblRjZHNKVkdKdnVlVTVyZnVKZ0g?oc=5",
+     "medio": "RCR Peru",
+     "fecha": "2026-10-29T07:00:00.000Z",
+     "senales": [
+      "aislamiento",
+      "desborde"
+     ]
+    },
+    {
+     "id": "USF-N-261027-1198",
+     "titulo": "Piura: Lluvias inundan quince viviendas en Ayabaca",
+     "enlace": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOelZMbmhwbUxPRG52alZNX3R4aElQdW5URzB2ZzBzM01aTWt5VGZvdkYyOGc2U2k2YXgyeGhocjF4N3hMSlNJYVdzbmJxZEs5YXNkZkRPQ2ZiaG1zZF8tbWdxRVF3MFpGYVFibS1KMm5tcnhvWjNVQTg2MVlkdTdDUWlTVDBRekQ1NXhyc3JGVDVpQUhjWGxadEVOdXjSAbABQVVfeXFMT1V2ZVRiQlB4Vk9pRTczZDdmM0dNcVByczFmWEJTZjBGUXFsLWtGbmVDWEdqQ2FOQ3ZUdWZMb2hrWkRqbzVFbUhlXzhjT0lpNGt2MURmMDVyVlBvdVM5NS1xN2tyOVZoODY2TEtreUI5NkRiSVJoenBERzA2Vk9CcjVHWUV3M003SEpQY0g5X0kzX0w0UGZPVkpPQjYwSTVBQ2l6UTNLdlNKY0dCN3hrNjM?oc=5",
+     "medio": "Diario Correo",
+     "fecha": "2026-10-27T07:00:00.000Z",
+     "senales": [
+      "inundacion"
+     ]
+    },
+    {
+     "id": "USF-N-261026-1234",
+     "titulo": "🚨 Alerta en Piura: lluvias provocan inundaciones y deslizamientos en Ayabaca",
+     "enlace": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPTS00dXd4eklkd2pkZFZtT3JfNTlzVmd4bU5teURnekpfWXVYSzkxbFU1RmtlR1pzTU96VDZTdVJTVEExMjM4YjdqWG9VQlY1RU92Z2lEaFRrV1M2SWdkLWNsUkVvQ0hvLThqUmFiN0F6Ymxyd1BYNFZfaWxsdml5QWNIcHVUT3lWbHV6VFNFMGE4Ukt5SFNMNDdxQTNqYkpDX1dsYlNSQ3NKRVhfSDRWM2MwVzNOUGZNZ2RzZ0t3X0I2d3lGb2xzZmhfUDlPWVNteXRXeg?oc=5",
+     "medio": "Facebook",
+     "fecha": "2026-10-26T07:00:00.000Z",
+     "senales": [
+      "huaicos",
+      "inundacion"
+     ]
+    }
+   ],
+   "prioridad": "Alta"
+  },
+  {
+   "nombre": "Yupán",
+   "nivel": "distrito",
+   "departamento": "Áncash",
+   "provincia": "Corongo",
+   "distrito": "Yupán",
+   "puntaje": 26,
+   "menciones": 4,
+   "ultima": "2026-11-05T15:25:32.000Z",
+   "tendencia": "estable",
+   "senales": [
+    {
+     "id": "huaicos",
+     "nombre": "Huaicos y quebradas activas",
+     "n": 4
+    },
+    {
+     "id": "aislamiento",
+     "nombre": "Aislamiento o vías cortadas",
+     "n": 3
+    }
+   ],
+   "acciones": [
+    "Alejar viviendas y tránsito de los cauces; vigías comunitarios en las quebradas.",
+    "Llevar ya víveres, agua segura, medicinas y combustible; asegurar comunicación por radio o satélite."
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261105-0815",
+     "titulo": "Corongo: huaico daña 60 metros de vía vecinal que conecta Yupán con San Juan",
+     "enlace": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNdXdYanFNVWNKUTkxaHpSMmZVdUlzZHhnX2NlNDRMWVkta2FLQXg1dmZPWGVwQ0tIR2JBN0dIb0lPdVdOSUZqaVFKRUJhMklyWjZ4cUdua0tVNFRDTXZaSE9RR3M5R1BHOGZJbWFuWTJ5amxQZFdLYlVqMVZYNEFNZ0lRaUZFZThoODlzNVVudkljeGV1dnZUYVpPUmR2UzVGeXBRTjNuYWJRQV9FdGhvOQ?oc=5",
+     "medio": "luminanoticias.pe",
+     "fecha": "2026-11-05T15:25:32.000Z",
+     "senales": [
+      "huaicos"
+     ]
+    },
+    {
+     "id": "USF-N-261105-0820",
+     "titulo": "Huaico destruye 60 metros de carretera y bloquea el tránsito en Yupán",
+     "enlace": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPMjVYeWxNOWZhSjZuY3NyNVkxTTZfN2hCUmxGQmZvVDBlcTJ4dmZlOHMwOEJzOGlEb043NHZVaFRNRENxNF83S0xMXzV5WTJhdWVFdm14VGRDdW9IWXBWYVdpVHJIZXZZZ2diaHZfcGpjbnVHdFFZR3N1eVpfekliWW1LZUgzSjBWRnVkMnQwaXgxWmxrYmRzQ0NFcWE3T00zZjd5LTBmbUVOcHJY0gGyAUFVX3lxTFBrTFhqdXY3cjQtYWVuTzBfWlRabWY4V0hJYzZDSEtreEtQNjhudTJYWk5zZVV3blFjOENrcEo3OUR5UDl5WHNnYklxWlllYTlJWUxjeU9RRWlMMjY5MjZHQWxMdzZOVjIzaVdPbEVLMnZfdGh6dG44TE9UTDNhMGpjV18ya3lnUFlKeklKSkFrdWc3alpoSWZSMXR0dXNSV1h2NzU3WDJzNl9NNC1ienh4NFE?oc=5",
+     "medio": "Ancash Noticias",
+     "fecha": "2026-11-05T13:20:46.000Z",
+     "senales": [
+      "aislamiento",
+      "huaicos"
+     ]
+    },
+    {
+     "id": "USF-N-261102-0958",
+     "titulo": "Áncash: lluvias intensas provocan huaico y bloquean la vía Yupan–Corongo",
+     "enlace": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQRy1lc0tuTXd0bEFGXzJwT1BjWFlJNnJkLWg3bDk5aThwazNCN183YWd5U2hnSFRLY3Z3Z09Sbm8xeGhEai0tSExnbWJsYkhlWTFmNGRWQWV5VDUwcmR5dlNmV3VCajY4dlRGUGg1VnoxVzNDVW15dkVpVjFycEtOQm5feU1rVFVzSVdMMm5xcHNCd3BNYm10a2pJVm1iSXlKWG55LWRjNllRNURfWWpN0gG0AUFVX3lxTFB4Skdoc1NQWWJhdEVtd3JmdjVBcjFEOE5LSTloc2syRHFKN0pJNVJndUdmVVQtcUtQekZXQjIyMVgzZmdpUUJJUTJDSDNRV2Q0Ui14Und0a1ZlX2JtQWNWZmxuOUNnVVZhblNuTTU2dzUtY0xMV2xwdWdkZnR3LTlQU0hVV05FWFU3NjVMUy1xTUtRNjB1dEZvQW9xRzVKcTZtTTZ2aXNJc3I2dThfLWx5am5NMA?oc=5",
+     "medio": "Ancash Noticias",
+     "fecha": "2026-11-02T18:33:57.000Z",
+     "senales": [
+      "aislamiento",
+      "huaicos"
+     ]
+    }
+   ],
+   "prioridad": "Alta"
+  },
+  {
+   "nombre": "Huarmey",
+   "nivel": "distrito",
+   "departamento": "Áncash",
+   "provincia": "Huarmey",
+   "distrito": "Huarmey",
+   "puntaje": 25,
+   "menciones": 3,
+   "ultima": "2026-11-12T15:50:22.000Z",
+   "tendencia": "sube",
+   "senales": [
+    {
+     "id": "dengue",
+     "nombre": "Dengue",
+     "n": 2
+    },
+    {
+     "id": "huaicos",
+     "nombre": "Huaicos y quebradas activas",
+     "n": 1
+    }
+   ],
+   "acciones": [
+    "Eliminar criaderos, fumigar, vacunar y reforzar la atención de fiebre.",
+    "Alejar viviendas y tránsito de los cauces; vigías comunitarios en las quebradas."
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261112-0384",
+     "titulo": "Huarmey: Aumenta a 37 casos de Dengue en la provincia y región registra un total de 2,168 casos",
+     "enlace": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNNkMzTnk1YzNJWWRiTkVmQ1VSZTU4MDFSUm5USzVPc3U3THJ6U0tnVmcydlE4RThUdEZtYVFxOTdZV1NmQ21maEdWNk5KNDR6ci1KR29Lc2FoRlROSnF1UVYxUlJMdk1QVGU1VWdHbXNqZ0h4TXBFU3hjZ05aaFVYVHhnNkU2TEFOQnZhYUF5SlNBYlN5ZGU0T0JmNk5RSUdySWh2SF9ycHdHOFFDQkhNMUpQbjZXR1d4enc?oc=5",
+     "medio": "Ancashaldia",
+     "fecha": "2026-11-12T15:50:22.000Z",
+     "senales": [
+      "dengue"
+     ]
+    },
+    {
+     "id": "USF-N-261029-1126",
+     "titulo": "Áncash: reportan dos nuevos casos de dengue en el casco urbano de Huarmey",
+     "enlace": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQNjhEOUc2UmFLRHQ0WVhQTjZlMlBvZkJtWktJVUtzdm5ZNWVIWU83M0JOaDgyQ0NKeTAyUVgwVmdMaVVQWmJsZnJ2MFhHbk5acEZ4bkVRbExyb3p3ZlAyZ1c1clpkenFidnBVVTl6Y1lqNGpiSGpvMEwxaUx5emdHWTF0OU1HZmFBa3gxa1lSMlJvdFV6VU9qMWpQcmRNNVpGQko4?oc=5",
+     "medio": "Radio RSD",
+     "fecha": "2026-10-29T07:00:00.000Z",
+     "senales": [
+      "dengue"
+     ]
+    },
+    {
+     "id": "USF-N-261020-1462",
+     "titulo": "Áncash: derrumbes de rocas por lluvias afectan dos vías vecinales en Huarmey",
+     "enlace": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNQTdoby1xZTJUR2thLVFhUnZQbVFyV1kxZFlROGxIM2RiczNkV0tRMVVseXVZRzRnTnhwSFhYM0QyVlNWbzA2bTI0YVpSeHFoRGFlQmxxcmdXS0YzQ29HMTd2VFZpUC1RdDVKUUZwb2wxaUt0cEZGNWV2Z2lnVUl0a2hmUXpYckc4SUFJM0hSUEJ1b29ka3QtTU5KXzNwUmxjWm5sQWRVMA?oc=5",
+     "medio": "Radio RSD",
+     "fecha": "2026-10-20T07:00:00.000Z",
+     "senales": [
+      "huaicos"
+     ]
+    }
+   ],
+   "prioridad": "Alta"
+  },
+  {
+   "nombre": "Amashca",
+   "nivel": "distrito",
+   "departamento": "Áncash",
+   "provincia": "Carhuaz",
+   "distrito": "Amashca",
+   "puntaje": 21,
+   "menciones": 2,
+   "ultima": "2026-11-12T13:57:49.000Z",
+   "tendencia": "sube",
+   "senales": [
+    {
+     "id": "huaicos",
+     "nombre": "Huaicos y quebradas activas",
+     "n": 2
+    }
+   ],
+   "acciones": [
+    "Alejar viviendas y tránsito de los cauces; vigías comunitarios en las quebradas."
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261112-0392",
+     "titulo": "Áncash: deslizamiento por lluvias restringe el tránsito en vía vecinal de Amashca",
+     "enlace": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNQTZnSmw2eGtWN3lBTkYwOGlmUEY2UTJxNUFQR1dWakg2NlU2VFd5SEtEeUhaZUVXQWM4OWpwWDBxMDRFV1BqVVgyWGg2RDBMNFJYVlZUZXVNR2xMbXR3WVdTZWlMMDMzQjl2a1REYmZ4UFJpQ1VYVHljYWJtZlRPU01rWENFd1hnRERhUnZWU2VoREh4LUZBX3lfcE9sMkcwYTdkTEpVTENDRGhVa0xEYTRkamRCY0VGUXZ30gHAAUFVX3lxTE1Rbmp0RVQ2MDlDU3M1QTNSYUw5T2NOQU5VV0MxWDdzcFR1T0FFQnowM1ZYUG4xcTNxdVdlWVhqTjd4WFBQbVlldEpyc2RNN3BCajJHRllyTHRDdWRydDh0SkJwaVVDTUsyOTM0T3B1Nl9UR3ZhcEVHOWl5SzFFWExfTHNSX29BNUN2dm5EX1JyTm5ZYjI5SnJYbmJIZGVkQnZiU0l4aW1GM040b0V6RE5lUGJGRFNXVWMzZFZWdkE1bQ?oc=5",
+     "medio": "Ancash Noticias",
+     "fecha": "2026-11-12T13:57:49.000Z",
+     "senales": [
+      "huaicos"
+     ]
+    }
+   ],
+   "prioridad": "Alta"
+  },
+  {
+   "nombre": "Sullana",
+   "nivel": "distrito",
+   "departamento": "Piura",
+   "provincia": "Sullana",
+   "distrito": "Sullana",
+   "puntaje": 19,
+   "menciones": 3,
+   "ultima": "2026-11-14T13:56:11.000Z",
+   "tendencia": "sube",
+   "senales": [
+    {
+     "id": "dengue",
+     "nombre": "Dengue",
+     "n": 1
+    },
+    {
+     "id": "brecha",
+     "nombre": "Brecha en la atención",
+     "n": 1
+    },
+    {
+     "id": "agua",
+     "nombre": "Agua potable y desagüe",
+     "n": 1
+    },
+    {
+     "id": "electrico",
+     "nombre": "Rayos y riesgo eléctrico",
+     "n": 1
+    }
+   ],
+   "acciones": [
+    "Eliminar criaderos, fumigar, vacunar y reforzar la atención de fiebre.",
+    "Llevar la brecha al COER, a INDECI y a la Defensoría del Pueblo, con nombre y lugar.",
+    "Agua segura (cloración, cisternas) y reparación de desagües.",
+    "Avisar de tormentas eléctricas y revisar cables y postes expuestos."
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261114-0024",
+     "titulo": "Piura: Hallan llantas y piedras en buzones de desagües en Sullana",
+     "enlace": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxONE1ieVZ1R2JwNWpEbU8wRDdDUEdxWHN3Q29hVk9pTDBNZktISXNsX0hDUndjbVJYZ28weEU5TnlDWWQxYlFwRnNCTTQyTUROZ3JsYkJnd0pTMjlBc1dsYkpuQzVkU2poRU5DZGpQSGpqckZXWm84MDBpVUQtRmFyaXJ1aEQtMVJWMmNoZ2J0R0FXamVMcEVGU1JDRnlJN0YwN0h4dUY5RVHSAbwBQVVfeXFMTXRsQklXY1lfR05CMHBIR0ptYUF3YTRoZ2tnZ1l3bmwzeEdJbHdkandKUi1Wc2s1X0c4ZHdiUVhDNjVJc0NmMnNpZUJEenVLU2VGQkRHd3IzOGNvMXdMa0w5cVFaTU1UNUo5WmRneVRSMWhxMVRlblc4OEdoa0xwcC1OcGZGTzMxSUtKNVlUSm1MZHJScmNFSnJKX2VNbldEV0JWOTlVQXk1SElLVGkyZlA3TFZQZWQ4M2dkVDI?oc=5",
+     "medio": "Diario Correo",
+     "fecha": "2026-11-14T13:56:11.000Z",
+     "senales": [
+      "agua"
+     ]
+    },
+    {
+     "id": "USF-N-261103-0898",
+     "titulo": "Sullana: falta de fondos amenaza el control vectorial del dengue",
+     "enlace": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPUjJuWlV1U0hSU2tTMWo2bmZlTTF4NnlfUlR3UC11TG41ck5EN3UzWThxUU5GRFdZQzFRLUg1SW1Fa3BJMVNrU2ZrQkJHR2puZVlWLXF1cHF4eVRpNmZueTVDbHkzYm5zYnRQQmo3U0NXdGk0VHhLME8yM2t5S1JoVVNZZENSN0dTaDgyZExVR0xMalB3VXc?oc=5",
+     "medio": "Noticias Piura 3.0",
+     "fecha": "2026-11-03T15:54:04.000Z",
+     "senales": [
+      "dengue",
+      "brecha"
+     ]
+    },
+    {
+     "id": "USF-N-261019-1492",
+     "titulo": "Piura: Lluvias ocasionan cortes de luz en Castilla y Sullana",
+     "enlace": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNRldPMGdvX0pYb3J6LUtLakRwRE1vaG03eXF4dGxnTTFha1JFSm5ucUFFSndCWWhTcm1uSDBmNzNwQmY4VWl4d2JvU1p2ZzBNTlpQdnlZZlMyZUxrWVk1NjJ3VjZlNUZTZUw1VkplN1dBLWlvVDJXeGtQencwSFQ5OWpfLVVpUGhmUFJTaDU1Wks?oc=5",
+     "medio": "Noticias Piura 3.0",
+     "fecha": "2026-10-19T07:00:00.000Z",
+     "senales": [
+      "electrico"
+     ]
+    }
+   ],
+   "prioridad": "Media"
+  },
+  {
+   "nombre": "Yungay",
+   "nivel": "distrito",
+   "departamento": "Áncash",
+   "provincia": "Yungay",
+   "distrito": "Yungay",
+   "puntaje": 14,
+   "menciones": 2,
+   "ultima": "2026-11-09T19:07:30.000Z",
+   "tendencia": "baja",
+   "senales": [
+    {
+     "id": "huaicos",
+     "nombre": "Huaicos y quebradas activas",
+     "n": 2
+    }
+   ],
+   "acciones": [
+    "Alejar viviendas y tránsito de los cauces; vigías comunitarios en las quebradas."
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261109-0635",
+     "titulo": "Yungay: restablecen tránsito en Llaulli y Yuracoto tras huaico que dañó 40 metros de vías",
+     "enlace": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNMnZWWVRjU3hTWEtiV0hJdUZMZThMZnQxVWhJcGtIQkk5M2haSDI2UlNleHpXTldXbWE2bzhJNGFRcGMwV0FLeHlEY2h1LUpFOWJUMGlvWXJxQnJjdjlPeEdfRmhQcExGYnVqMEtiWkF4MVZUTndCTFFVd0RPVXB1ZDZPOW91cXh3SlRCUWxHdklQUUcxcU9PcFVTd2VkVW9VOGtXUi0zNW1mdWVMMTlIdDVRZ1pJSFpnamo3MUpLb2xQaGRMOFHSAcsBQVVfeXFMTjJkTHBPajdvTVVKS3piSEt6Z2pwVW1WMlBqaDBxczgtdzZZLWRKMVlueFpiZmktb3BZTTdXT2YyTFFfVGRadWtLeGdQT2NIWTVyRFNZNFc5V0VKRzc2cHBWenhRa25CUFBiaXJNd0lGVVRNVFFfejV5M1NWZmhydG1hVnBES3BHX2g3TjVvQTc0Y01YeWFMU3gzc2VPaElJMEpHMlBRSDdkdW1mc1pYVUNmU21lejgwbjRCQkdQS3VlMzRqQjltZmUzMkE?oc=5",
+     "medio": "Ancash Noticias",
+     "fecha": "2026-11-09T19:07:30.000Z",
+     "senales": [
+      "huaicos"
+     ]
+    },
+    {
+     "id": "USF-N-261026-1271",
+     "titulo": "Deslizamiento afecta 15 metros de vía vecinal en Shupluy, Yungay",
+     "enlace": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQNWE3MTRyRUVVMjYtQnRxclpJbFBIblYxRXBObEI3SnhxTmhPTEw4RkJOcTB6RmFHRFlfdjdXYUdfbGNkazdfelNJZS1DTEt3Sy1XMFpCRVRQYTVaXzBCLS1tckhyQ3VqWGhTUW13ZzBpM3pIRkJuSHdTNE5aSHhfZWVLcXNEN2FNc2IwM2swd1VtNGJjZGtqWTdFQ0RTLXNlQXJiWm9Kcw?oc=5",
+     "medio": "Diario de Chimbote",
+     "fecha": "2026-10-26T05:44:40.000Z",
+     "senales": [
+      "huaicos"
+     ]
+    }
+   ],
+   "prioridad": "Media"
+  },
+  {
+   "nombre": "Chulucanas",
+   "nivel": "distrito",
+   "departamento": "Piura",
+   "provincia": "Morropón",
+   "distrito": "Chulucanas",
+   "puntaje": 12,
+   "menciones": 3,
+   "ultima": "2026-10-20T07:00:00.000Z",
+   "tendencia": "estable",
+   "senales": [
+    {
+     "id": "inundacion",
+     "nombre": "Inundaciones urbanas",
+     "n": 3
+    },
+    {
+     "id": "damnificados",
+     "nombre": "Damnificados, evacuación o viviendas perdidas",
+     "n": 1
+    },
+    {
+     "id": "brecha",
+     "nombre": "Brecha en la atención",
+     "n": 1
+    }
+   ],
+   "acciones": [
+    "Motobombas y limpieza de drenes; advertir que el agua acumulada puede estar contaminada.",
+    "Albergues con baños, techo, agua y luz; registrar a las familias y a las personas vulnerables.",
+    "Llevar la brecha al COER, a INDECI y a la Defensoría del Pueblo, con nombre y lugar."
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261020-1439",
+     "titulo": "🔵⚪ Una intensa lluvia inundó Chulucanas, Piura, afectando calles, el Mercado Modelo y viviendas de varios sectores. Las precipitaciones provocaron pérdidas para comerciantes, dificultades en el tránsito y daños en hogares debido a la falta de drenaje pluv",
+     "enlace": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxPdzIwZVpBNzBydjgtWG81dEtYYnhYY1RsY1o1dnZ5RGFaeHpjNU54U1hrd0RKc0dVbm9ZR25NeWtaSW1hQTZIWFJpdzJFaXItbTFQLTBvTjFJWEdxWkl1ZHJYOFJBWHRyTXVHZENRd3ZOYWlkb29ER0RydmtIZ09ONHVCWDZDSWdXVl9mQUI3YlphSnlwYWM3TnBCLWk4a1JfYUlFVVR3aFdkMDh1MGlpTE0xcU5kTnZwMHFVRWZUVmNEYnhGN0xyamo3eFpLWjdNZ1JqR1VKS3BvdmFfcVpPa05NOA?oc=5",
+     "medio": "Facebook",
+     "fecha": "2026-10-20T07:00:00.000Z",
+     "senales": [
+      "inundacion",
+      "brecha"
+     ]
+    },
+    {
+     "id": "USF-N-261020-1453",
+     "titulo": "Piura: Lluvias frenan la procesión del Señor de los Milagros en Chulucanas y dejan calles anegadas",
+     "enlace": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQYmNaRUdiWkVkQVIzZXYwMloyYlA2VVV6cFhhNzhSMENGUkJoSGRtc2gyNUM4TWxSUkpiM3ctajJtTXdNSG9CbV9haVRjdGNTTHpMemlxSDhWajlpS2FRWV9BSDRBU2w5U1RoUWNPWXIza1N6eS1FcENCaVRsUDBUOGxkMmVQNkxhcWFNa0JMd1d3MU5VQlZkUXdUYTlLUWo5d01sZjMwWE00LS1zamZnMFNRcU1qSHZaS3dZMWwxUmZCNzJPQURlVllwWUtBSS1VeFBRTtIB7wFBVV95cUxOU2hTTGUzY1RQNlFGMzY1NVNQc1NiNG1NLW9XeWc2YWxKMXg2dGtSQU96MHFBUzl1R2ZNbWFUQlEwUXdaRVUwLVFDdGpzTnRwaWZnMjBlYTNWLTRXSlNEY0RGWVVHTUFaVEhlVEQ1YXl3VnZGdHJUVHN1NFNuNUNsUkNuNVUySXNmdGNJU1lkWGdVb1d4ektKa3FyYWRVYmpvZ2dzdXpsY2pNNEJNaHBLWm1CSEJtaGp6X2stUk1zNUlVd0JsZ094VURiSEEzdDJEaVQ4WDFBWEFPSlBDbmVPeGEyYWgyTVpOVjYzWkZPUQ?oc=5",
+     "medio": "Infobae",
+     "fecha": "2026-10-20T07:00:00.000Z",
+     "senales": [
+      "inundacion"
+     ]
+    },
+    {
+     "id": "USF-N-261020-1454",
+     "titulo": "Lluvia torrencial de más de tres horas inunda Chulucanas y afecta viviendas y comercios",
+     "enlace": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNY1A2R244VjNzUGZUTWFTOXVKckQxMTZ6Tlpsc1h5dDRKTDEta3FfXzVEMXQ0c2dMdHVVTzhfdEtwTllyNHI4RTNJbnBnbXZKWm9FMHZTa3JTN3h2dUp3QW9OQlRSOEFrandYNjd5enItWGN5eW1TTTMwb010VXIwWUcxUDRzNF82ZEc5Tjd4QzBzcmV5SG93SmVoTjhfMWUyVVRya1ZLX2RXUk1VTmgxWGRQX2xSbnhKUEk5M0ExaThmZzI1Uzhn?oc=5",
+     "medio": "Agencia Andina",
+     "fecha": "2026-10-20T07:00:00.000Z",
+     "senales": [
+      "damnificados",
+      "inundacion"
+     ]
+    }
+   ],
+   "prioridad": "Media"
+  },
+  {
+   "nombre": "Matacoto",
+   "nivel": "distrito",
+   "departamento": "Áncash",
+   "provincia": "Yungay",
+   "distrito": "Matacoto",
+   "puntaje": 11,
+   "menciones": 1,
+   "ultima": "2026-11-07T23:28:36.000Z",
+   "tendencia": "estable",
+   "senales": [
+    {
+     "id": "huaicos",
+     "nombre": "Huaicos y quebradas activas",
+     "n": 1
+    }
+   ],
+   "acciones": [
+    "Alejar viviendas y tránsito de los cauces; vigías comunitarios en las quebradas."
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261107-0715",
+     "titulo": "Yungay: huaico daño 40 metros de vías vecinales en Matacoto -",
+     "enlace": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPR1pTNnp2cXRkaEVZQktmUVpUVEFTay0wYlJFb0k1UmhMb3ZBbkQ0OXBwQnYyNVJJVjlYLUtuU2hPb2w1LXRIempJRGI1Z1ZuRVVKSUZESElQelpoMk1ma1UwT0tESmlQN0NEQWhNclM5bTk5cnFuREtLM3ctSU9XcnhOQ0dwWHpHNFUxTWh0aUhNaDBqb2ktY1Rn?oc=5",
+     "medio": "luminanoticias.pe",
+     "fecha": "2026-11-07T23:28:36.000Z",
+     "senales": [
+      "huaicos"
+     ]
+    }
+   ],
+   "prioridad": "Media"
+  },
+  {
+   "nombre": "Villa El Salvador",
+   "nivel": "distrito",
+   "departamento": "Lima",
+   "provincia": "Lima",
+   "distrito": "Villa El Salvador",
+   "puntaje": 11,
+   "menciones": 2,
+   "ultima": "2026-11-06T16:58:15.000Z",
+   "tendencia": "estable",
+   "senales": [
+    {
+     "id": "inundacion",
+     "nombre": "Inundaciones urbanas",
+     "n": 2
+    },
+    {
+     "id": "agua",
+     "nombre": "Agua potable y desagüe",
+     "n": 2
+    },
+    {
+     "id": "damnificados",
+     "nombre": "Damnificados, evacuación o viviendas perdidas",
+     "n": 1
+    }
+   ],
+   "acciones": [
+    "Motobombas y limpieza de drenes; advertir que el agua acumulada puede estar contaminada.",
+    "Agua segura (cloración, cisternas) y reparación de desagües.",
+    "Albergues con baños, techo, agua y luz; registrar a las familias y a las personas vulnerables."
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261106-0770",
+     "titulo": "🔵⚪ Las intensas lluvias siguen causando estragos en Lima Sur. En Villa El Salvador, específicamente en el Sector 1, Grupo 1, el colapso del sistema de desagüe afectó a 50 familias, cuyas viviendas quedaron inundadas con aguas residuales que dañaron m",
+     "enlace": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNZHNJOTlWM2ZCT3Nqd1l3dWI2X0R5S3BWZnl3SlIyX1R0TTlVVUVOU1I2OHBKbFktenJ1TU9HMEF2eGdrUlp0UFJoSnhuYk1CVUowMFJJRXBPZ0VOU2VveWNGanQwQS1SSFRPX1lUZVVzeC1OZGlQM2ZGb0N5bDFoMDAxZEwxVEIxOVRFbjN2TVUtZnlpWElESzNnM0VNQ2F3Smk1UDVuMnZyMkFHSVVVWkpQS3FRaW93OWN4Ty03UXlhQXA1RF83VndXSldWemp6SlRpbkhxZE9xQzV4?oc=5",
+     "medio": "Facebook",
+     "fecha": "2026-11-06T16:58:15.000Z",
+     "senales": [
+      "damnificados",
+      "inundacion",
+      "agua"
+     ]
+    },
+    {
+     "id": "USF-N-261105-0829",
+     "titulo": "🚨 Villa El Salvador bajo el agua: colapso del alcantarillado afecta a decenas de familias en Lima Sur tras persistente llovizna",
+     "enlace": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNZXltQ0gtYV9QT1dpLTlCNE91YTlCbFpIbnZBZWpJeUM2Q2RGdW8tLVRpN2YyV2s4YThlaFJ3NEJ2Umk2OFpOYVdqMm9uYmNXdDdDQlM3RDBkeHdnSGNCVFI5NENfaHFlRFV2T1phNU1DWTgxcFdMYkFNYV9FOVdJZmRrNmdlc2MzeXU2bGQ4b2NrWUZKX1NSeGNrRXlZbDhiRGJiTGtkU3VDUW5uLUFpYW5TZm82TEd2OENkT2lmVjl5Rng5ek9xR3MwdWh2YjR3Z2pvWWZxWXRaTVhV?oc=5",
+     "medio": "Facebook",
+     "fecha": "2026-11-05T08:00:00.000Z",
+     "senales": [
+      "inundacion",
+      "agua"
+     ]
+    }
+   ],
+   "prioridad": "Media"
+  }
+ ],
+ "departamentos": [
+  {
+   "nombre": "Tumbes",
+   "nivel": "departamento",
+   "departamento": "Tumbes",
+   "provincia": "Tumbes",
+   "distrito": null,
+   "puntaje": 220,
+   "menciones": 38,
+   "ultima": "2026-11-13T21:55:39.000Z",
+   "tendencia": "baja",
+   "senales": [
+    {
+     "id": "inundacion",
+     "nombre": "Inundaciones urbanas",
+     "n": 24
+    },
+    {
+     "id": "damnificados",
+     "nombre": "Damnificados, evacuación o viviendas perdidas",
+     "n": 13
+    },
+    {
+     "id": "huaicos",
+     "nombre": "Huaicos y quebradas activas",
+     "n": 9
+    },
+    {
+     "id": "desborde",
+     "nombre": "Desborde o crecida de ríos",
+     "n": 3
+    },
+    {
+     "id": "brecha",
+     "nombre": "Brecha en la atención",
+     "n": 3
+    },
+    {
+     "id": "electrico",
+     "nombre": "Rayos y riesgo eléctrico",
+     "n": 4
+    },
+    {
+     "id": "aislamiento",
+     "nombre": "Aislamiento o vías cortadas",
+     "n": 1
+    },
+    {
+     "id": "agua",
+     "nombre": "Agua potable y desagüe",
+     "n": 1
+    }
+   ],
+   "acciones": [
+    "Motobombas y limpieza de drenes; advertir que el agua acumulada puede estar contaminada.",
+    "Albergues con baños, techo, agua y luz; registrar a las familias y a las personas vulnerables.",
+    "Alejar viviendas y tránsito de los cauces; vigías comunitarios en las quebradas.",
+    "Evacuar a tiempo las riberas; vigilar el caudal con el umbral oficial del SENAMHI."
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261113-0120",
+     "titulo": "Tumbes pierde casi el 70% del agua que produce y reservas cubrirían menos de medio día ante una emergencia",
+     "enlace": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPQ1h2ZW9yemhwNjFteHdRa3VpSjlCMjFnNUVmblVXYkRra2xZeWVOVzVybVZZWGhxSzhtN1o1QlhCN0szdHh0OFBhR21uRElHQWhRNUNMT01pUkV4Qk9FTllGRmY5TU9HSDlJTGk4ZDA1M3dNWmhrTEpCZmpjNTZiMUQ2RVpZS2QyUXA1ZTdZemROcmx6RW9ZR1BNZHBkTWpTVzBfMmFkYUFaMGlyYlQ3WHRZd0s0RmtVRjFVU0NQVHdkblJQUlRXd2NyekdVdVBsbkJyYQ?oc=5",
+     "medio": "Revista Economía",
+     "fecha": "2026-11-13T21:55:39.000Z",
+     "senales": [
+      "agua",
+      "brecha"
+     ]
+    },
+    {
+     "id": "USF-N-261112-0423",
+     "titulo": "Fenómeno El Niño en Tumbes: lluvias causan daños en 20 viviendas y afectan 1.5 km de vías",
+     "enlace": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQS2VaZERqSURCN0wtbTJEU0pOZkE3Y2xsUXJXMUF6SHhQTlZ2VW5UbWFjLUhmV0dUeGFoODRUc1ZOZ05aandpZ2ZOV0p0Y0dWWWYwWHRveUtDQTJ2NUk5YjFvQ2JqU1NLM083aWF1REtCSXVxZXQyaWNDMzREWTYzODdRZFQyZUJwMkV5eWpHelVyakhCTWdnR3A5WGRCeW4xMVBUZEtoR3hHLUJwajh4ZEVydGZ6a2lDdjZNaXRLNA?oc=5",
+     "medio": "Agencia Andina",
+     "fecha": "2026-11-12T00:55:37.000Z",
+     "senales": [
+      "damnificados"
+     ]
+    },
+    {
+     "id": "USF-N-261111-0480",
+     "titulo": "Lluvias intensas en Tumbes activan quebrada, dañan 20 viviendas y afectan 1.5 km de vías vecinales",
+     "enlace": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNY0dCbVdXaTQySWVnREJhbU43ZDA0QVl5ZkJQdGplTXl6ZDc1VTFhV3NXQVZkR2M2aksxMjg1eTdMUWxhYjBpNlBNOU9ObXBROVVuWUFLRXUtcnF0by16eEFJUFRhS29FWTNTQWhHZjFqT0dMTVNtbXpkd1JyUXU3RGtxbHMtdUJOaHoyREEtME1FQWk2MDRQbmtKNU9SbWg5YUM2RnpyX2pFSlhYU2drazgzWFJNRURBZnpqZTJiRE42V05vZUJtWlNzV0UzU2pIQ2VBZ3RHNGlYRmlKamFR0gHkAUFVX3lxTE5ta1BTYmE0SkJseG1GeEVPNm1tNUxCakFreFRvQnlWc1czU0R0dnhhdUJBWHBjOXktR28zcVJaN0YyYnZUVWtJRjJ4QVprNFozUmp3XzhJRXhCN2ZLZ19pdGpodFl4TWJodmtvcXlZMTVmbDZNMTh2OUk3bk43RmN6V09jVXgyZVd0YWp3U2VHX1otX3d2UzVyejU3WjlLYXNOTlZlVnpLUkNSMXZ5dEpqZjJreEZtOGNocW1tRHplNkFXZk1GdDVkN3FRdFdoSGlZX1JWYnVTX0NuaGozazJBSC16Vg?oc=5",
+     "medio": "La República",
+     "fecha": "2026-11-11T15:05:43.000Z",
+     "senales": [
+      "huaicos",
+      "damnificados"
+     ]
+    },
+    {
+     "id": "USF-N-261109-0649",
+     "titulo": "Hospital de campaña en Tumbes termina inundado tras intensas lluvias",
+     "enlace": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9uUjFYRmt5LWlEbzJZRTN4YUU1NGZhcGRrMzZiZ3hVUVVvMEFSX053Y0w4d19jMXhjS0hqWC02S1dScms3U0FlMlpUZ3pTOUoxNHZNS3ItaE1wXzR6c2RmZFM4em15cEhlVEZ2RmRDRUxwbm5KalFn?oc=5",
+     "medio": "ATV.pe",
+     "fecha": "2026-11-09T15:44:56.000Z",
+     "senales": [
+      "inundacion",
+      "brecha"
+     ]
+    }
+   ]
+  },
+  {
+   "nombre": "Áncash",
+   "nivel": "departamento",
+   "departamento": "Áncash",
+   "provincia": null,
+   "distrito": null,
+   "puntaje": 120,
+   "menciones": 18,
+   "ultima": "2026-11-13T19:12:38.000Z",
+   "tendencia": "baja",
+   "senales": [
+    {
+     "id": "dengue",
+     "nombre": "Dengue",
+     "n": 14
+    },
+    {
+     "id": "damnificados",
+     "nombre": "Damnificados, evacuación o viviendas perdidas",
+     "n": 2
+    },
+    {
+     "id": "brecha",
+     "nombre": "Brecha en la atención",
+     "n": 1
+    },
+    {
+     "id": "inundacion",
+     "nombre": "Inundaciones urbanas",
+     "n": 1
+    },
+    {
+     "id": "agua",
+     "nombre": "Agua potable y desagüe",
+     "n": 1
+    }
+   ],
+   "acciones": [
+    "Hay muertes u hospitalizados: reconocer signos de alarma, referir a tiempo al hospital y asegurar camas, hidratación y sangre.",
+    "Eliminar criaderos, fumigar, vacunar y reforzar la atención de fiebre.",
+    "Albergues con baños, techo, agua y luz; registrar a las familias y a las personas vulnerables.",
+    "Llevar la brecha al COER, a INDECI y a la Defensoría del Pueblo, con nombre y lugar.",
+    "Motobombas y limpieza de drenes; advertir que el agua acumulada puede estar contaminada."
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261113-0148",
+     "titulo": "Áncash: intensas lluvias inundan calles y...",
+     "enlace": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPVWNieXBSZG1DYVJwTXQ4MjN3dWtwREhSYmF1cjBEYW9rRTdMMnN5SmVjM1VZMTFCTldSV09GdVFVNzV6WGZrUjkzZ2hpV3N6elZ0YmZkZkdxUS0tWDNKbmtfMVBlckVYNnJIdTJmNkx2RTlMRVFoUVA5ZlFDSDhCdDlVU0lEdmdNRjJYS1VLeFFkVVB1YnJTdU8ycnpYX0xXQU01S0V6aDjSAa4BQVVfeXFMUEZWWW1SWUc4UDNfZURkZHRPZFJENGpqYjl1clFpdWdjbEd6TUlGaXZmOEdyVzREdWExQUU0Y05MWENKZ3Z5VUVtR3BMdUV3MVcwLVEyS2ZhTG53czNuV3ZWaFhkMjBqUUhic2dZS0hhN18wZm9XdmdkempXQmRWbXpwQVQ4VEhhSkQyX0IyVWlfRmJCOFRrQ0hWV3NWanF6ZkVxYXJCRmlVeklWa0VR?oc=5",
+     "medio": "Panamericana TV",
+     "fecha": "2026-11-13T19:12:38.000Z",
+     "senales": [
+      "inundacion"
+     ]
+    },
+    {
+     "id": "USF-N-261112-0359",
+     "titulo": "GRAVE | Se confirma cuarta muerte por dengue en Áncash",
+     "enlace": "https://news.google.com/rss/articles/CBMilgFBVV95cUxONUl6QXJPX0FEaGJxc2dpa1RyYW5Yek1qRlNDR3BXcUd6cl92bGRISUhVRFZMR19QeG1nUm5TdkVSekpSZFhCcHFZWllBbjFvaGFIaU5KZVVBNHdibTNrOWVnb1B6SEpqWGRyajB1TUFXZ3JmaU5taExQMTFQNTBGSXJqbVA4NHlfYlRmaU5QcUJqYldHalE?oc=5",
+     "medio": "Radio RSD",
+     "fecha": "2026-11-12T18:22:36.000Z",
+     "senales": [
+      "dengue"
+     ]
+    },
+    {
+     "id": "USF-N-261111-0502",
+     "titulo": "Áncash: aumenta a tres las personas fallecidas por dengue en la región",
+     "enlace": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQMmluZFdZTGtpLWFSWHJ6MG84OVZVSm1qNE1SZklQcm9MbWNycVdDcElzdy1kd0dTSTNwbkQ4REZEbXJBR3RXN3JldzM4Z2w0YV9mV2I1YkpXaWZTOG12UlZNVVUxYlVrNjZmeWlDeDA5SXBZZU5qbk1hUGRLcWZQeGpkWGxHbERQUlp4VE1JT0QzeExraE5nMTB6NmZ1LTh6a0RtTWwwWnlyRkg1bkE?oc=5",
+     "medio": "Agencia Andina",
+     "fecha": "2026-11-11T11:03:19.000Z",
+     "senales": [
+      "dengue"
+     ]
+    },
+    {
+     "id": "USF-N-261110-0548",
+     "titulo": "Temor en Áncash: registra tercer fallecimiento por dengue y refuerza la fumigación en zonas afectadas",
+     "enlace": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOeWNhQk1hQ2FTSVRpblZscnM1b1Fja0dad25Ja214UU11cXRUTkJSMVVwdkJvNUdGTDhXZTlDcU5zemVka1lfVWdYM0ZWU3dsRGU1ME9ZMmptRDYxeTRnS1lCYXM0VEdZcFM1MWtJQlp2TVBmX3RyYjZ4TUJ0M2ppRE5DZ2lNVXVDa1Zpc3NlOUVsUGlySGJQZFFocmhGbmFzRXU1eTFDSXNCNGtTc3JnNzJQV3RyQTg0bFp3ckdMVjlVMHhpM2dsTE5qaXUwd3JrcEJR?oc=5",
+     "medio": "Exitosa Noticias",
+     "fecha": "2026-11-10T19:30:00.000Z",
+     "senales": [
+      "dengue"
+     ]
+    }
+   ]
+  },
+  {
+   "nombre": "Piura",
+   "nivel": "departamento",
+   "departamento": "Piura",
+   "provincia": "Piura",
+   "distrito": null,
+   "puntaje": 105,
+   "menciones": 24,
+   "ultima": "2026-11-14T11:53:16.000Z",
+   "tendencia": "baja",
+   "senales": [
+    {
+     "id": "inundacion",
+     "nombre": "Inundaciones urbanas",
+     "n": 14
+    },
+    {
+     "id": "brecha",
+     "nombre": "Brecha en la atención",
+     "n": 5
+    },
+    {
+     "id": "dengue",
+     "nombre": "Dengue",
+     "n": 3
+    },
+    {
+     "id": "agua",
+     "nombre": "Agua potable y desagüe",
+     "n": 3
+    },
+    {
+     "id": "damnificados",
+     "nombre": "Damnificados, evacuación o viviendas perdidas",
+     "n": 2
+    },
+    {
+     "id": "desborde",
+     "nombre": "Desborde o crecida de ríos",
+     "n": 1
+    },
+    {
+     "id": "huaicos",
+     "nombre": "Huaicos y quebradas activas",
+     "n": 1
+    },
+    {
+     "id": "electrico",
+     "nombre": "Rayos y riesgo eléctrico",
+     "n": 1
+    }
+   ],
+   "acciones": [
+    "Hay muertes u hospitalizados: reconocer signos de alarma, referir a tiempo al hospital y asegurar camas, hidratación y sangre.",
+    "Motobombas y limpieza de drenes; advertir que el agua acumulada puede estar contaminada.",
+    "Llevar la brecha al COER, a INDECI y a la Defensoría del Pueblo, con nombre y lugar.",
+    "Eliminar criaderos, fumigar, vacunar y reforzar la atención de fiebre.",
+    "Agua segura (cloración, cisternas) y reparación de desagües."
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261114-0049",
+     "titulo": "B.A.P. Paita y B.A.P. Tacna llevan ayuda humanitaria y agua potable a familias de Piura",
+     "enlace": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOVXlfNzRsTXpTZlpWUEFsVGp3T2F5RTc5Q1BYNmxkdkdhSERZRm9iTzFfSEVnUUxJQU4zMkRBRHY1QXJPZ09hbFVrZ3lfZ3lDWUdSRllPdlktR2pZdEU0TDBWa2drZDlEWjRzdE5NUWNEYnpId2RMTW5veUpva1VKenkzQlVwMFFBMGdqRkpPQXhmeDRQSGZQdG5UdW9DQjBGU2RQa2xvRDZGTktOcmtNbS1MTllYMDdBNFhVMnpodzJmS28?oc=5",
+     "medio": "Agencia Andina",
+     "fecha": "2026-11-14T11:53:16.000Z",
+     "senales": [
+      "agua"
+     ]
+    },
+    {
+     "id": "USF-N-261111-0499",
+     "titulo": "Piura: Las Dalias lleva una semana sin servicio de agua",
+     "enlace": "https://soltvperu.com/piura-las-dalias-una-semana-sin-agua/",
+     "medio": "Sol TV Perú (sección Piura)",
+     "fecha": "2026-11-11T12:30:40.000Z",
+     "senales": [
+      "agua",
+      "brecha"
+     ]
+    },
+    {
+     "id": "USF-N-261110-0564",
+     "titulo": "Piura: vecinos molestos reportan falta de agua hace cinco días",
+     "enlace": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOM2NFTERkeDkyRWtZRFdiZlQzMlJ1c0tQRXFCaGRJcmVWak81YUEta1RnbUwtbmZWZXFTSS1VSkpINkplV1lWMGhjcmc2ajExbDlZeHNuSmc0ZGpGUUtkSy16UTBNLVV1YXVMQmVlajF2bWpjSHhqQ1BVRGVxdElUekR1UFVjUXBMSnRtMHZkaF9PMzdBUHN6RUQyMml6bjBqWWZUZ0tqZjhablBfaUFLRTNhZ3ozd2Vrb2t6TA?oc=5",
+     "medio": "RPP Noticias",
+     "fecha": "2026-11-10T15:57:51.000Z",
+     "senales": [
+      "agua",
+      "brecha"
+     ]
+    },
+    {
+     "id": "USF-N-261107-0731",
+     "titulo": "Piura acumula 15,716 casos de dengue y registra 17 muertes en 2026",
+     "enlace": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9qSGYzc1NwN21PcmF6NnBfX0ROZDVMZWt5dzdsZ1VkbVpwcGI3M2tXdWc4Qk1fWFV0VFY3NnRwbDdJMWhvY3dlajAyVVhiYTltQXJveVlhdVE2VmgtbnRQNTZ4S0FPT2djb3ZGRC1hVEJrNWtKNlVXNQ?oc=5",
+     "medio": "Norte Sostenible",
+     "fecha": "2026-11-07T16:21:11.000Z",
+     "senales": [
+      "dengue"
+     ]
+    }
+   ]
+  },
+  {
+   "nombre": "Lima",
+   "nivel": "departamento",
+   "departamento": "Lima",
+   "provincia": "Lima",
+   "distrito": null,
+   "puntaje": 34,
+   "menciones": 11,
+   "ultima": "2026-11-10T03:29:29.000Z",
+   "tendencia": "baja",
+   "senales": [
+    {
+     "id": "inundacion",
+     "nombre": "Inundaciones urbanas",
+     "n": 8
+    },
+    {
+     "id": "huaicos",
+     "nombre": "Huaicos y quebradas activas",
+     "n": 4
+    }
+   ],
+   "acciones": [
+    "Motobombas y limpieza de drenes; advertir que el agua acumulada puede estar contaminada.",
+    "Alejar viviendas y tránsito de los cauces; vigías comunitarios en las quebradas."
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261110-0606",
+     "titulo": "Lluvias extremas golpean el norte y exponen vulnerabilidad de Lima ante inundaciones",
+     "enlace": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPMkFUN1praTBzZUhoRWhaQkh1TmtxLVRjeHd5WHZuaFFEd1dKNFF5OG1RZXVRWll1X1NYSGRtME5HVy1EaEpkazBDOFBicDdhVkdQVUFrU1hjTEp6R3pWTDRzaUNyNzNEUk9LZmJZYTQyNXVrZ2tZSXRNMU50TFFZZ1BOc0otcU5qeVpET1NMcjhBdXlYNG45dkZYVUlKVzJJYmswTmhENDBxaE43YUlndDdR?oc=5",
+     "medio": "Pachamama Radio",
+     "fecha": "2026-11-10T03:29:29.000Z",
+     "senales": [
+      "inundacion"
+     ]
+    },
+    {
+     "id": "USF-N-261105-0816",
+     "titulo": "Emergencia en Lima Sur: fuertes lluvias, inundaciones, aniegos y decenas de familias afectadas",
+     "enlace": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNRkRQZGFTeFkxelVYLTNMWDlpamVYM3hWNUt4eEt2b2UzSU9MY1d1bFBZVFhmWl9jZGN6a1FXS3N0Y2ZrcVVNTnVneDlDVDhQbERsRFU1MExmZzBKVXZCVTFHcFRpdVpiQ3d1bVgzanJuRUhDaUI3WndNNFR1Q25kSmhxR2ZmYkdObUt4UHU2UWtQZ19IUDdOTDB1VDRhRVUzeUhGT0pRT0RkbjB4Q1E0Q0lRNFFtb1hscDVkOFZWTW5ib0tiWGFF?oc=5",
+     "medio": "Revista Caretas",
+     "fecha": "2026-11-05T14:54:09.000Z",
+     "senales": [
+      "inundacion"
+     ]
+    },
+    {
+     "id": "USF-N-261105-0818",
+     "titulo": "Lluvias en Lima: reportan 65 puntos de inundación y viviendas afectadas en Lima sur",
+     "enlace": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPNTJGc0VQVV82RUFmVXlBcnZ5cDNPLXF0ZDlLZU1QaDRkTnlhMGo5LW9PMHpjZEJtQndxalAyVVRTOUJESXZKWUhmZWU0SkN2NVRtZEtUWEdmWXBfMmY4eTRzZVV4T1VFdHpSZFFpS1hWTE1Fb3NiZFNFZXFJNU9jUVFzamVUMGRyaTQtOWxnTUF6NVgyMGJVX3BWSHN2MHZoNVZjVkJuSkRtaWFSZDZmNmNOYTc5Zi1Zd3hiVTNMa00tMmFXXzV30gHbAUFVX3lxTE43bnNsRmlpc1lvTW02Nmc0WUFsVG1HY282WHRadGNIN2hMaG12akRhNF9PbWFFTVZNZC1QWm9na2lqY3l3LUJrdVpDYkRLWDNnX3VhWFRtMFJfR1RkREpXbFhCUGlyaE41eDlhU0I3dVVtOUptUGVzTTNhNlR3b2pXZVo1OU1DTXZVQXNvZFl0QjdwZlhXeVo4N1FBb0xZS3I3YUxQdGlOemNXZjFyYVh2d2VsdTBGWjdLS05aejhONEpiQThBS0dGSzhSV19XYW01TEdhdXRRNmVIOA?oc=5",
+     "medio": "Diario Correo",
+     "fecha": "2026-11-05T14:06:04.000Z",
+     "senales": [
+      "inundacion"
+     ]
+    },
+    {
+     "id": "USF-N-261104-0867",
+     "titulo": "Lima amanece con inundaciones tras una atípica lluvia por el fenómeno de El Niño",
+     "enlace": "https://news.google.com/rss/articles/CBMidEFVX3lxTE11dFRVNGl1VDN0clgzY041OGxkUFFhM2ZBaDNiRnBLRFo4UWdGd1VLQ0JicThSN2NnRlpTRWhiU0pvckgzTjZxNkZUUm5STWpGZW5UQmJjcnZvRHk4aWwxVTFVZjNYQmEzNURkd3AzZGhxMEFS?oc=5",
+     "medio": "EFE - Agencia de noticias",
+     "fecha": "2026-11-04T08:00:00.000Z",
+     "senales": [
+      "inundacion"
+     ]
+    }
+   ]
+  },
+  {
+   "nombre": "La Libertad",
+   "nivel": "departamento",
+   "departamento": "La Libertad",
+   "provincia": null,
+   "distrito": null,
+   "puntaje": 24,
+   "menciones": 4,
+   "ultima": "2026-11-09T23:43:47.000Z",
+   "tendencia": "baja",
+   "senales": [
+    {
+     "id": "dengue",
+     "nombre": "Dengue",
+     "n": 4
+    }
+   ],
+   "acciones": [
+    "Hay muertes u hospitalizados: reconocer signos de alarma, referir a tiempo al hospital y asegurar camas, hidratación y sangre.",
+    "Eliminar criaderos, fumigar, vacunar y reforzar la atención de fiebre."
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261109-0618",
+     "titulo": "Alerta Epidemiológica en La Libertad por Incremento Sostenido del Dengue",
+     "enlace": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOY0lOWTNfMWYyNF9HNXBpWmJLNnlROFVUcG9oYU41V2VfbkxteFd2TDI1eGV4YXIxZzFOLUt4ekQ4YXBZVEdhTUpaOC1CVG4zVVJrTUtDNVBfQUZIWkZhODRBWEYzNmozYUtmRGUwakpHSXlSWkMyc3h0Yk1uZE91ZENZLXEtWkh3MWhtcktoVmpOWm1XTWZ1OXNwYXdpejBLbmc?oc=5",
+     "medio": "UNDiario",
+     "fecha": "2026-11-09T23:43:47.000Z",
+     "senales": [
+      "dengue"
+     ]
+    },
+    {
+     "id": "USF-N-261026-1265",
+     "titulo": "La Libertad registra seis muertes y más de 14,000 casos de dengue en 2026",
+     "enlace": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPUnpoTVZEcWo2T1VYMFJ2cUpkSXRVSVFYbjhjeFR5Uk9Tbk5vN3ZBTzZKdmNKcFhoSEJhQ1lDUFZwb3kxWWowOGw2X2NRZzFvR3pmQXhjd1RKMFBHRkdVakR2X29QSFdWTU11Q0pNUDFDdFR4N2RjbllxSm44Z0tpcUhob19IYjcza0JrWUxYYXI5ODVncV93anl0T2drcHRCOTdudQ?oc=5",
+     "medio": "La Lupa",
+     "fecha": "2026-10-26T07:00:00.000Z",
+     "senales": [
+      "dengue"
+     ]
+    }
+   ]
+  },
+  {
+   "nombre": "Lambayeque",
+   "nivel": "departamento",
+   "departamento": "Lambayeque",
+   "provincia": "Lambayeque",
+   "distrito": null,
+   "puntaje": 22,
+   "menciones": 3,
+   "ultima": "2026-11-10T23:39:43.000Z",
+   "tendencia": "baja",
+   "senales": [
+    {
+     "id": "dengue",
+     "nombre": "Dengue",
+     "n": 2
+    },
+    {
+     "id": "brecha",
+     "nombre": "Brecha en la atención",
+     "n": 1
+    },
+    {
+     "id": "inundacion",
+     "nombre": "Inundaciones urbanas",
+     "n": 1
+    }
+   ],
+   "acciones": [
+    "Eliminar criaderos, fumigar, vacunar y reforzar la atención de fiebre.",
+    "Llevar la brecha al COER, a INDECI y a la Defensoría del Pueblo, con nombre y lugar.",
+    "Motobombas y limpieza de drenes; advertir que el agua acumulada puede estar contaminada."
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261110-0525",
+     "titulo": "Lambayeque: Baja cobertura de vacunación contra el dengue",
+     "enlace": "https://soltvperu.com/baja-vacunacion-contra-dengue-en-lambayeque/",
+     "medio": "Sol TV Perú (sección Lambayeque)",
+     "fecha": "2026-11-10T23:39:43.000Z",
+     "senales": [
+      "dengue",
+      "brecha"
+     ]
+    },
+    {
+     "id": "USF-N-261104-0864",
+     "titulo": "Segunda vuelta en Puno se calienta con ataques; Lambayeque en emergencia por dengue (VIDEO)",
+     "enlace": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQZFNlbmc1X01EbDFsU2dvS0ZMSnFDMDVtX0NiTnItVTRSZGJVaUh3U05USE9udkZrdkFXYlRtX2FCRWstdVdtRVp0NWplWmxwTTdxenV3MUxWVmdMQWkwam5YYTVPbXY5YTBHYVpSU19ieDI2NkVXT2ZZajNBQ2VCNlJJZ2FIZURSVGlYcGJHekFlLVF5LWItTTZPRWRySTR5dnNnWkJjVDhkSVo0ZlJBTnJkZDVHQQ?oc=5",
+     "medio": "El Búho.pe",
+     "fecha": "2026-11-04T08:00:00.000Z",
+     "senales": [
+      "dengue"
+     ]
+    },
+    {
+     "id": "USF-N-261028-1151",
+     "titulo": "📰 #EnPortada | Presidenta visitará megacárceles de Bukele esta semana, cuando 11 regiones enfrentan intensas precipitaciones. Tumbes, Piura, Lambayeque y Cusco ya sufren inundaciones.",
+     "enlace": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxQeGVLazRCWUJIaU5HeXh3dkxFdl95azRkelNMcE1MZ1NuWnpDUlJjWXd3UFhuRFRUVDNud0xvNXBjSmx1YjNtdmh5eDZGU0p1dXNNV0dER1FqM0ozbzVZZUFhVkRQRVYxclk1X0VaYzI5WHpjQ1JyZzhvUUJ1OEZEY25XejU1c2d2blMxdEFjV2tCWkc3X0hWcXNYZy1xNW1nY1hKYjg3Y0tOTGRSTEFwUmYzTEQ4N0RkNkZkX1RiRG1zNFI5NjY4amxhdGZBeHZyUzh3QjBNc1psVHJ0T2RELWhnTXRqUm92aXc?oc=5",
+     "medio": "Facebook",
+     "fecha": "2026-10-28T07:00:00.000Z",
+     "senales": [
+      "inundacion"
+     ]
+    }
+   ]
+  }
+ ],
+ "salud": [
+  {
+   "departamento": "Tumbes",
+   "dengue": 0,
+   "leptospirosis": 0,
+   "agua": 3,
+   "oficiales": [
+    {
+     "indicador": "Casos de dengue 2026",
+     "valor": 2394,
+     "corte": "2026-10-29",
+     "fuente": "Diresa Tumbes (reporte regional)",
+     "url": "https://elpopular.pe/actualidad/2026/10/29/dengue-se-dispara-en-tumbes-casos-superan-los-2300-y-lluvias-por-el-nino-encienden-las-alertas-que-zonas-preocupan-2504121"
+    }
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261113-0120",
+     "titulo": "Tumbes pierde casi el 70% del agua que produce y reservas cubrirían menos de medio día ante una emergencia",
+     "enlace": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPQ1h2ZW9yemhwNjFteHdRa3VpSjlCMjFnNUVmblVXYkRra2xZeWVOVzVybVZZWGhxSzhtN1o1QlhCN0szdHh0OFBhR21uRElHQWhRNUNMT01pUkV4Qk9FTllGRmY5TU9HSDlJTGk4ZDA1M3dNWmhrTEpCZmpjNTZiMUQ2RVpZS2QyUXA1ZTdZemROcmx6RW9ZR1BNZHBkTWpTVzBfMmFkYUFaMGlyYlQ3WHRZd0s0RmtVRjFVU0NQVHdkblJQUlRXd2NyekdVdVBsbkJyYQ?oc=5",
+     "medio": "Revista Economía",
+     "fecha": "2026-11-13T21:55:39.000Z",
+     "senales": [
+      "agua",
+      "brecha"
+     ]
+    },
+    {
+     "id": "USF-N-261027-1206",
+     "titulo": "Tumbes: Defensoría del Pueblo exige acciones urgentes ante afloramiento constante de aguas residuales en sector de Zarumilla que podría agravarse por El Niño",
+     "enlace": "https://news.google.com/rss/articles/CBMilgJBVV95cUxPb0E2Q2I2MVlsS3l3aG0xQmFXdnlwZjFsTHJ5X3JHZ2RSd1F1S1RiRjUxMkJqeDBBOHN4dHZ0M1NsQmx3ellDVVM5aWpYWEpfTGFHc01aZldHV2p5aEgyel8xYV84WE5jZkgzRTZQY0szZjBwTlRMVUFrcm4tLXEtS05oanZ1czNadjh4ZjN3cFpHeElYUEljTFpydjZjOERXTFB2cnVrXzlUemZvWTFTNG9fZDR2ajVtQ0w1ang1a2JlT0kwcTZIa0VfZUdjYm5hdWxpSld4NGQxY09CTTNNUjhWUGlHRlRjR3d6d0ZMZGlfWlFCR18tT1NLMTN6ZGtCVURzUnZIbVlCd0llRmFOOGNhT0dtdw?oc=5",
+     "medio": "Defensoria del Pueblo Peru",
+     "fecha": "2026-10-27T07:00:00.000Z",
+     "senales": [
+      "agua",
+      "brecha"
+     ]
+    }
+   ]
+  },
+  {
+   "departamento": "Piura",
+   "dengue": 4,
+   "leptospirosis": 0,
+   "agua": 4,
+   "oficiales": [
+    {
+     "indicador": "Casos de dengue 2026",
+     "valor": 15716,
+     "corte": "2026-10-31",
+     "fuente": "MINSA – Sala Situacional de Enfermedades Metaxénicas (SE 43)",
+     "url": "https://eltiempo.pe/local/dengue-en-piura-casos-aumentan-a-15-mil-716-casos-de-dengue-y-region-registra-17-fallecidos-en-2026/"
+    },
+    {
+     "indicador": "Fallecidos por dengue 2026 (12 confirmados + 5 en investigación)",
+     "valor": 17,
+     "corte": "2026-10-31",
+     "fuente": "MINSA – Sala Situacional de Enfermedades Metaxénicas (SE 43)",
+     "url": "https://eltiempo.pe/local/dengue-en-piura-casos-aumentan-a-15-mil-716-casos-de-dengue-y-region-registra-17-fallecidos-en-2026/"
+    },
+    {
+     "indicador": "Casos de leptospirosis 2026 (probables y confirmados)",
+     "valor": 3280,
+     "corte": "2026-10-31",
+     "fuente": "CDC-MINSA (SE 43)",
+     "url": "https://larepublica.pe/sociedad/2026/11/09/leptospirosis-aumenta-109-en-peru-y-deja-54-muertos-en-lo-que-va-de-2026-497448"
+    },
+    {
+     "indicador": "Fallecidos por leptospirosis 2026",
+     "valor": 9,
+     "corte": "2026-10-31",
+     "fuente": "CDC-MINSA (SE 43)",
+     "url": "https://larepublica.pe/sociedad/2026/11/09/leptospirosis-aumenta-109-en-peru-y-deja-54-muertos-en-lo-que-va-de-2026-497448"
+    }
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261114-0024",
+     "titulo": "Piura: Hallan llantas y piedras en buzones de desagües en Sullana",
+     "enlace": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxONE1ieVZ1R2JwNWpEbU8wRDdDUEdxWHN3Q29hVk9pTDBNZktISXNsX0hDUndjbVJYZ28weEU5TnlDWWQxYlFwRnNCTTQyTUROZ3JsYkJnd0pTMjlBc1dsYkpuQzVkU2poRU5DZGpQSGpqckZXWm84MDBpVUQtRmFyaXJ1aEQtMVJWMmNoZ2J0R0FXamVMcEVGU1JDRnlJN0YwN0h4dUY5RVHSAbwBQVVfeXFMTXRsQklXY1lfR05CMHBIR0ptYUF3YTRoZ2tnZ1l3bmwzeEdJbHdkandKUi1Wc2s1X0c4ZHdiUVhDNjVJc0NmMnNpZUJEenVLU2VGQkRHd3IzOGNvMXdMa0w5cVFaTU1UNUo5WmRneVRSMWhxMVRlblc4OEdoa0xwcC1OcGZGTzMxSUtKNVlUSm1MZHJScmNFSnJKX2VNbldEV0JWOTlVQXk1SElLVGkyZlA3TFZQZWQ4M2dkVDI?oc=5",
+     "medio": "Diario Correo",
+     "fecha": "2026-11-14T13:56:11.000Z",
+     "senales": [
+      "agua"
+     ]
+    },
+    {
+     "id": "USF-N-261114-0049",
+     "titulo": "B.A.P. Paita y B.A.P. Tacna llevan ayuda humanitaria y agua potable a familias de Piura",
+     "enlace": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOVXlfNzRsTXpTZlpWUEFsVGp3T2F5RTc5Q1BYNmxkdkdhSERZRm9iTzFfSEVnUUxJQU4zMkRBRHY1QXJPZ09hbFVrZ3lfZ3lDWUdSRllPdlktR2pZdEU0TDBWa2drZDlEWjRzdE5NUWNEYnpId2RMTW5veUpva1VKenkzQlVwMFFBMGdqRkpPQXhmeDRQSGZQdG5UdW9DQjBGU2RQa2xvRDZGTktOcmtNbS1MTllYMDdBNFhVMnpodzJmS28?oc=5",
+     "medio": "Agencia Andina",
+     "fecha": "2026-11-14T11:53:16.000Z",
+     "senales": [
+      "agua"
+     ]
+    },
+    {
+     "id": "USF-N-261111-0499",
+     "titulo": "Piura: Las Dalias lleva una semana sin servicio de agua",
+     "enlace": "https://soltvperu.com/piura-las-dalias-una-semana-sin-agua/",
+     "medio": "Sol TV Perú (sección Piura)",
+     "fecha": "2026-11-11T12:30:40.000Z",
+     "senales": [
+      "agua",
+      "brecha"
+     ]
+    },
+    {
+     "id": "USF-N-261110-0564",
+     "titulo": "Piura: vecinos molestos reportan falta de agua hace cinco días",
+     "enlace": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOM2NFTERkeDkyRWtZRFdiZlQzMlJ1c0tQRXFCaGRJcmVWak81YUEta1RnbUwtbmZWZXFTSS1VSkpINkplV1lWMGhjcmc2ajExbDlZeHNuSmc0ZGpGUUtkSy16UTBNLVV1YXVMQmVlajF2bWpjSHhqQ1BVRGVxdElUekR1UFVjUXBMSnRtMHZkaF9PMzdBUHN6RUQyMml6bjBqWWZUZ0tqZjhablBfaUFLRTNhZ3ozd2Vrb2t6TA?oc=5",
+     "medio": "RPP Noticias",
+     "fecha": "2026-11-10T15:57:51.000Z",
+     "senales": [
+      "agua",
+      "brecha"
+     ]
+    }
+   ]
+  },
+  {
+   "departamento": "Lambayeque",
+   "dengue": 2,
+   "leptospirosis": 0,
+   "agua": 1,
+   "oficiales": [
+    {
+     "indicador": "Casos de dengue 2026",
+     "valor": 10559,
+     "corte": "2026-11-05",
+     "fuente": "CDC-MINSA, sala diaria (el CDC Lambayeque reporta 9793)",
+     "url": "https://diariocorreo.pe/edicion/lambayeque/lambayeque-registra-10559-casos-de-dengue-y-17-muertes-en-lo-que-va-del-2026-noticia/"
+    },
+    {
+     "indicador": "Fallecidos por dengue 2026",
+     "valor": 25,
+     "corte": "2026-10-31",
+     "fuente": "CDC-MINSA (SE 43); el CDC Lambayeque reporta 17",
+     "url": "https://larepublica.pe/sociedad/2026/11/07/peru-supera-los-100-muertos-por-dengue-cifra-va-en-aumento-y-casi-duplica-los-registros-de-2025-202825"
+    }
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261110-0525",
+     "titulo": "Lambayeque: Baja cobertura de vacunación contra el dengue",
+     "enlace": "https://soltvperu.com/baja-vacunacion-contra-dengue-en-lambayeque/",
+     "medio": "Sol TV Perú (sección Lambayeque)",
+     "fecha": "2026-11-10T23:39:43.000Z",
+     "senales": [
+      "dengue",
+      "brecha"
+     ]
+    },
+    {
+     "id": "USF-N-261104-0864",
+     "titulo": "Segunda vuelta en Puno se calienta con ataques; Lambayeque en emergencia por dengue (VIDEO)",
+     "enlace": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQZFNlbmc1X01EbDFsU2dvS0ZMSnFDMDVtX0NiTnItVTRSZGJVaUh3U05USE9udkZrdkFXYlRtX2FCRWstdVdtRVp0NWplWmxwTTdxenV3MUxWVmdMQWkwam5YYTVPbXY5YTBHYVpSU19ieDI2NkVXT2ZZajNBQ2VCNlJJZ2FIZURSVGlYcGJHekFlLVF5LWItTTZPRWRySTR5dnNnWkJjVDhkSVo0ZlJBTnJkZDVHQQ?oc=5",
+     "medio": "El Búho.pe",
+     "fecha": "2026-11-04T08:00:00.000Z",
+     "senales": [
+      "dengue"
+     ]
+    },
+    {
+     "id": "USF-N-261024-1307",
+     "titulo": "Lambayeque: Desagües colapsan por tercer día consecutivo en urbanización de Chiclayo",
+     "enlace": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxOLU1MY08yM1dNb3RkUmxEWFNDQkZIbVFELWx1WDA5cVk0T3NzQjVqTWhQaXNkS0ZCM1lUVDNGeC1pNnVNcTdHemd4NlJWZ3NIRmhuWjVjQ0RIa1EwMThTUkJmWEVaalVocmpEUkx4X2V5MXF2amRtV0lvdVlQb2VlczU2d2hEX3RadG81MUstUTBUdUpZX0NsamotSVFrbVlZcFJON1pVaWlrNjB4UmNGQVpwcUd4WGxCdnQ1ZmJHVnZ1UEo2OUZRZ0F3a1h5OWFZcG1hWnc1Vm5vTjdKMDc4TWl5cF83SWlPSkRR0gH_AUFVX3lxTE95U1JhelFvYUZOWW54M1NvallNUFNJQjN1X29YdlVGUzlfaWx4QzZOTVVDQXhaejQ2LWNNb0JJMjRTcFFhYWlEbmZrcGhJbE1jZUV4QUM0NHdYUkh5R0x1NlR6ZHdmQks1OXJqUnF5MWh2NzIzUUdoclJuT3V1MDlROXROZ3BBR0dJcHRVWGpjZndLeGUyb1dQdjBKMU1ONVgyVnlEcmxrVVpNRTZlaURiTGpPLU9MdWZUa0I3YmxVNENFalVwYWtqcEdMUTkwOUw5T01tZU0wVGRwZ3pXZFZPU2taVUJMcU1iMWg1QkNBRkZtcFZsWDNtWHhrTWIwRQ?oc=5",
+     "medio": "El Comercio Perú",
+     "fecha": "2026-10-24T07:00:00.000Z",
+     "senales": [
+      "agua"
+     ]
+    }
+   ]
+  },
+  {
+   "departamento": "Cajamarca",
+   "dengue": 0,
+   "leptospirosis": 0,
+   "agua": 0,
+   "oficiales": [],
+   "fichas": []
+  },
+  {
+   "departamento": "La Libertad",
+   "dengue": 6,
+   "leptospirosis": 0,
+   "agua": 0,
+   "oficiales": [
+    {
+     "indicador": "Casos de dengue 2026",
+     "valor": 17953,
+     "corte": "2026-10-31",
+     "fuente": "MINSA – Sala Situacional (SE 43)",
+     "url": "https://elbuho.pe/?p=442404"
+    },
+    {
+     "indicador": "Fallecidos por dengue 2026 (Geresa: 5 confirmados y 5 en investigación)",
+     "valor": 7,
+     "corte": "2026-10-31",
+     "fuente": "MINSA – Sala Situacional (SE 43)",
+     "url": "https://elbuho.pe/?p=442404"
+    }
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261109-0618",
+     "titulo": "Alerta Epidemiológica en La Libertad por Incremento Sostenido del Dengue",
+     "enlace": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOY0lOWTNfMWYyNF9HNXBpWmJLNnlROFVUcG9oYU41V2VfbkxteFd2TDI1eGV4YXIxZzFOLUt4ekQ4YXBZVEdhTUpaOC1CVG4zVVJrTUtDNVBfQUZIWkZhODRBWEYzNmozYUtmRGUwakpHSXlSWkMyc3h0Yk1uZE91ZENZLXEtWkh3MWhtcktoVmpOWm1XTWZ1OXNwYXdpejBLbmc?oc=5",
+     "medio": "UNDiario",
+     "fecha": "2026-11-09T23:43:47.000Z",
+     "senales": [
+      "dengue"
+     ]
+    },
+    {
+     "id": "USF-N-261104-0848",
+     "titulo": "CHEPÉN: sindicato denuncia falta de pruebas rápidas para dengue y presuntas irregularidades en atención de paciente que falleció",
+     "enlace": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOQW5nTEd1bTF6Q09NYlBXcU1aVGdnOENNZlhRNlc2dWxocVF1ajVsbXZzb283NUszZmNxZ09zSjJNdWE5NzVsRnlMa0VCUU1LUGRkUk9zZndlbjNEQUhoQjJQY0hiS0owdFd6MzJ1VFgwRl8zVUFLVVV2NTJuUkhmbzNzc3Ztdl9aNy16N0p1eWo3Wmt5czZMM0thSnRfMHoyVmNsWFVrbXI4cE1BMkxDLXV3ZXh3QVR0aUtQalVkdWc2N2o2a0Zfc0hFTVlCcXVFMUJfei1IbmYySU1ZNlZneXV0RDc?oc=5",
+     "medio": "causa justa",
+     "fecha": "2026-11-04T17:03:11.000Z",
+     "senales": [
+      "dengue",
+      "brecha"
+     ]
+    },
+    {
+     "id": "USF-N-261026-1265",
+     "titulo": "La Libertad registra seis muertes y más de 14,000 casos de dengue en 2026",
+     "enlace": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPUnpoTVZEcWo2T1VYMFJ2cUpkSXRVSVFYbjhjeFR5Uk9Tbk5vN3ZBTzZKdmNKcFhoSEJhQ1lDUFZwb3kxWWowOGw2X2NRZzFvR3pmQXhjd1RKMFBHRkdVakR2X29QSFdWTU11Q0pNUDFDdFR4N2RjbllxSm44Z0tpcUhob19IYjcza0JrWUxYYXI5ODVncV93anl0T2drcHRCOTdudQ?oc=5",
+     "medio": "La Lupa",
+     "fecha": "2026-10-26T07:00:00.000Z",
+     "senales": [
+      "dengue"
+     ]
+    },
+    {
+     "id": "USF-N-261024-1318",
+     "titulo": "La Libertad: RIS Ascope exige respuesta inmediata a centros de salud ante alarmante avance del dengue",
+     "enlace": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxNRl9ONnRTLVVFN3ZTOHk5UGJ2M08zd1NsX056TWdIcEMyZGhJWnk4amlRUkhySy1rWUFUZ0JJdVQyLVFqQThTMEpYdU42SHhkZmpjZWZTUGV4dUxWemFaLXVuR203am10aV81WnZNNmdRTFc3ckhRSGc5Wmd1akxJZm9YSGwyaXBjSm5qZi13QllLek5jcUJTQkhyVy1FaEhhR1FXdC11dEZlV2hiWlZzN2w0N0tSNHFDUkpoSEcycTVOU2kza2I0anFNdEtpRjhRWDc1REdVSjI1bk9IZ0FZU2w1ZUgzREJtWko5aVZDRdIBgwJBVV95cUxPS0pGd0RjSGFtYW11T0NSb2pOOXdIZlFjcHlndW01dERPMzl0QzAzSU5pQlhUREdpbExuUlhkNzZMdFBLRnpXQUdHcE9ieFFwN1lJVDhmYWZqcnRUbk9ZaVc1dHE1a3JvZVoyOTNuZjhnV2RuOC1WTHhTYm1GV0VnTjFmbFNkUUZhb1JkWDVjYlYtWlBHMElJVjB1cmRXNnU1b1lHd0JlME1QNU45UDRfVWRHdU1YUlFUZmQ5b1JZQWltQzRyNEZPRkJTVy05U2RfdWVsa1dzWlJhOGJCcVYwckFNR3VGdkhWdDVtQkVtcTNscF81ZU5QWFFrTkRjRU9nQkZv?oc=5",
+     "medio": "Diario Correo",
+     "fecha": "2026-10-24T07:00:00.000Z",
+     "senales": [
+      "dengue",
+      "brecha"
+     ]
+    }
+   ]
+  },
+  {
+   "departamento": "Áncash",
+   "dengue": 26,
+   "leptospirosis": 1,
+   "agua": 1,
+   "oficiales": [],
+   "fichas": [
+    {
+     "id": "USF-N-261113-0282",
+     "titulo": "Áncash: Mujer de 33 años muere por dengue tras ser diagnosticada dos días antes en Casma",
+     "enlace": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPdXFjZG02OGJkNERPQ2NsOFpXZFQ2V21vRGRINmd2UlMzcVdwanJOb0FtQTlhRExiVUM5N1NmTUFoanpkSkRZRTJZYXBCblY5Tl9yUERCY2p0MFVVeVU1U0FUUjVDZ0Vtd0djY0wtTnV3dU5fc0tKT3FNSzJncC13Vlc4VjN5eVlSU1Rib0FCdjJIYU41TDF4YTZhRlVXZ3dfSDlhNEJtWnJQU1Z5UmZ3MUJYd3ZsX2MyalNDYl9WaHBiYkcw0gHKAUFVX3lxTE5yWldLWm9Pb0E4bHhpQ2llVk5EOFZ5YkN6X3ExX1RyT3BWbmU1dFZQRklRVjJGVC1nbVBvMW01R01MZzYwZDBIX3BERF8yVzZBTXFaX3Zibkp5aF9IU29FWm14R2p6ell3U2M0WmdyakFfNVptem9STGktUmYtMXZNeDRPSkdLNHNiZkg4dndXaUE4Q0Jha2I2RlNZbGZSeUNPLVBFWmlhUUYzSmFCVzhoaHJVWUVYZnZCYTdELTFxNTJDMnNtSHZxVHc?oc=5",
+     "medio": "Ancash Noticias",
+     "fecha": "2026-11-13T03:15:37.000Z",
+     "senales": [
+      "dengue"
+     ]
+    },
+    {
+     "id": "USF-N-261113-0285",
+     "titulo": "Casma: Comerciante de la parada Milagritos es la tercera víctima mortal del dengue y deja tres hijos huérfanos",
+     "enlace": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQa3RqemxrMDhTbXNWZm9kLVRBMUF6NzJNWHJRaHZ0YU5EdWg1V0pvZlF6SEhVR29TY2hVV2VFelB4NUFqUWFaUnI5bjRxaGVqbWtycDI0Mm9PUDBYTEZoSVdtN0tBSTlGSTlNLWZxNm8xdGVOSEJndlhMMER2WTRiVFBUTVZFZzA1eWR2LXBVMVluR3NoNV9RR3dzaml3Zm0ySFBoeWV0SkRCVkRKdVZFMy02Z0U4bWRaeldxOUpsdG5xXzE4YllqLWdLbUk2aGc?oc=5",
+     "medio": "Ancashaldia",
+     "fecha": "2026-11-13T02:16:08.000Z",
+     "senales": [
+      "dengue"
+     ]
+    },
+    {
+     "id": "USF-N-261113-0296",
+     "titulo": "Dengue en Casma: se eleva a cuatro las víctimas mortales en la región Áncash -",
+     "enlace": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPQ1RaZnJxajB6dkIxcm1HeTJyR0RVRUF5b05nYkRSUlh5NTQzTzI3STU4eFR6U1hPbDBkZ3p5VkFEcnMya0NKVHl3MDMwVlIzc1hkNWxJQUFEa3dtNUNrZ3N5ZTJRbmFKZnlIUGozMEtJbTIwMUUwRUphNjZ2WnFPckprMWREYXhfQU1TcEVhVGFBMVBvNFRrNklVaEc3T0lSTWNnYzBqRDJ5a1VmRHpUOQ?oc=5",
+     "medio": "luminanoticias.pe",
+     "fecha": "2026-11-13T00:33:53.000Z",
+     "senales": [
+      "dengue"
+     ]
+    },
+    {
+     "id": "USF-N-261112-0359",
+     "titulo": "GRAVE | Se confirma cuarta muerte por dengue en Áncash",
+     "enlace": "https://news.google.com/rss/articles/CBMilgFBVV95cUxONUl6QXJPX0FEaGJxc2dpa1RyYW5Yek1qRlNDR3BXcUd6cl92bGRISUhVRFZMR19QeG1nUm5TdkVSekpSZFhCcHFZWllBbjFvaGFIaU5KZVVBNHdibTNrOWVnb1B6SEpqWGRyajB1TUFXZ3JmaU5taExQMTFQNTBGSXJqbVA4NHlfYlRmaU5QcUJqYldHalE?oc=5",
+     "medio": "Radio RSD",
+     "fecha": "2026-11-12T18:22:36.000Z",
+     "senales": [
+      "dengue"
+     ]
+    }
+   ]
+  },
+  {
+   "departamento": "Lima",
+   "dengue": 0,
+   "leptospirosis": 0,
+   "agua": 3,
+   "oficiales": [],
+   "fichas": [
+    {
+     "id": "USF-N-261106-0770",
+     "titulo": "🔵⚪ Las intensas lluvias siguen causando estragos en Lima Sur. En Villa El Salvador, específicamente en el Sector 1, Grupo 1, el colapso del sistema de desagüe afectó a 50 familias, cuyas viviendas quedaron inundadas con aguas residuales que dañaron m",
+     "enlace": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNZHNJOTlWM2ZCT3Nqd1l3dWI2X0R5S3BWZnl3SlIyX1R0TTlVVUVOU1I2OHBKbFktenJ1TU9HMEF2eGdrUlp0UFJoSnhuYk1CVUowMFJJRXBPZ0VOU2VveWNGanQwQS1SSFRPX1lUZVVzeC1OZGlQM2ZGb0N5bDFoMDAxZEwxVEIxOVRFbjN2TVUtZnlpWElESzNnM0VNQ2F3Smk1UDVuMnZyMkFHSVVVWkpQS3FRaW93OWN4Ty03UXlhQXA1RF83VndXSldWemp6SlRpbkhxZE9xQzV4?oc=5",
+     "medio": "Facebook",
+     "fecha": "2026-11-06T16:58:15.000Z",
+     "senales": [
+      "damnificados",
+      "inundacion",
+      "agua"
+     ]
+    },
+    {
+     "id": "USF-N-261105-0829",
+     "titulo": "🚨 Villa El Salvador bajo el agua: colapso del alcantarillado afecta a decenas de familias en Lima Sur tras persistente llovizna",
+     "enlace": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNZXltQ0gtYV9QT1dpLTlCNE91YTlCbFpIbnZBZWpJeUM2Q2RGdW8tLVRpN2YyV2s4YThlaFJ3NEJ2Umk2OFpOYVdqMm9uYmNXdDdDQlM3RDBkeHdnSGNCVFI5NENfaHFlRFV2T1phNU1DWTgxcFdMYkFNYV9FOVdJZmRrNmdlc2MzeXU2bGQ4b2NrWUZKX1NSeGNrRXlZbDhiRGJiTGtkU3VDUW5uLUFpYW5TZm82TEd2OENkT2lmVjl5Rng5ek9xR3MwdWh2YjR3Z2pvWWZxWXRaTVhV?oc=5",
+     "medio": "Facebook",
+     "fecha": "2026-11-05T08:00:00.000Z",
+     "senales": [
+      "inundacion",
+      "agua"
+     ]
+    },
+    {
+     "id": "USF-N-261017-1561",
+     "titulo": "Lima: Advierten riesgos ambientales y sanitarios por vertimiento de aguas residuales al río Huaura",
+     "enlace": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNeHlRNXRvdll1VVBWdVFBVkdqQVI2MnRUNmhwWFloSW9ncUxkdl9IaEN6QWMydFUtRjNkYTA3UUY3YUMtSEUxTFBoYjJqS2RlSUMyMnA4ZEtPYmJhaElQVHNjbFA0SjZHakdpN0c4SWNpamlmc0lKRmQyOWpkaDdIVHJHN0wzS0JzcWtxanYyZl9KSlk2SU9tZXUydlFCS2FkdVhlSlhEdlY4RmFzdGNjazBJbmFick84Sm43UnRGNA?oc=5",
+     "medio": "AGROPERÚ Informa",
+     "fecha": "2026-10-17T07:00:00.000Z",
+     "senales": [
+      "agua"
+     ]
+    }
+   ]
+  }
+ ],
+ "brechas": [
+  {
+   "id": "USF-N-261113-0120",
+   "titulo": "Tumbes pierde casi el 70% del agua que produce y reservas cubrirían menos de medio día ante una emergencia",
+   "enlace": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPQ1h2ZW9yemhwNjFteHdRa3VpSjlCMjFnNUVmblVXYkRra2xZeWVOVzVybVZZWGhxSzhtN1o1QlhCN0szdHh0OFBhR21uRElHQWhRNUNMT01pUkV4Qk9FTllGRmY5TU9HSDlJTGk4ZDA1M3dNWmhrTEpCZmpjNTZiMUQ2RVpZS2QyUXA1ZTdZemROcmx6RW9ZR1BNZHBkTWpTVzBfMmFkYUFaMGlyYlQ3WHRZd0s0RmtVRjFVU0NQVHdkblJQUlRXd2NyekdVdVBsbkJyYQ?oc=5",
+   "medio": "Revista Economía",
+   "fecha": "2026-11-13T21:55:39.000Z",
+   "senales": [
+    "agua",
+    "brecha"
+   ],
+   "lugar": "Tumbes"
+  },
+  {
+   "id": "USF-N-261111-0499",
+   "titulo": "Piura: Las Dalias lleva una semana sin servicio de agua",
+   "enlace": "https://soltvperu.com/piura-las-dalias-una-semana-sin-agua/",
+   "medio": "Sol TV Perú (sección Piura)",
+   "fecha": "2026-11-11T12:30:40.000Z",
+   "senales": [
+    "agua",
+    "brecha"
+   ],
+   "lugar": "Piura"
+  },
+  {
+   "id": "USF-N-261111-0511",
+   "titulo": "Piura: vecinos de El Bosque denuncian aguas servidas tras fuertes lluvias desde hace una semana [VIDEO]",
+   "enlace": "https://news.google.com/rss/articles/CBMipwJBVV95cUxNUFlQUFhzR1h4UGs0SzdGZUgwbkRXdnFyWUx3UGhvZ0dLbnE3bEl2Z2huY0Itak9kc3JnbGxqMlJTbHp5NENtSnZuNmgtLTh2NGNrS1Z5a2hJTTY5ZUxIdzVweGMySTVYX0Faa2xqMGNrYS1qcEw0NGRpQ1Z3M2FEaTIyYjBaaWtxc080aElyODZaMHMtVWQweTl0WkFLazNTQURYN29FQzdidGNsSlhBVnpCVXNhS3B2QVpUZ1lvaFJvWUQ5VS1wMmxpaXpqd2g3cTdfR2pSMDFKWWFyc19IQzNKaV9BUjc3TDVCYktFU0RzSHFia0NjUEJVUlk4MUp4b2l2clhlQ0Z5dHZyalo0eWRQaUh0VjZSckVTWnlfRWUzY3VZdEZJ?oc=5",
+   "medio": "RPP Noticias",
+   "fecha": "2026-11-11T02:10:12.000Z",
+   "senales": [
+    "brecha"
+   ],
+   "lugar": "Piura"
+  },
+  {
+   "id": "USF-N-261111-0513",
+   "titulo": "Huaraz: Vecinos de la avenida Raimondi exigen sesión extraordinaria por inundaciones",
+   "enlace": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPb2VLZFNEaGJBUHJOX0xUVHluclJxZlplN3h2dzd2bFZIblhiZE9VdXA3b1hLMVQ1cVY3Ti1KV0J4R1BEek5aY250OHRrdjBvTV8xb3d3WmlvRE5ody1DTVlpUXhoZXVUNVBMTTlrTGgwR0t5TWZyU05ERWdXX2hPX1RkWlBPaDFJNExUTlVGRWxSM1hzeUYtN1pMQ053VXRTR3MzaDRJRUhyVnBHWHA4N2M5T1J5aXFpZllNX1hUb9IBxAFBVV95cUxOcnV0WGhRQjFwaTlpNTdGSllBWTZqcVhwN3dwejlQT1d5a3BaelpicVladTF3THpacy1ZM2dwYmRuNE94V2diRW0yaEFHY2NoNWs5TE01NTFaYnZsSmRUa24yemJwSzluckhjWF9hQmkyd1FZTThYZElsTV9QSHZKVXozZDM1Tk9iTGk1Z0Fka00xLXZWckw3ZXNNY3NmM0FFSzhTd1JWU1V5aGN2dlJ1XzRzdlM3bFBMVkl6OURwMlI0cGhI?oc=5",
+   "medio": "Ancash Noticias",
+   "fecha": "2026-11-11T01:57:58.000Z",
+   "senales": [
+    "inundacion",
+    "brecha"
+   ],
+   "lugar": "Huaraz"
+  },
+  {
+   "id": "USF-N-261110-0525",
+   "titulo": "Lambayeque: Baja cobertura de vacunación contra el dengue",
+   "enlace": "https://soltvperu.com/baja-vacunacion-contra-dengue-en-lambayeque/",
+   "medio": "Sol TV Perú (sección Lambayeque)",
+   "fecha": "2026-11-10T23:39:43.000Z",
+   "senales": [
+    "dengue",
+    "brecha"
+   ],
+   "lugar": "Lambayeque"
+  },
+  {
+   "id": "USF-N-261110-0530",
+   "titulo": "Huancabamba: Contraloría alerta deficiencias en almacenes de ayuda humanitaria de El Carmen de la Frontera y Sóndor",
+   "enlace": "https://news.google.com/rss/articles/CBMimgJBVV95cUxOSVo2ekZXTGFrM0NvbklDQUhBX2UyNXJaX2luYndSaVZjZWdURUNCTjdLSm5zRjNXT3E4YUpuMnQ3QTVQaFc4czVCX2FKWDhyQ2F1YlBfWjFuNGdmRjVxMjFPSXhsUjc4enA4dWJXU1hCNkdIOElHXzZITm5pSGlWakExa3NTc1hodkEwcl9WbEFBc3kyQTZTR3ZGdDJnTzRvdnVLc2VJaGpnUWdXeHd0RGYyc2lnZURJQVptRjBsOS1IV21NZGsyamFoXzUtVGhLZ3FCN0RzRWRKMnRHUlZlRXVQaUlYTkpUMW1zZGh3TlNoaVZaVWliRHlxSjlFSUdnck56SzdTel9obVBTZnVoaDNLZGFNaU14dHc?oc=5",
+   "medio": "El Regional de Piura",
+   "fecha": "2026-11-10T23:14:16.000Z",
+   "senales": [
+    "brecha"
+   ],
+   "lugar": "El Carmen de la Frontera, Sondor"
+  },
+  {
+   "id": "USF-N-261110-0536",
+   "titulo": "Piura: Contraloría advierte deficiencias en almacenes de Defensa Civil de Huancabamba",
+   "enlace": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNR1Y3ZS11NUtwcXdtN3l2Mk5UTzBZdmlVdmhvek9vd0REXy1TeHNNZU9YZHM4TVJtb1E2LWZLU1EybGExU3RBUFFLQ3hiQW9QUFdlOGI2NzU1V1BacFRTa3REQkUzM1Q2WXFRYjFYR0Fta0t4V3FmMzg3eFdzQ09fRDZGOThCSy05bnJUaTdpTFNuYVYyZUxOdC1iOWZTc0JvTFdUclNsWi1Xb1dZaUlyVEV3?oc=5",
+   "medio": "Noticias Piura 3.0",
+   "fecha": "2026-11-10T21:53:59.000Z",
+   "senales": [
+    "brecha"
+   ],
+   "lugar": "Huancabamba"
+  },
+  {
+   "id": "USF-N-261110-0564",
+   "titulo": "Piura: vecinos molestos reportan falta de agua hace cinco días",
+   "enlace": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOM2NFTERkeDkyRWtZRFdiZlQzMlJ1c0tQRXFCaGRJcmVWak81YUEta1RnbUwtbmZWZXFTSS1VSkpINkplV1lWMGhjcmc2ajExbDlZeHNuSmc0ZGpGUUtkSy16UTBNLVV1YXVMQmVlajF2bWpjSHhqQ1BVRGVxdElUekR1UFVjUXBMSnRtMHZkaF9PMzdBUHN6RUQyMml6bjBqWWZUZ0tqZjhablBfaUFLRTNhZ3ozd2Vrb2t6TA?oc=5",
+   "medio": "RPP Noticias",
+   "fecha": "2026-11-10T15:57:51.000Z",
+   "senales": [
+    "agua",
+    "brecha"
+   ],
+   "lugar": "Piura"
+  },
+  {
+   "id": "USF-N-261109-0639",
+   "titulo": "Huaraz: vecinos afectados por inundación en avenida Raimondi denuncian reducción de rejillas de drenaje",
+   "enlace": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQdndjZ0FmblA3TmxIRWgxaVhfVUM1TUo5UFAtQ3FkWUE1dVMzQ29tYU5jWVV1Z3BVWXd5MDV3REk4dVg5THNuV3AxczVpUVVUMm5MRDlhZTloV29iWFJfblM4aGNkWW1YY0VKc015NUxMYTIxTGRaVzl0bFNrOFdhaXBQQXpBekRlWVJnR05UTzdkdjNkUExRNjNILXg5Zk0yUDc5b1RpNkg5SVExSzN2VkJKal9xY3JBeVdQeld4Wmwta19PRTVFSEV3YURrTFBpOXBZUmJxN2nSAd4BQVVfeXFMT2JFbnJfVkFHUWtncXVtM0tKdDBzNGg2RjZ3bnZINXhHeV9uS2dIa1Z0WGNzZWdfZTFpVlNXN3ZmTUNoOVYzWHpXZTUtM2ZDb2NrRk1Xcy1XQjVCV04tdjc4dC1ZYWxhbHZtVkhYeEJqQml2NVVfWDE4RnNEMnlfOWwwVlF0UHItTnJQWkYwekJQZjI5R2ZhWmVnbE94WnpPN1ZlZ2VadlNQYks4cGgtUlZ5d1BLOXF0bTVHdzk1R3RSX05UZEl0d3kwTGphVEJDYWJDeUFxZDZJdUFXYUln?oc=5",
+   "medio": "Ancash Noticias",
+   "fecha": "2026-11-09T17:54:36.000Z",
+   "senales": [
+    "inundacion",
+    "brecha"
+   ],
+   "lugar": "Huaraz"
+  },
+  {
+   "id": "USF-N-261109-0641",
+   "titulo": "Huaraz: lluvias y granizada inundan emergencia del centro de salud de Huarupampa",
+   "enlace": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPbW1aV2toMHhHSE9ob3lwMk5SbUI5a3h3V0kyaEhoNEpreTU2NDhyQXdCZGxPenhWTnp6Zk90QzF4aEFIYmpKN3R4VGxheHBTa2R4bnNHc25IN3ZpaF9rUkNqZnJPM0E5bUVRR3lWUUQ1NlpmX0M5SV9RS3hZUFA3b0pYaFJqN3k0dVJXZXdYRGN3TW1XUXdlRHNZUUpsSzl6M3B1RDRiemRjNG5RTDUwLVRBVFNCbXFPNnfSAb8BQVVfeXFMTWc5WW8wRGlZZTdvdFJvZ3NWdk5wQmZjWkZPdlB6ejFleHJCSW9qRzhka2pfMVpZdElBUGFrTFVZMHQyYVozNWxtRU9tM1EtM0ZpVloxN18xQjZDNkdDZjhEaEpta0Rqb2Z6QkZ3dnFPUW5Fb0Y1ZDQ1Tmttd0N6TjRXcm4wWjJWaWNDUGVZR05FazhTNFBJNVNOWVBUUjNWMVJ4U2xZWl9BZlB0RXRMSEQ3bUlsUEFDOW53VTkxbTg?oc=5",
+   "medio": "Ancash Noticias",
+   "fecha": "2026-11-09T16:56:36.000Z",
+   "senales": [
+    "inundacion",
+    "brecha"
+   ],
+   "lugar": "Huaraz"
+  },
+  {
+   "id": "USF-N-261109-0649",
+   "titulo": "Hospital de campaña en Tumbes termina inundado tras intensas lluvias",
+   "enlace": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9uUjFYRmt5LWlEbzJZRTN4YUU1NGZhcGRrMzZiZ3hVUVVvMEFSX053Y0w4d19jMXhjS0hqWC02S1dScms3U0FlMlpUZ3pTOUoxNHZNS3ItaE1wXzR6c2RmZFM4em15cEhlVEZ2RmRDRUxwbm5KalFn?oc=5",
+   "medio": "ATV.pe",
+   "fecha": "2026-11-09T15:44:56.000Z",
+   "senales": [
+    "inundacion",
+    "brecha"
+   ],
+   "lugar": "Tumbes"
+  },
+  {
+   "id": "USF-N-261106-0790",
+   "titulo": "Lambayeque: piden puentes modulares ante lluvias",
+   "enlace": "https://soltvperu.com/puentes-modulares-lluvias-lambayeque/",
+   "medio": "Sol TV Perú (sección Lambayeque)",
+   "fecha": "2026-11-06T13:09:43.000Z",
+   "senales": [
+    "brecha"
+   ],
+   "lugar": "Lambayeque"
+  },
+  {
+   "id": "USF-N-261104-0848",
+   "titulo": "CHEPÉN: sindicato denuncia falta de pruebas rápidas para dengue y presuntas irregularidades en atención de paciente que falleció",
+   "enlace": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOQW5nTEd1bTF6Q09NYlBXcU1aVGdnOENNZlhRNlc2dWxocVF1ajVsbXZzb283NUszZmNxZ09zSjJNdWE5NzVsRnlMa0VCUU1LUGRkUk9zZndlbjNEQUhoQjJQY0hiS0owdFd6MzJ1VFgwRl8zVUFLVVV2NTJuUkhmbzNzc3Ztdl9aNy16N0p1eWo3Wmt5czZMM0thSnRfMHoyVmNsWFVrbXI4cE1BMkxDLXV3ZXh3QVR0aUtQalVkdWc2N2o2a0Zfc0hFTVlCcXVFMUJfei1IbmYySU1ZNlZneXV0RDc?oc=5",
+   "medio": "causa justa",
+   "fecha": "2026-11-04T17:03:11.000Z",
+   "senales": [
+    "dengue",
+    "brecha"
+   ],
+   "lugar": "Chepén"
+  },
+  {
+   "id": "USF-N-261103-0889",
+   "titulo": "“Sirve para casi nada”: Alcalde de Tumbes cuestiona la declaratoria de emergencia",
+   "enlace": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNSkNrX3hRNU1YanhlX0JYS0xWdDVhOFNnNllTS296Tk9DODZrcUZJUlctOEpQWTNnMXVROU4zUWV6aWVvRV9NY1FjWm5DRUFXM01ReXB1VVljVHp5akhQZGF0d0hlWUQ3c1hta3Z1QnJaMnVWNi1iRUUxaDJ6a2VOMGNrWEZIYWxZdDBBNWNvZ0JaMmVKc1o5ODQ1TVJqQlhFb0NzbmwzUElKNUNWbFZvWG84Zk1Bb3F3a0ltWWFRaw?oc=5",
+   "medio": "altavoz.pe",
+   "fecha": "2026-11-03T21:21:45.000Z",
+   "senales": [
+    "brecha"
+   ],
+   "lugar": "Tumbes"
+  }
+ ],
+ "pronostico": [
+  {
+   "id": "USF-N-261114-0003",
+   "titulo": "Senamhi alerta por lluvias extremas en Piura y Tumbes: ¿qué se espera para este sábado 14 de noviembre?",
+   "enlace": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPRFVKVlVDamtxbFk2eGh6ZFhoWVdkV2xKemNwT0hvcXFST3F5aDZ6dy1PTDRWSGJnRTJjSFpRVzB6ZnVYMEMtMC1xdE5lbDVnejBzcVRUb2FnUmY1dWhsdkRhS0M3cENidzB0YzhtcXdNV3hpUWpUWGlQa3FSUWRQaTFJQ2VkMVVGd09ZX2J4Y0hfc0JqUTExeE9DS2F0RmFqQXZUWG1uXy1RbEZDYm5GejJqWHBoYjk0ZGlWWW12dmNFVnJNMGc?oc=5",
+   "medio": "El Tiempo | Diario de Piura",
+   "fecha": "2026-11-14T15:01:57.000Z",
+   "senales": []
+  },
+  {
+   "id": "USF-N-261114-0094",
+   "titulo": "Áncash: Enfen prevé que El Niño Costero mantenga magnitud extraordinaria hasta febrero de 2027",
+   "enlace": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPT0xjemhaMFY5clZ5eDFWY1NvZkNRS1NsOGdlSklxenk3SElqR3NSQkcyd3NJTHlucWpGT0tBdkFfZU55eHo3MDBpNG1mZVg5NGdYWXlqUzZQMWJmUTVSbkl0UlBaaThpajI0UlhBX19DMEJyUVY1UjZsZm05UlZYOUJDcnBlbWNEM3hCVHd6RVRnbUVvdkZpZWlqaG82OXBrZ1VyZTZUR3dub1NCM1JkRjFxc3RjcjFz?oc=5",
+   "medio": "Radio RSD",
+   "fecha": "2026-11-14T00:35:58.000Z",
+   "senales": []
+  },
+  {
+   "id": "USF-N-261112-0307",
+   "titulo": "Lluvias en Áncash: Senamhi advierte precipitaciones y tormentas eléctricas del 12 al 14 de noviembre",
+   "enlace": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQaGlsZHhOamVNMFlvYXpkTDJ5aUVadVF0YWVKSE9hZnU1aXcxeTlsN01rSVZGVHBvcERHZDRidXZkNHAtRTc0cEJ6WTEtcDI3dGxfejE5Y3IwYy1kbFMxNmllSEdMWmhNZ2wwTUxkTzJLY055bHpHWmNRMi1WTGJkblhfMUxyeUxFY21JMEdXQ25YVGJKb2RVYVlObzNOS3pPMlZ6MzhxWng1RzgzSEE?oc=5",
+   "medio": "luminanoticias.pe",
+   "fecha": "2026-11-12T23:19:03.000Z",
+   "senales": []
+  },
+  {
+   "id": "USF-N-261112-0329",
+   "titulo": "Senamhi alerta incremento de temperatura diurna en 12 provincias de La Libertad",
+   "enlace": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNampfeFdHUjk2Vm9JQUFQVlA0UmNlcEU0eENYNUUzVHlKZWUyR2dGUVJvNDVub0xkczZzM1doT3lfdXdObndWd0JIZ211X1IwaXhqTzNadnQxMVZiRFNHNHVnbE9qSzZ3X3pwUGJKbEFIeGxTTGdOdTUwQTVaMGlmWWYwaVMzQUNTRVU2OXF0R3JVbXY3c01JSzE5c0xMZ292UUhuSG8tM0ZRMjRSeGFPZ0JaZw?oc=5",
+   "medio": "Macronorte",
+   "fecha": "2026-11-12T20:52:33.000Z",
+   "senales": []
+  },
+  {
+   "id": "USF-N-261112-0339",
+   "titulo": "Senamhi emite alerta roja en Lima y en toda la costa peruana por ola de calor extremo",
+   "enlace": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOTURMWGtFRkpuRFBCUXJ3X2dEYkJ3WF9zWEhIcGw0Wnh0YlRVcFZueUFDaElKcEx5TWwxWEkwMlhoOG5jVE5tbEVRckVRVmlTeXlORUpweGdVbkE5b0NFcWFiTFpIOVo1SWJkRGJrX0VBZEFzOXIybzVFS1pOVkJXV3JWWDR3aUYzYnk4bUg2d3UxQ0l5TENkZTkwOTVKZk0ySjF5TUgwQzRGVlA2OWZ1Y19jckZiZ3VlWXRXYlRuYjl3SWgtWHdOMGVRdUw?oc=5",
+   "medio": "RPP Noticias",
+   "fecha": "2026-11-12T20:06:00.000Z",
+   "senales": []
+  }
+ ],
+ "proyectos": [
+  {
+   "id": "rio-piura",
+   "nombre": "Salida definitiva del río Piura al mar",
+   "menciones": 7,
+   "estados": {
+    "Atrasado": 1,
+    "Mencionado": 2,
+    "En conflicto": 2,
+    "Pedido": 2
+   },
+   "lugares": [
+    "Sechura",
+    "Piura"
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261108-0704",
+     "titulo": "Keiko Fujimori descarta salida del río Piura por Sechura y prioriza aliviadero de Chutuque ante El Niño",
+     "enlace": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNeHlVMWFzZ2s2TGw4eDJ4dVY0U1NFR3lTQk1zZ3VuRUJoTGZJX1ZibFNpak44WjBfYUx5QTZXaU14OHJUSk9JTmdwTXVKaUdseDlxMHNqdVFiaTc1YUlhdXp4M3ZVR2dZWWdaa1pvVDBLRzFrLWxtQVNFVXBDWlhXdG1ISkhOdUtGVFNTZ3VnSWZIbFdUS0dyS1RZelN1RERiSFlfSm91eVotYWJvb0w4YzVreWNnb0w5LTdGdVd0cXp1SU9DVGhBZ2xMa2k?oc=5",
+     "medio": "Norte Sostenible",
+     "fecha": "2026-11-08T13:45:53.000Z",
+     "senales": [],
+     "estado": "Atrasado"
+    },
+    {
+     "id": "USF-N-261027-1203",
+     "titulo": "Sechura: plantean propuesta técnica Reventazón para evacuar aguas del río Piura hacia el mar",
+     "enlace": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxOQ2owWjRjZW9CcTloTjFJSWZyMWhMY3NuZVRNQmswM0RDak02UWkweXo2UlNRRFJZSldWUkhkZXVoTkVKZFZxVmVmMTRPQ3MxVlpyTXV1SWZETWNfcjd3cEt3MEpGN0tLRVNXU2VNVWpqdllyZXIwRmJ5SlBReVRvUGdYU0tUM0tUZ2MtS2pCV3h2VGdUV1U1NnpLSUZJa1JhMFdhX0xuV1pLV1QwNjV4NEsyb00tNUhPZGZKNzJiMkNhRVpkWUhiUWdyMkFPVUpZdmlWZWczOTExUkR0RWpOMkVUVGc2aWhrdHl0S1lITmhxZnFmRVE?oc=5",
+     "medio": "El Regional de Piura",
+     "fecha": "2026-10-27T07:00:00.000Z",
+     "senales": [],
+     "estado": "Mencionado"
+    },
+    {
+     "id": "USF-N-261027-1205",
+     "titulo": "Gobierno anula contratación de empresas para la salida del río Piura por Sechura en medio de rechazo social",
+     "enlace": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPWHRYVTRGQWQ1Wi1ZeU5EV3dMb1hNSFN2WFFXdXVJcmNPc3A1dTVBMlZmU2tNNzhzTzUzNnFmUUZ1MDJuZ1hvZExzVHZsUnU5VHR6ZFl6Vnp3aG4xWm5uVDNNZWVmdXJEdWhsS1VPWWROb3Zva3A3b2Fha2RkTE5fdEdGdjVXMU9GeWVTRFc0VzFOZTJaQUdLUjdiMW1tSUJPMHpoTVFzVkdFb19LVjZMeDBMR2tLb2VBcTFEMnpYVTdPRl9NcE1Bb2xDY0tTam5VZUE?oc=5",
+     "medio": "Norte Sostenible",
+     "fecha": "2026-10-27T07:00:00.000Z",
+     "senales": [],
+     "estado": "En conflicto"
+    },
+    {
+     "id": "USF-N-261026-1249",
+     "titulo": "Productores de Sechura rechazan desvío del río Piura al dren 1308 y alertan daño a la economía local",
+     "enlace": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPWGxNeGZDNk15M01xZVdrTzY0MGYwZEhSRHdMelg3RTVqZzNpZGh3MEl0OVVudUh2VllrYWpoZTJ4S1ctdmNubml0NEhzdkkxSTBOOTBTWEpmckRJUlkzYUU4UWhLdkgzek9tc0pIZUdwenZwUUtJNGlRSWU4VzU5cDVvazU1Q2RieTNMY2hlazMtNnJLVEJWV0VvSER5MFVzRFlUaFZwaGxkRDl2N1JRM1l3WTU0Q2ZXODgtMld0SFI5c0k?oc=5",
+     "medio": "Cutivalú Piura",
+     "fecha": "2026-10-26T07:00:00.000Z",
+     "senales": [],
+     "estado": "En conflicto"
+    }
+   ]
+  },
+  {
+   "id": "defensas",
+   "nombre": "Defensas ribereñas y descolmatación",
+   "menciones": 13,
+   "estados": {
+    "En curso": 6,
+    "Pedido": 2,
+    "Mencionado": 4,
+    "Atrasado": 1
+   },
+   "lugares": [
+    "Chicama",
+    "Piura",
+    "Huancabamba",
+    "Lambayeque",
+    "Huarmey",
+    "Cajamarca",
+    "Zarumilla",
+    "Áncash"
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261111-0492",
+     "titulo": "GORE La Libertad alcanza el 50% de avance en trabajos de descolmatación del río Chicama",
+     "enlace": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxObk5jb2Z1U051Sk84ZHRNaDY2M3VxM2tsemotUDRteWJjb0ZzdUpfOXdkNVhaX002VmFoNnhEbkNRSkd2VEF5VUZ6ejJ3ZVVuNzlJSEx3NnFhai1QS2RySlNOYVhaaDduYndUVG9KOUx3d2VfRk0xVGdrLUo0ck5lblA3bDVXVXM2ejBlYktvOFdNNkZnNEdrd01neHJOcDRzLXltdEtDak15bC1yWkU1MEgzTVlZT21zXzJlbGEwTm9QNzEyd0oyNUY2ZFQ2TXl2Q2dFcXgtNmpjb2M10gHwAUFVX3lxTFB6OHlDbERSNkRBeU1rZkNHNTNEdzQ2c2JUd2pxXzhrNWdZeVMtS3A4Nl9NOTBUX0VSckhraEZKN2p2dzlWTDFFekxCZHUwNTRWN0F3ai1saFdLSHQ0MjItYkIyNFA2SjNhc3hFczl0Y2lSNGxHSlpzQ1FFdFhPX1pUNzBQQnNYZ096clFMZ0pKclFPekRnejI5NTY1YmFjV3dPZlNneFVVSnpralVfZXNmS0dhaFEzYWZaNVU5OTZCVFJNZUZDRWEzSld5c3ZIeEtCaENlTk5VbVpBOW1fNkJXbW52RmJucUdSQnFRbVJVUQ?oc=5",
+     "medio": "Diario Correo",
+     "fecha": "2026-11-11T13:33:08.000Z",
+     "senales": [],
+     "estado": "En curso"
+    },
+    {
+     "id": "USF-N-261110-0571",
+     "titulo": "Piura: Colegio de Ingenieros advierte riesgo de desborde del río y pide reforzar dique La Mariposa",
+     "enlace": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNNldxREd3RVpuLXppc3Rsc2pSZlc0ampiSTJDaVBDTFpENEpUNGt6SmRnMlhZNzM2TFp1UXZkVGdKdThOU1FHYnZqeXQxVnhvWUVMcGNiUlFidEZUal8tdDFUNUtHcTZZUmRmOWYtWHNSeWh2eHM5eDVxT2pZMF93cG5TU2piV01MaEpQdmhNVGd4UzNqN3Z1amxhc1hlRnNTblo5b3J6Q3h0MFFlMnE4UzVSbVQzUQ?oc=5",
+     "medio": "Canal N",
+     "fecha": "2026-11-10T15:07:06.000Z",
+     "senales": [],
+     "estado": "Pedido"
+    },
+    {
+     "id": "USF-N-261109-0669",
+     "titulo": "Piura despliega brigadas y descolmatación del río ante alerta por El Niño Costero",
+     "enlace": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBMNkl3QWJiNi1BY1FEekhCMkxsSlBzcV9pb1A5MHRwbGFqVERqTTh1QkVrcFU4TkEzczBneS05MTE4X1pSOFdMU18xR3gzMHhkcHhhdzhYY1BNZVVmTGxsekhmc3VtODNQWWc?oc=5",
+     "medio": "ATV.pe",
+     "fecha": "2026-11-09T09:02:33.000Z",
+     "senales": [],
+     "estado": "En curso"
+    },
+    {
+     "id": "USF-N-261031-1065",
+     "titulo": "Piura: Contraloría supervisa limpieza de quebradas en Huancabamba ante emergencia por El Niño",
+     "enlace": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNS25ZU3RPSmFyVDZLRVBRVlRTQ0E2bzdrZC1MU0dXVTZPQ1NJNFdaZDZQQzkzYnV4OEx4S1FzVWdJOERpMFJjcnF4U3FBSl9qZlBzWlZUMzVoVWtfMXlZQnFKQS1DaE15LTNEdmt4Ul8xTFp6TWJ4dWdzMUNFXzN0V0VXSEtnUnFVN0pYeUxUVWdVUkxEekhkQm5kLWZVVkhtLVQ1MWhRdkNZTHY1MzhIakxpRTRyUWQyUGxoa3lWdTl2emJhVi1EUlJrWjA0TUd5alZWdjVveG11MkN0WnU1dnBRWWFZRGlvMVhBRdIBgAJBVV95cUxQb2VudTNNZ3JmV1c0YWZMX2Y0d21iWUdGSnhyUjRlR24yQmZFVlFGN2trMm96M2hCMWdlbWw0ME1sSlZmMjhsa1lCY2R3QndOcjNVTTctNWVCdnVzeVVTYXBXUFpIVFRRRDJXcnlHczZaODlYc3UyRjdrbXpHRmxZRkliUTNqRDhKVWxJRndJWGNzZ0tYVjJRR3RIeFJnYkxtdV9sRGUwQmRTajFOMTc0LVlSOGJVTW91d0RSTXl3aFdiMVZuNExUenpGXzdjU3hVd2lvM185bnVhV1NZajRNSGxkcmtmYTdXcVNtWjJHQTFxV2NWekNtMk56elM5NFFK?oc=5",
+     "medio": "El Comercio Perú",
+     "fecha": "2026-10-31T07:00:00.000Z",
+     "senales": [],
+     "estado": "En curso"
+    }
+   ]
+  },
+  {
+   "id": "puentes",
+   "nombre": "Puentes y vías definitivas",
+   "menciones": 5,
+   "estados": {
+    "Atrasado": 1,
+    "En curso": 2,
+    "Pedido": 2
+   },
+   "lugares": [
+    "Huarmey",
+    "Sullana",
+    "Lambayeque",
+    "Paccha",
+    "Celendín"
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261112-0417",
+     "titulo": "Huarmey: Contraloría alerta por deterioro de la estructura del puente Cuscus",
+     "enlace": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQeXhkZ2NIcldrLXUzX0hfQlZlNU9vU0NjNmRrTE9ISjItT0RlYjcyd0ZQYXFncFpiZG5qODdrZ1ctLVpXNXdtVUw4TC1YZTRmN3dxTmpmS0t2UjNLb1k5MjlwcWZQYl9wVFpZSkktU1lRelM4VVN5b0lHYUVwZEIwTzJwVXVNdUI2emczdmg1UENrN25ER3owLTJITDZqRHZTcWc?oc=5",
+     "medio": "Ancashaldia",
+     "fecha": "2026-11-12T01:22:03.000Z",
+     "senales": [],
+     "estado": "Atrasado"
+    },
+    {
+     "id": "USF-N-261107-0729",
+     "titulo": "Piura: otorgan buena pro para construir la Vía de Evitamiento de Sullana",
+     "enlace": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOMW1lSnc0UTl5dEFicGVtRXA1RlpoaGkzcXd2VndfbndJbWRaUVozMzVNd19JY1N3SGF4VU5td3RFVUhfd2otdWpXUmFWMS1aWnRfUTJwc1c1QU40ODRRMGNfSlMtU3l2cFE2S1I1cklrYkRHcVV6bW13emo1T3QxSmtPZnY2QzFkSEVaTVdnY0RxeW44cXk2bEs5d2NLVlRo?oc=5",
+     "medio": "Noticias Piura 3.0",
+     "fecha": "2026-11-07T16:51:56.000Z",
+     "senales": [],
+     "estado": "En curso"
+    },
+    {
+     "id": "USF-N-261106-0790",
+     "titulo": "Lambayeque: piden puentes modulares ante lluvias",
+     "enlace": "https://soltvperu.com/puentes-modulares-lluvias-lambayeque/",
+     "medio": "Sol TV Perú (sección Lambayeque)",
+     "fecha": "2026-11-06T13:09:43.000Z",
+     "senales": [
+      "brecha"
+     ],
+     "estado": "Pedido"
+    },
+    {
+     "id": "USF-N-261026-1229",
+     "titulo": "Vecinos de La Paccha exigen construcción de puente de concreto en Cajamarca",
+     "enlace": "https://soltvperu.com/vecinos-la-paccha-exigen-puente-concreto-cajamarca/",
+     "medio": "Sol TV Perú (sección Cajamarca)",
+     "fecha": "2026-10-26T14:04:01.000Z",
+     "senales": [],
+     "estado": "Pedido"
+    }
+   ]
+  },
+  {
+   "id": "drenaje",
+   "nombre": "Drenaje pluvial y alcantarillado",
+   "menciones": 3,
+   "estados": {
+    "En curso": 1,
+    "Atrasado": 2
+   },
+   "lugares": [
+    "Sechura",
+    "Ayabaca"
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261109-0673",
+     "titulo": "Piura: limpian drenes Sechura y 1308 ante posibles lluvias intensas",
+     "enlace": "https://news.google.com/rss/articles/CBMimgFBVV95cUxONVQwb0VqQzBlcXB2UDA3NnFZWmZDVVpiRS01MDRtV1pVQWZxRE5xVTE0dkhiOGpRRFV5WmoyYXM0ajZxQ2NNS2hqdUM4RDNjVnc2QmhmUUtyeGZMRkxqZGxUaDVXSUozNEotdVhyTjdGa0V3N3BPZUhlb1RWc0dNWGtnWGxCb2dOellCQ0E5TERKV0JTdFRKMHdR?oc=5",
+     "medio": "Noticias Piura 3.0",
+     "fecha": "2026-11-09T03:53:34.000Z",
+     "senales": [],
+     "estado": "En curso"
+    },
+    {
+     "id": "USF-N-261026-1243",
+     "titulo": "🔵⚪ Las intensas lluvias del domingo 25 de octubre provocaron inundaciones en viviendas y comercios, además de deslizamientos en Ayabaca, Piura. Los vecinos alertan sobre deficiencias en el drenaje y obras inconclusas que podrían agravar los daños si",
+     "enlace": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1jR2I1dHZFUnk1Y3BPeFV0cGJCU1YyYi1aSEFjTzVxcWlwcS1lMjFRUjNRLVFIek5IMUFOWlpyM2VjS0pEandOMjF4ZDlfX2xDZXc?oc=5",
+     "medio": "Instagram",
+     "fecha": "2026-10-26T07:00:00.000Z",
+     "senales": [
+      "huaicos",
+      "inundacion",
+      "brecha"
+     ],
+     "estado": "Atrasado"
+    },
+    {
+     "id": "USF-N-261026-1246",
+     "titulo": "Piura: lluvias inundan viviendas tras fallas en obra de alcantarillado en Ayabaca",
+     "enlace": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOUFhvNE53QjdpS2RTYURnZU12WHJpX2E3T1RLWUJ0WElNdFhxYUdGTXF6cU5SdnNnTWREMkl1RVd2TWNxYkdLOW9WR3NPTzhHNEwwNEJPd3Zna3FSUlhRXzlWMDN1bGIxWldscFY2eWhSSGw4dFktVmVlR0wxemtFZUtYS3o?oc=5",
+     "medio": "soltv peru",
+     "fecha": "2026-10-26T07:00:00.000Z",
+     "senales": [
+      "inundacion",
+      "brecha"
+     ],
+     "estado": "Atrasado"
+    }
+   ]
+  },
+  {
+   "id": "salud",
+   "nombre": "Hospitales y salud preparada",
+   "menciones": 3,
+   "estados": {
+    "Atrasado": 1,
+    "En curso": 2
+   },
+   "lugares": [
+    "Huaraz",
+    "La Matanza",
+    "Cajamarca"
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261111-0464",
+     "titulo": "Huaraz: nuevo centro de salud de Huarupampa sigue sin culminar pese a vencimiento del plazo",
+     "enlace": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNNUplaFZPNFdlT3NsUTBaVUFJalFWYnJDek1lQ2s4eWZKWDFBcm1scnQyQ1NOWWhwTDlyakdBUGEtQWlWV3dfWjNHdGY0T1phSi1iZDQwR3dhb2xxbDZxQm54Z3V3TzBBdVlxV29BSTQ5aDFjM0FyTmNLRFJMOUNhR1JsYkFzZGxjZnVoTjF0em5oXzZQVGtLeE16R1NvcXhwVTliT2EwMHlXTU9mU3FaZU83VXowOWxhM1JMR0h1Z3ZFc2laa1BLetIBzgFBVV95cUxNdmFmcF8zdi1qZGhCRXhfMlJWaUI2YjlUc29oZ0JOTmlkU2Nxbk1uV0dfTi0xR3ZYQ1J5bmM1M1pvOUR5R1lTaVhneV8xZ1JGZE1OZE03ZmRBZHB4VnUxSDljbHpoMVUtVDlwc0lpdVJJTnVjYUotcVFjT3Vtd1FvN2RONU1Icm5kUFJBWVRpMENxdFZCVDlSLTdMYUNkZ3QxLVB4WFVOZjNUbDhoM2NqT0ZONk5KTVhZZlA4MkR1LUpxZTVaVVF4VmlReTdmZw?oc=5",
+     "medio": "Ancash Noticias",
+     "fecha": "2026-11-11T17:24:53.000Z",
+     "senales": [],
+     "estado": "Atrasado"
+    },
+    {
+     "id": "USF-N-261111-0485",
+     "titulo": "Piura: Defensoría del Pueblo supervisa centro de salud de La Matanza",
+     "enlace": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPZHVEOEVqRmhjRkdqMUh1TTZMTk5lbVRZUXowRm03NVExekg1ZmpXMW43b1R1UUQwdG10WTBTdDlRNk1iX0ZfSUlxLXdITDlBd19sUmR2VW9CNlNtSXhKa0ttLVctV1FSWVFKcHJaVFVaTk5yckpSalFBNUlXNVJzX0hFOS1HWDItZkczU3UxR0ZpeVkyQ1phTTVXN3dlZ29KNTZ0TjFxT3RWeGdzQTR2NjlQdUvSAcgBQVVfeXFMTzVtVkJzSVQ4c3g4UjJGbnNRajFFYzMtdGlzOEc0M25FSlZkcElZcWM3cWxiLXJEUVNZSlQyYlJaOEwwOUdCVVNKN0ZPdmZkRGstOFBUSjZ3UVhBV0o5THAweTR6VF81Ti1RZjBtc25FS0tBc0xZbjNpSFNQak1nR0c5blhiMFhrWmdEbWZsellQb2hzblVRMEc5RXVaQlN3OUJUS09OaU1DekUyR0V0d1lYWGxVRHZoZ1VJbjRTUkVlV3ZJS1RnRkQ?oc=5",
+     "medio": "Diario Correo",
+     "fecha": "2026-11-11T14:18:47.000Z",
+     "senales": [],
+     "estado": "En curso"
+    },
+    {
+     "id": "USF-N-261106-0780",
+     "titulo": "Cajamarca inicia ampliación de su Hospital Regional por más de S/ 260 millones con Obras por Impuestos",
+     "enlace": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQVXQ0SlhMRWtzQ1g0Tnlvd2ZvOWJoQmFTMUJSTm1DeXVTWVY5SE1RMTRzRzByTUdpbUdfdUNDblVoUENkcWRXYzllU0NfMkMteTE5UEFhUndnbF9XdEVpT1otcHZyQ25uYmdra0RQMXR2Wm1LSHUxZ0ZpVXdIUVNsSVJQLU1zMWxvaFU4Q3Fsam5JY0RSYl8wSDJhWnhZeUVMVVRNc1NIZk1jT25XM3lhUmVIcw?oc=5",
+     "medio": "Rumbo Minero",
+     "fecha": "2026-11-06T14:57:56.000Z",
+     "senales": [],
+     "estado": "En curso"
+    }
+   ]
+  },
+  {
+   "id": "patrimonio",
+   "nombre": "Protección del patrimonio cultural",
+   "menciones": 6,
+   "estados": {
+    "Mencionado": 2,
+    "En curso": 4
+   },
+   "lugares": [
+    "La Libertad",
+    "Lambayeque"
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261111-0507",
+     "titulo": "La Libertad: priorizan obras de prevención en Marcahuamachuco y otros dos sitios arqueológicos ante lluvias por el FEN",
+     "enlace": "https://news.google.com/rss/articles/CBMihgJBVV95cUxPMmR5UkVJVzU0cFVyVUdUbEdpNl8xU1NUMWUyc3dHLTAzYlhOV3BBdDdNczJQTUpleU0tUi1fTXNhNmZxMFpCQlBidmlBcWN2SG8ydll1OFYwZ2ZRWV9ndWhtakpnUkJKVk05TWdBX3JtbWd1U0hnOENENElvVEJNbVROSGFsdENGdVJTbzBCQzlNWUd3RmFqeEJWZm9qRkVHUlFhVExVNnoxUDQyYnFoZW1NcXFmVXhkMEpQelQ0MmNxRUxTNWRfNXh2ZzIzWnhNbjN4T3E5dVJzZHpzYnBoeUJRcTVBcERkQ1lvbTVkVUZPVDdtVVktemVtZ0RwWWdQVmVncGdR?oc=5",
+     "medio": "Trujillo en Línea",
+     "fecha": "2026-11-11T04:13:00.000Z",
+     "senales": [],
+     "estado": "Mencionado"
+    },
+    {
+     "id": "USF-N-261102-0954",
+     "titulo": "Fenómeno El Niño: destinan S/ 10 millones para proteger patrimonio cultural de Lambayeque",
+     "enlace": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNZllKdmlBdFR5VW1LM3d1Yy1ZTmpzUVlLd2FOYnhYemxfV0ZtNGxzOF84eGR0WjVTSkhlS3lyT0piYUowc3h0NzdqSVBYX2laaTd1SFhjcklUNDhuaERtN1dzdkMyN3F5ZzlfTlZzTElRRXZWQWtvVXdtSGt3eEdldEhFSlN2V2ZWVHNYckQ3UmpMSktRQjhwOHUzWlBhcGZRLUd2VTJydks2VUtCZjlCdGtoWUc4T3V0aVQtTnlxeVppYlZocFlV?oc=5",
+     "medio": "Agencia Andina",
+     "fecha": "2026-11-02T20:46:00.000Z",
+     "senales": [],
+     "estado": "En curso"
+    },
+    {
+     "id": "USF-N-261030-1082",
+     "titulo": "Fenómeno El Niño: reforzarán defensas en río La Leche para proteger huacas de Lambayeque",
+     "enlace": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPN1gwVHREMzQ2dzlFMU9hWmJKUDlvRXUwVlBkV2dBZ1dVVDV4bVJRMFE0YV9Td0NhaF9HYXM3NXpULVBuaHhWZFRweUUyYjh5RGwzOHB2WnBvRk14MU9iMHJPSWRCYWQ2UU5DTlVrVkJzZ0xBT29xRUhkUGtvenVKZXFyemRkV2RycHlyNVN6ZmFKZl9QT2ZBUmVJRUthYnYzVENEODhjdFd1V1M4dXhTeEFEdUFYbF9pa3hSTTJ3WQ?oc=5",
+     "medio": "Agencia Andina",
+     "fecha": "2026-10-30T12:57:00.000Z",
+     "senales": [],
+     "estado": "En curso"
+    },
+    {
+     "id": "USF-N-261022-1360",
+     "titulo": "Fenómeno El Niño amenaza patrimonio cultural en Lambayeque: Mincul protege huacas y museos ante posibles lluvias intensas",
+     "enlace": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxPVUFLQXNOZy0xSXJqR19WMXlGLUNETWNJWW9PUHNNM1J2TnN2eTBGYk1TVlpJbE1vVE1Zb09xN1BsZ3dQVW1pMTY3WUpySDhWUHRyNVlMb3N1ZjQ2ZlBJT2pDSGIwckdPNlBJdVFWZUVMZlZaU3hCN0R2Vlkza1FIU1U3amV6T2xXbWd1cDRubnlaamVkN2ROb045THQ2UlFlVkZFbUJLdFhrVWI5ME4yWHZRS3luaE91dEZNNmtJdWdBNnNVeVV3dzF4ZXBZck1IWkhZX0NISzdnU09nNmoxUGxXNzhNWmV0SFliR2V4cjUtZUHSAY4CQVVfeXFMUFE1ek53RDJwYUJkQjVIWmV1MVhXMXphMXB2VkZnallkV3JDamROa25yWDVhUlkxSlpWSUg1T2RGdVU1dTFOUFhwTFpUeC0wNUk0SWttajJaY1JBR3BETGF2YmlXdkVkUjB1TWFHQ2h4Y29KSC1zZTVVd0xoZWlLaGR5WGV4Y3VCRDZDUDlMMTlmNlh5STFTUjVIZ0NLdFc0S0pBWDlTY3luX1BoclRmMkYydE42STVubnBsd2FrMUZJOTZDZkNLdnRacHZQcWpIWmE4d0o0Mjl1dC1RU2tUM3pkcXR3anI2YURQbTA1c201dEktb2JtU1JwYnQtNWU3MDhWZXBURFp3U0hGRld3?oc=5",
+     "medio": "Infobae",
+     "fecha": "2026-10-22T07:00:00.000Z",
+     "senales": [],
+     "estado": "Mencionado"
+    }
+   ]
+  },
+  {
+   "id": "mineria",
+   "nombre": "Control de la minería ilegal y sus relaves",
+   "menciones": 5,
+   "estados": {
+    "Mencionado": 4,
+    "En curso": 1
+   },
+   "lugares": [
+    "Cajamarca",
+    "Pallasca"
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261113-0153",
+     "titulo": "Cajamarca: ANA delimitará 40 kilómetros de faja marginal del río Chinchipe para prevenir la minería ilegal y proteger el recurso hídrico",
+     "enlace": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxPclBuMkZ5WDd4aVh3Rk5UdzJfZllfMzFOdElwSlU5c1pVVksyLWxZcGliRnozX3NYcGVDTTB5V2VJX1kxRFMwZ3JEbXd4MDdBRXZXT1Z0NTZPdnpmRHl4R0l3Z2hEcGdXdUZLRGdhRGdlaF9rVDlVRGp6X0thLWtyM2NxOUtXWVFDRWFPZTM0NGd1T2NpNjZPTElGV0VHVUwwUENWTHU2V3cwN1Y5TDhHZ2ZHblF4ZlNtVFJkU0VfVXVXM2JhSUxhbGlfODhDelFFN1RnTGtsWm91X2FXWVNXN1JsNkkzWFYxcE91eFZoV3FIZG5yVDJNYnhjRy0?oc=5",
+     "medio": "Revista Economía",
+     "fecha": "2026-11-13T19:04:09.000Z",
+     "senales": [],
+     "estado": "Mencionado"
+    },
+    {
+     "id": "USF-N-261104-0847",
+     "titulo": "Pallasca: Dictan nueve meses de prisión preventiva para seis investigados por minería ilegal en el río Tablachaca",
+     "enlace": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPTGcyV1lYRnA2aGszOTdnNTluLWg5MUhPVFFtSjFlNDl1T2d0NXhnM1dwOEdWd0RVcHZSRlBFcGtPUnVEYk01dlZvR2UxcFZGRjJEeXllaFNnUXFqTkxrRFBGeXB4M3FNVnBuR3ZLeHhyVWFTLU1XOVRfVjlab2ozaXBBR0RsTFZ1aUlKTzNZdVFrdDZ5N2dRTjJXT0JXdGU1QXBoY3dIQVNURFRqYlQ1bjhLQjhodHVITm42blhCQnVOODRCMjZoM1ZRSWR6Qm1QSVg2WjlQU1RYVnpZbG8wa09FTDVVd9IB6wFBVV95cUxNUG1pZl9tNWV0RndROUtwMEFMTVF5Ykp1dGNUYUxJY1FicU1yaXNxbkh3dzBoRWwta1gtYkRIYXV4Ymg3SFlpUnk4c1RsSkdlZFl5Z1BuUm40cmZtT0hPeWdjZ1JoWFFpcHVSSzRmVTU0TG95R3BKb2lHTFVwTXVlWHRBMjVOM19TNkw1ODNqdHlZNW5UcTlFRjRGUlo1OWwySXhTOFFsZnhoaFhaWUtwZHZqd09GOXZjeUxBM0FWd0czODAwZ3o1cUtZdWhTNTJGY3Ytc0UtbzZmYjB2UGU2aFFlT2VWR0p3Zllv?oc=5",
+     "medio": "Ancash Noticias",
+     "fecha": "2026-11-04T17:28:42.000Z",
+     "senales": [],
+     "estado": "Mencionado"
+    },
+    {
+     "id": "USF-N-261025-1293",
+     "titulo": "🔴🔵 #ExitosaPerú | Autoridades intervinieron cuatro socavones vinculados a la presunta minería ilegal en la provincia de Pallasca. Durante el operativo, se detectaron filtraciones de agua que podrían generar contaminación por metales asociados a la activid",
+     "enlace": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPY2dTUkpqZkE1R0hWbzhYOWc1THVCQlhPbUZHb0xYN29rYXE0anlGbmdTOUE4ZFBXSWFJNVFfR2xpZDYwRW52b0QzRUZ6b0hKUzZ0bFdtLWZSN1J6QzFGTUZhY0laYlNMbEY5cXozNnhEM0JSaEFrYkNVbzN4WDNIS0R1S2Jlcnp1cS02OHpZa0NrR3F2VnY1bG9XNElUM0dTVnJoeFZIMWVyVk9fQ0hnZFJOb3BFSGlhZ0tWRWlHdHFtMFdGMnlRWEliak1hS1VUSExjX2RaUGwtVWdibTA3NW5nN2Mtdw?oc=5",
+     "medio": "Facebook",
+     "fecha": "2026-10-25T07:00:00.000Z",
+     "senales": [],
+     "estado": "Mencionado"
+    }
+   ]
+  },
+  {
+   "id": "agua",
+   "nombre": "Presas y reservorios de agua",
+   "menciones": 2,
+   "estados": {
+    "En curso": 2
+   },
+   "lugares": [
+    "La Florida",
+    "Cajamarca"
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261108-0692",
+     "titulo": "Cajamarca: Qocha La Florida almacenará 149 137,64 m³ de agua para impulsar la agricultura y ganadería",
+     "enlace": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNUTQ0Z2IzcGRsR0JmS1k2V2NFZUYtUkQ4cy0xSTJwQnd3M0o3TGFtYnhHODExbER0bWR0dV9TUThmSi1pWV9CUTgxQ0lTQUNQR1VSd1JOSUZwSWdvT05oWFdrbWV2dkVxcWNfZTF0UFR2MG16a2k1d0VNejBZTFhmTGRPeXY4UzlrQ0FFUDREUE83QjVSSVRNZ2l5ZEtlR3dXQjltcURscUJmZ0tBLXlvNTNmOHpuTTM1RlpzaHBaVmNIeUtrRldKOQ?oc=5",
+     "medio": "AGROPERÚ Informa",
+     "fecha": "2026-11-08T16:17:52.000Z",
+     "senales": [],
+     "estado": "En curso"
+    },
+    {
+     "id": "USF-N-261104-0861",
+     "titulo": "EJECUCIÓN DE LA PRESA DE CHONTA PERMITIRÁ ALMACENAR AGUA DE LLUVIAS INTENSAS PARA USARLAS EN ÉPOCA DE ESTIAJE EN CAJAMARCA",
+     "enlace": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPekhlaEFZQm8zSl9qVHZmaDU5bEVtbFY1N25YRzFEbEpSNlg4b1FnYnR5c3VlZWJoMGsyeEI2R1lQeEZjdlZVTThINkMzajhxU0o2SzdZX2QzdFY5cG1yVkRwMWJieUpHbnZ0UEdjbmdWbDNMNnk2Z3RtdmFKcVVnSXhITTRVb0ZTdHJzdi1tam9QbXQxX2VXQ1RoVWtfZ21WMHhpX3Z6RG92UlkyVnZ3T19hMG1Ca2RoaWk0NjMyRmpBaDNNMlppOTQ0SWlLRzdQR0ZsRnphM25pc1RYR0xucw?oc=5",
+     "medio": "RCR Peru",
+     "fecha": "2026-11-04T08:00:00.000Z",
+     "senales": [],
+     "estado": "En curso"
+    }
+   ]
+  },
+  {
+   "id": "colegios",
+   "nombre": "Colegios seguros",
+   "menciones": 1,
+   "estados": {
+    "Mencionado": 1
+   },
+   "lugares": [
+    "Cajamarca"
+   ],
+   "fichas": [
+    {
+     "id": "USF-N-261023-1343",
+     "titulo": "Cajamarca: buscan mejorar techo de 10 colegios mediante obras por impuestos",
+     "enlace": "https://soltvperu.com/cajamarca-mejorar-techos-colegios-obras-impuestos/",
+     "medio": "Sol TV Perú (sección Cajamarca)",
+     "fecha": "2026-10-23T02:35:27.000Z",
+     "senales": [],
+     "estado": "Mencionado"
+    }
+   ]
+  }
+ ],
+ "calidad": {
+  "cuenta": {
+   "coincide": 6,
+   "cercana": 2,
+   "difiere": 2
+  },
+  "sinReferencia": 37,
+  "difieren": [
+   {
+    "indicador": "Personas afectadas por lluvias",
+    "departamento": "Tumbes",
+    "oficial": 1284,
+    "prensa": 808,
+    "medio": "La República",
+    "fecha": "2026-11-06",
+    "fuente": "INDECI (reporte actualizado al 07/11/2026)",
+    "url": "https://soltvperu.com/lluvias-intensas-tumbes-personas-afectadas/"
+   },
+   {
+    "indicador": "Casos de dengue 2026",
+    "departamento": "La Libertad",
+    "oficial": 17953,
+    "prensa": 13000,
+    "medio": "UNDiario",
+    "fecha": "2026-10-19",
+    "fuente": "MINSA – Sala Situacional (SE 43)",
+    "url": "https://elbuho.pe/?p=442404"
+   }
+  ],
+  "vencidas": [
+   "Personas damnificadas por lluvias – Tumbes",
+   "Personas afectadas por lluvias – Tumbes",
+   "Viviendas inhabitables – Tumbes",
+   "Casos de dengue 2026 – Tumbes",
+   "Casos de dengue 2026 – Piura",
+   "Fallecidos por dengue 2026 (12 confirmados + 5 en investigación) – Piura",
+   "Casos de dengue 2026 – Lambayeque",
+   "Fallecidos por dengue 2026 – Lambayeque",
+   "Casos de leptospirosis 2026 (probables y confirmados) – Piura",
+   "Fallecidos por leptospirosis 2026 – Piura",
+   "Distritos en estado de emergencia por El Niño (D.S. 149-2026-PCM) – Piura",
+   "Distritos en emergencia en el país (D.S. 149-2026-PCM)",
+   "Fallecidos por dengue en el país 2026",
+   "Fallecidos por leptospirosis en el país 2026",
+   "Casos de leptospirosis en el país 2026",
+   "Casos de dengue 2026 – La Libertad",
+   "Fallecidos por dengue 2026 (Geresa: 5 confirmados y 5 en investigación) – La Libertad"
+  ]
+ }
+}
