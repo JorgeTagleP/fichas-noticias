@@ -327,7 +327,9 @@ const PROYECTOS = [
 // «Hospitales y salud preparada» (solo se buscaba «reforz»): se agrega «refuerza(n)» como palabra completa; cuenta «En curso».
 // 10/11/2026 18:20: «urge (ejecutar una obra)» cuenta como proyecto pedido.
 // 12/11/2026 11:20: se agregan «vulnerabilidad» y «deterioro» (dique La Mariposa, puente Cuscus).
-const ES_PROYECTO = /\burge\b|instalacion de(l)? puente|vulnerabilidad|deterioro|\brefuerzan?\b|supervisa|preventiv|obra|proyecto|construc|ejecuc|invert|inversion|destina|millones|ampliacion|buena pro|propuesta|plan\b|estudio|exige|piden|pide|solicita|pendiente|reforz|impulsa|meta|protege|limpieza|\blimpian?\b|descolmat|retira|rechaz|anula|descarta|prioriza|encauza/;
+// 14/11/2026 00:30: «Huaraz: nuevo centro de salud de Huarupampa sigue sin culminar pese a vencimiento del plazo» (11/11) no
+// aparecía en Proyectos, aunque la emergencia del centro actual se inundó el 09/11: se agregan «sin culminar» y «vencimiento del plazo».
+const ES_PROYECTO = /sin culminar|vencimiento del plazo|\burge\b|instalacion de(l)? puente|vulnerabilidad|deterioro|\brefuerzan?\b|supervisa|preventiv|obra|proyecto|construc|ejecuc|invert|inversion|destina|millones|ampliacion|buena pro|propuesta|plan\b|estudio|exige|piden|pide|solicita|pendiente|reforz|impulsa|meta|protege|limpieza|\blimpian?\b|descolmat|retira|rechaz|anula|descarta|prioriza|encauza/;
 // 09/11/2026 05:xx: «Piura: limpian drenes Sechura y 1308 ante posibles lluvias intensas» no contaba como proyecto
 // (solo se buscaba «limpieza»): se agrega el verbo «limpia(n)», que cuenta como «En curso».
 // 08/11/2026 12:10: «Encauzan el río Chancay-Lambayeque para reducir riesgos…» no contaba como defensa ribereña
@@ -346,7 +348,8 @@ function estadoProyecto(t) {
   // alcantarillado en Ayabaca» quedaban como «Mencionado»; una obra inconclusa o fallada que ya agrava daños es un atraso.
   // 13/11/2026 03:30: «Huarmey: Contraloría alerta por deterioro de la estructura del puente Cuscus» quedaba como «Mencionado»;
   // una estructura deteriorada que la Contraloría observa antes de las lluvias es una obra que falla, no una simple mención.
-  if (/sin ejecucion|pendiente|paraliz|medio motor|atras|10 anos|no estara lista|posterga|\bdescartan?\b|obras? inconclusas?|fallas en (la )?obra|deterioro de (la estructura del? )?puente/.test(t)) return 'Atrasado';
+  // 14/11/2026 00:30: una obra «sin culminar» o con «vencimiento del plazo» (centro de salud de Huarupampa) es un atraso.
+  if (/sin culminar|vencimiento del plazo|sin ejecucion|pendiente|paraliz|medio motor|atras|10 anos|no estara lista|posterga|\bdescartan?\b|obras? inconclusas?|fallas en (la )?obra|deterioro de (la estructura del? )?puente/.test(t)) return 'Atrasado';
   if (/piden|pide|exige|solicita|reclam|demanda|\burge\b/.test(t)) return 'Pedido';
   // 12/11/2026 01:00: «Obras de descolmatación en el cauce del río Chicama alcanzan el 50% de avance» quedaba como «Mencionado».
   if (/inicia|ejecuc|\bejecutan?\b|trabajos de (descolmatacion|limpieza|encauzamiento)|avanza|concluye|encauzan|buena pro|destina|invertira|retira|impulsa|cofinanciara|reforzaran|despliega|supervisa|\blimpian?\b|\brefuerzan?\b|\bde avance\b|instalacion de(l)? puente/.test(t)) return 'En curso';

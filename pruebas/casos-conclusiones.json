@@ -1281,6 +1281,17 @@
         "dengue"
       ],
       "literal": true
+    },
+    {
+      "origen": "14/11/2026 00:30",
+      "titulo": "Huaraz: nuevo centro de salud de Huarupampa sigue sin culminar pese a vencimiento del plazo",
+      "dep": "Áncash",
+      "prov": "Huaraz",
+      "proyecto": {
+        "id": "salud",
+        "estado": "Atrasado"
+      },
+      "literal": true
     }
   ],
   "ubicar": [
