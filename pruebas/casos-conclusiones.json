@@ -1324,6 +1324,18 @@
    "dep": "Tumbes",
    "pronostico": true,
    "literal": true
+  },
+  {
+   "origen": "14/11/2026 10:20",
+   "titulo": "Lluvias en Tumbes dañan viviendas y vías en Casitas",
+   "dep": "Tumbes",
+   "prov": "Contralmirante Villar",
+   "dist": "Casitas",
+   "tiene": [
+    "damnificados",
+    "aislamiento"
+   ],
+   "literal": true
   }
  ],
  "ubicar": [

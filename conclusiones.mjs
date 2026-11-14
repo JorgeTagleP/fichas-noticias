@@ -80,7 +80,9 @@ const SENALES = [
   // (Se probó también «restringen tránsito» (Amashca), pero subía a crítica una vía vecinal con paso restringido: se descartó.)
   // 13/11/2026 10:30: «Dos puentes vehiculares resultan dañados por incremento del caudal del río en Aija» no sumaba aislamiento;
   // un puente dañado o socavado puede cortar el acceso: se agrega «puente(s) … dañado(s)/socavado(s)».
-  { id: 'aislamiento',  grupo: 'vida',  peso: 8,  nombre: 'Aislamiento o vías cortadas', re: /aislad|\baislan?\b|incomunicad|interrump|bloque\w* (el |la )?(via|carretera|transito)|puente\w* (artesanal )?(\w+ )?(colaps|cae|cay|arras|destru)|colapso de(l)? puente|arrasa con (el )?puente|queda aislado|via cerrada|cerrad\w* (el )?(transito|tunel)|(vias|carreteras) afectadas|puentes? (\w+ ){0,2}(resultan? |quedan? |quedo |fue |fueron )?(danad|socavad)/ },
+  // 14/11/2026 10:20: «Lluvias en Tumbes dañan viviendas y vías en Casitas» (14/11) no sumaba aislamiento, aunque «vías afectadas»
+  // sí suma; se acepta «dañan/afectan (N) viviendas y vías» (daño ya ocurrido en las vías).
+  { id: 'aislamiento',  grupo: 'vida',  peso: 8,  nombre: 'Aislamiento o vías cortadas', re: /aislad|\baislan?\b|incomunicad|interrump|bloque\w* (el |la )?(via|carretera|transito)|puente\w* (artesanal )?(\w+ )?(colaps|cae|cay|arras|destru)|colapso de(l)? puente|arrasa con (el )?puente|queda aislado|via cerrada|cerrad\w* (el )?(transito|tunel)|(vias|carreteras) afectadas|(danan|danaron|afectan|afectaron) (w+ )?(d+ )?viviendas y vias|puentes? (\w+ ){0,2}(resultan? |quedan? |quedo |fue |fueron )?(danad|socavad)/ },
   { id: 'desborde',     grupo: 'vida',  peso: 8,  nombre: 'Desborde o crecida de ríos', re: /desbord|crecida|umbral rojo|supera\w* (el )?(umbral|alerta roja)|nivel critico|caudal/ },
   { id: 'huaicos',      grupo: 'vida',  peso: 7,  nombre: 'Huaicos y quebradas activas', re: /huaico|quebrada|deslizamiento|derrumbe/ },
   // 12/11/2026: «casas destruidas» cuenta igual que «viviendas destruidas» (Saucepampa: «deslizamiento de cerro… deja nueve casas destruidas»).
