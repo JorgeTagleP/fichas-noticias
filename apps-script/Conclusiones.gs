@@ -804,7 +804,11 @@ const sube = precisos.filter(r => r.tendencia === 'sube' && r.prioridad !== 'Med
 if (sube.length) frases.push(`Aumentan las noticias de peligro en los últimos 3 días en ${listaN(sube.map(r => r.nombre))}.`);
 // 10/11/2026 15:20: «Fenómeno El Niño: Senamhi emite aviso rojo por lluvias en Tumbes, Piura y otras regiones» (TVPerú, 10/11)
 // solo aparecía en la lista de pronóstico; el aviso rojo es el nivel máximo y debe estar en el resumen para el coordinador.
-const avisoRojo = pronostico.filter(p => /aviso rojo|alerta roja|nivel rojo/i.test(p.titulo));
+// 14/11/2026 17:20: «Alerta roja en el norte: Tumbes y Piura enfrentarán lluvias extremas este sábado 14 de noviembre» (13/11)
+// se perdía al quitar duplicados del pronóstico (quedaba la nota más reciente, sin «roja») y el resumen solo mostraba el
+// aviso rojo por calor. El aviso rojo se busca ahora en todas las notas de pronóstico de 3 días, antes de quitar duplicados.
+const avisoRojo = clasificadas.filter(c => c.pronostico && edadDias(c.f) <= 3 && /aviso rojo|alerta roja|nivel rojo/i.test(c.f.titulo))
+  .sort((a, b) => b.f.publicada.localeCompare(a.f.publicada)).map(resumenFicha);
 // 12/11/2026 17:15: «Senamhi emite alerta roja en Lima y en toda la costa peruana por ola de calor extremo» (RPP, 12/11)
 // desplazaba al aviso rojo por lluvias y recomendaba «evacuación preventiva», que no sirve ante el calor.
 // Se prefiere el aviso rojo por lluvias; si solo hay uno por calor, la acción es proteger del calor.
