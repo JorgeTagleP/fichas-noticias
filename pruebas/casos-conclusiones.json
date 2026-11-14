@@ -1251,6 +1251,26 @@
         "damnificados"
       ],
       "literal": false
+    },
+    {
+      "origen": "13/11/2026 19:15",
+      "titulo": "Áncash: control larvario contra el dengue alcanzó una cobertura del 45 % en Huarmey",
+      "dep": "Áncash",
+      "dist": "Huarmey",
+      "no_tiene": [
+        "dengue"
+      ],
+      "literal": true
+    },
+    {
+      "origen": "13/11/2026 19:15 (control)",
+      "titulo": "Huarmey: Aumenta a 37 casos de Dengue en la provincia y región registra un total de 2,168 casos",
+      "dep": "Áncash",
+      "dist": "Huarmey",
+      "tiene": [
+        "dengue"
+      ],
+      "literal": true
     }
   ],
   "ubicar": [

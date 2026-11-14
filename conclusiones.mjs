@@ -227,7 +227,9 @@ const MUERTE_SALUD = /dengue|leptospir/;
 // y ponían a Ascope en la tabla; son respuesta. Se agregan «unidades febriles», «implementa(n)», «fortalecen la lucha», «suma su apoyo», «acciones preventivas».
 // 12/11/2026 09:30: «Geanmarco Quezada gestiona 5 mil vacunas adicionales para el dengue en La Libertad» (10/11) era la
 // ficha de peligro más reciente de La Libertad; es respuesta: «vacunas adicionales», «gestiona N mil vacunas».
-const SALUD_RESPUESTA = /claves sobre|como prevenir|lidera vacunacion|primer lugar en vacunacion|busca contratar|fortalecer (la )?atencion|refuerza|instala|vacunacion en|campana contra|fumiga|capacita|prepara a|fortalece hospitales|despliega brigadas|unidades febriles|\bimplementan?\b|fortalecen la lucha|suma su apoyo|acciones preventivas|vacunas adicionales|gestiona \d+ mil vacunas|interviene\w* (mas de )?[\d.,]+ viviendas|para prevenir (el )?dengue/;
+const SALUD_RESPUESTA = /claves sobre|como prevenir|lidera vacunacion|primer lugar en vacunacion|busca contratar|fortalecer (la )?atencion|refuerza|instala|vacunacion en|campana contra|fumiga|capacita|prepara a|fortalece hospitales|despliega brigadas|unidades febriles|\bimplementan?\b|fortalecen la lucha|suma su apoyo|acciones preventivas|vacunas adicionales|gestiona \d+ mil vacunas|interviene\w* (mas de )?[\d.,]+ viviendas|para prevenir (el )?dengue|control larvario/;
+// 13/11/2026 19:15: «Áncash: control larvario contra el dengue alcanzó una cobertura del 45 % en Huarmey» (13/11)
+// sumaba «Dengue» (peligro) y subía la tendencia de Huarmey; es respuesta: «control larvario».
 // 13/11/2026 04:30: «Diresa interviene más de 1,500 viviendas en 5 sectores del distrito de Piura para prevenir el dengue» (El Peruano, 13/11)
 // sumaba «Dengue» (peligro); es respuesta: «interviene(n) N viviendas» y «para prevenir el dengue». También se corrige
 // «gestiona d+ mil» → «gestiona \d+ mil» (le faltaba la barra y no reconocía el número).
