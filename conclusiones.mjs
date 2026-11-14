@@ -325,7 +325,10 @@ const PROYECTOS = [
   { id: 'salud',       nombre: 'Hospitales y salud preparada', re: /^(?!.*sarampion).*(ampliacion de su hospital|hospital (regional|de especialidades)|centro de salud|grupo electrogeno|control vectorial|vacunacion)/ },
   { id: 'colegios',    nombre: 'Colegios seguros', re: /techo de \d+ colegios|colegios? .*(obras por impuestos|mejorar)/ },
   { id: 'alerta',      nombre: 'Alerta temprana e información', re: /alerta temprana|pluviometr|inteligencia geoespacial|sistema de alerta|umbrales de inundacion/ },
-  { id: 'patrimonio',  nombre: 'Protección del patrimonio cultural', re: /patrimonio|huacas|arqueolog/ },
+  // 14/11/2026 18:30: «Lambayeque: museos e investigación arqueológica este 2026 tienen un presupuesto inicial de S/ 20 millones»
+  // (presupuesto anual de cultura, sin relación con El Niño) contaba como protección del patrimonio «En curso»:
+  // «arqueolog» solo cuenta si el titular nombra El Niño, lluvias, prevención o defensas.
+  { id: 'patrimonio',  nombre: 'Protección del patrimonio cultural', re: /patrimonio|huacas|arqueolog.*(nino|lluvia|prevenc|preventiv|defensa)|(nino|lluvia|prevenc|preventiv|defensa).*arqueolog/ },
   { id: 'mineria',     nombre: 'Control de la minería ilegal y sus relaves', re: /mineria ilegal|relaves|mineros ilegales/ },
 ];
 // 08/11/2026 17:12: «ministro de Cultura supervisa acciones preventivas en sitios arqueológicos de Piura» no contaba
@@ -336,7 +339,9 @@ const PROYECTOS = [
 // 12/11/2026 11:20: se agregan «vulnerabilidad» y «deterioro» (dique La Mariposa, puente Cuscus).
 // 14/11/2026 00:30: «Huaraz: nuevo centro de salud de Huarupampa sigue sin culminar pese a vencimiento del plazo» (11/11) no
 // aparecía en Proyectos, aunque la emergencia del centro actual se inundó el 09/11: se agregan «sin culminar» y «vencimiento del plazo».
-const ES_PROYECTO = /sin culminar|vencimiento del plazo|\burge\b|instalacion de(l)? puente|vulnerabilidad|deterioro|\brefuerzan?\b|supervisa|preventiv|obra|proyecto|construc|ejecuc|invert|inversion|destina|millones|ampliacion|buena pro|propuesta|plan\b|estudio|exige|piden|pide|solicita|pendiente|reforz|impulsa|meta|protege|limpieza|\blimpian?\b|descolmat|retira|rechaz|anula|descarta|prioriza|encauza/;
+// 14/11/2026 18:30: «Pallasca: Dictan nueve meses de prisión preventiva para seis investigados por minería ilegal…» contaba
+// como proyecto de control de la minería por la palabra «preventiv»: una medida judicial no es un proyecto (se excluye «prision preventiva»).
+const ES_PROYECTO = /sin culminar|vencimiento del plazo|\burge\b|instalacion de(l)? puente|vulnerabilidad|deterioro|\brefuerzan?\b|supervisa|(?<!prision )preventiv|obra|proyecto|construc|ejecuc|invert|inversion|destina|millones|ampliacion|buena pro|propuesta|plan\b|estudio|exige|piden|pide|solicita|pendiente|reforz|impulsa|meta|protege|limpieza|\blimpian?\b|descolmat|retira|rechaz|anula|descarta|prioriza|encauza/;
 // 09/11/2026 05:xx: «Piura: limpian drenes Sechura y 1308 ante posibles lluvias intensas» no contaba como proyecto
 // (solo se buscaba «limpieza»): se agrega el verbo «limpia(n)», que cuenta como «En curso».
 // 08/11/2026 12:10: «Encauzan el río Chancay-Lambayeque para reducir riesgos…» no contaba como defensa ribereña
