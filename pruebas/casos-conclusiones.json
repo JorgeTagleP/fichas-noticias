@@ -1303,6 +1303,27 @@
     "brecha"
    ],
    "literal": true
+  },
+  {
+   "origen": "14/11/2026 08:30",
+   "titulo": "Prepárate antes de salir: conoce el pronóstico del clima en Piura",
+   "dep": "Piura",
+   "pronostico": false,
+   "literal": true
+  },
+  {
+   "origen": "14/11/2026 08:30",
+   "titulo": "Pronóstico del clima en Lima este sábado 14 de noviembre : temperatura, lluvias y viento",
+   "dep": "Lima",
+   "pronostico": false,
+   "literal": true
+  },
+  {
+   "origen": "14/11/2026 08:30 (control)",
+   "titulo": "Alerta roja en el norte: Tumbes y Piura enfrentarán lluvias extremas este sábado 14 de noviembre",
+   "dep": "Tumbes",
+   "pronostico": true,
+   "literal": true
   }
  ],
  "ubicar": [
