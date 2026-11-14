@@ -1336,6 +1336,18 @@
     "aislamiento"
    ],
    "literal": true
+  },
+  {
+   "origen": "14/11/2026 16:30",
+   "titulo": "Lluvias en Tumbes dañan 20 viviendas y vías en Casitas",
+   "dep": "Tumbes",
+   "prov": "Contralmirante Villar",
+   "dist": "Casitas",
+   "tiene": [
+    "damnificados",
+    "aislamiento"
+   ],
+   "literal": false
   }
  ],
  "ubicar": [
