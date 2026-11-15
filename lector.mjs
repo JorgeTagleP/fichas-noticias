@@ -61,7 +61,9 @@ const DEPARTAMENTOS = ['Tumbes', 'Piura', 'Cajamarca', 'Lambayeque', 'La Liberta
 
 // «La libertad» también es una palabra común: «libertad de prensa», «privados de su libertad»,
 // «La Libertad Avanza» (partido argentino). Esas frases se quitan antes de buscar el departamento (11/11/2026).
-const LIBERTAD_COMUN = /(priv[a-z]* de (su |la |sus )?libertad|la libertad (de|del|religiosa|sindical|condicional|provisional|avanza|individual|economica|personal|financiera|academica|plena)( |$)|(contra|derecho a|estatua de|plaza( de)?|avenida|av|calle|jiron|jr|parque|urbanizacion|urb|colegio|hospital|institucion educativa|ie) la libertad)/g;
+// 15/11/2026: «Cuatro incendios movilizan a Bomberos en San Salvador, La Libertad…» (Diario La Página) es de
+// El Salvador, que también tiene un departamento La Libertad; se quitan «San Salvador, La Libertad» y «La Libertad, El Salvador».
+const LIBERTAD_COMUN = /(san salvador la libertad|la libertad el salvador|priv[a-z]* de (su |la |sus )?libertad|la libertad (de|del|religiosa|sindical|condicional|provisional|avanza|individual|economica|personal|financiera|academica|plena)( |$)|(contra|derecho a|estatua de|plaza( de)?|avenida|av|calle|jiron|jr|parque|urbanizacion|urb|colegio|hospital|institucion educativa|ie) la libertad)/g;
 
 // En Google, los nombres de dos palabras («La Libertad») van entre comillas para no traer todo lo que dice «libertad».
 const CONSULTA = d => d.includes(' ') ? `"${d}"` : d;

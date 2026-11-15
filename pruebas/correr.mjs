@@ -92,6 +92,8 @@ for (const c of casosUbicar) {
   const u = ubicar({ titulo: c.titulo, depConsulta: c.depConsulta });
   const dists = u.lugares.map(l => l.distrito).filter(Boolean);
   if (c.sin_distrito) prueba(`«${c.titulo.slice(0, 60)}» no se ubica en el distrito ${c.sin_distrito}`, !dists.some(d => norm(d) === norm(c.sin_distrito)), `distritos: ${dists.join(', ')}`);
+  // 15/11/2026: «sin_lugar_en» comprueba que un titular de otro país no quede ubicado en ese departamento.
+  if (c.sin_lugar_en) prueba(`«${c.titulo.slice(0, 60)}» no se ubica en ${c.sin_lugar_en}`, !u.lugares.some(l => l.departamento === c.sin_lugar_en), `lugares: ${JSON.stringify(u.lugares)}`);
   if (c.con_distrito) prueba(`«${c.titulo.slice(0, 60)}» se ubica en el distrito ${c.con_distrito}`, dists.some(d => norm(d) === norm(c.con_distrito)), `distritos: ${dists.join(', ') || 'ninguno'}`);
 }
 

@@ -1596,6 +1596,18 @@
    "depConsulta": "Áncash",
    "con_distrito": "Yungay",
    "literal": true
+  },
+  {
+   "origen": "15/11/2026 00:30",
+   "titulo": "Cuatro incendios movilizan a Bomberos en San Salvador, La Libertad y sus alrededores",
+   "depConsulta": "La Libertad",
+   "sin_lugar_en": "La Libertad"
+  },
+  {
+   "origen": "15/11/2026 00:30 (control)",
+   "titulo": "Trujillo se prepara ante una emergencia por el fenómeno de El Niño",
+   "depConsulta": "La Libertad",
+   "con_distrito": "Trujillo"
   }
  ]
 }
