@@ -2,7 +2,7 @@
  * Una Sola Fuerza – Conclusiones para la emergencia (versión Google Workspace)
  *
  * NO EDITAR AQUÍ: este archivo lo genera preparar-apps-script.mjs a partir de
- * conclusiones.mjs y oficiales.json (2026-11-14).
+ * conclusiones.mjs y oficiales.json (2026-11-15).
  * Para cambiar una regla, se cambia conclusiones.mjs y se vuelve a preparar.
  *
  * Qué hace: toma las fichas de la pestaña Fichas y arma la pestaña
@@ -570,10 +570,14 @@ function estadoProyecto(t) {
   // 13/11/2026 03:30: «Huarmey: Contraloría alerta por deterioro de la estructura del puente Cuscus» quedaba como «Mencionado»;
   // una estructura deteriorada que la Contraloría observa antes de las lluvias es una obra que falla, no una simple mención.
   // 14/11/2026 00:30: una obra «sin culminar» o con «vencimiento del plazo» (centro de salud de Huarupampa) es un atraso.
-  if (/sin culminar|vencimiento del plazo|sin ejecucion|pendiente|paraliz|medio motor|atras|10 anos|no estara lista|posterga|\bdescartan?\b|obras? inconclusas?|fallas en (la )?obra|deterioro de (la estructura del? )?puente/.test(t)) return 'Atrasado';
+  // 14/11/2026 22:15: «Piura: más de 300 hectáreas estarían en riesgo de inundación por deterioro del dique La Mariposa»
+  // quedaba como «Mencionado»: la regla pedía «deterioro de puente» y no aceptaba «del» ni diques.
+  if (/sin culminar|vencimiento del plazo|sin ejecucion|pendiente|paraliz|medio motor|atras|10 anos|no estara lista|posterga|\bdescartan?\b|obras? inconclusas?|fallas en (la )?obra|deterioro del? (la estructura del? )?(puente|dique)/.test(t)) return 'Atrasado';
   if (/piden|pide|exige|solicita|reclam|demanda|\burge\b/.test(t)) return 'Pedido';
   // 12/11/2026 01:00: «Obras de descolmatación en el cauce del río Chicama alcanzan el 50% de avance» quedaba como «Mencionado».
-  if (/inicia|ejecuc|\bejecutan?\b|trabajos de (descolmatacion|limpieza|encauzamiento)|avanza|concluye|encauzan|buena pro|destina|invertira|retira|impulsa|cofinanciara|reforzaran|despliega|supervisa|\blimpian?\b|\brefuerzan?\b|\bde avance\b|instalacion de(l)? puente/.test(t)) return 'En curso';
+  // 14/11/2026 22:15: «Cajamarca protege corredor vial…: entregan terreno para construir diques de retención…» quedaba como
+  // «Mencionado»; la entrega de terreno es el arranque físico de la obra.
+  if (/entregan? (el )?terreno|inicia|ejecuc|\bejecutan?\b|trabajos de (descolmatacion|limpieza|encauzamiento)|avanza|concluye|encauzan|buena pro|destina|invertira|retira|impulsa|cofinanciara|reforzaran|despliega|supervisa|\blimpian?\b|\brefuerzan?\b|\bde avance\b|instalacion de(l)? puente/.test(t)) return 'En curso';
   return 'Mencionado';
 }
 

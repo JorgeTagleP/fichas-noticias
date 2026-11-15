@@ -1294,6 +1294,28 @@
    "literal": true
   },
   {
+   "origen": "14/11/2026 22:15",
+   "titulo": "Piura: más de 300 hectáreas estarían en riesgo de inundación por deterioro del dique La Mariposa",
+   "dep": "Piura",
+   "prov": "Piura",
+   "proyecto": {
+    "id": "defensas",
+    "estado": "Atrasado"
+   },
+   "literal": true
+  },
+  {
+   "origen": "14/11/2026 22:15",
+   "titulo": "CAJAMARCA PROTEGE CORREDOR VIAL HACIA BAMBAMARCA: ENTREGAN TERRENO PARA CONSTRUIR DIQUES DE RETENCIÓN DE SEDIMENTOS EN LA QUEBRADA ROSAMAYOPATA",
+   "dep": "Cajamarca",
+   "prov": "Hualgayoc",
+   "proyecto": {
+    "id": "defensas",
+    "estado": "En curso"
+   },
+   "literal": true
+  },
+  {
    "origen": "14/11/2026 05:00",
    "titulo": "Tumbes pierde casi el 70% del agua que produce y reservas cubrirían menos de medio día ante una emergencia",
    "dep": "Tumbes",
