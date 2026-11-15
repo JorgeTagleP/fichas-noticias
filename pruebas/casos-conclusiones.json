@@ -1226,6 +1226,27 @@
    "literal": true
   },
   {
+   "origen": "14/11/2026 23:10",
+   "titulo": "¡Qué calor! Senamhi reporta temperaturas de hasta 31 °C en varios distritos de Lima",
+   "dep": "Lima",
+   "pronostico": false,
+   "literal": true
+  },
+  {
+   "origen": "14/11/2026 23:10",
+   "titulo": "El Niño impone condiciones: Lima soportó picos de hasta 31 grados en plena primavera, reportó el Senamhi",
+   "dep": "Lima",
+   "pronostico": false,
+   "literal": true
+  },
+  {
+   "origen": "14/11/2026 23:10 (control)",
+   "titulo": "Senamhi alerta por lluvias extremas en Piura y Tumbes: ¿qué se espera para este sábado 14 de noviembre?",
+   "dep": "Piura",
+   "pronostico": true,
+   "literal": true
+  },
+  {
    "origen": "13/11/2026 17:20 (control)",
    "titulo": "Ola de calor en Piura: Senamhi prevé temperaturas de más de 36 °C y posibles lluvias hasta el 12 de noviembre",
    "dep": "Piura",
