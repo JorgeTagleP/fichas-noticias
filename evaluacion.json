@@ -1,0 +1,1047 @@
+{
+ "lectura": "2026-11-21T16:41:28.812Z",
+ "referencias": "2026-11-14",
+ "cuenta": {
+  "coincide": 6,
+  "cercana": 5,
+  "difiere": 19
+ },
+ "resultados": [
+  {
+   "id": "tumbes-damnificados",
+   "indicador": "Personas damnificadas por lluvias",
+   "departamento": "Tumbes",
+   "tema": "damnificad",
+   "clave": "damnificad",
+   "valor": 338,
+   "corte": "2026-11-07",
+   "fuente": "INDECI (reporte actualizado al 07/11/2026)",
+   "via": "Sol TV Perú, 08/11/2026",
+   "url": "https://soltvperu.com/lluvias-intensas-tumbes-personas-afectadas/",
+   "referenciaVencida": true,
+   "afirmaciones": [
+    {
+     "id": "USF-N-261120-0142",
+     "fecha": "2026-11-20",
+     "medio": "Exitosa Noticias",
+     "titulo": "Emergencia en Tumbes: río Zarumilla inunda Puerto Perú y deja 135 personas damnificadas",
+     "enlace": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPaFFMQ2xoYjgtQkpSTW5QMHRDcDJBNGQyNkozNFdJR3Npa1p4eUFicGhKN2ZuV0lLVVgyUUJNbHowSnV5Q002YVVQbXlqMUJtd2luYUlfOXZidkJ2WWlRbkVjWVl0Q0p5a092cEp2OVNUN0dYR1RqbFBaeFJaZlcwN3dTN2RFaFo0bGxfcEdsRjBrdVo5d1pDWkNKX3BGTlcteEptM09jTXR1ZWdCSHh5UEd2TXBuMlNMSHczVzlRLXVKQlJ4Z2ZNZGotckt6dw?oc=5",
+     "cifra": 135,
+     "texto": "135 personas damnificad",
+     "diferencia": -60,
+     "estado": "difiere"
+    },
+    {
+     "id": "USF-N-261103-1242",
+     "fecha": "2026-11-03",
+     "medio": "Infobae",
+     "titulo": "El norte del Perú ya sufre los estragos de El Niño: más de 300 damnificados, calles inundadas y clases suspendidas en Tumbes",
+     "enlace": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxNc1Z3YUFYOHdHXzR5aFpWVWNjeGhsaktwdWJIelNIS2RmM3oxTFFHcUJZOEFwemwtM1VQdlJwd2NWc3pRSk1NNEwzbGV5cG1vSVc0VXFiZmhoOC1yMTlOZHVpVkVZY0NFYTFxalBSM293TUZoNURjRHI5bGZGdVp4TE1OWWZsQ2FINi1sa0ZWNThKV29RVlNwblB6Qm9hdjhRR1dsajU2aUMtSUlkSlo2cWJXQzl2eU5XR2szbWptZDE0TUJyN0NieGJmNTJtbWFvQWdueDUxaFNuMXI2NTZwaFVUdkZLM0V4QWd5eUgwNk5PS3pEaGfSAZACQVVfeXFMTTltQkFST1VuWkRMRk40VEZkRnY2RHdJa001dkpRbnh2VzhBczdBVzdvN0stRlBzV0VVekFzWHNaQzhIOExhZFI0MDFzeGJfZkhEaUhWQ2xaUnk3eldwMlc4RzJsaXJkZjNXTGVURFphQ29GbkJCckh0V2FuNkpxQ2JwREw4ekluUHdUZUxVWElnOFdFSnBoS1lJbW5kVDFTZjI5LVl1c082cXczV2hoa2NMOVg4R1lBMjNjR2tpcW1ZZ0xsc3Itd3VxMVVOalBxczlob0Rqc2JmOF9CeVl0WTJJcnlpT3NRMEJMWW92el9GVXdjVGVQdm1OUXZOTVBfek1PdnZsNVdnR2ZJbk5wZkc?oc=5",
+     "cifra": 300,
+     "texto": "300 damnificad",
+     "diferencia": -11,
+     "estado": "cercana"
+    }
+   ]
+  },
+  {
+   "id": "tumbes-afectados",
+   "indicador": "Personas afectadas por lluvias",
+   "departamento": "Tumbes",
+   "tema": "afectad",
+   "clave": "afectados(?![a-z])",
+   "valor": 1284,
+   "corte": "2026-11-07",
+   "fuente": "INDECI (reporte actualizado al 07/11/2026)",
+   "via": "Sol TV Perú, 08/11/2026",
+   "url": "https://soltvperu.com/lluvias-intensas-tumbes-personas-afectadas/",
+   "referenciaVencida": true,
+   "afirmaciones": []
+  },
+  {
+   "id": "tumbes-inhabitables",
+   "indicador": "Viviendas inhabitables",
+   "departamento": "Tumbes",
+   "tema": "inhabitable",
+   "clave": "viviendas inhabitables|inhabitables",
+   "valor": 117,
+   "corte": "2026-11-07",
+   "fuente": "INDECI (reporte actualizado al 07/11/2026)",
+   "via": "Sol TV Perú, 08/11/2026",
+   "url": "https://soltvperu.com/lluvias-intensas-tumbes-personas-afectadas/",
+   "referenciaVencida": true,
+   "afirmaciones": []
+  },
+  {
+   "id": "tumbes-albergues",
+   "indicador": "Albergues temporales instalados por lluvias (Aguas Verdes, Nuevo Aguas Verdes y Tumbes)",
+   "departamento": "Tumbes",
+   "tema": "albergue",
+   "clave": "albergues?(?![a-z])",
+   "valor": 3,
+   "corte": "2026-11-08",
+   "fuente": "Ministerio de Defensa (Indeci y Ejército), en El Peruano 08/11/2026",
+   "via": "",
+   "url": "https://elperuano.pe/noticia/308553-tumbes-cuenta-con-tres-albergues-temporales-para-familias-damnificadas-por-las-lluvias",
+   "referenciaVencida": true,
+   "afirmaciones": []
+  },
+  {
+   "id": "tumbes-dengue-casos",
+   "indicador": "Casos de dengue 2026",
+   "departamento": "Tumbes",
+   "tema": "dengue",
+   "clave": "casos|contagi",
+   "valor": 2394,
+   "corte": "2026-10-29",
+   "fuente": "Diresa Tumbes (reporte regional)",
+   "via": "El Popular, 29/10/2026",
+   "url": "https://elpopular.pe/actualidad/2026/10/29/dengue-se-dispara-en-tumbes-casos-superan-los-2300-y-lluvias-por-el-nino-encienden-las-alertas-que-zonas-preocupan-2504121",
+   "referenciaVencida": true,
+   "afirmaciones": []
+  },
+  {
+   "id": "piura-dengue-casos",
+   "indicador": "Casos de dengue 2026",
+   "departamento": "Piura",
+   "tema": "dengue",
+   "clave": "casos",
+   "valor": 15716,
+   "corte": "2026-10-31",
+   "fuente": "MINSA – Sala Situacional de Enfermedades Metaxénicas (SE 43)",
+   "via": "El Tiempo",
+   "url": "https://eltiempo.pe/local/dengue-en-piura-casos-aumentan-a-15-mil-716-casos-de-dengue-y-region-registra-17-fallecidos-en-2026/",
+   "referenciaVencida": true,
+   "afirmaciones": [
+    {
+     "id": "USF-N-261118-0503",
+     "fecha": "2026-11-18",
+     "medio": "Diario Correo",
+     "titulo": "Piura reporta 17,591 casos y 16 muertes por dengue",
+     "enlace": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNWmV2ZDdvNjc0X2pPTFdIc0EzM0dSQW04YjBFV3loWFE2WjNBUV9GVk5wdi1UVi1JcFp4R3NweTBsM2RJWFlNVlV0MU4zcHhQV2N0TXdkeHk0dk5haEF3N2pycjkzeGg1U3Y3VzlERTR4YkdYQ3MybmFWNjQ4S2RTSmg1SDV6N1FQbmFWR01VMm9ValBZb1JsM3IwTjjSAbABQVVfeXFMT3ZMWVN5OW1UR3JtRmN2bkhaa01WQjRvWFNfV3k0NXlZb2RsUFpLbEFnSFNwYlMzeTh5RWhhZTkzUnZGV2p5RFVlYkplcFB2YzlTMU9vMlcxWXN3Rk95TU9wRU85S2Iybk9CMlMydDlMd0pOX2VoUHdsWVRSeEJOcVBkMGVhdHVDZG41eHdTOGtPX1JmbVk5MW5jblowdjFkMklzTlRwM05VWGhDbURjZjc?oc=5",
+     "cifra": 17591,
+     "texto": "17,591 casos",
+     "diferencia": 12,
+     "estado": "cercana"
+    },
+    {
+     "id": "USF-N-261107-1081",
+     "fecha": "2026-11-07",
+     "medio": "Norte Sostenible",
+     "titulo": "Piura acumula 15,716 casos de dengue y registra 17 muertes en 2026",
+     "enlace": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9qSGYzc1NwN21PcmF6NnBfX0ROZDVMZWt5dzdsZ1VkbVpwcGI3M2tXdWc4Qk1fWFV0VFY3NnRwbDdJMWhvY3dlajAyVVhiYTltQXJveVlhdVE2VmgtbnRQNTZ4S0FPT2djb3ZGRC1hVEJrNWtKNlVXNQ?oc=5",
+     "cifra": 15716,
+     "texto": "15,716 casos",
+     "diferencia": 0,
+     "estado": "coincide"
+    }
+   ]
+  },
+  {
+   "id": "piura-dengue-fallecidos",
+   "indicador": "Fallecidos por dengue 2026 (12 confirmados + 5 en investigación)",
+   "departamento": "Piura",
+   "tema": "dengue",
+   "clave": "fallecid|muert|decesos",
+   "valor": 17,
+   "corte": "2026-10-31",
+   "fuente": "MINSA – Sala Situacional de Enfermedades Metaxénicas (SE 43)",
+   "via": "El Tiempo",
+   "url": "https://eltiempo.pe/local/dengue-en-piura-casos-aumentan-a-15-mil-716-casos-de-dengue-y-region-registra-17-fallecidos-en-2026/",
+   "referenciaVencida": true,
+   "afirmaciones": [
+    {
+     "id": "USF-N-261118-0503",
+     "fecha": "2026-11-18",
+     "medio": "Diario Correo",
+     "titulo": "Piura reporta 17,591 casos y 16 muertes por dengue",
+     "enlace": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNWmV2ZDdvNjc0X2pPTFdIc0EzM0dSQW04YjBFV3loWFE2WjNBUV9GVk5wdi1UVi1JcFp4R3NweTBsM2RJWFlNVlV0MU4zcHhQV2N0TXdkeHk0dk5haEF3N2pycjkzeGg1U3Y3VzlERTR4YkdYQ3MybmFWNjQ4S2RTSmg1SDV6N1FQbmFWR01VMm9ValBZb1JsM3IwTjjSAbABQVVfeXFMT3ZMWVN5OW1UR3JtRmN2bkhaa01WQjRvWFNfV3k0NXlZb2RsUFpLbEFnSFNwYlMzeTh5RWhhZTkzUnZGV2p5RFVlYkplcFB2YzlTMU9vMlcxWXN3Rk95TU9wRU85S2Iybk9CMlMydDlMd0pOX2VoUHdsWVRSeEJOcVBkMGVhdHVDZG41eHdTOGtPX1JmbVk5MW5jblowdjFkMklzTlRwM05VWGhDbURjZjc?oc=5",
+     "cifra": 16,
+     "texto": "16 muert",
+     "diferencia": -6,
+     "estado": "cercana"
+    },
+    {
+     "id": "USF-N-261107-1081",
+     "fecha": "2026-11-07",
+     "medio": "Norte Sostenible",
+     "titulo": "Piura acumula 15,716 casos de dengue y registra 17 muertes en 2026",
+     "enlace": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9qSGYzc1NwN21PcmF6NnBfX0ROZDVMZWt5dzdsZ1VkbVpwcGI3M2tXdWc4Qk1fWFV0VFY3NnRwbDdJMWhvY3dlajAyVVhiYTltQXJveVlhdVE2VmgtbnRQNTZ4S0FPT2djb3ZGRC1hVEJrNWtKNlVXNQ?oc=5",
+     "cifra": 17,
+     "texto": "17 muert",
+     "diferencia": 0,
+     "estado": "coincide"
+    }
+   ]
+  },
+  {
+   "id": "lambayeque-dengue-casos",
+   "indicador": "Casos de dengue 2026",
+   "departamento": "Lambayeque",
+   "tema": "dengue",
+   "clave": "casos",
+   "valor": 10559,
+   "corte": "2026-11-05",
+   "fuente": "CDC-MINSA, sala diaria (el CDC Lambayeque reporta 9793)",
+   "via": "Diario Correo",
+   "url": "https://diariocorreo.pe/edicion/lambayeque/lambayeque-registra-10559-casos-de-dengue-y-17-muertes-en-lo-que-va-del-2026-noticia/",
+   "referenciaVencida": true,
+   "afirmaciones": [
+    {
+     "id": "USF-N-261119-0316",
+     "fecha": "2026-11-19",
+     "medio": "La República",
+     "titulo": "Dengue se desborda en Lambayeque: 43 muertos y más de 10.700 casos en medio de una intensa ola de calor",
+     "enlace": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQOGxhQ2lMUHpIX01LM1o3QVlRX2RuNU05bjBRanA2V2t1RUh3VVRrS2s1UkhEWTUwN0ZLWTEwY3YtdGZDY2FiVVYtZGowckFLT2hjQW1YUWg4NTBuMDVsU1JNZlBZOWpTTjk3Zmw5RTlrVXZTcUloOUdKajdLdE1JV3ZGQ0ZQNG95MHJvcXpkeWdFanhRd21VOWJhQWV4MFRYb1ltcjFzZkpHaGZZMzRXMzgyakEySUdKZ25XZWFUdHhiWXNvek1ST1Z6VldFbXR1bjBhWmFVWDdtRjVVSndrT3VXV1pFZ9IB6wFBVV95cUxPcnpPc3BpMzJZMUwtOXVIbUlUbTVmeUw2ZzFxZVFnTUxTa0FhdS1pOW1WZjRfbTVXSGRhZldVY2YwOXEtcGhGaC05NkpFMVZBLU56cEpVdWFtSmYwNWY0RkhHQmw2WWF3Y3V6bkxCMUMyaWQzZlNCbzh6SnRXTWZzVGhEeWpFdC10SG5lLUNTeVl4bG9hZ0tHbnc4WnlpeUwtdnVqS3Vhc1BIODFXdXFjV21PeGdKdnp0WTdJRTBwUkhOQ2YwTzdpbkVsSlJXX2dWM2dCTUNKLTNjVm9FV1ZfUTJ6RGhBQ1J3dktZ?oc=5",
+     "cifra": 10700,
+     "texto": "10.700 casos",
+     "diferencia": 1,
+     "estado": "coincide"
+    },
+    {
+     "id": "USF-N-261119-0351",
+     "fecha": "2026-11-19",
+     "medio": "Instagram",
+     "titulo": "🔵⚪️ Lambayeque registra 41 fallecidos y más de 18 mil casos de dengue, con 36 distritos en brote o epidemia. Las autoridades advierten que el fenómeno El Niño podría agravar la emergencia sanitaria. 📸 Foto: Difusión 📲 Visita nuestra página web: https://",
+     "enlace": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBXcTBFd2xPRWxVQ2Z1RnhPeld3LW94OGplTHlLVi1LM3hPOUpDZmhRd3R1WkpkN0lmNHZ2ZzBVOVFjZXJVU3VaMGViX1hDVUxNT2c?oc=5",
+     "cifra": 18000,
+     "texto": "18 mil casos",
+     "diferencia": 70,
+     "estado": "difiere"
+    },
+    {
+     "id": "USF-N-261119-0382",
+     "fecha": "2026-11-19",
+     "medio": "Infobae",
+     "titulo": "Lambayeque acumula 41 muertes por dengue y más de 18 mil casos en plena alerta por El Niño",
+     "enlace": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNWGVqSlV3WUFiUlNVN0RmaUVSdi1BeklnNzFTWkNES1hhWDZhd3F4YWpNZGpHU1o3LUtKRnBYY2I1cDBOeUI3TnJlMGtVX0l2UUZvczFVdnQ4QmVXUnhwNS0xSlJ4M3NGU3ctWHpfOEh2WXFBeVM0Z0NXbXNIcWxveUVjek1YR3pQUWpRS1NrM2hRMnBKYkZLbjlEb2FrUlFWaVJOdVc1NEdGeWRWVDBTbzlSXy00MlpzcGdNcTRUN2dZbml6NzVpT1hwUdIB5gFBVV95cUxPOW5KQXI4OWZoeldIM0NncWxrQld4TVVialhoU2VUTEwzRzJHeThhZjhXeVlOYmR4UWlpUzhsWkdPMUlfSGVKaWJteDRHU2N3LXpCV2hTemxhOWV6TE1WdUJCNHJmd1B0cUk3RG92R3hXNWdPa2VtYnE2QmZPMkVSQ0swUURJUDhpNS10dURETHhLWUlOOUhERjA5bG1VRTVjOGFFalNMTkFFN3Iwc1ctTFVHTGQ3NHZWTTc5QzFaVm04WFZrUDVaZ19Ud3EwblFKczZXS3hYMF9BdzNWZkFmb041S0VyUQ?oc=5",
+     "cifra": 18000,
+     "texto": "18 mil casos",
+     "diferencia": 70,
+     "estado": "difiere"
+    }
+   ]
+  },
+  {
+   "id": "lambayeque-dengue-fallecidos",
+   "indicador": "Fallecidos por dengue 2026",
+   "departamento": "Lambayeque",
+   "tema": "dengue",
+   "clave": "fallecid|muert|decesos",
+   "valor": 25,
+   "corte": "2026-10-31",
+   "fuente": "CDC-MINSA (SE 43); el CDC Lambayeque reporta 17",
+   "via": "La República, 07/11/2026",
+   "url": "https://larepublica.pe/sociedad/2026/11/07/peru-supera-los-100-muertos-por-dengue-cifra-va-en-aumento-y-casi-duplica-los-registros-de-2025-202825",
+   "referenciaVencida": true,
+   "afirmaciones": [
+    {
+     "id": "USF-N-261119-0316",
+     "fecha": "2026-11-19",
+     "medio": "La República",
+     "titulo": "Dengue se desborda en Lambayeque: 43 muertos y más de 10.700 casos en medio de una intensa ola de calor",
+     "enlace": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQOGxhQ2lMUHpIX01LM1o3QVlRX2RuNU05bjBRanA2V2t1RUh3VVRrS2s1UkhEWTUwN0ZLWTEwY3YtdGZDY2FiVVYtZGowckFLT2hjQW1YUWg4NTBuMDVsU1JNZlBZOWpTTjk3Zmw5RTlrVXZTcUloOUdKajdLdE1JV3ZGQ0ZQNG95MHJvcXpkeWdFanhRd21VOWJhQWV4MFRYb1ltcjFzZkpHaGZZMzRXMzgyakEySUdKZ25XZWFUdHhiWXNvek1ST1Z6VldFbXR1bjBhWmFVWDdtRjVVSndrT3VXV1pFZ9IB6wFBVV95cUxPcnpPc3BpMzJZMUwtOXVIbUlUbTVmeUw2ZzFxZVFnTUxTa0FhdS1pOW1WZjRfbTVXSGRhZldVY2YwOXEtcGhGaC05NkpFMVZBLU56cEpVdWFtSmYwNWY0RkhHQmw2WWF3Y3V6bkxCMUMyaWQzZlNCbzh6SnRXTWZzVGhEeWpFdC10SG5lLUNTeVl4bG9hZ0tHbnc4WnlpeUwtdnVqS3Vhc1BIODFXdXFjV21PeGdKdnp0WTdJRTBwUkhOQ2YwTzdpbkVsSlJXX2dWM2dCTUNKLTNjVm9FV1ZfUTJ6RGhBQ1J3dktZ?oc=5",
+     "cifra": 43,
+     "texto": "43 muert",
+     "diferencia": 72,
+     "estado": "difiere"
+    },
+    {
+     "id": "USF-N-261119-0344",
+     "fecha": "2026-11-19",
+     "medio": "Willax",
+     "titulo": "Lambayeque: reportan 41 muertes por dengue y 36 distritos en alerta epidemiológica",
+     "enlace": "https://news.google.com/rss/articles/CBMingFBVV95cUxQcy11MWxDTjFUajdfMnhIakptendKWGlyNTRLeDl1ZEx3WDNoRzZTTnVjU2E1TVJ6dVdLeU94U2g4b3hKR3VIQWd0S25FNm5jSllCMzVaQjhnd1RISzlYLW9CNDUxN3VKSzNmV3o2YmVrT2J5NjNHbFFDN0taR3RSdFQ1WHV5U1RrdVB5MTRia0wycmtPbnhReEIyT0Q4dw?oc=5",
+     "cifra": 41,
+     "texto": "41 muert",
+     "diferencia": 64,
+     "estado": "difiere"
+    },
+    {
+     "id": "USF-N-261119-0351",
+     "fecha": "2026-11-19",
+     "medio": "Instagram",
+     "titulo": "🔵⚪️ Lambayeque registra 41 fallecidos y más de 18 mil casos de dengue, con 36 distritos en brote o epidemia. Las autoridades advierten que el fenómeno El Niño podría agravar la emergencia sanitaria. 📸 Foto: Difusión 📲 Visita nuestra página web: https://",
+     "enlace": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBXcTBFd2xPRWxVQ2Z1RnhPeld3LW94OGplTHlLVi1LM3hPOUpDZmhRd3R1WkpkN0lmNHZ2ZzBVOVFjZXJVU3VaMGViX1hDVUxNT2c?oc=5",
+     "cifra": 41,
+     "texto": "41 fallecid",
+     "diferencia": 64,
+     "estado": "difiere"
+    },
+    {
+     "id": "USF-N-261119-0357",
+     "fecha": "2026-11-19",
+     "medio": "Expreso",
+     "titulo": "Dengue golpea Lambayeque: 41 fallecidos y 36 distritos en brote o epidemia",
+     "enlace": "https://news.google.com/rss/articles/CBMizgFBVV95cUxORzh4WkM0Ujd1VDZtY1ZDMVgwWnlJN1dveTQ2OHRVMFRFdGNfTERsT0lIa3RZVmloSkRZSnp1dzZDX2NQeXJJXzh6cTZtbWM2ajZJV0lFRVFhOF9iRTc5Rk81S2JfX3JHMUh0c0xNbmRtaW9acVFyMVpzWndxTFZaOHpuc0Q5NlVxN3NSQ2ZiRnlNRjFtaHIxU0FzZGhYd1pCN0llSzhiOVQ3aXo3SVVTZnJPMi1aRmV5WTNDbTVVbTRuMHpwMkJUZUVzdVZ4UQ?oc=5",
+     "cifra": 41,
+     "texto": "41 fallecid",
+     "diferencia": 64,
+     "estado": "difiere"
+    },
+    {
+     "id": "USF-N-261119-0382",
+     "fecha": "2026-11-19",
+     "medio": "Infobae",
+     "titulo": "Lambayeque acumula 41 muertes por dengue y más de 18 mil casos en plena alerta por El Niño",
+     "enlace": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNWGVqSlV3WUFiUlNVN0RmaUVSdi1BeklnNzFTWkNES1hhWDZhd3F4YWpNZGpHU1o3LUtKRnBYY2I1cDBOeUI3TnJlMGtVX0l2UUZvczFVdnQ4QmVXUnhwNS0xSlJ4M3NGU3ctWHpfOEh2WXFBeVM0Z0NXbXNIcWxveUVjek1YR3pQUWpRS1NrM2hRMnBKYkZLbjlEb2FrUlFWaVJOdVc1NEdGeWRWVDBTbzlSXy00MlpzcGdNcTRUN2dZbml6NzVpT1hwUdIB5gFBVV95cUxPOW5KQXI4OWZoeldIM0NncWxrQld4TVVialhoU2VUTEwzRzJHeThhZjhXeVlOYmR4UWlpUzhsWkdPMUlfSGVKaWJteDRHU2N3LXpCV2hTemxhOWV6TE1WdUJCNHJmd1B0cUk3RG92R3hXNWdPa2VtYnE2QmZPMkVSQ0swUURJUDhpNS10dURETHhLWUlOOUhERjA5bG1VRTVjOGFFalNMTkFFN3Iwc1ctTFVHTGQ3NHZWTTc5QzFaVm04WFZrUDVaZ19Ud3EwblFKczZXS3hYMF9BdzNWZkFmb041S0VyUQ?oc=5",
+     "cifra": 41,
+     "texto": "41 muert",
+     "diferencia": 64,
+     "estado": "difiere"
+    },
+    {
+     "id": "USF-N-261119-0434",
+     "fecha": "2026-11-19",
+     "medio": "Facebook",
+     "titulo": "Exitosa Noticias. . 🔴🔵#InformamosYOpinamos 🗯️🗯️ | De acuerdo al último reporte de la Gerencia Regional de Salud de Lambayeque, hasta la fecha en la región se han registrado 18 mil infectados y 41 fallecidos por dengue. 📻 95.5 FM 📡 6.1 señal digital a",
+     "enlace": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxNSTVSN25UaU5qVUE5cWJWRGpJcDB0d3lCU01zQ09RZFNYSTJPaHhVU1VMS2w2S01ZWUVTTWJsa20zOVRmaERmdUZXSFl2cDN0MnNDMmdCdmNJUkctZzNXNXMxSkZESm5qdHRkM2NRQ3I3LTZGQVY0NlR0ZFY4YlUyV0hLY0Q2bEdyc0lRQnNvSGtQcHV4emduYW9IR1NIcmxlYnc4SU10U2pERF94dS0wVGxIdHRFZ0ZHNEZ2dnJMX2c0V05OTm5CTGhzWDRmRWl1WGMydFFldkZCVTlNVG04bnlWaFZtRWJBSnZUUVdfVTRLR1dKbHFzRXFJZw?oc=5",
+     "cifra": 41,
+     "texto": "41 fallecid",
+     "diferencia": 64,
+     "estado": "difiere"
+    }
+   ]
+  },
+  {
+   "id": "piura-lepto-casos",
+   "indicador": "Casos de leptospirosis 2026 (probables y confirmados)",
+   "departamento": "Piura",
+   "tema": "leptospir",
+   "clave": "casos",
+   "valor": 3280,
+   "corte": "2026-10-31",
+   "fuente": "CDC-MINSA (SE 43)",
+   "via": "La República, 09/11/2026",
+   "url": "https://larepublica.pe/sociedad/2026/11/09/leptospirosis-aumenta-109-en-peru-y-deja-54-muertos-en-lo-que-va-de-2026-497448",
+   "referenciaVencida": true,
+   "afirmaciones": [
+    {
+     "id": "USF-N-261120-0294",
+     "fecha": "2026-11-20",
+     "medio": "Norte Sostenible",
+     "titulo": "Leptospirosis se dispara en Piura: reportan 3.410 casos y ocho fallecidos en lo que va del año",
+     "enlace": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPS0VQZXVMZkltVHh2UWV5NUlnc3BwZ1RUNHdZYzRVeXdYeWVBaDVIVXdIWEc3NnFFVEQzY2VLUWF0VmpoSWltaHpiaEQ2OGtiVklWdGZuYzNJVnk0VnFnRldkd2JrTWItMS04YWNoSlFXd3dEeWxTR0x2UWQ2UHA5NUZwWlJ5RGJuUElRVHBRamFWSEF4NUVqVEsyWUZ2WG5fdThZOERBVk52NzlBT0tRSktJQ0JVQjRkN1R3eGtOOA?oc=5",
+     "cifra": 3410,
+     "texto": "3.410 casos",
+     "diferencia": 4,
+     "estado": "coincide"
+    }
+   ]
+  },
+  {
+   "id": "piura-lepto-fallecidos",
+   "indicador": "Fallecidos por leptospirosis 2026",
+   "departamento": "Piura",
+   "tema": "leptospir",
+   "clave": "fallecid|muert|decesos",
+   "valor": 9,
+   "corte": "2026-10-31",
+   "fuente": "CDC-MINSA (SE 43)",
+   "via": "La República, 09/11/2026",
+   "url": "https://larepublica.pe/sociedad/2026/11/09/leptospirosis-aumenta-109-en-peru-y-deja-54-muertos-en-lo-que-va-de-2026-497448",
+   "referenciaVencida": true,
+   "afirmaciones": []
+  },
+  {
+   "id": "piura-distritos-emergencia",
+   "indicador": "Distritos en estado de emergencia por El Niño (D.S. 149-2026-PCM)",
+   "departamento": "Piura",
+   "tema": "emergencia",
+   "clave": "distritos",
+   "valor": 65,
+   "corte": "2026-11-03",
+   "fuente": "El Peruano, D.S. N.° 149-2026-PCM (60 días)",
+   "via": "conteo del anexo según Sol TV",
+   "url": "https://busquedas.elperuano.pe/dispositivo/NL/2571017-4",
+   "referenciaVencida": true,
+   "afirmaciones": [
+    {
+     "id": "USF-N-261103-1254",
+     "fecha": "2026-11-03",
+     "medio": "Norte Sostenible",
+     "titulo": "Lluvias por El Niño: Gobierno declara en emergencia 65 distritos de Piura y otros 1.315 en el país",
+     "enlace": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOU056ZkVzU2RFMmY3ZWZmbmdLTGExYjdJc1JMMGJmVXVwcXFaR2NMNVJQWGloSnVlUk9ZWDlkRW5xbE5RZl9QYjJRaTFVTFlicmd0VjE0R2xVWW1vQ2J3bnlndEJoX3pwZFhiVklTb3I2ODBEY21fUzJQbHBiUnFxQjBfcktGVWNCTzNzT3ZTUDhFNzhxbEE?oc=5",
+     "cifra": 65,
+     "texto": "65 distritos",
+     "diferencia": 0,
+     "estado": "coincide"
+    }
+   ]
+  },
+  {
+   "id": "peru-distritos-emergencia",
+   "indicador": "Distritos en emergencia en el país (D.S. 149-2026-PCM)",
+   "departamento": "*",
+   "tema": "emergencia",
+   "clave": "distritos",
+   "valor": 1380,
+   "corte": "2026-11-03",
+   "fuente": "El Peruano, D.S. N.° 149-2026-PCM",
+   "via": "La República (Sol TV cuenta 1363: revisar el anexo)",
+   "url": "https://busquedas.elperuano.pe/dispositivo/NL/2571017-4",
+   "referenciaVencida": true,
+   "afirmaciones": []
+  },
+  {
+   "id": "peru-dengue-fallecidos",
+   "indicador": "Fallecidos por dengue en el país 2026",
+   "departamento": "*",
+   "tema": "dengue",
+   "clave": "fallecid|muert|decesos",
+   "valor": 101,
+   "corte": "2026-10-31",
+   "fuente": "MINSA (SE 43)",
+   "via": "La República, 07/11/2026",
+   "url": "https://larepublica.pe/sociedad/2026/11/07/peru-supera-los-100-muertos-por-dengue-cifra-va-en-aumento-y-casi-duplica-los-registros-de-2025-202825",
+   "referenciaVencida": true,
+   "afirmaciones": [
+    {
+     "id": "USF-N-261120-0277",
+     "fecha": "2026-11-20",
+     "medio": "Latina Noticias",
+     "titulo": "La Libertad registra 22 muertes por dengue y supera los 23 mil casos a nivel nacional",
+     "enlace": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNcmdLajNjdWFYbWtPdTVlaXZPaTJzVmdIWHMxMFhnOWJYNjV5bTVsWHdITzZCc3E0eEJzVmdXdGV2QTFjbWd6Y3ZkMVI0S2Z4QjQ2b3YxRjhKbHl5SmVhU2d0OFRfWmlKd01Ib2tBa29tOExFSkZGVE81aHk3YlpZWHU4ZjFIWkVGOWZHdVl2RVRaVnpWRm8taE9JbkJ3aVFPdlZIczlTVkw2N0lia2daMUtuVEtRTkp0VEpjcjBDQUtyMTlkU1lkMTJPQlkxVWdYXzZZcWhYb20xZHF6ZmVzYg?oc=5",
+     "cifra": 22,
+     "texto": "22 muert",
+     "diferencia": -78,
+     "estado": "difiere"
+    },
+    {
+     "id": "USF-N-261120-0285",
+     "fecha": "2026-11-20",
+     "medio": "Crónica Viva",
+     "titulo": "La Libertad suma 22 muertes debido al dengue y encabeza los contagios en Perú",
+     "enlace": "https://news.google.com/rss/articles/CBMingFBVV95cUxQb1J5RTV5RExfUDJ2YnFzMFI1WFR5N0I4R2R2ZmdsTmRycVY0dWotMlo3dEFrYVRyMVBJTU1PWHdvQWktT0tDNGNSVDNHeUVqbzJidDB5a0FQbENXNHJEd2N4LWZERDFldkx6Qlk2dnV4c3daN1RWbkFBSElELUl1STdmNUpnR1pDR3lydl9NNC10ZlB4UHZ6eHZ4clRaQQ?oc=5",
+     "cifra": 22,
+     "texto": "22 muert",
+     "diferencia": -78,
+     "estado": "difiere"
+    },
+    {
+     "id": "USF-N-261120-0296",
+     "fecha": "2026-11-20",
+     "medio": "Agencia Andina",
+     "titulo": "La Libertad suma 22 muertes por dengue y es la segunda región con más decesos en el país",
+     "enlace": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPbWNfWjJBVVc4SXVvRDN6a2N5WDdqSUNLVV9lSjY2Tk1KT3l0UVd6ajhMQUZ0b1NfOFlnVE9jblhzYnZFczBqbmpQSmFRb3pXOUtQMkNUaGg0dUJ5anNnOTNHNzRxOXloRF9LaWZ5Qm1leXZKV3lGd2lmRU5xZVFZVlZuSkEzU3l4WGY2dEcxbkhFTUZldVVCWXBpaFpLNTlrZ1lfNDRudFR3RmhWWXg3MlRET3RHRGVMN1gzS0hR?oc=5",
+     "cifra": 22,
+     "texto": "22 muert",
+     "diferencia": -78,
+     "estado": "difiere"
+    },
+    {
+     "id": "USF-N-261109-1034",
+     "fecha": "2026-11-09",
+     "medio": "Infobae",
+     "titulo": "Perú supera los 89 mil casos de dengue y registra 101 fallecidos en 2026: Áncash confirma su tercera víctima mortal por la enfermedad",
+     "enlace": "https://news.google.com/rss/articles/CBMigwJBVV95cUxOVlJ2bnMyakJNZjBCZm5vcEFHdHI3cHlFQmE4RG12VEZfUVRVbTBSZnRCSW12SnNaM3BxU2I0SXBwUzdHOUNzZlF1eGUtQUY1aDhzYVpXZmJBMTZaaGs4OUp6dlMwQ1F5X2hUbDAwT053eVZ2azNtR3Bhdk80a2VVT2dBLW52c3c0VUg3clRacjR6UEU3N0NMZ3ZtLVMtRTlaeWhrMW1KVHRSd0JrX2RRWDJjbUxuSDJwV19IaFdFNk1ZX2lPVzFtTWNNbFJKLUk3M0kwZXJOVXdFWE94bnhod19VNy0tRVF5NHdOQ21ZZUNnZjNjVTJEMzhPYS1rczd6ZWRR0gGeAkFVX3lxTE1wcTJfY3I1QXVWZEdIVHhLSUprQVA1YktWNy10TE9xNTFZVS00YjRrdUNienJjVGlid0JOSHEzeXZ0dDVaOTltbDhmdTRLZV81NmV5NU1vNkpvWUhWenFEQjZBekZKU3d0N2poOWFkQmlmQXhsSUI5R2RyX3o3clNveHpxSW9XY3RrNExiT2xFQWRPYlpxbzBMM1A5UEt5TURlU0RHbmREMjNyRHlCZlNKNVJhVTh5ak1wLU9jVTdNeGdnRVMzdXh5bGVXRkI1Y0ZGYUJ2b2xSNWE5TW5GM19NTERla2h1T2tKNUVCOUtYMVlYOExiQllhQ2FCNGpZN0RBQWxaRmQxenV6TGdHM01iVlBwYkUyY2tOcGVWUHc?oc=5",
+     "cifra": 101,
+     "texto": "101 fallecid",
+     "diferencia": 0,
+     "estado": "coincide"
+    }
+   ]
+  },
+  {
+   "id": "peru-lepto-fallecidos",
+   "indicador": "Fallecidos por leptospirosis en el país 2026",
+   "departamento": "*",
+   "tema": "leptospir",
+   "clave": "fallecid|muert|decesos",
+   "valor": 54,
+   "corte": "2026-10-31",
+   "fuente": "CDC-MINSA (SE 43)",
+   "via": "La República, 09/11/2026",
+   "url": "https://larepublica.pe/sociedad/2026/11/09/leptospirosis-aumenta-109-en-peru-y-deja-54-muertos-en-lo-que-va-de-2026-497448",
+   "referenciaVencida": true,
+   "afirmaciones": []
+  },
+  {
+   "id": "peru-lepto-casos",
+   "indicador": "Casos de leptospirosis en el país 2026",
+   "departamento": "*",
+   "tema": "leptospir",
+   "clave": "casos",
+   "valor": 15518,
+   "corte": "2026-10-31",
+   "fuente": "CDC-MINSA (SE 43)",
+   "via": "La República, 09/11/2026",
+   "url": "https://larepublica.pe/sociedad/2026/11/09/leptospirosis-aumenta-109-en-peru-y-deja-54-muertos-en-lo-que-va-de-2026-497448",
+   "referenciaVencida": true,
+   "afirmaciones": []
+  },
+  {
+   "id": "lalibertad-dengue-casos",
+   "indicador": "Casos de dengue 2026",
+   "departamento": "La Libertad",
+   "tema": "dengue",
+   "clave": "casos",
+   "valor": 17953,
+   "corte": "2026-10-31",
+   "fuente": "MINSA – Sala Situacional (SE 43)",
+   "via": "El Búho, 09/11/2026",
+   "url": "https://elbuho.pe/?p=442404",
+   "referenciaVencida": true,
+   "afirmaciones": [
+    {
+     "id": "USF-N-261120-0277",
+     "fecha": "2026-11-20",
+     "medio": "Latina Noticias",
+     "titulo": "La Libertad registra 22 muertes por dengue y supera los 23 mil casos a nivel nacional",
+     "enlace": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNcmdLajNjdWFYbWtPdTVlaXZPaTJzVmdIWHMxMFhnOWJYNjV5bTVsWHdITzZCc3E0eEJzVmdXdGV2QTFjbWd6Y3ZkMVI0S2Z4QjQ2b3YxRjhKbHl5SmVhU2d0OFRfWmlKd01Ib2tBa29tOExFSkZGVE81aHk3YlpZWHU4ZjFIWkVGOWZHdVl2RVRaVnpWRm8taE9JbkJ3aVFPdlZIczlTVkw2N0lia2daMUtuVEtRTkp0VEpjcjBDQUtyMTlkU1lkMTJPQlkxVWdYXzZZcWhYb20xZHF6ZmVzYg?oc=5",
+     "cifra": 23000,
+     "texto": "23 mil casos",
+     "diferencia": 28,
+     "estado": "difiere"
+    },
+    {
+     "id": "USF-N-261118-0499",
+     "fecha": "2026-11-18",
+     "medio": "Noticias Trujillo",
+     "titulo": "¡Terrible! La Libertad tiene 16 muertos por dengue y más de 20 mil casos reportados",
+     "enlace": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPb3ZuTjQ5YjJMaXFPMDM3dUNlYmRrVUZSNEUtY3cwV0hJWmpIcy1OYndkNm5uQzEzM01ZRm5XY01Oblljdm1MYkJfRmw2MUtVZEpZMC11cVhWQnpmZWkzQmZ0UXJaTWFOZXdEbHZoMGVSVXVLdHBfQkRHdzdpRlhhOVZwVTlNdWE3RGgxU2IxLWViRWhHb0c2Tzk4YnZ6a1pvSlpOZzdvUDFBbHBFUm9UQ2J4bTh1UGhI?oc=5",
+     "cifra": 20000,
+     "texto": "20 mil casos",
+     "diferencia": 11,
+     "estado": "cercana"
+    },
+    {
+     "id": "USF-N-261026-1626",
+     "fecha": "2026-10-26",
+     "medio": "La Lupa",
+     "titulo": "La Libertad registra seis muertes y más de 14,000 casos de dengue en 2026",
+     "enlace": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPUnpoTVZEcWo2T1VYMFJ2cUpkSXRVSVFYbjhjeFR5Uk9Tbk5vN3ZBTzZKdmNKcFhoSEJhQ1lDUFZwb3kxWWowOGw2X2NRZzFvR3pmQXhjd1RKMFBHRkdVakR2X29QSFdWTU11Q0pNUDFDdFR4N2RjbllxSm44Z0tpcUhob19IYjcza0JrWUxYYXI5ODVncV93anl0T2drcHRCOTdudQ?oc=5",
+     "cifra": 14000,
+     "texto": "14,000 casos",
+     "diferencia": -22,
+     "estado": "cercana"
+    }
+   ]
+  },
+  {
+   "id": "lalibertad-dengue-fallecidos",
+   "indicador": "Fallecidos por dengue 2026 (Geresa: 5 confirmados y 5 en investigación)",
+   "departamento": "La Libertad",
+   "tema": "dengue",
+   "clave": "fallecid|muert|decesos",
+   "valor": 7,
+   "corte": "2026-10-31",
+   "fuente": "MINSA – Sala Situacional (SE 43)",
+   "via": "El Búho, 09/11/2026",
+   "url": "https://elbuho.pe/?p=442404",
+   "referenciaVencida": true,
+   "afirmaciones": [
+    {
+     "id": "USF-N-261120-0125",
+     "fecha": "2026-11-20",
+     "medio": "La República",
+     "titulo": "\"No hay camas ni sombra, esperamos al sol\": centros de salud de Trujillo colapsan ante ola de dengue que ya deja 13 muertos en La Libertad",
+     "enlace": "https://news.google.com/rss/articles/CBMikgJBVV95cUxOd2c3czJCdDZ0TmJEQlRyME9rb0hJcnIxbVVycGVDazMtXzdmZnNTbVcyTTdLbWlYV3NUX2c0dDJGbHY5cDRlcTNERkRiNVozTjRpYm5XNjVsQzFUd3hfdEREbjZROWxkc2YtY0JtVjhQRWNGb1pBZl85MUotSVBXRVduNFFrUXdhX3J2Y1lBT0syRnVmUF9qSkFPNDVLaGg2Wm9wWnNQSHR5MzVaZ29tVzk0Zm5YY1d6RGJ2eVJWZDluQkV2RHZMWHdjdkVpUVRFWmJTSEdUNU51TTR2aE5ObXduQmJ6bjg3NUpqbTFIZ1RxVUxWbGZLQWpnOGNpTHpKVm1WNTREelVDVkNMM2pHWklR0gGXAkFVX3lxTE5EOXVfSmNtVTBZakktWHRybHZJSG8xRHlXRVE4amtySkhwNDVpRFJ5MmNsd1JGQWVPMkIyM0RqckFGQjU1Nmk5YXhyQ3FLUXBHQ0JBRzdDc1AzckN6QVRLbW5WWWRKeVRnMTh6MW9veEVqZmJjVlhaVmNRanBIMm5kWV8zZGQySjNaanpOTmQzSjExT1ZwejF0NmlXeTRlVl84MVVoZ0FuWXE4Qmw5UWJOMHJfZHd2UFg1YzhXeGlNVmp6VWl6SDZFcWhYemFVWmpEdFZ0Ry14dXJFcFI3OEN4VjNvZ3Z3NXA2cFpfS1NXS2UyU2l4N2VCYVJ4ZllLVGVDLS1GT1pleDUzZWpQbFpURUI3enBPVQ?oc=5",
+     "cifra": 13,
+     "texto": "13 muert",
+     "diferencia": 86,
+     "estado": "difiere"
+    },
+    {
+     "id": "USF-N-261120-0277",
+     "fecha": "2026-11-20",
+     "medio": "Latina Noticias",
+     "titulo": "La Libertad registra 22 muertes por dengue y supera los 23 mil casos a nivel nacional",
+     "enlace": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNcmdLajNjdWFYbWtPdTVlaXZPaTJzVmdIWHMxMFhnOWJYNjV5bTVsWHdITzZCc3E0eEJzVmdXdGV2QTFjbWd6Y3ZkMVI0S2Z4QjQ2b3YxRjhKbHl5SmVhU2d0OFRfWmlKd01Ib2tBa29tOExFSkZGVE81aHk3YlpZWHU4ZjFIWkVGOWZHdVl2RVRaVnpWRm8taE9JbkJ3aVFPdlZIczlTVkw2N0lia2daMUtuVEtRTkp0VEpjcjBDQUtyMTlkU1lkMTJPQlkxVWdYXzZZcWhYb20xZHF6ZmVzYg?oc=5",
+     "cifra": 22,
+     "texto": "22 muert",
+     "diferencia": 214,
+     "estado": "difiere"
+    },
+    {
+     "id": "USF-N-261120-0285",
+     "fecha": "2026-11-20",
+     "medio": "Crónica Viva",
+     "titulo": "La Libertad suma 22 muertes debido al dengue y encabeza los contagios en Perú",
+     "enlace": "https://news.google.com/rss/articles/CBMingFBVV95cUxQb1J5RTV5RExfUDJ2YnFzMFI1WFR5N0I4R2R2ZmdsTmRycVY0dWotMlo3dEFrYVRyMVBJTU1PWHdvQWktT0tDNGNSVDNHeUVqbzJidDB5a0FQbENXNHJEd2N4LWZERDFldkx6Qlk2dnV4c3daN1RWbkFBSElELUl1STdmNUpnR1pDR3lydl9NNC10ZlB4UHZ6eHZ4clRaQQ?oc=5",
+     "cifra": 22,
+     "texto": "22 muert",
+     "diferencia": 214,
+     "estado": "difiere"
+    },
+    {
+     "id": "USF-N-261120-0296",
+     "fecha": "2026-11-20",
+     "medio": "Agencia Andina",
+     "titulo": "La Libertad suma 22 muertes por dengue y es la segunda región con más decesos en el país",
+     "enlace": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPbWNfWjJBVVc4SXVvRDN6a2N5WDdqSUNLVV9lSjY2Tk1KT3l0UVd6ajhMQUZ0b1NfOFlnVE9jblhzYnZFczBqbmpQSmFRb3pXOUtQMkNUaGg0dUJ5anNnOTNHNzRxOXloRF9LaWZ5Qm1leXZKV3lGd2lmRU5xZVFZVlZuSkEzU3l4WGY2dEcxbkhFTUZldVVCWXBpaFpLNTlrZ1lfNDRudFR3RmhWWXg3MlRET3RHRGVMN1gzS0hR?oc=5",
+     "cifra": 22,
+     "texto": "22 muert",
+     "diferencia": 214,
+     "estado": "difiere"
+    },
+    {
+     "id": "USF-N-261118-0499",
+     "fecha": "2026-11-18",
+     "medio": "Noticias Trujillo",
+     "titulo": "¡Terrible! La Libertad tiene 16 muertos por dengue y más de 20 mil casos reportados",
+     "enlace": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPb3ZuTjQ5YjJMaXFPMDM3dUNlYmRrVUZSNEUtY3cwV0hJWmpIcy1OYndkNm5uQzEzM01ZRm5XY01Oblljdm1MYkJfRmw2MUtVZEpZMC11cVhWQnpmZWkzQmZ0UXJaTWFOZXdEbHZoMGVSVXVLdHBfQkRHdzdpRlhhOVZwVTlNdWE3RGgxU2IxLWViRWhHb0c2Tzk4YnZ6a1pvSlpOZzdvUDFBbHBFUm9UQ2J4bTh1UGhI?oc=5",
+     "cifra": 16,
+     "texto": "16 muert",
+     "diferencia": 129,
+     "estado": "difiere"
+    },
+    {
+     "id": "USF-N-261118-0516",
+     "fecha": "2026-11-18",
+     "medio": "Diario Correo",
+     "titulo": "Minsa reporta 16 muertos por dengue en la región La Libertad",
+     "enlace": "https://news.google.com/rss/articles/CBMiugFBVV95cUxONnhldXJveTBfMFlCbDFQUG5vdjBpMEVNakI4MEIwdFJhX3Zna2MxYjZlWEVKVHRHZXZ5WUo4VHZoOTNLc0k5SHZLU2pFNlRXSzF5Vk1nVFhJYXpkZHVxYnE1X0lvdzhkdV9RX2hUalkyb3RoalZNVTNkWVgycDlWWnRQQjVXalBsYUpoZEYzekgydFpiMVcxS1cyWVQxVHBud1dVdnZTX3pfOWY2cENpZjR3c1ZvbC1TU0HSAc4BQVVfeXFMT0xOakJpMFdjb04wcjhCSVc1X3BnSDFsNGpFT2N0N3Z0QlRWLS11YlNvNjZjUzRJci1Rc0daYlh2LVZpdXFldjctWVFkMjRmdHZpbnV6NG5qQ0FNTzFKbEdxYTUtaWt3eXo4Rk02dnpjNW8wa2RFcVQ5RnNNcG9jNHdhYmY0TVNqeFNjb1VDZkRWNjhuZ2ZEV1BNejd0YVFrTjZWb3pLZGI5SmdvcHIwdmtaUHk5SV9jd1JsaWxQVjZHVlBnc3VaS0JJT2FzOFE?oc=5",
+     "cifra": 16,
+     "texto": "16 muert",
+     "diferencia": 129,
+     "estado": "difiere"
+    }
+   ]
+  }
+ ],
+ "sinReferencia": [
+  {
+   "id": "USF-N-261120-0295",
+   "fecha": "2026-11-20",
+   "departamentos": [
+    "Áncash"
+   ],
+   "medio": "Radio RSD",
+   "texto": "6 familias",
+   "titulo": "Áncash: entregan ayuda humanitaria a 6 familias afectadas por lluvias en Huaraz"
+  },
+  {
+   "id": "USF-N-261119-0324",
+   "fecha": "2026-11-19",
+   "departamentos": [
+    "Tumbes",
+    "Piura"
+   ],
+   "medio": "La República",
+   "texto": "60 mm",
+   "titulo": "Alerta en el norte: Senamhi prevé lluvias extremas en Tumbes y Piura con acumulados de hasta 60 mm"
+  },
+  {
+   "id": "USF-N-261119-0344",
+   "fecha": "2026-11-19",
+   "departamentos": [
+    "Lambayeque"
+   ],
+   "medio": "Willax",
+   "texto": "36 distritos",
+   "titulo": "Lambayeque: reportan 41 muertes por dengue y 36 distritos en alerta epidemiológica"
+  },
+  {
+   "id": "USF-N-261119-0351",
+   "fecha": "2026-11-19",
+   "departamentos": [
+    "Lambayeque"
+   ],
+   "medio": "Instagram",
+   "texto": "36 distritos",
+   "titulo": "🔵⚪️ Lambayeque registra 41 fallecidos y más de 18 mil casos de dengue, con 36 distritos en brote o epidemia. Las autoridades advierten que el fenómeno El Niño podría agravar la emergencia sanitaria. 📸 Foto: Difusión 📲 Visita nuestra página web: https://"
+  },
+  {
+   "id": "USF-N-261119-0357",
+   "fecha": "2026-11-19",
+   "departamentos": [
+    "Lambayeque"
+   ],
+   "medio": "Expreso",
+   "texto": "36 distritos",
+   "titulo": "Dengue golpea Lambayeque: 41 fallecidos y 36 distritos en brote o epidemia"
+  },
+  {
+   "id": "USF-N-261119-0439",
+   "fecha": "2026-11-19",
+   "departamentos": [
+    "Áncash"
+   ],
+   "medio": "RPP Noticias",
+   "texto": "83 casas afectad",
+   "titulo": "Áncash: COER reporta 83 casas afectadas y cuatro inhabitables por emergencias en lo que va de noviembre"
+  },
+  {
+   "id": "USF-N-261118-0533",
+   "fecha": "2026-11-18",
+   "departamentos": [
+    "Áncash"
+   ],
+   "medio": "Radio RSD",
+   "texto": "10 viviendas",
+   "titulo": "Áncash: granizada afecta 10 viviendas de material rústico en Huari"
+  },
+  {
+   "id": "USF-N-261117-0560",
+   "fecha": "2026-11-17",
+   "departamentos": [
+    "Áncash"
+   ],
+   "medio": "luminanoticias.pe",
+   "texto": "10 viviendas",
+   "titulo": "Huari: granizada daña 10 viviendas en centro poblado de Pichiu"
+  },
+  {
+   "id": "USF-N-261117-0641",
+   "fecha": "2026-11-17",
+   "departamentos": [
+    "Lambayeque"
+   ],
+   "medio": "Gestión",
+   "texto": "40 litros",
+   "titulo": "Fenómeno El Niño en Lambayeque: lluvias de 40 litros sorprenden a Olmos y Motupe"
+  },
+  {
+   "id": "USF-N-261116-0680",
+   "fecha": "2026-11-16",
+   "departamentos": [
+    "Lambayeque"
+   ],
+   "medio": "Crónica Viva",
+   "texto": "40 mm",
+   "titulo": "Senamhi registra lluvias de más de 40 mm en 24 horas en Motupe y Olmos, en Lambayeque"
+  },
+  {
+   "id": "USF-N-261114-0805",
+   "fecha": "2026-11-14",
+   "departamentos": [
+    "Lima"
+   ],
+   "medio": "tvperu.gob.pe",
+   "texto": "500 soles a damnificad",
+   "titulo": "Ministerio de Vivienda entregará bonos de 500 soles a damnificados por lluvias en Yauyos"
+  },
+  {
+   "id": "USF-N-261112-0906",
+   "fecha": "2026-11-12",
+   "departamentos": [
+    "Cajamarca"
+   ],
+   "medio": "RCR Peru",
+   "texto": "400 MIL FAMILIAS",
+   "titulo": "FENÓMENO DE EL NIÑO VA A AFECTAR LOS CAMPOS DE CULTIVO DE 400 MIL FAMILIAS DEDICADAS A LA AGRICULTURA FAMILIAR EN CAJAMARCA"
+  },
+  {
+   "id": "USF-N-261109-1034",
+   "fecha": "2026-11-09",
+   "departamentos": [
+    "Áncash"
+   ],
+   "medio": "Infobae",
+   "texto": "89 mil casos",
+   "titulo": "Perú supera los 89 mil casos de dengue y registra 101 fallecidos en 2026: Áncash confirma su tercera víctima mortal por la enfermedad"
+  },
+  {
+   "id": "USF-N-261108-1054",
+   "fecha": "2026-11-08",
+   "departamentos": [
+    "Tumbes"
+   ],
+   "medio": "Sol TV Perú (sección Tumbes)",
+   "texto": "600 personas",
+   "titulo": "Tumbes: lluvias intensas dejan más de mil 600 personas afectadas"
+  },
+  {
+   "id": "USF-N-261107-1073",
+   "fecha": "2026-11-07",
+   "departamentos": [
+    "Tumbes"
+   ],
+   "medio": "Sol TV Perú (sección Tumbes)",
+   "texto": "120 familias",
+   "titulo": "Tumbes: gobierno evalúa reubicación de 120 familias en Aguas Verdes"
+  },
+  {
+   "id": "USF-N-261107-1090",
+   "fecha": "2026-11-07",
+   "departamentos": [
+    "Piura"
+   ],
+   "medio": "El Tiempo | Diario de Piura",
+   "texto": "19 mil familias",
+   "titulo": "Piura: más de 19 mil familias podrían quedar aisladas por deterioro del puente Salitral–Morropón"
+  },
+  {
+   "id": "USF-N-261106-1100",
+   "fecha": "2026-11-06",
+   "departamentos": [
+    "Cajamarca"
+   ],
+   "medio": "Agencia Andina",
+   "texto": "20.5 litros",
+   "titulo": "Cajamarca registra lluvias de fuerte intensidad de hasta 20.5 litros por metro cuadrados"
+  },
+  {
+   "id": "USF-N-261106-1110",
+   "fecha": "2026-11-06",
+   "departamentos": [
+    "Cajamarca"
+   ],
+   "medio": "Perú 21",
+   "texto": "20,5 litros",
+   "titulo": "Cajamarca registra lluvias intensas de hasta 20,5 litros por metro cuadrado: Senamhi advierte más precipitaciones"
+  },
+  {
+   "id": "USF-N-261106-1123",
+   "fecha": "2026-11-06",
+   "departamentos": [
+    "Lima"
+   ],
+   "medio": "Diario Ahora",
+   "texto": "116 distritos",
+   "titulo": "RIMAC identifica 116 distritos de Lima y Callao en riesgo alto por El Niño costero"
+  },
+  {
+   "id": "USF-N-261105-1150",
+   "fecha": "2026-11-05",
+   "departamentos": [
+    "Lima"
+   ],
+   "medio": "Perú 21",
+   "texto": "8 DISTRITOS",
+   "titulo": "Lluvias intensas en Lima: Los 8 DISTRITOS EN RIESGO EXTREMO de sufrir severas inundaciones, según CENEPRED"
+  },
+  {
+   "id": "USF-N-261105-1151",
+   "fecha": "2026-11-05",
+   "departamentos": [
+    "Lima"
+   ],
+   "medio": "RPP Noticias",
+   "texto": "11.7 mm",
+   "titulo": "Lluvia récord en Lima: Senamhi registró históricos 11.7 mm de acumulado de precipitación en Villa María del Triunfo"
+  },
+  {
+   "id": "USF-N-261105-1154",
+   "fecha": "2026-11-05",
+   "departamentos": [
+    "Lima"
+   ],
+   "medio": "Exitosa Noticias",
+   "texto": "17.1 mm",
+   "titulo": "Villa María del Triunfo: se registra un récord histórico de lluvia acumulada en DOS DÍAS en Lima con 17.1 mm"
+  },
+  {
+   "id": "USF-N-261104-1176",
+   "fecha": "2026-11-04",
+   "departamentos": [
+    "Tumbes"
+   ],
+   "medio": "ATV.pe",
+   "texto": "300 familias",
+   "titulo": "Tumbes: más de 300 familias afectadas por desborde del río Zarumilla"
+  },
+  {
+   "id": "USF-N-261104-1203",
+   "fecha": "2026-11-04",
+   "departamentos": [
+    "Lima"
+   ],
+   "medio": "Diario Correo",
+   "texto": "609 mil personas",
+   "titulo": "Lluvias en Lima: Cenepred alerta que 609 mil personas están en riesgo de inundación"
+  },
+  {
+   "id": "USF-N-261103-1248",
+   "fecha": "2026-11-03",
+   "departamentos": [
+    "Tumbes"
+   ],
+   "medio": "Agencia Andina",
+   "texto": "2 viviendas",
+   "titulo": "Fenómeno El Niño: lluvias intensas en Tumbes dejan 2 viviendas destruidas y 225 afectadas"
+  },
+  {
+   "id": "USF-N-261103-1248",
+   "fecha": "2026-11-03",
+   "departamentos": [
+    "Tumbes"
+   ],
+   "medio": "Agencia Andina",
+   "texto": "225 afectad",
+   "titulo": "Fenómeno El Niño: lluvias intensas en Tumbes dejan 2 viviendas destruidas y 225 afectadas"
+  },
+  {
+   "id": "USF-N-261103-1250",
+   "fecha": "2026-11-03",
+   "departamentos": [
+    "Tumbes"
+   ],
+   "medio": "Revista Caretas",
+   "texto": "300 familias",
+   "titulo": "Tumbes: desborde del río Zarumilla inunda Puerto Perú y deja más de 300 familias afectadas"
+  },
+  {
+   "id": "USF-N-261103-1262",
+   "fecha": "2026-11-03",
+   "departamentos": [
+    "Lambayeque"
+   ],
+   "medio": "Agencia Andina",
+   "texto": "55 litros",
+   "titulo": "Fenómeno El Niño: lluvia alcanza los 55 litros por m² en cuenca de río Chancay-Lambayeque"
+  },
+  {
+   "id": "USF-N-261103-1264",
+   "fecha": "2026-11-03",
+   "departamentos": [
+    "Áncash"
+   ],
+   "medio": "luminanoticias.pe",
+   "texto": "149 distritos",
+   "titulo": "Gobierno incluye 149 distritos de Áncash en declaratoria de estado de emergencia ante lluvias asociadas a El Niño"
+  },
+  {
+   "id": "USF-N-261103-1267",
+   "fecha": "2026-11-03",
+   "departamentos": [
+    "Lima"
+   ],
+   "medio": "Willax",
+   "texto": "330 mil personas",
+   "titulo": "Lluvias en Lima: informe de Cenepred alerta que 20 bypasses y 330 mil personas están en riesgo de inundación"
+  },
+  {
+   "id": "USF-N-261103-1283",
+   "fecha": "2026-11-03",
+   "departamentos": [
+    "Áncash"
+   ],
+   "medio": "Bolognesi Noticias",
+   "texto": "11 distritos",
+   "titulo": "El Niño acelera su paso: 11 distritos de Pallasca en emergencia por lluvias extremas"
+  },
+  {
+   "id": "USF-N-261103-1286",
+   "fecha": "2026-11-03",
+   "departamentos": [
+    "Áncash"
+   ],
+   "medio": "Radio RSD",
+   "texto": "422 casos",
+   "titulo": "Áncash: fumigan viviendas en Santa ante 422 casos confirmados de dengue"
+  },
+  {
+   "id": "USF-N-261102-1308",
+   "fecha": "2026-11-02",
+   "departamentos": [
+    "Tumbes",
+    "Piura"
+   ],
+   "medio": "Infobae",
+   "texto": "104 mil personas",
+   "titulo": "Senamhi activa alerta roja en Piura y Tumbes por posible activación de quebradas que amenaza a más de 104 mil personas"
+  },
+  {
+   "id": "USF-N-261102-1314",
+   "fecha": "2026-11-02",
+   "departamentos": [
+    "Tumbes"
+   ],
+   "medio": "El Comercio Perú",
+   "texto": "104 litros",
+   "titulo": "Tumbes bajo el agua: lluvias históricas de 104 litros por m² activan quebradas y alertan al norte"
+  },
+  {
+   "id": "USF-N-261102-1326",
+   "fecha": "2026-11-02",
+   "departamentos": [
+    "Piura"
+   ],
+   "medio": "Diario Correo",
+   "texto": "14,7 litros",
+   "titulo": "Piura: Lancones acumula 14,7 litros de lluvia por metro cuadrado"
+  },
+  {
+   "id": "USF-N-261102-1351",
+   "fecha": "2026-11-02",
+   "departamentos": [
+    "Tumbes"
+   ],
+   "medio": "El Tiempo | Diario de Piura",
+   "texto": "300 familias",
+   "titulo": "Desborde del río Zarumilla inunda viviendas y afecta a más de 300 familias en Tumbes"
+  },
+  {
+   "id": "USF-N-261102-1352",
+   "fecha": "2026-11-02",
+   "departamentos": [
+    "Tumbes"
+   ],
+   "medio": "Exitosa Noticias",
+   "texto": "300 familias",
+   "titulo": "Río Zarumilla se desborda e inunda sector de Puerto Perú en Tumbes: más de 300 familias afectadas"
+  },
+  {
+   "id": "USF-N-261101-1405",
+   "fecha": "2026-11-01",
+   "departamentos": [
+    "Tumbes"
+   ],
+   "medio": "Revista Caretas",
+   "texto": "100 mm",
+   "titulo": "Gobierno advierte \"lluvias de fuerte intensidad\" hasta el lunes 2 de noviembre en Tumbes: \"Podrían superar los 100 mm\""
+  },
+  {
+   "id": "USF-N-261030-1448",
+   "fecha": "2026-10-30",
+   "departamentos": [
+    "Lima"
+   ],
+   "medio": "Infobae",
+   "texto": "330 mil personas",
+   "titulo": "CENEPRED advierte riesgo de inundación para más de 330 mil personas en Lima y Callao"
+  },
+  {
+   "id": "USF-N-261029-1477",
+   "fecha": "2026-10-29",
+   "departamentos": [
+    "Lambayeque"
+   ],
+   "medio": "Facebook",
+   "texto": "31 distritos",
+   "titulo": "🔴🔵#ElInformativoDeExitosa📺📺 | El Ministerio de Trabajo y Promoción del Empleo destinó más de S/6 millones para generar cerca de 1 500 empleos temporales en 31 distritos de Lambayeque. Los recursos fueron transferidos, a través de Llamkasun Perú, a"
+  },
+  {
+   "id": "USF-N-261028-1508",
+   "fecha": "2026-10-28",
+   "departamentos": [
+    "Tumbes"
+   ],
+   "medio": "Agencia Andina",
+   "texto": "102 litros",
+   "titulo": "Tumbes: El Salto registró acumulado de lluvia de 102 litros por metro cuadrado en 24 horas"
+  },
+  {
+   "id": "USF-N-261028-1514",
+   "fecha": "2026-10-28",
+   "departamentos": [
+    "Cajamarca"
+   ],
+   "medio": "La Rotativa",
+   "texto": "29 afectad",
+   "titulo": "Alerta en Tacabamba: muere un escolar y hay 29 afectados por posible brote infeccioso post-viaje a la selva"
+  },
+  {
+   "id": "USF-N-261027-1542",
+   "fecha": "2026-10-27",
+   "departamentos": [
+    "Tumbes"
+   ],
+   "medio": "Gestión",
+   "texto": "99.3 litros",
+   "titulo": "Lluvias en Tumbes: Zarumilla registró acumulado de lluvia de 99.3 litros por m² en últimas 24 horas"
+  },
+  {
+   "id": "USF-N-261027-1566",
+   "fecha": "2026-10-27",
+   "departamentos": [
+    "Tumbes"
+   ],
+   "medio": "Infobae",
+   "texto": "100 litros",
+   "titulo": "Las intensas lluvias en Tumbes ya inundan con casi 100 litros de agua cada metro cuadrado"
+  }
+ ]
+}
