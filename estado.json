@@ -1,15 +1,13 @@
 {
- "dia": "2026-11-27",
- "fichas": 2214,
+ "dia": "2026-11-28",
+ "fichas": 2109,
  "fuentes": 93,
  "criticos": [
-  "Zarumilla (Tumbes)",
-  "Casitas (Tumbes)",
   "Sullana (Piura)",
+  "Tumbes (Tumbes)",
   "Ayabaca (Piura)",
-  "Saña (Lambayeque)",
-  "San Jacinto (Tumbes)",
-  "San Juan de la Virgen (Tumbes)",
-  "Tambo Grande (Piura)"
+  "Chiclayo (Lambayeque)",
+  "Zarumilla (Tumbes)",
+  "Casma (Áncash)"
  ]
 }
